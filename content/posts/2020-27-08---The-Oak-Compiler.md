@@ -37,5 +37,7 @@ At around this point, the project was still pretty barebones. It had all the bas
 ## Typechecking is hard
 
 Although I knew typechecking could get complicated, I didn't know it would take up about _half of my intermediate representation's codebase_. Typechecking isn't about confirming if a program is correct, it's about confirming a program **isn't** correct. Although that distinction might sound a bit unnecessary, I assure you it is not. Typechecking is difficult because you have to consider **every incorrect program possible**, and try to eliminate each one. It's almost impossible to get right, and there are probably dozens of logic errors in Oak's type system _right now_. _But_, in the end, it works pretty well. It's mostly just the fringe cases that are a bit off.
+
 ![Typechecking](/blog/media/typecheck.png)
+
 By far, the hardest part is typechecking the code responsible for automatic memory management. There are so many things that can go wrong, it's unbelievable how easy it is to screw up. One big problem I ran into was determining whether or not a structure _needed_ to use automatic memory management _at all_. Why use copy constructors and destructors for a type that doesn't have any members with copy constructors or destructors? And how do you confirm that all objects' destructors will be called? After some experimenting, I think I figured out an air tight solution, but honestly _I really don't know if there are ways to abuse the automatic memory management system_.
