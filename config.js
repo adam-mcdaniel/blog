@@ -1,10 +1,10 @@
 'use strict';
 
 module.exports = {
-  url: 'https://lumen.netlify.com',
-  pathPrefix: '/',
-  title: 'Blog by John Doe',
-  subtitle: 'Pellentesque odio nisi, euismod in, pharetra a, ultricies in, diam. Sed arcu.',
+  url: 'https://adam-mcdaniel.github.io',
+  pathPrefix: '/blog/',
+  title: 'Adam | Blog',
+  subtitle: 'Discussions about my projects and computer science in general',
   copyright: '© All rights reserved.',
   disqusShortname: '',
   postsPerPage: 4,
@@ -25,11 +25,11 @@ module.exports = {
     }
   ],
   author: {
-    name: 'John Doe',
-    photo: '/photo.jpg',
-    bio: 'Pellentesque odio nisi, euismod in, pharetra a, ultricies in, diam. Sed arcu.',
+    name: 'Adam McDaniel',
+    photo: '/photo.png',
+    bio: 'Programmer, musician, and student at UTK.',
     contacts: {
-      email: '',
+      email: 'adam.mcdaniel17@gmail.com',
       facebook: '#',
       telegram: '#',
       twitter: '#',
