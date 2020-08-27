@@ -4,7 +4,7 @@ module.exports = {
   url: 'https://adam-mcdaniel.github.io',
   pathPrefix: '/blog/',
   title: 'Adam | Blog',
-  subtitle: 'Discussions about my projects and computer science in general',
+  subtitle: 'Discussions about my projects and computer science in general.',
   copyright: '© All rights reserved.',
   disqusShortname: '',
   postsPerPage: 4,
@@ -19,10 +19,6 @@ module.exports = {
       label: 'About me',
       path: '/pages/about'
     },
-    {
-      label: 'Contact me',
-      path: '/pages/contacts'
-    }
   ],
   author: {
     name: 'Adam McDaniel',
@@ -30,14 +26,14 @@ module.exports = {
     bio: 'Programmer, musician, and student at UTK.',
     contacts: {
       email: 'adam.mcdaniel17@gmail.com',
-      facebook: '#',
-      telegram: '#',
-      twitter: '#',
-      github: '#',
+      facebook: '',
+      telegram: '',
+      twitter: 'adamthekiwi99',
+      github: 'adam-mcdaniel',
       rss: '',
       vkontakte: '',
-      linkedin: '#',
-      instagram: '#',
+      linkedin: 'adam-mcdaniel-7973a6192/',
+      instagram: 'adamthekiwi16',
       line: '',
       gitlab: '',
       weibo: '',
