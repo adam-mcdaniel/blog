@@ -20,7 +20,7 @@ My absolute FAVORITE thing about honeycomb is that it doesn't depend on anything
 
 To test honeycomb's capabilities, I started work on a simple compiler for an object oriented and functional programming language. Within a three or so hours of work, the compiler was fully implemented! This was a huge surprise to me because working with Lark-Parser in Python would take a full days work.
 
-The you can find the language [here](https://github.com/adam-mcdaniel/honeycomb).
+The you can find the language [here](https://github.com/adam-mcdaniel/xassembler).
 
 It's dynamically typed, and is compiled to a custom 10 instruction set virtual machine code implemented in Rust. After compiling my language to Rust, the output Rust code can then be lowered to native executable code!
 
