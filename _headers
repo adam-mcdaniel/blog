@@ -112,18 +112,6 @@
   Link: </blog/component---src-templates-post-template-js-ecd999959d0171abed8a.js>; rel=preload; as=script
   Link: </blog/page-data/app-data.json>; rel=preload; as=fetch; crossorigin
   Link: </blog/page-data/posts/object-oriented-shell-scripting/page-data.json>; rel=preload; as=fetch; crossorigin
-/blog/posts/writing-a-compiler-with-honeycomb
-  Link: </blog/webpack-runtime-fdedfd52093fc58cf70b.js>; rel=preload; as=script
-  Link: </blog/styles-89fd2ae28bdf06750a71.js>; rel=preload; as=script
-  Link: </blog/framework-a4620de0399b10c30110.js>; rel=preload; as=script
-  Link: </blog/532a2f07-b004a5d2f37fbac8de1a.js>; rel=preload; as=script
-  Link: </blog/app-7008e10a5c165326ab1c.js>; rel=preload; as=script
-  Link: </blog/styles-89fd2ae28bdf06750a71.js>; rel=preload; as=script
-  Link: </blog/cd95ea5cbd2c605f26db819f07999610c9ff4310-3faeb8b75c3f8b904d38.js>; rel=preload; as=script
-  Link: </blog/643651a62fb35a9bb4f20061cb1f214a352d7976-12cd6796cf0ce7e3f3f5.js>; rel=preload; as=script
-  Link: </blog/component---src-templates-post-template-js-ecd999959d0171abed8a.js>; rel=preload; as=script
-  Link: </blog/page-data/app-data.json>; rel=preload; as=fetch; crossorigin
-  Link: </blog/page-data/posts/writing-a-compiler-with-honeycomb/page-data.json>; rel=preload; as=fetch; crossorigin
 /blog/posts/combinator-compilers
   Link: </blog/webpack-runtime-fdedfd52093fc58cf70b.js>; rel=preload; as=script
   Link: </blog/styles-89fd2ae28bdf06750a71.js>; rel=preload; as=script
@@ -148,6 +136,18 @@
   Link: </blog/component---src-templates-post-template-js-ecd999959d0171abed8a.js>; rel=preload; as=script
   Link: </blog/page-data/app-data.json>; rel=preload; as=fetch; crossorigin
   Link: </blog/page-data/posts/the-importance-of-beauty/page-data.json>; rel=preload; as=fetch; crossorigin
+/blog/posts/writing-a-compiler-with-honeycomb
+  Link: </blog/webpack-runtime-fdedfd52093fc58cf70b.js>; rel=preload; as=script
+  Link: </blog/styles-89fd2ae28bdf06750a71.js>; rel=preload; as=script
+  Link: </blog/framework-a4620de0399b10c30110.js>; rel=preload; as=script
+  Link: </blog/532a2f07-b004a5d2f37fbac8de1a.js>; rel=preload; as=script
+  Link: </blog/app-7008e10a5c165326ab1c.js>; rel=preload; as=script
+  Link: </blog/styles-89fd2ae28bdf06750a71.js>; rel=preload; as=script
+  Link: </blog/cd95ea5cbd2c605f26db819f07999610c9ff4310-3faeb8b75c3f8b904d38.js>; rel=preload; as=script
+  Link: </blog/643651a62fb35a9bb4f20061cb1f214a352d7976-12cd6796cf0ce7e3f3f5.js>; rel=preload; as=script
+  Link: </blog/component---src-templates-post-template-js-ecd999959d0171abed8a.js>; rel=preload; as=script
+  Link: </blog/page-data/app-data.json>; rel=preload; as=fetch; crossorigin
+  Link: </blog/page-data/posts/writing-a-compiler-with-honeycomb/page-data.json>; rel=preload; as=fetch; crossorigin
 /blog/posts/the-oak-compiler
   Link: </blog/webpack-runtime-fdedfd52093fc58cf70b.js>; rel=preload; as=script
   Link: </blog/styles-89fd2ae28bdf06750a71.js>; rel=preload; as=script
