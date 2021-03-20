@@ -25,6 +25,12 @@ My favorite kinds of music include psychedelic, classic, and art rock. I love Pi
 
 I'm incredibly interested in business related projects, and science. I used to be really into video games, but I rarely play them at all anymore. During high school, I was lead member of my robotics team. There I developed an interest in 3D printing and working with hardware.
 
+I'm also extremely interested in chess. My [lichess](https://lichess.org) account is [adamthekiwi](https://lichess.org/@/adamthekiwi). I like to say that my peak blitz chess rating was 2161 (quite literally a chess master rating), but it was out of sheer luck that I ended up beating three ~2000 rated players in a row when I first started. My actual blitz rating (5 minute games) is about 1500, and my rapid rating (10 minute games) is about 1400.
+
+In fact, I'm so passionate about chess that I wrote my own cross platform engine. You can play it right here in the browser!
+
+<embed type="text/html" src="https://adam-mcdaniel.github.io/chess-engine/examples/chess-web/chess-best.html" width="420" height="420"/>
+
 ## Polyglot
 
 My favorite language is the [Rust programming language](https://rust-lang.org), but I'm also very experienced with [Python](https://python.org) and [C++](https://www.cplusplus.com/). Python was my first language, but now I almost exclusively deal with systems level languages; I just prefer the control and speed of working with Rust and C++. In total, I know: Rust, C++, Python, Golang, and Nim.
