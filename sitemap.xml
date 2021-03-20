@@ -5,14 +5,17 @@
 <url> <loc>https://adam-mcdaniel.github.io/blog/pages/about/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://adam-mcdaniel.github.io/blog/posts/object-oriented-shell-scripting</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://adam-mcdaniel.github.io/blog/posts/combinator-compilers</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
-<url> <loc>https://adam-mcdaniel.github.io/blog/posts/the-importance-of-beauty</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://adam-mcdaniel.github.io/blog/posts/writing-a-compiler-with-honeycomb</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://adam-mcdaniel.github.io/blog/posts/the-importance-of-beauty</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://adam-mcdaniel.github.io/blog/posts/the-oak-compiler</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://adam-mcdaniel.github.io/blog/posts/writing-a-chess-engine</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://adam-mcdaniel.github.io/blog/posts/what-i-have-learned</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://adam-mcdaniel.github.io/blog/tag/beauty</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://adam-mcdaniel.github.io/blog/tag/chess</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://adam-mcdaniel.github.io/blog/tag/compilers</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://adam-mcdaniel.github.io/blog/tag/design</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://adam-mcdaniel.github.io/blog/tag/functional-programming</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://adam-mcdaniel.github.io/blog/tag/games</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://adam-mcdaniel.github.io/blog/tag/imperative-programming</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://adam-mcdaniel.github.io/blog/tag/lambda-calculus</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://adam-mcdaniel.github.io/blog/tag/object-oriented-programming</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
@@ -24,6 +27,7 @@
 <url> <loc>https://adam-mcdaniel.github.io/blog/tag/ux</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://adam-mcdaniel.github.io/blog/category/compilers</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://adam-mcdaniel.github.io/blog/category/design</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://adam-mcdaniel.github.io/blog/category/games</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://adam-mcdaniel.github.io/blog/category/opinion</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://adam-mcdaniel.github.io/blog/category/shells</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://adam-mcdaniel.github.io/blog/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
