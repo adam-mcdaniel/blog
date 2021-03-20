@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:news="http://www.google.com/schemas/sitemap-news/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:mobile="http://www.google.com/schemas/sitemap-mobile/1.0" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1" xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
+<url> <loc>https://adam-mcdaniel.github.io/tags</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://adam-mcdaniel.github.io/categories</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://adam-mcdaniel.github.io/pages/about/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://adam-mcdaniel.github.io/posts/object-oriented-shell-scripting</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://adam-mcdaniel.github.io/posts/writing-a-compiler-with-honeycomb</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://adam-mcdaniel.github.io/posts/the-importance-of-beauty</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://adam-mcdaniel.github.io/posts/combinator-compilers</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://adam-mcdaniel.github.io/posts/the-oak-compiler</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://adam-mcdaniel.github.io/posts/what-i-have-learned</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://adam-mcdaniel.github.io/tag/beauty</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://adam-mcdaniel.github.io/tag/compilers</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://adam-mcdaniel.github.io/tag/design</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://adam-mcdaniel.github.io/tag/functional-programming</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://adam-mcdaniel.github.io/tag/imperative-programming</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://adam-mcdaniel.github.io/tag/lambda-calculus</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://adam-mcdaniel.github.io/tag/object-oriented-programming</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://adam-mcdaniel.github.io/tag/opinion</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://adam-mcdaniel.github.io/tag/parsing</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://adam-mcdaniel.github.io/tag/scripting-languages</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://adam-mcdaniel.github.io/tag/shells</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://adam-mcdaniel.github.io/tag/turing-tarpit</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://adam-mcdaniel.github.io/tag/ux</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://adam-mcdaniel.github.io/category/compilers</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://adam-mcdaniel.github.io/category/design</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://adam-mcdaniel.github.io/category/opinion</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://adam-mcdaniel.github.io/category/shells</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://adam-mcdaniel.github.io/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://adam-mcdaniel.github.io/page/1</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+</urlset>
