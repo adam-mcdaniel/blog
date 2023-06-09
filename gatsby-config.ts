@@ -56,10 +56,10 @@ export default {
                 date: node?.frontmatter?.date,
                 description: node?.frontmatter?.description,
                 url:
-                  // config.url + config.pathPrefix + 
+                  config.url +
                   (node.frontmatter?.slug || node.fields?.slug),
                 guid:
-                  // config.url + config.pathPrefix +
+                  config.url +
                   (node.frontmatter?.slug || node.fields?.slug),
                 custom_elements: [{ "content:encoded": node.html }],
               })),
@@ -159,7 +159,7 @@ export default {
         background_color: "hsl(0, 0%, 100%)",
         icon: "content/icon.jpg",
         display: "standalone",
-        start_url: "/",
+        start_url: config.url,
       },
     },
     {
