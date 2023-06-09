@@ -6,15 +6,15 @@
   "googleAnalyticsId": "UA-73379983-2",
   "disqusShortname": "",
   "postsLimit": 4,
-  "pathPrefix": "/",
+  "pathPrefix": "blog/",
   "menu": [
     {
       "label": "Articles",
-      "path": "/blog/"
+      "path": "/"
     },
     {
       "label": "About me",
-      "path": "/blog/pages/about"
+      "path": "/pages/about"
     }
   ],
   "author": {
