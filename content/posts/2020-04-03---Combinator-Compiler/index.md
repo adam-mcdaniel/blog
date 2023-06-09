@@ -3,7 +3,7 @@ title: "Combinator Compilers"
 date: "2020-03-04T11:52:37.121Z"
 template: "post"
 draft: false
-slug: "blog/combinator-compilers"
+slug: "combinator-compilers"
 category: "Compilers"
 tags:
   - "Functional Programming"

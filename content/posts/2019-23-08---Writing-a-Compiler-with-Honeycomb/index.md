@@ -3,7 +3,7 @@ title: Writing a Compiler with Honeycomb
 date: "2020-01-09T01:35:32.169Z"
 template: "post"
 draft: false
-slug: "blog/writing-a-compiler-with-honeycomb"
+slug: "writing-a-compiler-with-honeycomb"
 category: "Compilers"
 tags:
   - "Parsing"
