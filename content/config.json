@@ -1,6 +1,6 @@
 {
   "title": "Adam | Blog",
-  "url": "https://adam-mcdaniel.github.io/blog/",
+  "url": "https://adam-mcdaniel.github.io/",
   "subtitle": "Discussions about my projects and computer science in general.",
   "copyright": "© All rights reserved.",
   "googleAnalyticsId": "UA-73379983-2",
@@ -19,7 +19,7 @@
   ],
   "author": {
     "name": "Adam McDaniel",
-    "photo": "/me.jpg",
+    "photo": "/blog/me.jpg",
     "bio": "Programmer, musician, and graduate student at UTK.",
     "contacts": {
       "rss": "",
