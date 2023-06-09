@@ -56,10 +56,10 @@ export default {
                 date: node?.frontmatter?.date,
                 description: node?.frontmatter?.description,
                 url:
-                  config.url +
+                  site.siteMetadata.url +
                   (node.frontmatter?.slug || node.fields?.slug),
                 guid:
-                  config.url +
+                  site.siteMetadata.url +
                   (node.frontmatter?.slug || node.fields?.slug),
                 custom_elements: [{ "content:encoded": node.html }],
               })),

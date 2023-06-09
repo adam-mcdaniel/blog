@@ -44,6 +44,8 @@ const useSiteMetadata = () => {
     `,
   );
 
+  console.log("URL:", site.siteMetadata.url);
+
   return site.siteMetadata;
 };
 
