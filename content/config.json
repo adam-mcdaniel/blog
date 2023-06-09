@@ -1,0 +1,43 @@
+{
+  "title": "Adam | Blog",
+  "url": "https://adam-mcdaniel.github.io/",
+  "subtitle": "Discussions about my projects and computer science in general.",
+  "copyright": "© All rights reserved.",
+  "googleAnalyticsId": "UA-73379983-2",
+  "disqusShortname": "",
+  "postsLimit": 4,
+  "pathPrefix": "/blog/",
+  "menu": [
+    {
+      "label": "Articles",
+      "path": "/"
+    },
+    {
+      "label": "About me",
+      "path": "/pages/about"
+    }
+  ],
+  "author": {
+    "name": "Adam McDaniel",
+    "photo": "/me.jpg",
+    "bio": "Programmer, musician, and graduate student at UTK.",
+    "contacts": {
+      "rss": "",
+      "email": "adam.mcdaniel17@gmail.com",
+      "github": "adam-mcdaniel",
+      "facebook": "",
+      "telegram": "",
+      "twitter": "",
+      "linkedin": "adam-mcdaniel-7973a6192/",
+      "instagram": "",
+      "mastodon": "",
+      "line": "",
+      "weibo": "",
+      "gitlab": "",
+      "medium": "",
+      "youtube": "",
+      "codepen": "",
+      "soundcloud": ""
+    }
+  }
+}

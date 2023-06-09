@@ -1,0 +1,1459 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <title>hello-wasm example</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/6.65.7/codemirror.min.js"
+        integrity="sha512-8RnEqURPUc5aqFEN04aQEiPlSAdE0jlFS/9iGgUyNtwFnSKCXhmB6ZTNl7LnDtDWKabJIASzXrzD0K+LYexU9g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/6.65.7/codemirror.min.css"
+        integrity="sha512-uf06llspW44/LZpHzHT6qBOIVODjWtv4MxCricRxkzvopAlSWnTf6hpZTFxuuZcuNE9CBQhqE0Seu1CoRk84nQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/6.65.7/addon/mode/simple.min.js"
+        integrity="sha512-CGM6DWPHs250F/m90YZ9NEiEUhd9a4+u8wAzeKC6uHzZbYyt9/e2dLC5BGGB6Y0HtEdZQdSDYjDsoTyNGdMrMA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/6.65.7/mode/rust/rust.min.js"
+        integrity="sha512-g3Nhw36S0p4ZJQcky87D5M+vZbFvLrgsHWYltUy5IW0zKbvi8GlPRjJSo2CyUyQiU01Ier7u+rBABDs3BawKyQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/6.65.7/mode/clike/clike.min.js"
+        integrity="sha512-l8ZIWnQ3XHPRG3MQ8+hT1OffRSTrFwrph1j1oc1Fzc9UKVGef5XN9fdO0vm3nW0PRgQ9LJgck6ciG59m69rvfg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/6.65.7/theme/ayu-dark.min.css"
+        integrity="sha512-mV3RUXi1gt22jDb4UyRBFhZVFgAIiOfRE6ul+2l1Hcj6glyg6x4xlnjPH+neGm/t6XrFmsMRu4++McQu0asjqg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        .CodeMirror {
+            border: 1px solid #eee;
+            height: 100%;
+        }
+    </style>
+</head>
+
+<body style="height: 100%">
+    <script type="module">
+        import init, { compile_and_run } from './web.js';
+        init();
+
+        var source = CodeMirror.fromTextArea(document.getElementById("source"), {
+            mode: "rust",
+            lineNumbers: true,
+            indentUnit: 4,
+            theme: 'ayu-dark',
+            autoRefresh: true,
+        });
+        source.setSize("100%", "40em");
+        setInterval(function () {
+            document.getElementById("source").value = source.getValue();
+            source.refresh()
+        }, 50);
+        var output = CodeMirror.fromTextArea(document.getElementById("output"), {
+            mode: "text/x-csrc",
+            lineNumbers: true,
+            indentUnit: 4,
+            theme: 'ayu-dark',
+            autoRefresh: true,
+        });
+        output.setSize("100%", "100%");
+        setInterval(function () {
+            if (output.getValue() != document.getElementById("output").value) {
+                output.setValue(document.getElementById("output").value);
+                output.refresh()
+            }
+        }, 50);
+        function setExampleProgram() {
+            console.log(document.getElementById("example").value);
+            switch (document.getElementById("example").value) {
+                case "aes":
+                    source.setValue(`def print_hex(n: Int, lower: Bool) {
+    if n < 10 {
+        print((n + '0' as Int) as Char);
+    } elif n < 16 {
+        print((n - 10 + (lower? 'a' : 'A') as Int) as Char);
+    } else {
+        print_hex(n / 16, lower);
+        print_hex(n % 16, lower);
+    }
+}
+
+def print_byte(n: Int, lower: Bool) {
+    n &= 0xFF;
+    print_hex(n / 16, lower);
+    print_hex(n % 16, lower);
+}
+
+def left_shift(a: Int, b: Int): Int = {
+    while b {
+        a *= 2;
+        b -= 1;
+    }
+    return a;
+}
+
+const MIN_INT = -2147483648;
+
+def right_shift(a: Int, b: Int): Int = {
+    let offset = MIN_INT, was_negative = a < 0;
+    for let i=0; i < b - 1; i += 1 {
+        offset /= 2;
+    }
+
+    if was_negative { a = ~a; }
+    
+    while b {
+        a /= 2;
+        b -= 1;
+    }
+
+    if was_negative { a = ~a ^ offset; }
+
+    return a;
+}
+
+def print_hexln(n: Int, lower: Bool) {
+    print_hex(n, lower);
+    print("\\n");
+}
+
+def print_byteln(n: Int, lower: Bool) {
+    print_byte(n, lower);
+    print("\\n");
+}
+
+def xtime(n: Int): Int {
+    n &= 0xFF;
+    n *= 2;
+
+    return n < 0x100? n : n ^ 0x1B;
+}
+
+def multiply(a: Int, b: Int): Int {
+    a &= 0xFF;
+    b &= 0xFF;
+    let result = 0;
+    let next_term = a;
+    for let i=0; i < 8; i += 1 {
+        if b & 1 {
+            result ^= next_term;
+        }
+        next_term = xtime(next_term);
+        b /= 2;
+    }
+
+    return result & 0xFF;
+}
+
+let x = 0xFFFFFFFF;
+print_hexln(x, True);
+print_hexln(right_shift(x, 1), True);
+
+print_hexln(multiply(0x53, 0xCA), True);
+
+
+type State = [Int * 16];
+
+def row_major(c0r0: Int, c1r0: Int, c2r0: Int, c3r0: Int,
+    c0r1: Int, c1r1: Int, c2r1: Int, c3r1: Int,
+    c0r2: Int, c1r2: Int, c2r2: Int, c3r2: Int,
+    c0r3: Int, c1r3: Int, c2r3: Int, c3r3: Int): State = [
+    c0r0, c0r1, c0r2, c0r3,
+    c1r0, c1r1, c1r2, c1r3,
+    c2r0, c2r1, c2r2, c2r3,
+    c3r0, c3r1, c3r2, c3r3
+];
+
+def col_major(c0r0: Int, c0r1: Int, c0r2: Int, c0r3: Int,
+    c1r0: Int, c1r1: Int, c1r2: Int, c1r3: Int,
+    c2r0: Int, c2r1: Int, c2r2: Int, c2r3: Int,
+    c3r0: Int, c3r1: Int, c3r2: Int, c3r3: Int): State = [
+    c0r0, c0r1, c0r2, c0r3,
+    c1r0, c1r1, c1r2, c1r3,
+    c2r0, c2r1, c2r2, c2r3,
+    c3r0, c3r1, c3r2, c3r3
+];
+
+def get(state: &State, row: Int, col: Int): Int {
+    return (state as &Int)[row * 4 + col];
+}
+
+def set(state: &State, row: Int, col: Int, value: Int) {
+    (state as &Int)[row * 4 + col] = value;
+}
+
+def print_state(self: &State) {
+    for let i=0; i < 4; i += 1 {
+        for let j=0; j < 4; j += 1 {
+            print_byte(get(self, i, j), False); print(" ");
+        }
+        print("\\n");
+    }
+}
+
+def rotate_row(self: &State, row: Int, steps: Int) {
+    for let i=0; i<steps; i += 1 {
+        let temp = get(self, row, 0);
+        set(self, row, 0, get(self, row, 1));
+        set(self, row, 1, get(self, row, 2));
+        set(self, row, 2, get(self, row, 3));
+        set(self, row, 3, temp);
+    }
+}
+
+def shift_rows(self: &State) {
+    rotate_row(self, 1, 1);
+    rotate_row(self, 2, 2);
+    rotate_row(self, 3, 3);
+}
+
+def inverse_shift_rows(self: &State) {
+    rotate_row(self, 1, 3);
+    rotate_row(self, 2, 2);
+    rotate_row(self, 3, 1);
+}
+
+def add_round_key(self: &State, round_key: &State) {
+    let round_key_ptr = round_key as &Int;
+    let self_ptr = self as &Int;
+    for let i=0; i < 16; i += 1 {
+        self_ptr[i] ^= round_key_ptr[i];
+    }
+}
+
+def mix_columns(self: &State) {
+    for let j=0; j < 4; j += 1 {
+        let s0 = get(self, 0, j);
+        let s1 = get(self, 1, j);
+        let s2 = get(self, 2, j);
+        let s3 = get(self, 3, j);
+
+        set(self, 0, j, multiply(0x02, s0) ^ multiply(0x03, s1) ^ s2 ^ s3);
+        set(self, 1, j, s0 ^ multiply(0x02, s1) ^ multiply(0x03, s2) ^ s3);
+        set(self, 2, j, s0 ^ s1 ^ multiply(0x02, s2) ^ multiply(0x03, s3));
+        set(self, 3, j, multiply(0x03, s0) ^ s1 ^ s2 ^ multiply(0x02, s3));
+    }
+}
+
+def inverse_mix_columns(self: &State) {
+    for let j=0; j < 4; j += 1 {
+        let s0 = get(self, 0, j);
+        let s1 = get(self, 1, j);
+        let s2 = get(self, 2, j);
+        let s3 = get(self, 3, j);
+
+        set(self, 0, j, multiply(0x0e, s0) ^ multiply(0x0b, s1) ^ multiply(0x0d, s2) ^ multiply(0x09, s3));
+        set(self, 1, j, multiply(0x09, s0) ^ multiply(0x0e, s1) ^ multiply(0x0b, s2) ^ multiply(0x0d, s3));
+        set(self, 2, j, multiply(0x0d, s0) ^ multiply(0x09, s1) ^ multiply(0x0e, s2) ^ multiply(0x0b, s3));
+        set(self, 3, j, multiply(0x0b, s0) ^ multiply(0x0d, s1) ^ multiply(0x09, s2) ^ multiply(0x0e, s3));
+    }
+}
+
+
+def substitute_byte(byte: Int): Int {
+    let S_BOX = [[99, 124, 119, 123, 242, 107, 111, 197, 48, 1, 103, 43, 254, 215, 171, 118], [202, 130, 201, 125, 250, 89, 71, 240, 173, 212, 162, 175, 156, 164, 114, 192], [183, 253, 147, 38, 54, 63, 247, 204, 52, 165, 229, 241, 113, 216, 49, 21], [4, 199, 35, 195, 24, 150, 5, 154, 7, 18, 128, 226, 235, 39, 178, 117], [9, 131, 44, 26, 27, 110, 90, 160, 82, 59, 214, 179, 41, 227, 47, 132], [83, 209, 0, 237, 32, 252, 177, 91, 106, 203, 190, 57, 74, 76, 88, 207], [208, 239, 170, 251, 67, 77, 51, 133, 69, 249, 2, 127, 80, 60, 159, 168], [81, 163, 64, 143, 146, 157, 56, 245, 188, 182, 218, 33, 16, 255, 243, 210], [205, 12, 19, 236, 95, 151, 68, 23, 196, 167, 126, 61, 100, 93, 25, 115], [96, 129, 79, 220, 34, 42, 144, 136, 70, 238, 184, 20, 222, 94, 11, 219], [224, 50, 58, 10, 73, 6, 36, 92, 194, 211, 172, 98, 145, 149, 228, 121], [231, 200, 55, 109, 141, 213, 78, 169, 108, 86, 244, 234, 101, 122, 174, 8], [186, 120, 37, 46, 28, 166, 180, 198, 232, 221, 116, 31, 75, 189, 139, 138], [112, 62, 181, 102, 72, 3, 246, 14, 97, 53, 87, 185, 134, 193, 29, 158], [225, 248, 152, 17, 105, 217, 142, 148, 155, 30, 135, 233, 206, 85, 40, 223], [140, 161, 137, 13, 191, 230, 66, 104, 65, 153, 45, 15, 176, 84, 187, 22]];
+    byte &= 0xFF;
+    let row = right_shift(byte, 4) & 0xF;
+    let col = byte & 0xF;
+    return S_BOX[row][col];
+}
+
+def inverse_substitute_byte(byte: Int): Int {
+    let INVERSE_S_BOX = [[82, 9, 106, 213, 48, 54, 165, 56, 191, 64, 163, 158, 129, 243, 215, 251], [124, 227, 57, 130, 155, 47, 255, 135, 52, 142, 67, 68, 196, 222, 233, 203], [84, 123, 148, 50, 166, 194, 35, 61, 238, 76, 149, 11, 66, 250, 195, 78], [8, 46, 161, 102, 40, 217, 36, 178, 118, 91, 162, 73, 109, 139, 209, 37], [114, 248, 246, 100, 134, 104, 152, 22, 212, 164, 92, 204, 93, 101, 182, 146], [108, 112, 72, 80, 253, 237, 185, 218, 94, 21, 70, 87, 167, 141, 157, 132], [144, 216, 171, 0, 140, 188, 211, 10, 247, 228, 88, 5, 184, 179, 69, 6], [208, 44, 30, 143, 202, 63, 15, 2, 193, 175, 189, 3, 1, 19, 138, 107], [58, 145, 17, 65, 79, 103, 220, 234, 151, 242, 207, 206, 240, 180, 230, 115], [150, 172, 116, 34, 231, 173, 53, 133, 226, 249, 55, 232, 28, 117, 223, 110], [71, 241, 26, 113, 29, 41, 197, 137, 111, 183, 98, 14, 170, 24, 190, 27], [252, 86, 62, 75, 198, 210, 121, 32, 154, 219, 192, 254, 120, 205, 90, 244], [31, 221, 168, 51, 136, 7, 199, 49, 177, 18, 16, 89, 39, 128, 236, 95], [96, 81, 127, 169, 25, 181, 74, 13, 45, 229, 122, 159, 147, 201, 156, 239], [160, 224, 59, 77, 174, 42, 245, 176, 200, 235, 187, 60, 131, 83, 153, 97], [23, 43, 4, 126, 186, 119, 214, 38, 225, 105, 20, 99, 85, 33, 12, 125]];
+    byte &= 0xFF;
+    let row = right_shift(byte, 4) & 0xF;
+    let col = byte & 0xF;
+    return INVERSE_S_BOX[row][col];
+}
+
+def substitute_bytes(self: &State) {
+    for let i=0; i < 4; i += 1 {
+        for let j=0; j < 4; j += 1 {
+            set(self, i, j, substitute_byte(get(self, i, j)));
+        }
+    }
+}
+
+def inverse_substitute_bytes(self: &State) {
+    for let i=0; i < 4; i += 1 {
+        for let j=0; j < 4; j += 1 {
+            set(self, i, j, inverse_substitute_byte(get(self, i, j)));
+        }
+    }
+}
+
+enum Key {
+    Key128([Int * 16]),
+    Key192([Int * 24]),
+    Key256([Int * 32]),
+}
+
+def get_key_rounds(self: &Key): Int {
+    match self {
+        &of Key128(_) => 10,
+        &of Key192(_) => 12,
+        &of Key256(_) => 14,
+        _ => 0
+    }
+}
+
+def get_key_length(self: &Key): Int {
+    match self {
+        &of Key128(_) => 4,
+        &of Key192(_) => 6,
+        &of Key256(_) => 8,
+        _ => 0
+    }
+}
+
+def get_key_size(self: &Key): Int {
+    return get_key_length(self) * 4;
+}
+
+def get_key_data(key: &Key): &Int = key as &Int;
+
+def print_key(self: &Key) {
+    match self {
+        &of Key128(key) => print("Key128: "),
+        &of Key192(key) => print("Key192: "),
+        &of Key256(key) => print("Key256: "),
+        _ => print("Unknown key type: "),
+    }
+    let size = get_key_size(self);
+    let data = get_key_data(self);
+    for let i=0; i < size; i+=1 {
+        print_byte(data[i], False);
+    }
+}
+
+def print_keyln(self: &Key) {
+    print_key(self);
+    print("\\n");
+}
+
+
+def substitute_word(word: Int): Int {
+    let byte0 = substitute_byte(right_shift(word, 24) & 0xFF);
+    let byte1 = substitute_byte(right_shift(word, 16) & 0xFF);
+    let byte2 = substitute_byte(right_shift(word, 8) & 0xFF);
+    let byte3 = substitute_byte(word & 0xFF);
+    return left_shift(byte0, 24) + left_shift(byte1, 16) + left_shift(byte2, 8) + byte3;
+}
+
+def rotate_word(word: Int): Int {
+    let byte0 = right_shift(word, 24) & 0xFF;
+    let byte1 = right_shift(word, 16) & 0xFF;
+    let byte2 = right_shift(word, 8) & 0xFF;
+    let byte3 = word & 0xFF;
+    return left_shift(byte1, 24) + left_shift(byte2, 16) + left_shift(byte3, 8) + byte0;
+}
+
+def word(byte3: Int, byte2: Int, byte1: Int, byte0: Int): Int {
+    return left_shift(byte3, 24) + left_shift(byte2, 16) + left_shift(byte1, 8) + byte0;
+}
+
+def bytes(word: Int): [Int * 4] {
+    let byte0 = right_shift(word, 24) & 0xFF;
+    let byte1 = right_shift(word, 16) & 0xFF;
+    let byte2 = right_shift(word, 8) & 0xFF;
+    let byte3 = word & 0xFF;
+    return [byte0, byte1, byte2, byte3];
+}
+
+def round_key(word0: Int, word1: Int, word2: Int, word3: Int): State {
+    let bytes0 = bytes(word0);
+    let bytes1 = bytes(word1);
+    let bytes2 = bytes(word2);
+    let bytes3 = bytes(word3);
+    return col_major(bytes0[0], bytes1[0], bytes2[0], bytes3[0],
+              bytes0[1], bytes1[1], bytes2[1], bytes3[1],
+              bytes0[2], bytes1[2], bytes2[2], bytes3[2],
+              bytes0[3], bytes1[3], bytes2[3], bytes3[3]);
+}
+
+def key_expansion(key: &Key, nr: Int, nk: Int): &Int = {
+    let key_data = key as &Int;
+    let w = alloc(4 * (nr + 1) * sizeof(Int)) as &Int;
+    for let i=0; i < nk; i+=1 {
+        w[i] = word(key_data[4*i], key_data[4*i+1], key_data[4*i+2], key_data[4*i+3]);
+    }
+
+    let rcon = [1, 2, 4, 8, 16, 32, 64, 128, 27, 54];
+    for let i=nk; i < 4 * (nr + 1); i += 1 {
+        let temp = w[i-1];
+        if i % nk == 0 {
+            temp = substitute_word(rotate_word(temp)) ^ word(rcon[i / nk - 1], 0, 0, 0);
+        } elif nk == 8 && i % nk == 4 {
+            temp = substitute_word(temp);
+        }
+
+        w[i] = w[i-nk] ^ temp;
+    }
+
+    return w;
+}
+
+def cipher(self: &State, key: &Key) {
+    let len = get_key_length(key);
+    let nr = get_key_rounds(key);
+    let k = key_expansion(key, nr, len);
+    let rk = round_key(k[0], k[1], k[2], k[3]);
+    add_round_key(self, &rk);
+    for let i=4; i < 4 * (nr + 1); i+=4 {
+        rk = round_key(k[i], k[i+1], k[i+2], k[i+3]);
+        substitute_bytes(self);
+        shift_rows(self);
+        if i < 4 * nr {
+            mix_columns(self);
+        }
+        add_round_key(self, &rk);
+    }
+
+    del k;
+}
+
+def inverse_cipher(self: &State, key: &Key) {
+    let len = get_key_length(key);
+    let nr = get_key_rounds(key);
+    let k = key_expansion(key, nr, len);
+
+    let rk = round_key(k[4*nr], k[4*nr+1], k[4*nr+2], k[4*nr+3]);
+    add_round_key(self, &rk);
+    for let i=4*nr-4; i >= 0; i-=4 {
+        rk = round_key(k[i], k[i+1], k[i+2], k[i+3]);
+        inverse_shift_rows(self);
+        inverse_substitute_bytes(self);
+        add_round_key(self, &rk);
+        if i > 0 {
+            inverse_mix_columns(self);
+        }
+    }
+
+    del k;
+}
+let key = Key of Key128 [
+    0x00, 0x01, 0x02, 0x03,
+    0x04, 0x05, 0x06, 0x07,
+    0x08, 0x09, 0x0A, 0x0B,
+    0x0C, 0x0D, 0x0E, 0x0F
+];
+
+
+let state: State = row_major(
+    0x00, 0x01, 0x02, 0x03,
+    0x04, 0x05, 0x06, 0x07,
+    0x08, 0x09, 0x0A, 0x0B,
+    0x0C, 0x0D, 0x0E, 0x0F
+);
+
+print_keyln(&key);
+print_state(&state);
+print("\\n");
+cipher(&state, &key);
+print_state(&state);
+print("\\n");
+inverse_cipher(&state, &key);
+print_state(&state);
+print("\\n");
+`);
+                    break;
+                case "list":
+                    source.setValue(`enum List<T> {
+    Nil,
+    Cons {
+        data: T,
+        next: &List<T>
+    }
+}
+
+def print_list<T>(l: &List<T>) {
+    match *l {
+        of Nil => {},
+        of Cons {data, next=&of Nil} => {
+            print(data);
+        },
+        of Cons {data, next} => {
+            print(data, ", ");
+            print_list<T>(next);
+        },
+        _ => {}
+    }
+}
+
+def make_list<T, U>(cons: Int -> T, len: Int): List<T> {
+    if len == 0 {
+        return List<T> of Nil;
+    } else {
+        return List<T> of Cons {
+            data = cons(len),
+            next = new make_list<T, U>(cons, len - 1)
+        };
+    }
+}
+
+def identity<T>(t: T): T = t;
+
+let list1 = make_list<Int, Int>(identity<Int>, 100);
+print_list<Int>(&list1);
+print("\\n");
+
+print_list<Int>(new List<Int> of Cons {
+    data = 1,
+    next = new List<Int> of Cons {
+        data = 2,
+        next = new List<Int> of Cons {
+            data = 3,
+            next = new List<Int> of Cons {
+                data = 4,
+                next = new List<Int> of Nil
+            }
+        }
+    }
+});
+print("\\n");
+
+let x = new List<Char> of Cons {
+    data = 'a',
+    next = new List<Char> of Cons {
+        data = 'b',
+        next = new List<Char> of Cons {
+            data = 'c',
+            next = new List<Char> of Cons {
+                data = 'd',
+                next = new List<Char> of Nil
+            }
+        }
+    }
+};
+
+print_list<Char>(x);
+print("\\n");
+`)
+                    break;
+                case "result":
+                    source.setValue(`enum Result<T, E> {
+    Ok(T),
+    Err(E)
+}
+
+def print_result<T, E>(res: Result<T, E>) {
+    match res {
+        of Ok(x) => print("success: ", x, "\\n"),
+        of Err(e) => print("error: ", e, "\\n")
+    }
+}
+
+def map<T, U, E>(f: T -> U, res: Result<T, E>): Result<U, E> {
+    match res {
+        of Ok(x) => Result<U, E> of Ok(f(x)),
+        of Err(e) => Result<U, E> of Err(e)
+    }
+}
+
+def map_err<T, E, F>(f: E -> F, res: Result<T, E>): Result<T, F> {
+    match res {
+        of Ok(x) => Result<T, F> of Ok(x),
+        of Err(e) => Result<T, F> of Err(f(e))
+    }
+}
+
+def and_then<T, U, E>(f: T -> Result<U, E>, res: Result<T, E>): Result<U, E> {
+    match res {
+        of Ok(x) => f(x),
+        of Err(e) => Result<U, E> of Err(e)
+    }
+}
+
+def or_else<T, E, F>(f: E -> Result<T, F>, res: Result<T, E>): Result<T, F> {
+    match res {
+        of Ok(x) => Result<T, F> of Ok(x),
+        of Err(e) => f(e)
+    }
+}
+
+def inc(x: Int): Int = x + 1;
+def to_float(n: Int): Float = n as Float;
+def half(n: Float): Float = n / 2;
+
+let text = "hello";
+print("Should print 5 / 2: ");
+print_result<Float, &Char>(map<Float, Float, &Char>(half, map<Int, Float, &Char>(to_float, Result<Int, &Char> of Ok 5)));
+`);
+                    break;
+                case "calculator":
+                    document.getElementById("input").value = "(4 + 6) * ((8 - 3) / 2) + (9 % 5)";
+                    source.setValue(`enum Expr {
+    Add (&Expr, &Expr),
+    Sub (&Expr, &Expr),
+    Mul (&Expr, &Expr),
+    Div (&Expr, &Expr),
+    Rem (&Expr, &Expr),
+    Num Float,
+    Group &Expr,
+}
+
+def eval(expr: &Expr): Float = match *expr {
+    of Add (lhs, rhs) => eval(lhs) + eval(rhs),
+    of Sub (lhs, rhs) => eval(lhs) - eval(rhs),
+    of Mul (lhs, rhs) => eval(lhs) * eval(rhs),
+    of Div (lhs, rhs) => eval(lhs) / eval(rhs),
+    of Rem (lhs, rhs) => eval(lhs) % eval(rhs),
+    of Num n => n,
+    of Group inner => eval(inner)
+};
+
+def free_expr(expr: &Expr) {
+    match *expr {
+        of Add (lhs, rhs)
+        | of Sub (lhs, rhs)
+        | of Mul (lhs, rhs)
+        | of Div (lhs, rhs)
+        | of Rem (lhs, rhs) => {
+            free_expr(lhs);
+            free_expr(rhs);
+        },
+        of Group inner => free_expr(inner),
+        _ => {}
+    }
+    del expr;
+}
+
+def print_expr(expr: &Expr) {
+    match *expr {
+        of Add(lhs, rhs) => {
+            print_expr(lhs);
+            print(" + ");
+            print_expr(rhs);
+        },
+        of Sub(lhs, rhs) => {
+            print_expr(lhs);
+            print(" - ");
+            print_expr(rhs);
+        },
+        of Mul(lhs, rhs) => {
+            print_expr(lhs);
+            print(" * ");
+            print_expr(rhs);
+        },
+        of Div(lhs, rhs) => {
+            print_expr(lhs);
+            print(" / ");
+            print_expr(rhs);
+        },
+        of Rem(lhs, rhs) => {
+            print_expr(lhs);
+            print(" % ");
+            print_expr(rhs);
+        },
+        of Num n => print(n),
+        of Group expr => {
+            print("(");
+            print_expr(expr);
+            print(")");
+        }
+    }
+}
+
+def is_between_inclusive(ch: Char, start: Char, end: Char): Bool {
+    let start = start as Int,
+        end = end as Int,
+        ch = ch as Int;
+
+    return start <= ch && ch <= end;
+}
+
+struct Input {
+    start: &Char,
+    loc: Int,
+    length: Int
+}
+
+def free_input(input: Input) {
+    del input.start;
+}
+
+enum ParseResult {
+    Ok (Input, &Expr),
+    Err Int
+}
+
+def parse_float(input: Input): ParseResult {
+    let save = input;
+    let n = 0.0;
+
+    if (input.loc == input.length) {
+        return ParseResult of Err (input.loc);
+    }
+
+    if !(is_between_inclusive(input.start[input.loc], '0', '9')) {
+        return ParseResult of Err (input.loc);
+    }
+
+    for (); input.loc < input.length && is_between_inclusive(input.start[input.loc], '0', '9'); input.loc += 1 {
+        n *= 10.0;
+        n += (input.start[input.loc] as Int - '0' as Int) as Float;
+    }
+
+    if (input.loc < input.length && input.start[input.loc] == '.') {
+        input.loc += 1;
+        let m = 0.1;
+        for (); input.loc < input.length && is_between_inclusive(input.start[input.loc], '0', '9'); input.loc += 1 {
+            n += (input.start[input.loc] as Int - '0' as Int) as Float * m;
+            m *= 0.1;
+        }
+    }
+    return ParseResult of Ok (input, new Expr of Num n);
+}
+
+def binop(
+    lhs: &Expr,
+    input: Input,
+    op: Char,
+    factor: Input -> ParseResult,
+    cons: (&Expr, &Expr) -> &Expr): ParseResult {
+
+    input = parse_whitespaces(input);
+    if (input.loc == input.length) {
+        return ParseResult of Err (input.loc);
+    }
+
+    if input.start[input.loc] == op {
+        input.loc += 1;
+        input = parse_whitespaces(input);
+        match parse_term(input) {
+            of Ok (input, rhs) => {
+                return ParseResult of Ok (input, cons(lhs, rhs));
+            },
+            of Err _ => {
+                return ParseResult of Err (input.loc);
+            }
+        }
+    } else {
+        return ParseResult of Err (input.loc);
+    }
+}
+
+def parse_expr(input: Input): ParseResult {
+    let save = input;
+
+    if (input.loc == input.length) {
+        return ParseResult of Err (input.loc);
+    }
+
+    def add_cons(lhs: &Expr, rhs: &Expr): &Expr {
+        return new Expr of Add(lhs, rhs);
+    } 
+    def sub_cons(lhs: &Expr, rhs: &Expr): &Expr {
+        return new Expr of Sub(lhs, rhs);
+    }
+
+    match parse_term(input) {
+        of Ok (new_input, lhs) => {
+            input = new_input;
+            while True {
+                lhs = match binop(lhs, input, '+', parse_term, add_cons) {
+                    of Ok (new_input, new_lhs) => {
+                        input = new_input;
+                        new_lhs;
+                    },
+                    of Err _ => match binop(lhs, input, '-', parse_term, sub_cons) {
+                        of Ok (new_input, new_lhs) => {
+                            input = new_input;
+                            new_lhs;
+                        },
+                        of Err _ => {
+                            return ParseResult of Ok (input, lhs);
+                        }
+                    }
+                };
+            }
+            return ParseResult of Ok (input, lhs);
+        },
+        of Err _ => {return ParseResult of Err (input.loc);}
+    }
+}
+
+def parse_term(input: Input): ParseResult {
+    let save = input;
+
+    if (input.loc == input.length) {
+        return ParseResult of Err (input.loc);
+    }
+
+    def mul_cons(lhs: &Expr, rhs: &Expr): &Expr {
+        return new Expr of Mul(lhs, rhs);
+    } 
+    def div_cons(lhs: &Expr, rhs: &Expr): &Expr {
+        return new Expr of Div(lhs, rhs);
+    }
+    def rem_cons(lhs: &Expr, rhs: &Expr): &Expr {
+        return new Expr of Rem(lhs, rhs);
+    }
+
+    match parse_atom(input) {
+        of Ok (new_input, lhs) => {
+            input = new_input;
+            while True {
+                lhs = match binop(lhs, input, '*', parse_atom, mul_cons) {
+                    of Ok (new_input, new_lhs) => {
+                        input = new_input;
+                        new_lhs;
+                    },
+                    of Err _ => match binop(lhs, input, '/', parse_atom, div_cons) {
+                        of Ok (new_input, new_lhs) => {
+                            input = new_input;
+                            new_lhs;
+                        },
+                        of Err _ => match binop(lhs, input, '%', parse_atom, rem_cons) {
+                            of Ok (new_input, new_lhs) => {
+                                input = new_input;
+                                new_lhs;
+                            },
+                            of Err _ => {
+                                return ParseResult of Ok (input, lhs);
+                            }
+                        }
+                    }
+                };
+            }
+            return ParseResult of Ok (input, lhs);
+        },
+        of Err _ => {return ParseResult of Err (input.loc);}
+    }
+}
+
+
+def parse_atom(input: Input): ParseResult {
+    let save = input;
+
+    if (input.loc == input.length) {
+        return ParseResult of Err (input.loc);
+    }
+
+    let result = parse_float(input);
+    if let of Err _ = result {
+        return parse_group(input);
+    }
+    return result;
+}
+
+def parse_group(input: Input): ParseResult {
+    let save = input;
+
+    if (input.loc == input.length) {
+        return ParseResult of Err (input.loc);
+    }
+
+    if (input.start[input.loc] != '(') {
+        return ParseResult of Err (input.loc);
+    }
+
+    input.loc += 1;
+    let input = parse_whitespaces(input);
+
+    return match parse_expr(input) {
+        of Ok (input, expr) => {
+            input = parse_whitespaces(input);
+            if (input.start[input.loc] != ')') {
+                return ParseResult of Err (input.loc);
+            }
+            input.loc += 1;
+            ParseResult of Ok (input, new Expr of Group(expr));
+        },
+        of Err _ => ParseResult of Err (input.loc)
+    };
+}
+
+def parse_whitespaces(input: Input): Input {
+    let save = input;
+
+    if (input.loc == input.length) {
+        return input;
+    }
+
+    for (); input.loc < input.length && (input.start[input.loc] == ' ' || input.start[input.loc] == '\\r' || input.start[input.loc] == '\\n'); input.loc += 1 {}
+
+    return input;
+}
+
+def is_done(input: Input): Bool = input.loc >= input.length;
+
+def strlen(ch: &Char): Int {
+    let i = 0;
+    for (); ch[i] != '\\0'; i+=1 {}
+    return i;
+}
+
+def getchar(): Char {
+    let ch = ' ';
+    input(&ch);
+    return ch;
+}
+
+def readline(ch: &Char, len: Int): Int {
+    let i = len;
+
+    let c = getchar();
+    for (); c != '\\n' && c != '\\0'; i+=1 {
+        ch[i] = c;
+        c = getchar();
+    }
+    return i;
+}
+
+def read(): Input {
+    let buf = alloc(sizeof(Char) * 1024) as &Char;
+
+    print("? ");
+    let len = readline(buf, 0);
+    buf[len] = '\\0';
+
+    return {
+        start = buf as &Char,
+        length = strlen(buf as &Char),
+        loc = 0
+    };
+}
+
+let input = read();
+match parse_expr(input) {
+    of Ok (input, n) => {
+        print_expr(n);
+        print("\\n => ", eval(n), "\\n");
+        free_expr(n);
+        free_input(input);
+    },
+    of Err n => print("\\nCalculator: error while parsing at character: \\n", input.start[n], "\\n")
+}
+`);
+                    break;
+                case "tree":
+                    source.setValue(`enum Option<T> {
+    Some(T),
+    Nothing
+}
+
+def print_option<T>(opt: Option<T>, printer: T -> None) {
+	match opt {
+        of Some(x) => {
+            print("Some(");
+            printer(x);
+            print(")");
+        },
+        of Nothing => { print("Nothing"); }
+    }
+}
+
+enum List<T> {
+    Cons(T, &List<T>),
+    Nil
+}
+
+def print_list<T>(list: &List<T>): Option<T> {
+    match *list {
+        of Cons(x, &of Nil) => {
+            print(x);
+            return Option<T> of Some(x);
+        },
+        of Cons(x, xs) => {
+            print(x, ", ");
+            let _ = print_list<T>(xs);
+            return Option<T> of Some(x);
+        },
+        of Nil => Option<T> of Nothing
+    }
+}
+
+enum Tree<T> {
+    Node(T, &List<Tree<T>>),
+    Leaf(T),
+}
+
+def print_tree_list<T>(list: &List<Tree<T>>): Option<T> {
+    match *list {
+        of Cons(x, &of Nil) => {
+            return print_tree<T>(&x);
+        },
+        of Cons(x, xs) => {
+            let _ = print_tree<T>(&x);
+            print(", ");
+            return print_tree_list<T>(xs);
+        },
+        of Nil => Option<T> of Nothing
+    }
+}
+
+def print_tree<T>(tree: &Tree<T>): Option<T> {
+    match *tree {
+        of Node(x, &of Nil) => {
+            print(x);
+            return Option<T> of Some(x);
+        },
+        of Node(x, xs) => {
+            print(x, ", ");
+            return print_tree_list<T>(xs);
+        },
+        of Leaf n => {
+            print(n);
+            return Option<T> of Some(n);
+        }
+    }
+}
+
+def test<T>(tree: &Tree<T>, printer: T -> None) {
+    let result = print_tree<T>(tree);
+    print("\\n");
+    print_option<T>(result, printer);
+}
+
+let x = Tree<Int> of Node(
+    1,
+    new List<Tree<Int>> of Cons(
+        Tree<Int> of Leaf(2),
+        new List<Tree<Int>> of Cons(
+            Tree<Int> of Leaf(3),
+            new List<Tree<Int>> of Nil
+        )
+    )
+);
+
+let y = Tree<Char> of Node(
+    'a',
+    new List<Tree<Char>> of Cons(
+        Tree<Char> of Leaf('b'),
+        new List<Tree<Char>> of Cons(
+            Tree<Char> of Leaf('c'),
+            new List<Tree<Char>> of Nil
+        )
+    )
+);
+def print_int(x: Int) = print(x);
+def print_char(x: Char) = print(x);
+test<Int>(&x, print_int);
+print("\\n");
+test<Char>(&y, print_char);
+print("\\n");`);
+                    break;
+                case "lisp":
+                    source.setValue(`def strlen(ch: &Char): Int {
+    let len = 0;
+    while ch[len] != '\\0' {
+        len += 1;
+    }
+    return len;
+}
+
+def strcpy(dst: &Char, src: &Char) {
+    let i = 0;
+    for (); src[i] != '\\0'; i+=1 {
+        dst[i] = src[i];
+    }
+    dst[i] = '\\0';
+}
+
+struct String {
+    data: &Char,
+    len: Int,
+}
+
+def string_new(s: &Char): String {
+    let len = 0;
+    while s[len] != '\\0' {
+        len += 1;
+    }
+
+    let buffer = alloc(sizeof(Char) * len) as &Char;
+    strcpy(buffer, s);
+
+    return {
+        data = buffer,
+        len = len
+    };
+}
+
+def string_print(s: String) {
+    for let i=0; i < s.len; i+=1 {
+        print(s.data[i]);
+    }
+}
+
+enum Expr {
+    Boolean Bool,
+    Decimal Float,
+    Integer Int,
+    Complex {
+        real: Float,
+        imag: Float,
+    },
+    Symbol String,
+    String String,
+    Pair {
+        car: &Expr,
+        cdr: &Expr,
+    },
+    Nil,
+    defedure {
+        params: &Expr,
+        body: &Expr,
+        env: &Env,
+    },
+    Closure {
+        params: &Expr,
+        body: &Expr,
+        env: &Env,
+    },
+    Builtin(String, (&Expr, &Env) -> Expr),
+    Continuation {
+        env: &Env,
+    },
+}
+
+struct Env {
+    bindings: Expr,
+    parent: &Env,
+}
+
+def root_env(): Env = {
+    bindings = Expr of Nil,
+    parent = Null
+};
+
+def env_free(env: Env) {
+    expr_free(env.bindings);
+}
+
+def expr_free(expr: Expr) {
+    match expr {
+        of Pair { car, cdr } => {
+            expr_free(*car);
+            expr_free(*cdr);
+            del car;
+            del cdr;
+        },
+        of defedure { params, body, env } => {
+            expr_free(*params);
+            expr_free(*body);
+            env_free(*env);
+            del params;
+            del body;
+            del env;
+        },
+        of Closure { params, body, env } => {
+            expr_free(*params);
+            expr_free(*body);
+            env_free(*env);
+            del params;
+            del body;
+            del env;
+        },
+        of Continuation { env } => {
+            env_free(*env);
+            del env;
+        },
+        _ => {}
+    }
+}
+
+def cons(car: Expr, cdr: Expr): Expr {
+    return Expr of Pair {
+        car = new car,
+        cdr = new cdr
+    };
+}
+
+def expr_print(expr: &Expr) {
+    match *expr {
+        of Boolean b => print(b),
+        of Integer i => print(i),
+        of Symbol s => print(s),
+        of String s => print(s),
+        of Pair { car, cdr } => {
+            print("(");
+            expr_print(car);
+            print(" . ");
+            expr_print(cdr);
+            print(")");
+        },
+        of Nil => print("()"),
+        of defedure { params, body, env } => {
+            print("#<defedure>");
+        },
+        of Closure { params, body, env } => {
+            print("#<closure>");
+        },
+        of Builtin b => {
+            print("#<builtin>");
+        },
+        of Continuation { env } => {
+            print("#<continuation>");
+        },
+        _ => {}
+    }
+}
+
+def expr_println(expr: &Expr) {
+    expr_print(expr);
+    print("\\n");
+}
+
+def expr_reduce(acc: Expr, x: Expr, env: &Env, fun: (Expr, Expr, &Env) -> Expr): Expr {
+    match x {
+        of Pair { car, cdr } => {
+            acc = fun(acc, *car, env);
+            expr_reduce(acc, *cdr, env, fun);
+        },
+        of Nil => acc,
+        _ => fun(acc, x, env)
+    }
+}
+
+def expr_map(x: Expr, env: &Env, fun: (Expr, &Env) -> Expr): Expr {
+    match x {
+        of Pair { car, cdr } => cons(fun(*car, env), expr_map(*cdr, env, fun)),
+        of Nil => Expr of Nil,
+        _ => fun(x, env)
+    }
+}
+
+def sum(acc: Expr, x: Expr, env: &Env): Expr {
+    match acc {
+        of Integer i => {
+            match x {
+                of Integer j => Expr of Integer (i + j),
+                of Decimal j => Expr of Decimal (i as Float + j),
+                _ => acc
+            }
+        },
+        of Decimal i => {
+            match x {
+                of Integer j => Expr of Decimal (i + j as Float),
+                of Decimal j => Expr of Decimal (i + j),
+                _ => acc
+            }
+        },
+        _ => acc
+    }
+}
+
+def prod(acc: Expr, x: Expr, env: &Env): Expr {
+    match acc {
+        of Integer i => {
+            match x {
+                of Integer j => Expr of Integer (i * j),
+                of Decimal j => Expr of Decimal (i as Float * j),
+                _ => acc
+            }
+        },
+        of Decimal i => {
+            match x {
+                of Integer j => Expr of Decimal (i * j as Float),
+                of Decimal j => Expr of Decimal (i * j),
+                _ => acc
+            }
+        },
+        _ => acc
+    }
+}
+
+def inc(x: Expr, env: &Env): Expr {
+    match x {
+        of Integer i => Expr of Integer (i + 1),
+        of Decimal i => Expr of Decimal (i + 1.0),
+        _ => x
+    }
+}
+
+def dec(x: Expr, env: &Env): Expr {
+    match x {
+        of Integer i => Expr of Integer (i - 1),
+        of Decimal i => Expr of Decimal (i - 1.0),
+        _ => x
+    }
+}
+
+
+def range(start: Int, end: Int): Expr {
+    if start > end {
+        return Expr of Nil;
+    } else {
+        return cons(Expr of Integer start, range(start + 1, end));
+    }
+}
+
+let expr = cons(Expr of Integer 1, cons(Expr of Integer 2, cons(Expr of Integer 3, cons(Expr of Integer 4, Expr of Nil))));
+let env = root_env();
+
+print("expr: ");
+expr_println(&expr);
+
+print("  reduce(sum): ");
+let result = expr_reduce(Expr of Integer 0, expr, &env, sum);
+expr_println(&result);
+
+print("  reduce(product): ");
+let result = expr_reduce(Expr of Integer 1, expr, &env, prod);
+expr_println(&result);
+
+print("  map(increment): ");
+let result = expr_map(expr, &env, inc);
+expr_println(&result);
+
+for let i=0; i<10; i+=1 {
+    let range = range(1, i);
+    expr_println(&range);
+}
+
+let text = "woo!!!\\0";
+let s = string_new(&text as &Char);
+string_print(s);
+`);
+                    break;
+                case "alloc":
+                    source.setValue(`enum Option<T> {
+    Some(T),
+    Nothing
+}
+
+def allocate<T>(count: Int): Option<&T> {
+    if (count <= 0) {
+        return Option<&T> of Nothing;
+    }
+    let ptr = alloc(count * sizeof(T)) as &T;
+    if (ptr == Null) {
+        return Option<&T> of Nothing;
+    } else {
+        return Option<&T> of Some(ptr);
+    }
+}
+
+struct Point<T> {
+    x: T,
+    y: T
+}
+
+match allocate<Point<Int>>(5) {
+    of Some(val) => {
+        for let i=0; i<5; i+=1 {
+            val[i].x = i;
+            val[i].y = i * 2;
+        }
+        print("Allocated 5 items: ", *(val as &[{x: Int, y: Int} * 5]), "\\n");
+        print("                 : ", *(val as &[Int * 10]), "\\n");
+    },
+    of Nothing => {
+        print("Failed to allocate memory");
+    }
+}
+`);
+                    break;
+                case "match":
+                    source.setValue(`enum Direction {
+    North, South, East, West
+}
+
+match (Direction of South, 2, struct {x = 5, y = -6}) {
+    (of North, _, _)
+    | (of East, _, _)
+    | (of West, _, _)
+    | (of South, 3, _) => print("Incorrect!\\n"),
+    (of South, 2, {x = 5, y = -6}) => {
+        print("Correct!\\n");
+    },
+    _ => print("Incorrect!\\n")
+}
+
+enum Option<T> {
+    Some(T),
+    Nothing
+}
+
+def divide(n: Int, d: Int): Option<Int> {
+    if (d == 0) {
+        return Option<Int> of Nothing;
+    } else {
+        return Option<Int> of Some(n / d);
+    }
+}
+
+if let of Some(n) = divide(5, 0) {
+    print("5 / 0 = ", n, "\\n");
+} else {
+    print("5 / 0 = undefined\\n");
+}`);
+                    document.getElementById("input").value = "";
+                    break;
+                case "cat":
+                    source.setValue(`let ch = ' ';
+while (ch != '\\0') {
+    input(&ch);
+    print(ch);
+}`);
+                    document.getElementById("input").value = "this is a cat program!";
+                    break;
+                case "factorial":
+                    source.setValue(`def fact(n: Int): Int {
+    match n {
+        0 | 1 => 1,
+        _ => n * fact(n - 1)
+    }
+}
+
+let n = 0;
+input(&n);
+
+print(fact(n));`);
+                    document.getElementById("input").value = "5";
+                    break;
+                case "hello world":
+                    source.setValue("print(\"Hello, world!\\n\");");
+                    break;
+                default:
+                    console.log("Unknown example: " + example);
+                    break;
+            }
+        }
+        setExampleProgram();
+        document.getElementById("example").addEventListener("change", () => {
+            setExampleProgram();
+            document.getElementById("source").value = source.getValue();
+            source.refresh();
+            compile_and_run();
+        });
+        document.getElementById("target").addEventListener("change", () => {
+            document.getElementById("source").value = source.getValue();
+            source.refresh();
+            compile_and_run();
+        });
+        document.getElementById("run").addEventListener("click", compile_and_run, false);
+        </script>
+        <select id="example" style="height: 3em; float: left;">
+            <option value="result">Result Enum (Generics)</option>
+            <option value="aes">AES (128, 192, 256 bit (en/de)crypt)</option>
+            <option value="calculator">Calculator (Parser)</option>
+            <option value="alloc">Allocator</option>
+            <option value="list">Linked List Enum (Generics)</option>
+            <option value="lisp">S-Expressions</option>
+            <option value="tree">Tree (Generics)</option>
+            <option value="match">Pattern Matching</option>
+            <option value="cat">Cat</option>
+            <option value="factorial">Factorial</option>
+        </select>
+        <div class="row">
+            <div class="col"><textarea id="source"></textarea></div>
+            <div class="col" style="height: 20em;">
+                <textarea style="overflow: auto; background-color: black; color: white;" id="output"></textarea>
+            </div>
+        </div>
+        <div>
+            <textarea id="input" style="resize: none; float: left;" cols="10">Input Text</textarea>
+            <select id="target" style="height: 3em; float: left;">
+                <option value="run"><b>Click to see stages of output</b></option>
+                <option value="run">Execution Output</option>
+                <option value="lir">Lower IR</option>
+                <option value="asm">Assembly IR</option>
+                <option value="vm">Virtual Machine Code</option>
+                <option value="c">C Source</option>
+                <option value="x86">x86 Assembly</option>
+            </select>
+            <button id="run" style="height: 3em; float: left;">Compile</button>
+        </div>
+    </body>
+</html>
