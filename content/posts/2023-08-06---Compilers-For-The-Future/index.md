@@ -12,7 +12,7 @@ description: "How can we future-proof our programming languages?"
 socialImage: media/lisp.png
 ---
 
-[***Click here to skip directly to the web demo of the compiler.***](#a-compiler-for-the-architecture)
+[***Click here to skip directly to the web demo of the compiler.***](#web-demo)
 
 ## The Life Of A Programming Language
 
@@ -81,6 +81,8 @@ What might a language look like that is simple, expressive, and efficient? What 
 
 I propose the following architecture for a future-proof language: a Turing tape architecture with a register and a read/write head over the tape. The architecture is simple to understand, and a compiler for the instruction set could easily be implemented by a freshman computer science student. The architecture is flexible enough to represent real world problems efficiently, 1:1 with common programming constructs.
 
+[***Click here to skip directly to the web demo of the compiler.***](#web-demo)
+
 ### Prelude
 
 This prelude demonstrates the types of all the primitives necessary to implement this language. The Turing tape architecture, much like BrainF\*!, is very simple to port, but it is much more expressive, efficient, and *complete*.
@@ -110,58 +112,58 @@ void (*labels[10000])(void);
 
 Below are the **core** instructions. These are instructions that *must* be implemented for every target, although the implementation of the `Get` and `Put` input and output devices depends on the hardware executing the program; not every hardware has a keyboard and a screen, so compilers for targets aren't required to implement all of the `Get` and `Put` input and output device interfaces.
 
-|Instruction|C Source|Description|
-|:-|:-|:-:|
-|`While`|`while (reg.i) {`|While the register is not zero...|
-|`If`|`if (reg.i) {`| If the register is not zero...|
-|`Else`|`} else {`| Otherwise (can only be inserted between an `If` and an `End`)...|
-|`Function`|`void f{LABEL_ID}() {`| Start a function definition.|
-|`End`|`}`| End a `While`, `If`, `If` `Else`, or `Function` block.|
-|`Set(n)`|`reg.i = n;`| Set the register to a value.|
-|`Call`|`labels[reg.i]();`| Call the Nth defined function in the program (0 indexed) where N is the value of the register as an integer.|
-|`Return`|`return;`|Return from the current function and resume execution after the callsite.|
-|`Save`|`*ptr = reg;`|Store the register in the cell under the tape pointer.|
-|`Restore`|`reg = *ptr;`|Read the value in the cell under the tape pointer and store it in the register.|
-|`Move(n: int)`|`ptr += n;`|Move the tape pointer by N cells.|
-|`Where`|`reg.p = ptr;`|Store the tape pointer in the register.|
-|`Deref`|`*ref++ = ptr; ptr = ptr->p;`|Look at the cell under the tape pointer. Treat this as an address. Set the tape pointer to this address. Remember the previous tape pointer position so we can go back later.|
-|`Refer`|`ptr = *--ref;`|Go back to the previous tape pointer position before the matching `Deref`.|
-|`Index`|`reg.p += ptr->i;`|Treat the register as a pointer. Shift this pointer by N cells, where N is the value of the cell under the tape pointer.|
-|`Add`|`reg.i += ptr->i;`|Add the value under the tape pointer to the register as an integer.|
-|`Sub`|`reg.i -= ptr->i;`|Subtract the value under the tape pointer to the register as an integer.|
-|`Mul`|`reg.i *= ptr->i;`|Multiply the value under the tape pointer to the register as an integer.|
-|`Div`|`reg.i /= ptr->i;`|Divide the value under the tape pointer to the register as an integer.|
-|`Rem`|`reg.i %= ptr->i;`|Modulo the value under the tape pointer to the register as an integer.|
-|`BitwiseNand`|`reg.i &= ptr->i;`|Treat the register and the value under the tape pointer as 64 bit vectors (or the highest possible number of bits supported by the cell size on the platform). Perform a bitwise NAND operation on them.|
-|`GreaterEqualZero`|`reg.i = reg.i >= 0;`|Is the register greater than or equal to zero?|
-|`Get(Input(InputMode, InputChannel))`|*Target implementation for that specific input mode and channel interface, if supported.*|This provides a standardized interface for developers to write code that can read from a keyboard, a file, a network socket, etc.|
-|`Put(Output(OutputMode, OutputChannel))`|*Target implementation for that specific output mode and channel interface, if supported.*|This provides a standardized interface for developers to write code that can write to a screen, a file, a network socket, etc.|
+| Instruction | Description | C Source |
+|---|:---|---|
+| `While` | While the register is not zero... | `while (reg.i) {` |
+| `If` | If the register is not zero... | `if (reg.i) {` |
+| `Else` | Otherwise (can only be inserted between an `If` and an `End`)... | `} else {` |
+| `Function` | Start a function definition. | `void f{LABEL_ID}() {` |
+| `End` | End a `While`, `If`, `If` `Else`, or `Function` block. | `}` |
+| `Set(n)` | Set the register to a value. | `reg.i = n;` |
+| `Call` | Call the Nth defined function in the program (0 indexed) where N is the value of the register as an integer. | `labels[reg.i]();` |
+| `Return` | Return from the current function and resume execution after the callsite. | `return;` |
+| `Save` | Store the register in the cell under the tape pointer. | `*ptr = reg;` |
+| `Restore` | Read the value in the cell under the tape pointer and store it in the register. | `reg = *ptr;` |
+| `Move(n: int)` | Move the tape pointer by N cells. | `ptr += n;` |
+| `Where` | Store the tape pointer in the register. | `reg.p = ptr;` |
+| `Deref` | Look at the cell under the tape pointer. Treat this as an address. Set the tape pointer to this address. Remember the previous tape pointer position so we can go back later. | `*ref++ = ptr; ptr = ptr->p;` |
+| `Refer` | Go back to the previous tape pointer position before the matching `Deref`. | `ptr = *--ref;` |
+| `Index` | Treat the register as a pointer. Shift this pointer by N cells, where N is the value of the cell under the tape pointer. | `reg.p += ptr->i;` |
+| `Add` | Add the value under the tape pointer to the register as an integer. | `reg.i += ptr->i;` |
+| `Sub` | Subtract the value under the tape pointer to the register as an integer. | `reg.i -= ptr->i;` |
+| `Mul` | Multiply the value under the tape pointer to the register as an integer. | `reg.i *= ptr->i;` |
+| `Div` | Divide the value under the tape pointer to the register as an integer. | `reg.i /= ptr->i;` |
+| `Rem` | Modulo the value under the tape pointer to the register as an integer. | `reg.i %= ptr->i;` |
+| `BitwiseNand` | Treat the register and the value under the tape pointer as 64 bit vectors (or the highest possible number of bits supported by the cell size on the platform). Perform a bitwise NAND operation on them. | `reg.i &= ptr->i;` |
+| `GreaterEqualZero` | Is the register greater than or equal to zero? | `reg.i = reg.i >= 0;` |
+| `Get(Input(InputMode, InputChannel))` | This provides a standardized interface for developers to write code that can read from a keyboard, a file, a network socket, etc. | *Target implementation for that specific input mode and channel interface, if supported.* |
+| `Put(Output(OutputMode, OutputChannel))` | This provides a standardized interface for developers to write code that can write to a screen, a file, a network socket, etc. | *Target implementation for that specific output mode and channel interface, if supported.* |
 
 Below are the **standard** instructions. The compiler tries to use core instructions only, but will use standard instructions as required by the source code. Code using floating point instructions must use the standard instructions to do those operations. Almost all targets implement the standard instructions, but they are not required to do so. A bare metal target might not have floating point support, for example. Targets can support *some* of the standard instructions, but not all of them. For example, a target might support floats, but not have an allocator, so it can't support `Alloc` and `Free`.
 
 Additionally, the standard instructions implement the `Peek` and `Poke` instructions used for FFI. Any functionality that's outsourced to foreign code must use these instructions. The compiler for the target will then link in the foreign code in accordance with the interfaces used by the `Peek` and `Poke` instructions.
 
-|Instruction|C Source|Description|
-|:-|:-|:-:|
-|`SetFloat(n: float)`|`reg.f = n;`|Set the register to a floating point value.|
-|`ToInt`|`reg.i = reg.f;`|Convert the register (interpreted as a floating point value) to an integer.|
-|`ToFloat`|`reg.f = reg.i;`|Convert the register (interpreted as an integer) to a floating point value.|
-|`Sin`|`reg.f = sin(reg.f);`|Treat the register as a floating point value. Compute the sine of this value.|
-|`Cos`|`reg.f = cos(reg.f);`|Treat the register as a floating point value. Compute the cosine of this value.|
-|`Tan`|`reg.f = tan(reg.f);`|Treat the register as a floating point value. Compute the tangent of this value.|
-|`ASin`|`reg.f = asin(reg.f);`|Treat the register as a floating point value. Compute the arcsine of this value.|
-|`ACos`|`reg.f = acos(reg.f);`|Treat the register as a floating point value. Compute the arccosine of this value.|
-|`ATan`|`reg.f = atan(reg.f);`|Treat the register as a floating point value. Compute the arctangent of this value.|
-|`AddFloat`|`reg.f += ptr->f;`|Add the value under the tape pointer to the register as a floating point value.|
-|`SubFloat`|`reg.f -= ptr->f;`|Subtract the value under the tape pointer to the register as a floating point value.|
-|`MulFloat`|`reg.f *= ptr->f;`|Multiply the value under the tape pointer to the register as a floating point value.|
-|`DivFloat`|`reg.f /= ptr->f;`|Divide the value under the tape pointer to the register as a floating point value.|
-|`RemFloat`|`reg.f %= ptr->f;`|Modulo the value under the tape pointer to the register as a floating point value.|
-|`GreaterEqualZeroFloat`|`reg.i = reg.f >= 0;`|Is the register greater than or equal to zero as a floating point value?|
-|`Alloc`|`reg.p = malloc(reg.i * sizeof(reg));`|Allocate a block of N cells, where N is the value of the register as an integer, and store the pointer in the register.|
-|`Free`|`free(reg.p);`|Free the memory block pointed to by the register.|
-|`Poke(FFI-Interface)`|*Target implementation for that specific FFI interface, if supported.*|Write a value to the given FFI interface. A developer might `Poke` an interface to request some platform specific functionality (such as some external function call in LibC), and `Peek` is used to read the value returned by the interface.|
-|`Peek(FFI-Interface)`|*Target implementation for that specific FFI interface, if supported.*|Read a value from the given FFI interface and store it in the register. A developer might `Poke` an interface to request some platform specific functionality (such as some external function call in LibC), and `Peek` is used to read the value returned by the interface.|
+| Instruction | Description | C Source |
+|---|:---|---|
+| `SetFloat(n: float)` | Set the register to a floating point value. | `reg.f = n;` |
+| `ToInt` | Convert the register (interpreted as a floating point value) to an integer. | `reg.i = reg.f;` |
+| `ToFloat` | Convert the register (interpreted as an integer) to a floating point value. | `reg.f = reg.i;` |
+| `Sin` | Treat the register as a floating point value. Compute the sine of this value. | `reg.f = sin(reg.f);` |
+| `Cos` | Treat the register as a floating point value. Compute the cosine of this value. | `reg.f = cos(reg.f);` |
+| `Tan` | Treat the register as a floating point value. Compute the tangent of this value. | `reg.f = tan(reg.f);` |
+| `ASin` | Treat the register as a floating point value. Compute the arcsine of this value. | `reg.f = asin(reg.f);` |
+| `ACos` | Treat the register as a floating point value. Compute the arccosine of this value. | `reg.f = acos(reg.f);` |
+| `ATan` | Treat the register as a floating point value. Compute the arctangent of this value. | `reg.f = atan(reg.f);` |
+| `AddFloat` | Add the value under the tape pointer to the register as a floating point value. | `reg.f += ptr->f;` |
+| `SubFloat` | Subtract the value under the tape pointer to the register as a floating point value. | `reg.f -= ptr->f;` |
+| `MulFloat` | Multiply the value under the tape pointer to the register as a floating point value. | `reg.f *= ptr->f;` |
+| `DivFloat` | Divide the value under the tape pointer to the register as a floating point value. | `reg.f /= ptr->f;` |
+| `RemFloat` | Modulo the value under the tape pointer to the register as a floating point value. | `reg.f %= ptr->f;` |
+| `GreaterEqualZeroFloat` | Is the register greater than or equal to zero as a floating point value? | `reg.i = reg.f >= 0;` |
+| `Alloc` | Allocate a block of N cells, where N is the value of the register as an integer, and store the pointer in the register. | `reg.p = malloc(reg.i * sizeof(reg));` |
+| `Free` | Free the memory block pointed to by the register. | `free(reg.p);` |
+| `Poke(FFI-Interface)` | Write a value to the given FFI interface. A developer might `Poke` an interface to request some platform specific functionality (such as some external function call in LibC), and `Peek` is used to read the value returned by the interface. | *Target implementation for that specific FFI interface, if supported.* |
+| `Peek(FFI-Interface)` | Read a value from the given FFI interface and store it in the register. A developer might `Poke` an interface to request some platform specific functionality (such as some external function call in LibC), and `Peek` is used to read the value returned by the interface. | *Target implementation for that specific FFI interface, if supported.* |
 
 These instruction sets aren't definitive by any means: I want less redundant instructions (Add and Subtract), support for more bit operations like leftshift and rightshift, and functionality for math expressions like logarithms. All instructions should only operate on the register, the value under the tape, and (optionally) a constant literal argument. This design makes it very easy for an optimizer to make deductions about the state of the tape at any given moment — just short of statically determining all the values under the tape at runtime.
 
@@ -184,17 +186,19 @@ fun fact // Factorial function in the psuedo-asm language
 end
 ```
 
-The compiler implementation uses this pseudo-assembly language to lower down into the instruction set. This webdemo shows the compiler in action: you can change the output to see the generated IR, the psuedo-assembly, the instruction set code, the equivalent C source, the x86 assembly, and the execution output (the generated instructions are fed into an interpreter after compilation).
+To really prove that the architecture is viable, I've implemented a compiler for a high level language that targets the instruction set. It has parametric polymorphism, algebraic datatypes, pattern matching, and more. The language is simple enough that it can easily be ported to platforms like the web, but it's also capable of important algorithms like AES encryption and decryption (Rijndael). The compiler could be reimplemented in itself (with a *lot* of effort). The stages of compilation used to create the language are suitable intermediate representations for implementing other languages as well.
+
+This webdemo shows the compiler in action: you can change the output to see the generated IR, the psuedo-assembly, the instruction set code, the equivalent C source, the x86 assembly, and the execution output (the generated instructions are fed into an interpreter after compilation).
+
+### Web Demo
 
 <embed type="text/html" src="https://adam-mcdaniel.github.io/sage/sage/web/index.html" title="Compiler" width="100%" height="940em"></embed>
-
-To really prove that the architecture is viable, I've implemented a compiler for a high level language that targets the instruction set. It has parametric polymorphism, algebraic datatypes, pattern matching, and more. The language is simple enough that it can easily be ported to platforms like the web, but it's also capable of important algorithms like AES encryption and decryption (Rijndael). The compiler could be reimplemented in itself (with a *lot* of effort). The stages of compilation used to create the language are suitable intermediate representations for implementing other languages as well.
 
 You might worry that the architecture forces the language to compile to a verbose number of instructions, and that this leads to inefficiency despite being portable. Fear not: optimizations can be applied very aggressively to make the code highly performant. A compiler, for example, might implement first class Tensor objects which can be compiled using the simple architectures instructions. An optimizing compiler can discern a matrix multiplication *very easily* just using peephole optimizations on the compiled instructions, and the optimizer can substitute those operations with the equivalent BLAS library calls. This allows programs to be *compiled for portability* for distribution (write once run anywhere, *and* add a new supported platform in an afternoon), but then it also allows programs to utilize *optimized platform specific code upon execution / lowering to a given target*.
 
 ## Conclusion
 
-Wow, now I can compile high level programs using polymorphism and algebraic types down to an architecture that can essentially be compiled to your favorite target with string replacement and a little bit of duct tape! Compiled programs which use this architecture are *at least* guaranteed to be simple to resurrect, which enough to guarantee a degree of immortality. This architecture will survive as long as there are machines with imperative instruction sets, or Turing complete general purpose languages that have integers and an array-like data structure.
+Wow, now I can compile high level programs using polymorphism and algebraic types down to an architecture that can essentially be compiled to your favorite target with string replacement and a little bit of duct tape! Compiled programs which use this architecture are *at least* guaranteed to be simple to resurrect: *some* degree of immortality. This architecture will survive as long as there are machines with imperative instruction sets, and probably as long as Turing-complete general-purpose-languages that have integers and array-like data structures.
 
 The compiler author is happy. The compiler author commits their changes like a responsible developer and goes home for the day.
 

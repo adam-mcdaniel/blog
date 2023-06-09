@@ -16,7 +16,7 @@ I started college at the University of Tennessee in fall of 2020, and graduated 
 
 ## Linguistics
 
-I'm very interested in how languages are related to one another: it's fascinating to me how languages evolve. I'm also interested in constructed languages, like [Toki Pona](https://en.wikipedia.org/wiki/Toki_Pona). It's fun to assign spoken languages to different programming languages as well: Java is certainly Vulgar Latin, C++ is definitely Russian, JavaScript is English, x86 is a Pidgin, and Rust is Classical Latin. Additionally, I'm proficient enough in Spanish to enjoy books, shows, podcasts, and movies in the language. I try to practice Spanish at least an hour a day listening to Spanish content in some form or another. =
+I'm very interested in how languages are related to one another: it's fascinating to me how languages evolve. I'm also interested in constructed languages, like [Toki Pona](https://en.wikipedia.org/wiki/Toki_Pona). It's fun to assign spoken languages to different programming languages as well: Java is certainly Vulgar Latin, C++ is definitely Russian, JavaScript is English, x86 is a Pidgin, and Rust is Classical Latin. Additionally, I'm proficient enough in Spanish to enjoy books, shows, podcasts, and movies in the language. I try to practice Spanish at least an hour a day listening to Spanish content in some form or another.
 
 ## Music
 
