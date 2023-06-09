@@ -19,7 +19,7 @@
   ],
   "author": {
     "name": "Adam McDaniel",
-    "photo": "/blog/me.jpg",
+    "photo": "./me.jpg",
     "bio": "Programmer, musician, and graduate student at UTK.",
     "contacts": {
       "rss": "",

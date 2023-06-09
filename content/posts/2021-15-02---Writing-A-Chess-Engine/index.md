@@ -3,7 +3,7 @@ title: Writing A Chess Engine
 date: "2021-02-15T11:52:37.121Z"
 template: "post"
 draft: false
-slug: "writing-a-chess-engine"
+slug: "/blog/writing-a-chess-engine"
 category: "Games"
 tags:
   - "Games"

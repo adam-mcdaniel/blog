@@ -3,7 +3,7 @@ title: The Oak Compiler
 date: "2020-08-27T11:52:37.121Z"
 template: "post"
 draft: false
-slug: "the-oak-compiler"
+slug: "/blog/the-oak-compiler"
 category: "Compilers"
 tags:
   - "Imperative Programming"
