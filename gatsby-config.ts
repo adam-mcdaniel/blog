@@ -56,9 +56,10 @@ export default {
                 date: node?.frontmatter?.date,
                 description: node?.frontmatter?.description,
                 url:
-                  config.url + config.pathPrefix + (node.frontmatter?.slug || node.fields?.slug),
+                  // config.url + config.pathPrefix + 
+                  (node.frontmatter?.slug || node.fields?.slug),
                 guid:
-                  config.url + config.pathPrefix +
+                  // config.url + config.pathPrefix +
                   (node.frontmatter?.slug || node.fields?.slug),
                 custom_elements: [{ "content:encoded": node.html }],
               })),
