@@ -159,7 +159,7 @@ export default {
         background_color: "hsl(0, 0%, 100%)",
         icon: "content/icon.jpg",
         display: "standalone",
-        start_url: config.url + config.pathPrefix,
+        start_url: "/",
       },
     },
     {

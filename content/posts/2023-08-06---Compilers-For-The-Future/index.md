@@ -3,13 +3,13 @@ title: Compilers For The Future
 date: "2023-06-08T11:52:37.121Z"
 template: "post"
 draft: false
-slug: "./compilers-for-the-future"
+slug: "/blog/compilers-for-the-future"
 category: "Compilers"
 tags:
   - "Compilers"
   - "Opinion"
 description: "How can we future-proof our programming languages?"
-socialImage: media/lisp.png
+socialImage: /media/lisp.png
 ---
 
 [***Click here to skip directly to the web demo of the compiler.***](#web-demo)
