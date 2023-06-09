@@ -3,7 +3,7 @@ title: The Oak Compiler
 date: "2020-08-27T11:52:37.121Z"
 template: "post"
 draft: false
-slug: "blog/the-oak-compiler"
+slug: "the-oak-compiler"
 category: "Compilers"
 tags:
   - "Imperative Programming"
@@ -20,7 +20,7 @@ works, and what I've learned.
 
 About 6 months ago, I began exploring compilers with [_extremely limited_](https://en.wikipedia.org/wiki/Turing_tarpit) target backends. I came across [the brain programming language](https://github.com/brain-lang/brain) and I was _immediately_ inspired. How could a high level programming language possibly use such a tiny backend? It was incredibly interesting to me, so I decided to write my own language, [free](https://github.com/adam-mcdaniel/free). It used a super-set of Brain**** with 3 new instructions for dynamic memory management. After a substantial amount of keyboard clacking and lots of confusion, I had accidentally made a working compiler! The end result looked like this:
 
-![Free Code](/blog/media/free.png)
+![Free Code](media/free.png)
 
 I couldn't believed it worked; it was incredible. The only problem was that _**free was absolute garbage**_. It couldn't be used for anything. At all. There wasn't a type system, memory was basically impossible to manage, there wasn't any kind of IO other than STDIN and STDOUT, there was no error checking system of any kind, etc. I loved my creation, but it wasn't practical.
 
