@@ -10,11 +10,11 @@
   "menu": [
     {
       "label": "Articles",
-      "path": "/"
+      "path": "/blog/"
     },
     {
       "label": "About me",
-      "path": "/pages/about"
+      "path": "/blob/pages/about"
     }
   ],
   "author": {

@@ -6,7 +6,7 @@ socialImage: ./profile1.jpg
 
 I'm a musician, [programmer](https://github.com/adam-mcdaniel), and graduate student. Python was my first programming language, but I'm a Rustacean🦀 at heart.
 
-<img src="profile1.jpg" alt="Me"/>
+<img src="./profile1.jpg" alt="Me"/>
 
 ## Programming
 

@@ -3,7 +3,7 @@ title: Object Oriented Shell Scripting
 date: "2019-09-01T01:35:32.169Z"
 template: "post"
 draft: false
-slug: "/object-oriented-shell-scripting"
+slug: "blog/object-oriented-shell-scripting"
 category: "Shells"
 tags:
   - "Scripting Languages"
