@@ -3,7 +3,7 @@ title: Compilers For The Future
 date: "2023-06-08T11:52:37.121Z"
 template: "post"
 draft: false
-slug: "/compilers-for-the-future"
+slug: "/blog/compilers-for-the-future"
 category: "Compilers"
 tags:
   - "Compilers"
