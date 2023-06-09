@@ -10,16 +10,16 @@
   "menu": [
     {
       "label": "Articles",
-      "path": "/blog/"
+      "path": "/"
     },
     {
       "label": "About me",
-      "path": "/blog/pages/about"
+      "path": "/pages/about"
     }
   ],
   "author": {
     "name": "Adam McDaniel",
-    "photo": "/blog/me.jpg",
+    "photo": "/me.jpg",
     "bio": "Programmer, musician, and graduate student at UTK.",
     "contacts": {
       "rss": "",
