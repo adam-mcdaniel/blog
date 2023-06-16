@@ -3,14 +3,14 @@ title: Object Oriented Shell Scripting
 date: "2019-09-01T01:35:32.169Z"
 template: "post"
 draft: false
-slug: "/blog/object-oriented-shell-scripting"
+slug: "object-oriented-shell-scripting"
 category: "Shells"
 tags:
   - "Scripting Languages"
   - "Shells"
   - "Object Oriented Programming"
 description: "While PowerShell can be cumbersome and ugly, its take on object orientation is very useful."
-socialImage: media/power_shell.png
+socialImage: /media/power_shell.png
 ---
 
 I used to dislike PowerShell very very much, but now I’ve become inspired by it. I was completely unaware of its Object Oriented features, and I think it’s a genius idea. Although I still dislike the implementation, PowerShell is a beautiful concept.

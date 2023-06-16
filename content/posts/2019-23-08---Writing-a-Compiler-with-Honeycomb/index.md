@@ -3,13 +3,13 @@ title: Writing a Compiler with Honeycomb
 date: "2020-01-09T01:35:32.169Z"
 template: "post"
 draft: false
-slug: "/blog/writing-a-compiler-with-honeycomb"
+slug: "writing-a-compiler-with-honeycomb"
 category: "Compilers"
 tags:
   - "Parsing"
   - "Compilers"
 description: "After reading about parser combinator libraries, I started to write my own! I eventually got it into a working state, and published it on crates.io under the name `honeycomb`."
-socialImage: media/honeycomb.jpg
+socialImage: /media/honeycomb.jpg
 ---
 
 After reading about parser combinator libraries, I started to write my own! I eventually got it into a working state, and published it on crates.io under the name `honeycomb`.

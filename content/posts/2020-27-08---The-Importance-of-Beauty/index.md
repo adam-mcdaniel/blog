@@ -3,14 +3,14 @@ title: The Importance of Beauty
 date: "2020-08-10T11:52:37.121Z"
 template: "post"
 draft: false
-slug: "/blog/the-importance-of-beauty"
+slug: "the-importance-of-beauty"
 category: "Design"
 tags:
   - "Beauty"
   - "UX"
   - "Design"
 description: "While the practical aspect of an application is incredibly important, I believe that the presentation is significantly more important."
-socialImage: media/design.png
+socialImage: /media/design.png
 ---
 
 While the practical aspect of an application is incredibly important, I believe that the presentation is significantly more important. If you can't display your product to your users in an appealing way, their attention will be drawn to more visually appealing alternatives.

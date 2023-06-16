@@ -3,12 +3,12 @@ title: What I Have Learned
 date: "2021-03-20T11:52:37.121Z"
 template: "post"
 draft: false
-slug: "/blog/what-i-have-learned"
+slug: "what-i-have-learned"
 category: "Opinion"
 tags:
   - "Opinion"
 description: "I've been reflecting recently, and decided to record the most important lessons I've learned."
-socialImage: media/lesson.jpg
+socialImage: /media/lesson.jpg
 ---
 
 I've been reflecting recently, and decided to record the most important lessons I've learned.

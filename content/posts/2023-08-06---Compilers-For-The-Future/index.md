@@ -3,7 +3,7 @@ title: Compilers For The Future
 date: "2023-06-08T11:52:37.121Z"
 template: "post"
 draft: false
-slug: "/blog/compilers-for-the-future"
+slug: "compilers-for-the-future"
 category: "Compilers"
 tags:
   - "Compilers"
@@ -12,7 +12,7 @@ description: "How can we future-proof our programming languages?"
 socialImage: /media/lisp.png
 ---
 
-[***Click here to skip directly to the web demo of the compiler.***](#web-demo)
+[***Click here to skip directly to the web-demo of the compiler.***](#web-demo)
 
 ## The Life Of A Programming Language
 
@@ -28,7 +28,7 @@ The compiler author works on other projects for a time and later returns to thei
 
 ***Time ticks by and the Earth moves around the Sun.***
 
-The compiler author is much older. The compiler author writes their philosophy regarding compiler design and semantics in a series of blog posts. While the compiler author is still alive, they are able to confess the *One True Way* to write programs idiomatically and what their compiler is *supposed* to do. Users are only able to write programs in this language as much as the compiler author makes it easy for them to know how to write programs in this language. The compiler author *must* spread the gospel of their language to the masses for it to live. A small community of users have gathered, and they rely on the compiler author's implementation for their projects to work. The compiler author is happy. The compiler author commits their changes like a responsible developer and goes home for the day.
+The compiler author is much older. The compiler author writes their philosophy regarding compiler design and semantics in a series of blog posts. While the compiler author is still alive, they are able to confess the *One True Way* to write programs idiomatically and what their compiler is *supposed* to do. A small community of users have gathered, and they rely on the compiler author's implementation for their projects to work. The compiler author is happy. The compiler author commits their changes like a responsible developer and goes home for the day.
 
 ***Time ticks by and the Earth moves around the Sun.***
 
@@ -65,7 +65,7 @@ This language is immortal because the *complexity* of the language is so minimal
 
 The goal of a compiler author is that their language live. Their language is the embodiment of their programming philosophy (or some subset of their philosophy) and a part of their legacy. The compiler author *ought* to balance the complexity of the language and the complexity of the source code so that their language is immortal. The compiler author *ought* to express their language with the smallest set of architecture dependent primitives necessary. If they do not, their language will be choked by the thorns and thistles and will eventually suffocate from the unnecessary effort required to port the language due to the extra complexity.
 
-*How can we set ourselves free from this curse?*
+> The wages of complexity and unportability are obsolescence, but the free gift of simplicity is eternal support.
 
 ## Writing Future-Proof Compilers (A Proposed Architecture)
 
@@ -81,11 +81,11 @@ What might a language look like that is simple, expressive, and efficient? What 
 
 I propose the following architecture for a future-proof language: a Turing tape architecture with a register and a read/write head over the tape. The architecture is simple to understand, and a compiler for the instruction set could easily be implemented by a freshman computer science student. The architecture is flexible enough to represent real world problems efficiently, 1:1 with common programming constructs.
 
-[***Click here to skip directly to the web demo of the compiler.***](#web-demo)
+[***Click here to skip directly to the web-demo of the compiler.***](#web-demo)
 
 ### Prelude
 
-This prelude demonstrates the types of all the primitives necessary to implement this language. The Turing tape architecture, much like BrainF\*!, is very simple to port, but it is much more expressive, efficient, and *complete*.
+This prelude demonstrates the types of all the primitives necessary to implement this language. The Turing tape architecture, much like BrainF/\*!, is very simple to port, but it is much more expressive, efficient, and *complete*.
 
 ```c
 // The cells of the Turing tape can be interpreted as an integer, a float, or a pointer.
@@ -108,64 +108,111 @@ union cell {
 void (*labels[10000])(void);
 ```
 
-### Instructions
+### Core Instructions
 
-Below are the **core** instructions. These are instructions that *must* be implemented for every target, although the implementation of the `Get` and `Put` input and output devices depends on the hardware executing the program; not every hardware has a keyboard and a screen, so compilers for targets aren't required to implement all of the `Get` and `Put` input and output device interfaces.
+[The current core instruction set.](https://adam-mcdaniel.github.io/sage/sage/vm/enum.CoreOp.html)
 
-| Instruction | Description | C Source |
-|---|:---|---|
-| `While` | While the register is not zero... | `while (reg.i) {` |
-| `If` | If the register is not zero... | `if (reg.i) {` |
-| `Else` | Otherwise (can only be inserted between an `If` and an `End`)... | `} else {` |
-| `Function` | Start a function definition. | `void f{LABEL_ID}() {` |
-| `End` | End a `While`, `If`, `If` `Else`, or `Function` block. | `}` |
-| `Set(n)` | Set the register to a value. | `reg.i = n;` |
-| `Call` | Call the Nth defined function in the program (0 indexed) where N is the value of the register as an integer. | `labels[reg.i]();` |
-| `Return` | Return from the current function and resume execution after the callsite. | `return;` |
-| `Save` | Store the register in the cell under the tape pointer. | `*ptr = reg;` |
-| `Restore` | Read the value in the cell under the tape pointer and store it in the register. | `reg = *ptr;` |
-| `Move(n: int)` | Move the tape pointer by N cells. | `ptr += n;` |
-| `Where` | Store the tape pointer in the register. | `reg.p = ptr;` |
-| `Deref` | Look at the cell under the tape pointer. Treat this as an address. Set the tape pointer to this address. Remember the previous tape pointer position so we can go back later. | `*ref++ = ptr; ptr = ptr->p;` |
-| `Refer` | Go back to the previous tape pointer position before the matching `Deref`. | `ptr = *--ref;` |
-| `Index` | Treat the register as a pointer. Shift this pointer by N cells, where N is the value of the cell under the tape pointer. | `reg.p += ptr->i;` |
-| `Add` | Add the value under the tape pointer to the register as an integer. | `reg.i += ptr->i;` |
-| `Sub` | Subtract the value under the tape pointer to the register as an integer. | `reg.i -= ptr->i;` |
-| `Mul` | Multiply the value under the tape pointer to the register as an integer. | `reg.i *= ptr->i;` |
-| `Div` | Divide the value under the tape pointer to the register as an integer. | `reg.i /= ptr->i;` |
-| `Rem` | Modulo the value under the tape pointer to the register as an integer. | `reg.i %= ptr->i;` |
-| `BitwiseNand` | Treat the register and the value under the tape pointer as 64 bit vectors (or the highest possible number of bits supported by the cell size on the platform). Perform a bitwise NAND operation on them. | `reg.i &= ptr->i;` |
-| `GreaterEqualZero` | Is the register greater than or equal to zero? | `reg.i = reg.i >= 0;` |
-| `Get(Input(InputMode, InputChannel))` | This provides a standardized interface for developers to write code that can read from a keyboard, a file, a network socket, etc. | *Target implementation for that specific input mode and channel interface, if supported.* |
-| `Put(Output(OutputMode, OutputChannel))` | This provides a standardized interface for developers to write code that can write to a screen, a file, a network socket, etc. | *Target implementation for that specific output mode and channel interface, if supported.* |
+Below are diagrams for the **core** instructions. These are instructions that *must* be implemented for every target, although the implementation of the `Get` and `Put` input and output devices depends on the hardware executing the program; not every hardware has a keyboard and a screen, so compilers for targets aren't required to implement all of the `Get` and `Put` input and output device interfaces.
 
-Below are the **standard** instructions. The compiler tries to use core instructions only, but will use standard instructions as required by the source code. Code using floating point instructions must use the standard instructions to do those operations. Almost all targets implement the standard instructions, but they are not required to do so. A bare metal target might not have floating point support, for example. Targets can support *some* of the standard instructions, but not all of them. For example, a target might support floats, but not have an allocator, so it can't support `Alloc` and `Free`.
+#### Move
+
+The `Move` instruction takes a constant integer as an argument: the number of cells to move the pointer. The number of cells can be either positive or negative.
+
+![Move](assets/move.svg)
+
+#### Index
+
+The `Index` instruction moves the register's value as a pointer by the value pointed to on the tape. For any N stored on the tape under the pointer, the address stored in the register will move by N cells. If N is negative, it will move the pointer in the register N cells to the left. If N is positive, the pointer will move to the right.
+
+This is to account for the fact that the virtual machine is abstracted over pointers. Pointers, under the hood, are varying distances apart for different implementations. For implementations using an indexed array as a tape, the "address" of each cell is the previous address plus one. For implementations using **real pointers**, this difference can be 2, 4, 8 or who knows what: it depends on the implementation. So, to write code that uses pointers *without understanding how they work*, we need the `Index` instruction along with `Where?`, `Deref`, and `Refer`.
+
+![Index](assets/index.svg)
+
+#### BitwiseNand
+
+`BitwiseNand` performs a bitwise-NAND operation on the register and the tape, and stores the result in the register. This should perform a bitwise-NAND across all the bits which represent the cell. I would ideally like to ground bitwise operations in a more mathematical way, but this is good for now. I don't necessarily like the concept of forcing a target to implement cells in terms of bits, though.
+
+![Bitwise Nand](assets/bitwise-nand.svg)
+
+#### Where?
+
+`Where?` sets the register equal to the current value of the pointer: `reg = ptr`. Consider an implementation of the VM that uses *actual pointers* to implement the turing tape. Using cell indices as addresses simply doesn't work: you can't dereference addresses like `0x00000005` on the hardware. This instruction helps the VM abstract any implementation details about the memory, while still allowing enough flexibility to be interoperable with different representations of pointers. With `Where?`, the VM can use either cell indices or real pointers to implement the tape without the compiler needing to know the difference.
+
+![Where?](assets/where.svg)
+
+#### Deref and Refer
+
+The `Deref` instruction saves the current pointer to the "deref stack", and *dereferences* the address stored at the pointer: `push(ptr); ptr = *ptr`. The `Refer` undoes the last `Deref` instruction. It pops the top pointer off the deref stack, and stores it in the pointer: `ptr = pop()`.
+
+![Deref](assets/deref.svg) ![Refer](assets/refer.svg)
+
+#### IsNonNegative?
+
+`IsNonNegative?` is the only operator for comparisons. It sets the register equal to 1 if the register is non-negative, 0 otherwise: `register = register >= 0? 1 : 0`.
+
+#### Math
+
+Each of the arithmetic operators function identically. For addition: `register += *ptr`. For subtraction: `register -= *ptr`. Very straightforward. Division (and remainder) by zero should halt the machine.
+
+##### Add and Subtract
+
+![Addition](assets/add.svg) ![Subtract](assets/subtract.svg)
+
+##### Multiply and Divide
+
+![Multiply](assets/multiply.svg) ![Divide](assets/divide.svg)
+
+##### Remainder
+
+![Remainder](assets/remainder.svg)
+
+#### While, If, and Else
+
+The `While` instruction creates a while-the-register-is-not-zero-loop over the block of code terminated by the matching `End` instruction: `while (register != 0) {`.
+
+The `If` instruction functions similarly: it creates an if statement which can have an optional `Else` instruction. If statements are structured either: `If` ... `End`, or `If` ... `Else` ... `End`.
+
+#### Function, Call, and Return
+
+The `Function` instruction declares a function, and is terminated with a matching `End` block. Instructions between the `Function` and `End` block are the function's body. The body of the function is only executed when the function is called.
+
+The `Call` instruction calls the `register`th defined function in the program. If the register is 0, it will call the first function defined in the program. Calling on negative values halts the machine. Whenever the called function returns, it resumes execution where it was called.
+
+The `Return` instruction makes the current function return early. Outside of a function body, this causes the program to terminate.
+
+#### Set
+
+The `Set` instruction takes a constant integer argument, and sets the register to that value.
+
+![Set](assets/set.svg)
+
+#### Save and Restore
+
+The `Save` instruction writes the value of the register to the cell at the pointer: `*ptr = register`. The `Restore` instruction is the inverse: `register = *ptr`.
+
+![Save](assets/save.svg) ![Restore](assets/restore.svg)
+
+#### Get and Put
+
+The `Get` instruction receives a value from the interface I/O device, and stores it in the register. The `Put` instruction sends the value of the register to the interface I/O device.
+This I/O device is statically known to the target, and can range from STDIN/STDOUT to a motor device.
+
+#### End
+
+The `End` instruction has no use on its own: its only purpose is to serve as a matching instruction for the `While`, `If`, `Else`, and `Function` instructions.
+
+
+### Standard Instructions
+
+[The current standard instruction set.](https://adam-mcdaniel.github.io/sage/sage/vm/enum.StandardOp.html)
+
+The compiler tries to use core instructions only, but will use standard instructions as required by the source code. Code using floating point instructions must use the standard instructions to do those operations. Almost all targets implement the standard instructions, but they are not required to do so. A bare metal target might not have floating point support, for example. Targets can support *some* of the standard instructions, but not all of them. For example, a target might support floats, but not have an allocator, so it can't support `Alloc` and `Free`.
 
 Additionally, the standard instructions implement the `Peek` and `Poke` instructions used for FFI. Any functionality that's outsourced to foreign code must use these instructions. The compiler for the target will then link in the foreign code in accordance with the interfaces used by the `Peek` and `Poke` instructions.
 
-| Instruction | Description | C Source |
-|---|:---|---|
-| `SetFloat(n: float)` | Set the register to a floating point value. | `reg.f = n;` |
-| `ToInt` | Convert the register (interpreted as a floating point value) to an integer. | `reg.i = reg.f;` |
-| `ToFloat` | Convert the register (interpreted as an integer) to a floating point value. | `reg.f = reg.i;` |
-| `Sin` | Treat the register as a floating point value. Compute the sine of this value. | `reg.f = sin(reg.f);` |
-| `Cos` | Treat the register as a floating point value. Compute the cosine of this value. | `reg.f = cos(reg.f);` |
-| `Tan` | Treat the register as a floating point value. Compute the tangent of this value. | `reg.f = tan(reg.f);` |
-| `ASin` | Treat the register as a floating point value. Compute the arcsine of this value. | `reg.f = asin(reg.f);` |
-| `ACos` | Treat the register as a floating point value. Compute the arccosine of this value. | `reg.f = acos(reg.f);` |
-| `ATan` | Treat the register as a floating point value. Compute the arctangent of this value. | `reg.f = atan(reg.f);` |
-| `AddFloat` | Add the value under the tape pointer to the register as a floating point value. | `reg.f += ptr->f;` |
-| `SubFloat` | Subtract the value under the tape pointer to the register as a floating point value. | `reg.f -= ptr->f;` |
-| `MulFloat` | Multiply the value under the tape pointer to the register as a floating point value. | `reg.f *= ptr->f;` |
-| `DivFloat` | Divide the value under the tape pointer to the register as a floating point value. | `reg.f /= ptr->f;` |
-| `RemFloat` | Modulo the value under the tape pointer to the register as a floating point value. | `reg.f %= ptr->f;` |
-| `GreaterEqualZeroFloat` | Is the register greater than or equal to zero as a floating point value? | `reg.i = reg.f >= 0;` |
-| `Alloc` | Allocate a block of N cells, where N is the value of the register as an integer, and store the pointer in the register. | `reg.p = malloc(reg.i * sizeof(reg));` |
-| `Free` | Free the memory block pointed to by the register. | `free(reg.p);` |
-| `Poke(FFI-Interface)` | Write a value to the given FFI interface. A developer might `Poke` an interface to request some platform specific functionality (such as some external function call in LibC), and `Peek` is used to read the value returned by the interface. | *Target implementation for that specific FFI interface, if supported.* |
-| `Peek(FFI-Interface)` | Read a value from the given FFI interface and store it in the register. A developer might `Poke` an interface to request some platform specific functionality (such as some external function call in LibC), and `Peek` is used to read the value returned by the interface. | *Target implementation for that specific FFI interface, if supported.* |
+These instruction sets aren't definitive by any means: I want less redundant instructions (Add and Subtract), support for more bit operations like leftshift and rightshift, and functionality for math expressions like logarithms.
 
-These instruction sets aren't definitive by any means: I want less redundant instructions (Add and Subtract), support for more bit operations like leftshift and rightshift, and functionality for math expressions like logarithms. All instructions should only operate on the register, the value under the tape, and (optionally) a constant literal argument. This design makes it very easy for an optimizer to make deductions about the state of the tape at any given moment — just short of statically determining all the values under the tape at runtime.
+All instructions should only operate on the register, the value under the tape, and (optionally) a constant literal argument. This design makes it very easy for an optimizer to make deductions about the state of the tape at any given moment — just short of statically determining all the values under the tape at runtime.
 
 ## A Compiler for the Architecture
 
@@ -186,20 +233,20 @@ fun fact // Factorial function in the psuedo-asm language
 end
 ```
 
-To really prove that the architecture is viable, I've implemented a compiler for a high level language that targets the instruction set. It has parametric polymorphism, algebraic datatypes, pattern matching, and more. The language is simple enough that it can easily be ported to platforms like the web, but it's also capable of important algorithms like AES encryption and decryption (Rijndael). The compiler could be reimplemented in itself (with a *lot* of effort). The stages of compilation used to create the language are suitable intermediate representations for implementing other languages as well.
+To really prove that the architecture is viable, I've implemented a compiler for a high level language that targets the instruction set. It has parametric polymorphism⚗️, algebraic data types🧮, pattern matching🎯, and more. The language backend is simple enough that it can easily be ported to platforms like the web, but it's also capable of implementing common algorithms like quicksort or real world algorithms like AES encryption and decryption (Rijndael). The compiler *could* be reimplemented in itself (with a *lot* of effort). The stages of compilation used to create the language are suitable intermediate representations for implementing other languages as well.
 
-This webdemo shows the compiler in action: you can change the output to see the generated IR, the psuedo-assembly, the instruction set code, the equivalent C source, the x86 assembly, and the execution output (the generated instructions are fed into an interpreter after compilation).
+This web-demo shows the compiler in action: you can change the output to see the generated IR, the psuedo-assembly, the instruction set code, the equivalent C source, the x86 assembly, and the execution output (the generated instructions are fed into an interpreter after compilation).
 
-### Web Demo
+### Web-Demo
 
 <embed type="text/html" src="https://adam-mcdaniel.github.io/sage/sage/web/index.html" title="Compiler" width="100%" height="940em"></embed>
 
 You might worry that the architecture forces the language to compile to a verbose number of instructions, and that this leads to inefficiency despite being portable. Fear not: optimizations can be applied very aggressively to make the code highly performant. A compiler, for example, might implement first class Tensor objects which can be compiled using the simple architectures instructions. An optimizing compiler can discern a matrix multiplication *very easily* just using peephole optimizations on the compiled instructions, and the optimizer can substitute those operations with the equivalent BLAS library calls. This allows programs to be *compiled for portability* for distribution (write once run anywhere, *and* add a new supported platform in an afternoon), but then it also allows programs to utilize *optimized platform specific code upon execution / lowering to a given target*.
 
+I plan to create a frontend language with traits and classes on top of this representation, and to create a statically checked foreign function interface model for the language to allow users to implement hooks for LibC with a simple TOML file.
+
 ## Conclusion
 
-Wow, now I can compile high level programs using polymorphism and algebraic types down to an architecture that can essentially be compiled to your favorite target with string replacement and a little bit of duct tape! Compiled programs which use this architecture are *at least* guaranteed to be simple to resurrect: *some* degree of immortality. This architecture will survive as long as there are machines with imperative instruction sets, and probably as long as Turing-complete general-purpose-languages that have integers and array-like data structures.
-
-The compiler author is happy. The compiler author commits their changes like a responsible developer and goes home for the day.
+Wow, now I can compile high level programs using polymorphism and algebraic types down to an architecture that can essentially be assembled for your favorite target with string replacement and a little bit of duct tape! Compiled programs which use this architecture are *at least* guaranteed to be simple to resurrect: *some* degree of immortality. This architecture will survive as long as there are machines with imperative instruction sets, and probably as long as Turing-complete general-purpose-languages that have integers and array-like data structures.
 
 ***Time ticks by and the Earth moves around the Sun.***

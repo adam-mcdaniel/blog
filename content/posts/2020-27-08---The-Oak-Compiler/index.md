@@ -3,14 +3,14 @@ title: The Oak Compiler
 date: "2020-08-27T11:52:37.121Z"
 template: "post"
 draft: false
-slug: "/blog/the-oak-compiler"
+slug: "the-oak-compiler"
 category: "Compilers"
 tags:
   - "Imperative Programming"
   - "Turing Tarpit"
   - "Compilers"
 description: "I've written an alternative to the C programming language. This is how it works, and what I've learned."
-socialImage: media/oak.png
+socialImage: /media/oak.png
 ---
 
 I've written an alternative to the C programming language. This is how it 

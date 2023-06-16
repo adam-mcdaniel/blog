@@ -1,7 +1,7 @@
 ---
 title: "About me"
 template: "page"
-socialImage: ./profile1.jpg
+socialImage: /./profile1.jpg
 ---
 
 I'm a musician, [programmer](https://github.com/adam-mcdaniel), and graduate student. Python was my first programming language, but I'm a Rustacean🦀 at heart.
@@ -16,7 +16,7 @@ I started college at the University of Tennessee in fall of 2020, and graduated 
 
 ## Linguistics
 
-I'm very interested in how languages are related to one another: it's fascinating to me how languages evolve. I'm also interested in constructed languages, like [Toki Pona](https://en.wikipedia.org/wiki/Toki_Pona). It's fun to assign spoken languages to different programming languages as well: Java is certainly Vulgar Latin, C++ is definitely Russian, JavaScript is English, x86 is a Pidgin, and Rust is Classical Latin. Additionally, I'm proficient enough in Spanish to enjoy books, shows, podcasts, and movies in the language. I try to practice Spanish at least an hour a day listening to Spanish content in some form or another.
+I'm very interested in how languages are related to one another: it's fascinating to me how languages evolve. I'm also interested in constructed languages, like [Toki Pona](https://en.wikipedia.org/wiki/Toki_Pona). It's fun to assign spoken languages to different programming languages as well: Java is certainly Vulgar Latin, JavaScript is English, x86 is a Pidgin, and C is Classical Latin. Additionally, I'm proficient enough in Spanish to enjoy books, shows, podcasts, and movies in the language. I try to practice Spanish at least an hour a day listening to Spanish content in some form or another.
 
 ## Music
 
@@ -24,7 +24,7 @@ I've played guitar since 2016, and I play often. I love the Beatles, the Rolling
 
 ## Chess
 
-My [lichess](https://lichess.org) account is [adamthekiwi](https://lichess.org/@/adamthekiwi). I like to say that my peak blitz chess rating was 2161 (quite literally a chess master rating), but it was out of sheer luck that I ended up beating three ~2000 rated players in a row when I first started. I'm somewhere around 1300-1400 on Lichess.
+My [lichess](https://lichess.org) account is [adamthekiwi](https://lichess.org/@/adamthekiwi). I like to say that my peak blitz chess rating was 2161 (quite literally a chess master rating), but it was out of sheer luck that three ~2000 rated players in a row resigned early when I first started. I'm somewhere around 1300-1400 on Lichess.
 
 I also wrote my own cross platform engine which runs anywhere. You can play against it right here in the browser!
 

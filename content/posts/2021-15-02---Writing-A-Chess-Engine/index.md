@@ -3,14 +3,14 @@ title: Writing A Chess Engine
 date: "2021-02-15T11:52:37.121Z"
 template: "post"
 draft: false
-slug: "/blog/writing-a-chess-engine"
+slug: "writing-a-chess-engine"
 category: "Games"
 tags:
   - "Games"
   - "Chess"
   - "Design"
 description: "I've written a dependency-free chess engine library in my free time between classes."
-socialImage: media/chess.jpg
+socialImage: /media/chess.jpg
 ---
 
 I've written a dependency-free chess engine library in my free time between classes.
