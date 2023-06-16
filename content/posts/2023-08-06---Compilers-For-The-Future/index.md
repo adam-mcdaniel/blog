@@ -216,18 +216,19 @@ All instructions should only operate on the register, the value under the tape, 
 
 ## A Compiler for the Architecture
 
-Now that we have a simple to implement instruction set that ***could*** (albeit somewhat inconveniently) represent the bulk of our real world problems. More importantly, it can be translated *1:1* with a simple psuedo-assembly language designed over the architecture, emulating a stack using predefined tape locations as registers.
+Now that we have a simple to implement instruction set that ***could*** (albeit somewhat inconveniently) represent the bulk of our real world problems. More importantly, it can be translated *1:1* with a simple pseudo-assembly language designed over the architecture, emulating a stack using predefined tape locations as registers.
 
-```x86asm
-fun fact // Factorial function in the psuedo-asm language
-    if [FP]
-        mov [FP], A
-        dec A
-        push A
-        call fact
-        mul [FP + 1], [FP]
-        pop
+```nasm
+fun fact // Factorial function in the pseudo-asm language
+    if [FP] // Is the argument non-zero?
+        mov [FP], A // Move the argument into register A
+        dec A // Decrement A
+        push A // Push Argument - 1 onto the stack
+        call fact // Call fact with Argument - 1
+        mul [FP + 1], [FP] // Multiply the result by the argument
+        pop // Pop the argument - 1 off the stack
     else
+        // If the argument is zero, return 1
         set [FP], 1
     end
 end
@@ -244,6 +245,8 @@ This web-demo shows the compiler in action: you can change the output to see the
 You might worry that the architecture forces the language to compile to a verbose number of instructions, and that this leads to inefficiency despite being portable. Fear not: optimizations can be applied very aggressively to make the code highly performant. A compiler, for example, might implement first class Tensor objects which can be compiled using the simple architectures instructions. An optimizing compiler can discern a matrix multiplication *very easily* just using peephole optimizations on the compiled instructions, and the optimizer can substitute those operations with the equivalent BLAS library calls. This allows programs to be *compiled for portability* for distribution (write once run anywhere, *and* add a new supported platform in an afternoon), but then it also allows programs to utilize *optimized platform specific code upon execution / lowering to a given target*.
 
 I plan to create a frontend language with traits and classes on top of this representation, and to create a statically checked foreign function interface model for the language to allow users to implement hooks for LibC with a simple TOML file.
+
+[Here is a link to the repository.](https://github.com/adam-mcdaniel/sage)
 
 ## Conclusion
 
