@@ -32,7 +32,7 @@ The compiler author is much older. The compiler author writes their philosophy r
 
 ***Time ticks by and the Earth moves around the Sun.***
 
-The compiler author is dead. The community for the language has slowly shrunk, and the only remnants of the dialect are a few programs used to check people's tax returns for the next ~1000 years. The compiler author's implementation of the language sits in a repository completely untouched over the ages. These files are the fossils of a language.
+The compiler author is dead. The community for the language has slowly shrunk, and the only remnants of the dialect are a few programs used to check people's tax returns for the next ~1000 years. The compiler author's implementation of the language sits in a repository completely untouched over the ages. These files are the fossils of the language.
 
 ***Time ticks by and the Earth moves around the Sun.***
 
@@ -235,7 +235,7 @@ end
 
 To really prove that the architecture is viable, I've implemented a compiler for a high level language that targets the instruction set. It has parametric polymorphism⚗️, algebraic data types🧮, pattern matching🎯, and more. The language backend is simple enough that it can easily be ported to platforms like the web, but it's also capable of implementing common algorithms like quicksort or real world algorithms like AES encryption and decryption (Rijndael). The compiler *could* be reimplemented in itself (with a *lot* of effort). The stages of compilation used to create the language are suitable intermediate representations for implementing other languages as well.
 
-This web-demo shows the compiler in action: you can change the output to see the generated IR, the psuedo-assembly, the instruction set code, the equivalent C source, the x86 assembly, and the execution output (the generated instructions are fed into an interpreter after compilation).
+This web-demo shows the compiler in action: you can change the output to see the generated IR, the pseudo-assembly, the instruction set code, the equivalent C source, the x86 assembly, and the execution output (the generated instructions are fed into an interpreter after compilation).
 
 ### Web-Demo
 
