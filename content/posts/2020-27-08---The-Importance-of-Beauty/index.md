@@ -3,7 +3,7 @@ title: The Importance of Beauty
 date: "2020-08-10T11:52:37.121Z"
 template: "post"
 draft: false
-slug: "the-importance-of-beauty"
+slug: "/the-importance-of-beauty"
 category: "Design"
 tags:
   - "Beauty"
