@@ -18,7 +18,7 @@ socialImage: /media/lisp.png
 2. [An Immortal Language](#an-immortal-language)
 3. [Writing Future-Proof Compilers (A Proposed Architecture)](#writing-future-proof-compilers-a-proposed-architecture)
 4. [Web Demo](#web-demo)
-5. [Applying Evolutionary Algorithms🧬 to the Architecture](#applying-evolutionary-algorithms🧬-to-the-architecture)
+5. [Applying Evolutionary Algorithms🧬 to the Architecture](#applying-evolutionary-algorithms-to-the-architecture)
 6. [Conclusion](#conclusion)
 
 ![The Script](assets/the-script.jpeg)
