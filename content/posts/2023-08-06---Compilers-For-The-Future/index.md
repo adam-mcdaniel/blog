@@ -12,7 +12,19 @@ description: "How can we future-proof our programming languages?"
 socialImage: /media/lisp.png
 ---
 
-[***Click here to skip directly to the web-demo of the compiler.***](#web-demo)
+## Index
+
+1. [The Life Of A Programming Language](#the-life-of-a-programming-language)
+2. [An Immortal Language](#an-immortal-language)
+3. [Writing Future-Proof Compilers (A Proposed Architecture)](#writing-future-proof-compilers-a-proposed-architecture)
+4. [Web Demo](#web-demo)
+5. [Applying Evolutionary Algorithms🧬 to the Architecture](#applying-evolutionary-algorithms🧬-to-the-architecture)
+6. [Conclusion](#conclusion)
+
+![The Script](assets/the-script.jpeg)
+|***The Script*** |
+|:--:|
+||
 
 ## The Life Of A Programming Language
 
@@ -36,6 +48,11 @@ The compiler author is dead. The community for the language has slowly shrunk, a
 
 ***Time ticks by and the Earth moves around the Sun.***
 
+![The Fossil](assets/the-fossil.jpeg)
+| ***The Fossil*** |
+|:--:|
+||
+
 Decades have passed. Hardware has transformed. 64 bit code support is obsolete. Manufacturers are transitioning away from traditional x86 based assembly architectures and using the new McDonald's "McLambda-Bitecode" CPU (I'm lovin' it™) powered by the legendary STBLC (Simply-Typed-Binary-Lambda-Calculus) instruction set architecture.
 
 The compiler author's language is not only dead, it is *buried*. The language is decomposing in its repository while time eats it up. To run any of the compiler author's programs now, a new implementation of the language must be written from scratch. The fate of the language depends on how difficult it is to resuscitate the language from its grave.
@@ -43,6 +60,11 @@ The compiler author's language is not only dead, it is *buried*. The language is
 *Will a machine ever sing a song in this tongue again?*
 
 ## An Immortal Language
+
+![The Immortal Language](assets/the-immortal-language.jpeg)
+| ***The Immortal Language*** |
+|:--:|
+||
 
 A language is truly mortal when it is too difficult to resuscitate from the dead. Similarly, a language is immortal when it is easy to resuscitate from the dead.
 
@@ -59,7 +81,7 @@ One example of an immortal language is BrainF*$!. A novice programmer can implem
 |`[`|`while (*ptr) {`|
 |`]`|`}`|
 
-This language is immortal because the *complexity* of the language is so minimal. The trade off in BrainF\\{& is that the complexity is shifted into the source code. The only way to simplify the source code is to take on more complexity in the language. This is the trade off of immortality. An immortal language must balance both the complexity required to implement the language and the complexity of source code required to implement any possible algorithm. 
+This language is immortal because the *complexity* of the language is so minimal. The trade off in BrainF\\{& is that the complexity is shifted into the source code. The only way to simplify the source code is to take on more complexity in the language. This is the trade off of immortality. An immortal language must balance both the complexity required to implement the language and the complexity of source code required to implement any possible algorithm.
 
 > And a voice from heaven said, "This is my *Compiler*, whom I love; with it I am well pleased."
 
@@ -68,6 +90,11 @@ The goal of a compiler author is that their language live. Their language is the
 > The wages of complexity and unportability are obsolescence, but the free gift of simplicity is eternal support.
 
 ## Writing Future-Proof Compilers (A Proposed Architecture)
+
+![The Law](assets/the-law.jpeg)
+| ***The Law*** |
+|:--:|
+||
 
 BrainF\*! is a simple language, but it is not a *useful* language. It is not useful for many reasons:
 
@@ -201,7 +228,6 @@ This I/O device is statically known to the target, and can range from STDIN/STDO
 
 The `End` instruction has no use on its own: its only purpose is to serve as a matching instruction for the `While`, `If`, `Else`, and `Function` instructions.
 
-
 ### Standard Instructions
 
 [The current standard instruction set.](https://adam-mcdaniel.github.io/sage/sage/vm/enum.StandardOp.html)
@@ -215,6 +241,11 @@ These instruction sets aren't definitive by any means: I want less redundant ins
 All instructions should only operate on the register, the value under the tape, and (optionally) a constant literal argument. This design makes it very easy for an optimizer to make deductions about the state of the tape at any given moment — just short of statically determining all the values under the tape at runtime.
 
 ## A Compiler for the Architecture
+
+![Babel](assets/babel.jpeg)
+|***Babel***|
+|:--:|
+||
 
 Now that we have a simple to implement instruction set that ***could*** (albeit somewhat inconveniently) represent the bulk of our real world problems. More importantly, it can be translated *1:1* with a simple pseudo-assembly language designed over the architecture, emulating a stack using predefined tape locations as registers.
 
@@ -248,8 +279,45 @@ I plan to create a frontend language with traits and classes on top of this repr
 
 [Here is a link to the repository.](https://github.com/adam-mcdaniel/sage)
 
+## Applying Evolutionary Algorithms🧬 to the Architecture
+
+![The Creator's Spindle](assets/the-creator's-spindle.jpeg)
+|***The Creator's Spindle***|
+|:--:|
+||
+
+[I also investigated some interesting properties of the architecture (and other variants of the VM as well) in a research project for one of my graduate classes.](https://github.com/adam-mcdaniel/program-evolution) The simple Turing tape architecture is surprisingly well suited to genetic algorithms: the program can take an existing Sage program and optimize the compiled output for a given fitness function, or it can evolve a VM program from scratch to maximize a fitness function.
+
+The results of the genetic algorithm were very interesting: one test program's code size (a simple factorial example) shrunk by 20%! An implementation of quicksort shrunk by 2.4%, a much more reasonable but not insignificant result. This was very simple to implement as well: the VM was implemented in Python and ran the test programs against a function which monitored the VM's input and output buffers.
+
+|Factorial Program Before|Factorial Program After|
+|:---:|:---:|
+|![Factorial Before](assets/Factorial0.svg)|![Factorial After](assets/Factorial300.svg)|
+
+#### Quicksort Before
+
+![Quicksort Before](assets/Sort0.svg)
+
+#### Quicksort After
+
+![Quicksort After](assets/Sort300.svg)
+
+[You can see a more in-depth explanation of the evolutionary process and the results here.](https://github.com/adam-mcdaniel/program-evolution)
+
+An optimizing compiler might use these techniques to provide additional optimizations on top of those achieved by inlining and peephole optimizations.
+
+![The Genome](assets/the-genome.jpeg)
+|***The Genome***|
+|:--:|
+||
+
 ## Conclusion
 
 Wow, now I can compile high level programs using polymorphism and algebraic types down to an architecture that can essentially be assembled for your favorite target with string replacement and a little bit of duct tape! Compiled programs which use this architecture are *at least* guaranteed to be simple to resurrect: *some* degree of immortality. This architecture will survive as long as there are machines with imperative instruction sets, and probably as long as Turing-complete general-purpose-languages that have integers and array-like data structures.
 
 ***Time ticks by and the Earth moves around the Sun.***
+
+![Creation](assets/creation.jpeg)
+|***Creation***|
+|:--:|
+||
