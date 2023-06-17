@@ -159,7 +159,7 @@ This is to account for the fact that the virtual machine is abstracted over poin
 
 `BitwiseNand` performs a bitwise-NAND operation on the register and the tape, and stores the result in the register. This should perform a bitwise-NAND across all the bits which represent the cell. I would ideally like to ground bitwise operations in a more mathematical way, but this is good for now. I don't necessarily like the concept of forcing a target to implement cells in terms of bits, though.
 
-![Bitwise Nand](assets/bitwise-nand.svg)
+![BitwiseNand](assets/bitwise-nand.svg)
 
 #### Where?
 
@@ -286,9 +286,9 @@ I plan to create a frontend language with traits and classes on top of this repr
 |:--:|
 ||
 
-[I also investigated some interesting properties of the architecture (and other variants of the VM as well) in a research project for one of my graduate classes.](https://github.com/adam-mcdaniel/program-evolution) The simple Turing tape architecture is surprisingly well suited to genetic algorithms: the program can take an existing Sage program and optimize the compiled output for a given fitness function, or it can evolve a VM program from scratch to maximize a fitness function.
+I also investigated some interesting properties of the architecture (and other variants of the VM as well) in a research project for one of my graduate classes. [I wrote a program which evolves compiled Sage programs.](https://github.com/adam-mcdaniel/program-evolution) The simple Turing tape architecture is surprisingly well suited to genetic algorithms: the evolutionary program not only has the capability to optimize the compiled output of existing Sage code based on a user-defined fitness function, but it can also evolve VM programs from scratch.
 
-The results of the genetic algorithm were very interesting: one test program's code size (a simple factorial example) shrunk by 20%! An implementation of quicksort shrunk by 2.4%, a much more reasonable but not insignificant result. This was very simple to implement as well: the VM was implemented in Python and ran the test programs against a function which monitored the VM's input and output buffers.
+The results of the genetic algorithm were very interesting: one test program's code size (a simple factorial example) shrunk by 20%! An implementation of quicksort shrunk by 2.4%, a much more reasonable but not insignificant result. This was very simple to implement as well. The VM was implemented in Python, and the user-defined fitness function just executes the program and checks the input and output buffers against the expected values for random inputs.
 
 |Factorial Program Before|Factorial Program After|
 |:---:|:---:|
