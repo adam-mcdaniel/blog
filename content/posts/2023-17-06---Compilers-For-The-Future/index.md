@@ -1,6 +1,6 @@
 ---
 title: Compilers For The Future
-date: "2023-06-08T11:52:37.121Z"
+date: "2023-06-17T11:52:37.121Z"
 template: "post"
 draft: false
 slug: "/compilers-for-the-future"
@@ -99,7 +99,7 @@ The goal of a compiler author is that their language live. Their language is the
 BrainF\*! is a simple language, but it is not a *useful* language. It is not useful for many reasons:
 
 1. It's not expressive enough to simply represent the logic of real world problems.
-2. As a compiler target, it is not efficient. Addition is `O(N)`. For a language to be useful, it must *at least* be able to implement any algorithm in the smallest possible time complexity (and ideally space complexity, but this might be less important).
+2. [As a compiler target, it is not efficient. Addition is `O(N)`.](https://github.com/adam-mcdaniel/harbor) For a language to be useful, it must *at least* be able to implement any algorithm in the smallest possible time complexity (and ideally space complexity, but this might be less important).
 3. It is *incomplete* for general purpose use. There is functionality that developers need that can't be implemented in BrainF\*!. For example, there is no way to compile a program that reads a file from disk, because there is no way to call foreign functions.
 
 Compiler authors want to write useful languages, so the language must be able to express the logic of real world problems. The language must be able to implement any algorithm in the smallest possible time complexity. The language must be able to call foreign functions. The language must be able to do all of this while being as simple as possible.
@@ -232,7 +232,7 @@ The `End` instruction has no use on its own: its only purpose is to serve as a m
 
 [The current standard instruction set.](https://adam-mcdaniel.github.io/sage/sage/vm/enum.StandardOp.html)
 
-The compiler tries to use core instructions only, but will use standard instructions as required by the source code. Code using floating point instructions must use the standard instructions to do those operations. Almost all targets implement the standard instructions, but they are not required to do so. A bare metal target might not have floating point support, for example. Targets can support *some* of the standard instructions, but not all of them. For example, a target might support floats, but not have an allocator, so it can't support `Alloc` and `Free`.
+The compiler tries to use core instructions only, but will use standard instructions as required by the source code. Code using floating point instructions must use the standard instructions to do those operations. Almost all targets implement the standard instructions, but they are not required to do so. A bare metal target might not have floating point support, for example. Targets don't have to implement *all* of the standard instructions, either. For example, a target might support floats, but not have an allocator, so it would support the floating point `Add` instruction but not `Alloc` or `Free`.
 
 Additionally, the standard instructions implement the `Peek` and `Poke` instructions used for FFI. Any functionality that's outsourced to foreign code must use these instructions. The compiler for the target will then link in the foreign code in accordance with the interfaces used by the `Peek` and `Poke` instructions.
 
