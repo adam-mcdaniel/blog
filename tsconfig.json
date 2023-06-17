@@ -15,7 +15,6 @@
       "@/constants": ["./src/constants"],
       "@/components": ["./src/components"],
       "@/components/*": ["./src/components/*"],
-      "@/mocks": ["./internal/testing/__mocks__"]
     },
     "noEmit": true,
     "strict": true,
