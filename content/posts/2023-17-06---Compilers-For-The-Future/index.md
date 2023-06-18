@@ -286,7 +286,7 @@ I plan to create a frontend language with traits and classes on top of this repr
 |:--:|
 ||
 
-I also investigated some interesting properties of the architecture (and other variants of the VM as well) in a research project for one of my graduate classes. [I wrote a program which evolves compiled Sage programs.](https://github.com/adam-mcdaniel/program-evolution) The simple Turing tape architecture is surprisingly well suited to genetic algorithms🧬: the evolutionary program not only has the capability to optimize the compiled output of existing Sage code based on a user-defined fitness function, but it can also evolve VM programs from scratch.
+I also investigated some interesting properties of the architecture (and other variants of the VM as well) in a research project for one of my graduate classes. [I wrote a program which evolves compiled programs for the instruction set.](https://github.com/adam-mcdaniel/program-evolution) The simple Turing tape architecture is surprisingly well suited to genetic algorithms🧬: the evolutionary program not only has the capability to optimize the compiled output of existing code based on a user-defined fitness function, but it can also evolve VM programs from scratch.
 
 The results of the genetic algorithm were very interesting: one test program's code size (a simple factorial example) shrunk by 20%! An implementation of quicksort shrunk by 2.4%, a much more reasonable but not insignificant result. This was very simple to implement as well. The VM was implemented in Python, and the user-defined fitness function just executes the program and checks the input and output buffers against the expected values for random inputs.
 
