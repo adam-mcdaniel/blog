@@ -1,6 +1,6 @@
 ---
 title: Compilers For The Future
-date: "2023-06-17T11:52:37.121Z"
+date: "2023-06-20T11:52:37.121Z"
 template: "post"
 draft: false
 slug: "/compilers-for-the-future"
@@ -19,7 +19,8 @@ socialImage: /media/lisp.png
 3. [Writing Future-Proof Compilers (A Proposed Architecture)](#writing-future-proof-compilers-a-proposed-architecture)
 4. [Web Demo](#web-demo)
 5. [Applying Evolutionary Algorithms🧬 to the Architecture](#applying-evolutionary-algorithms-to-the-architecture)
-6. [Conclusion](#conclusion)
+6. [Purpose and Use Cases](#purpose-and-use-cases)
+7. [Conclusion](#conclusion)
 
 ![The Script](assets/the-script.jpeg)
 |***The Script*** |
@@ -310,6 +311,23 @@ An optimizing compiler might use these techniques to provide additional optimiza
 |***The Genome***|
 |:--:|
 ||
+
+## Purpose and Use Cases
+
+![The Golden Ladder](assets/the-golden-ladder.jpeg)
+|***The Golden Ladder***|
+|:--:|
+||
+
+*Where does this architecture take us?*
+
+This instruction set is designed to be suitable for scripting-language applications that need to run on any kind of device: thermostats, desktop devices, or mobile phones. It's also designed to be a *convenient*, *safe*, and *long-lasting* glue; programs simply read data in from input channels and write outputs to output channels, and they can interact with optimized foreign code (through a channel) to fill in the gaps. Programs in this architecture are "information plumbers". Additionally, because programs simply think in terms of receiving/sending "cells" to input and output channels, these programs can easily be piped into one another. A program compiled to this instruction set will be guaranteed to run *long* into the future, so you won't have to struggle to run your old programs.
+
+Additionally, sharing programs is *much* safer with this instruction set: it's impossible to jump to an arbitrary address, all memory reads/writes can be bounded to the tape by the implementation, and all interactions with foreign code are mediated by the VM through the `Peek`/`Poke` interface. This means you can run untrusted code without worrying about it bricking your system! Imagine sending a program to your friend over Discord or SMS, and the program automatically executes client-side and becomes interactive with the recipient in a separate thread.
+
+The architecture is *not*, however, suited for applications which demand high efficiency: languages which take advantage of hardware-dependent features will always be more suitable for high performance computing. Pseudo-assembly instructions can be reconstructed from the VM instructions, and this can be compiled with hardware-specific optimizations for the given target if performance is needed, but this program would likely not achieve maximum performance for the hardware.
+
+You'd be better off writing in C if you need to squeeze every last drop of performance out of your computer. If you want to write a program that needs *long-term operation and portability*, and just doesn't need to be "slow", then this architecture is suitable.
 
 ## Conclusion
 

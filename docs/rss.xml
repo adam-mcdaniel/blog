@@ -1,10 +1,11 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Adam | Blog]]></title><description><![CDATA[Adam | Blog]]></description><link>http://github.com/dylang/node-rss</link><generator>GatsbyJS</generator><lastBuildDate>Sun, 18 Jun 2023 00:13:26 GMT</lastBuildDate><item><title><![CDATA[Compilers For The Future]]></title><description><![CDATA[How can we future-proof our programming languages?]]></description><link>https://adam-mcdaniel-blog.github.io//compilers-for-the-future</link><guid isPermaLink="false">https://adam-mcdaniel-blog.github.io//compilers-for-the-future</guid><pubDate>Sat, 17 Jun 2023 11:52:37 GMT</pubDate><content:encoded>&lt;h2 id=&quot;index&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#index&quot; aria-label=&quot;index permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Index&lt;/h2&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Adam | Blog]]></title><description><![CDATA[Adam | Blog]]></description><link>http://github.com/dylang/node-rss</link><generator>GatsbyJS</generator><lastBuildDate>Mon, 19 Jun 2023 23:19:21 GMT</lastBuildDate><item><title><![CDATA[Compilers For The Future]]></title><description><![CDATA[How can we future-proof our programming languages?]]></description><link>https://adam-mcdaniel-blog.github.io//compilers-for-the-future</link><guid isPermaLink="false">https://adam-mcdaniel-blog.github.io//compilers-for-the-future</guid><pubDate>Tue, 20 Jun 2023 11:52:37 GMT</pubDate><content:encoded>&lt;h2 id=&quot;index&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#index&quot; aria-label=&quot;index permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Index&lt;/h2&gt;
 &lt;ol&gt;
 &lt;li&gt;&lt;a href=&quot;#the-life-of-a-programming-language&quot;&gt;The Life Of A Programming Language&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&quot;#an-immortal-language&quot;&gt;An Immortal Language&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&quot;#writing-future-proof-compilers-a-proposed-architecture&quot;&gt;Writing Future-Proof Compilers (A Proposed Architecture)&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&quot;#web-demo&quot;&gt;Web Demo&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&quot;#applying-evolutionary-algorithms-to-the-architecture&quot;&gt;Applying Evolutionary Algorithms🧬 to the Architecture&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;#purpose-and-use-cases&quot;&gt;Purpose and Use Cases&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&quot;#conclusion&quot;&gt;Conclusion&lt;/a&gt;&lt;/li&gt;
 &lt;/ol&gt;
 &lt;p&gt;&lt;span
@@ -599,6 +600,68 @@ end&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
+&lt;h2 id=&quot;purpose-and-use-cases&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#purpose-and-use-cases&quot; aria-label=&quot;purpose and use cases permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Purpose and Use Cases&lt;/h2&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 960px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/1cc95c08c85d3ebebc78e1cd3d69705e/72e01/the-golden-ladder.jpg&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 100%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAUABQDASIAAhEBAxEB/8QAGAABAQEBAQAAAAAAAAAAAAAAAAQDBQL/xAAXAQADAQAAAAAAAAAAAAAAAAAAAgMB/9oADAMBAAIQAxAAAAGHuR+8NHAI9mINAKT/AP/EABwQAAICAgMAAAAAAAAAAAAAAAIDAQQAEBESIf/aAAgBAQABBQJdUyJSoQJN6zWs+NtxGG6SJfBY8IDX/8QAFxEAAwEAAAAAAAAAAAAAAAAAABASIf/aAAgBAwEBPwGTH//EABoRAAICAwAAAAAAAAAAAAAAAAABAhASMUH/2gAIAQIBAT8BcuGAt1//xAAdEAACAgEFAAAAAAAAAAAAAAAAEQEQIQISMTKR/9oACAEBAAY/AuMUtotQo9GdYMV//8QAHBAAAgIDAQEAAAAAAAAAAAAAAAERITFBcVGB/9oACAEBAAE/IVQNBbSs159JFyDSVB3lJto5Qirn0fD/2gAMAwEAAgADAAAAEDT4Pf/EABkRAQACAwAAAAAAAAAAAAAAAAEAERAhMf/aAAgBAwEBPxC67lmPMf/EABkRAAIDAQAAAAAAAAAAAAAAAAABECExEf/aAAgBAgEBPxBmFZ09GdY//8QAHhABAQACAgIDAAAAAAAAAAAAAREAITFRQYFhcaH/2gAIAQEAAT8Q2REO3xTBMN0LA94asvlFbe8RBdAZIfOFJrF5TvWJF1wvWEEtMW1+OezurPrEDwz/2Q==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;picture&gt;
+          &lt;source
+              srcset=&quot;/static/1cc95c08c85d3ebebc78e1cd3d69705e/8ac56/the-golden-ladder.webp 240w,
+/static/1cc95c08c85d3ebebc78e1cd3d69705e/d3be9/the-golden-ladder.webp 480w,
+/static/1cc95c08c85d3ebebc78e1cd3d69705e/e46b2/the-golden-ladder.webp 960w,
+/static/1cc95c08c85d3ebebc78e1cd3d69705e/a9a89/the-golden-ladder.webp 1024w&quot;
+              sizes=&quot;(max-width: 960px) 100vw, 960px&quot;
+              type=&quot;image/webp&quot;
+            /&gt;
+          &lt;source
+            srcset=&quot;/static/1cc95c08c85d3ebebc78e1cd3d69705e/09b79/the-golden-ladder.jpg 240w,
+/static/1cc95c08c85d3ebebc78e1cd3d69705e/7cc5e/the-golden-ladder.jpg 480w,
+/static/1cc95c08c85d3ebebc78e1cd3d69705e/6a068/the-golden-ladder.jpg 960w,
+/static/1cc95c08c85d3ebebc78e1cd3d69705e/72e01/the-golden-ladder.jpg 1024w&quot;
+            sizes=&quot;(max-width: 960px) 100vw, 960px&quot;
+            type=&quot;image/jpeg&quot;
+          /&gt;
+          &lt;img
+            class=&quot;gatsby-resp-image-image&quot;
+            src=&quot;/static/1cc95c08c85d3ebebc78e1cd3d69705e/6a068/the-golden-ladder.jpg&quot;
+            alt=&quot;The Golden Ladder&quot;
+            title=&quot;The Golden Ladder&quot;
+            loading=&quot;lazy&quot;
+            decoding=&quot;async&quot;
+            style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+          /&gt;
+        &lt;/picture&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th align=&quot;center&quot;&gt;&lt;em&gt;&lt;strong&gt;The Golden Ladder&lt;/strong&gt;&lt;/em&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td align=&quot;center&quot;&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;&lt;em&gt;Where does this architecture take us?&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;This instruction set is designed to be suitable for scripting-language applications that need to run on any kind of device: thermostats, desktop devices, or mobile phones. It’s also designed to be a &lt;em&gt;convenient&lt;/em&gt;, &lt;em&gt;safe&lt;/em&gt;, and &lt;em&gt;long-lasting&lt;/em&gt; glue; programs simply read data in from input channels and write outputs to output channels, and they can interact with optimized foreign code (through a channel) to fill in the gaps. Programs in this architecture are “information plumbers”. Additionally, because programs simply think in terms of receiving/sending “cells” to input and output channels, these programs can easily be piped into one another. A program compiled to this instruction set will be guaranteed to run &lt;em&gt;long&lt;/em&gt; into the future, so you won’t have to struggle to run your old programs.&lt;/p&gt;
+&lt;p&gt;Additionally, sharing programs is &lt;em&gt;much&lt;/em&gt; safer with this instruction set: it’s impossible to jump to an arbitrary address, all memory reads/writes can be bounded to the tape by the implementation, and all interactions with foreign code are mediated by the VM through the &lt;code class=&quot;language-text&quot;&gt;Peek&lt;/code&gt;/&lt;code class=&quot;language-text&quot;&gt;Poke&lt;/code&gt; interface. This means you can run untrusted code without worrying about it bricking your system! Imagine sending a program to your friend over Discord or SMS, and the program automatically executes client-side and becomes interactive with the recipient in a separate thread.&lt;/p&gt;
+&lt;p&gt;The architecture is &lt;em&gt;not&lt;/em&gt;, however, suited for applications which demand high efficiency: languages which take advantage of hardware-dependent features will always be more suitable for high performance computing. Pseudo-assembly instructions can be reconstructed from the VM instructions, and this can be compiled with hardware-specific optimizations for the given target if performance is needed, but this program would likely not achieve maximum performance for the hardware.&lt;/p&gt;
+&lt;p&gt;You’d be better off writing in C if you need to squeeze every last drop of performance out of your computer. If you want to write a program that needs &lt;em&gt;long-term operation and portability&lt;/em&gt;, and just doesn’t need to be “slow”, then this architecture is suitable.&lt;/p&gt;
 &lt;h2 id=&quot;conclusion&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#conclusion&quot; aria-label=&quot;conclusion permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Conclusion&lt;/h2&gt;
 &lt;p&gt;Wow, now I can compile high level programs using polymorphism and algebraic types down to an architecture that can essentially be assembled for your favorite target with string replacement and a little bit of duct tape! Compiled programs which use this architecture are &lt;em&gt;at least&lt;/em&gt; guaranteed to be simple to resurrect: &lt;em&gt;some&lt;/em&gt; degree of immortality. This architecture will survive as long as there are machines with imperative instruction sets, and probably as long as Turing-complete general-purpose-languages that have integers and array-like data structures.&lt;/p&gt;
 &lt;p&gt;&lt;em&gt;&lt;strong&gt;Time ticks by and the Earth moves around the Sun.&lt;/strong&gt;&lt;/em&gt;&lt;/p&gt;
