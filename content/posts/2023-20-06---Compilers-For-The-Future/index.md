@@ -325,9 +325,11 @@ This instruction set is designed to be suitable for scripting-language applicati
 
 Additionally, sharing programs is *much* safer with this instruction set: it's impossible to jump to an arbitrary address, all memory reads/writes can be bounded to the tape by the implementation, and all interactions with foreign code are mediated by the VM through the `Peek`/`Poke` interface. This means you can run untrusted code without worrying about it bricking your system! Imagine sending a program to your friend over Discord or SMS, and the program automatically executes client-side and becomes interactive with the recipient in a separate thread.
 
-The architecture is *not*, however, suited for applications which demand high efficiency: languages which take advantage of hardware-dependent features will always be more suitable for high performance computing. Pseudo-assembly instructions can be reconstructed from the VM instructions, and this can be compiled with hardware-specific optimizations for the given target if performance is needed, but this program would likely not achieve maximum performance for the hardware.
+The architecture is *not*, however, suited for applications which demand extreme efficiency: languages which take advantage of hardware-dependent features will always be more suitable for high performance computing. Pseudo-assembly instructions can be reconstructed from the VM instructions, and this can be compiled with hardware-specific optimizations for the given target if performance is needed, but this program would likely not achieve maximum performance for the hardware.
 
-You'd be better off writing in C if you need to squeeze every last drop of performance out of your computer. If you want to write a program that needs *long-term operation and portability*, and just doesn't need to be "slow", then this architecture is suitable.
+You'd be better off writing in C if you need to squeeze every last drop of performance out of your computer. If you want to write a program that needs *long-term operation and portability*, and just needs to be "not slow", then this architecture is suitable.
+
+> Therefore go and make disciples of all developers, teaching them in the name of the Type-system, the Compiler, and the Syntax, and teaching them to obey everything I have commanded you. And surely your code will be with you always, to the very end of the age.
 
 ## Conclusion
 
