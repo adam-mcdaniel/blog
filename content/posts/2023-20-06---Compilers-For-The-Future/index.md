@@ -33,7 +33,7 @@ socialImage: /media/lisp.png
 
 > And the *Developer* said: **"Let there be types,"** and there were types. The *Developer* saw that the types were good, and they separated the type-safe from the type-unsafe.
 
-A compiler author hits the enter key on their screen and their language implementation compiles and runs. The code is *flawless*. The compiler author is happy. The compiler author commits their changes like a responsible developer and goes home for the day.
+A compiler author hits the enter key on their keyboard and their language implementation compiles and runs. The code is *flawless*. The compiler author is happy. The compiler author commits their changes like a responsible developer and goes home for the day.
 
 ***Time ticks by and the Earth moves around the Sun.***
 
