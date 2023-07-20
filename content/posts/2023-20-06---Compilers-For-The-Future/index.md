@@ -182,7 +182,7 @@ void (*labels[10000])(void);
 
 > Thus there are eight instructions in *Control Flow*, eight instructions in *Memory Manipulation*, six instructions in *Arithmetic*, and two instructions in *I/O*.
 
-These are instructions that *must* be implemented for every target, although the implementation of the `Get` and `Put` input and output devices depends on the hardware executing the program; not every hardware has a keyboard and a screen, so compilers for targets aren't required to implement all of the `Get` and `Put` input and output device interfaces. Foreign function calls are implemented in the expanded ["standard" instructions](#the-standard-instructions), which aren't required to be implemented by every compiler.
+These are instructions that *must* be implemented for every target, although the implementation of the `Get` and `Put` input and output devices depends on the hardware executing the program; not all hardware has a keyboard and a screen, so compilers for targets aren't required to implement all of the `Get` and `Put` input and output device interfaces. Foreign function calls are implemented in the expanded ["standard" instructions](#the-standard-instructions), which aren't required to be implemented by every compiler.
 
 Below are diagrams for all of the core instructions, accompanied by slightly more in-depth descriptions of each instruction with some C psuedocode examples.
 
@@ -296,7 +296,7 @@ All instructions should only operate on the register, the value under the tape, 
 |:--:|
 ||
 
-Now that we have a simple to implement instruction set that ***could*** (albeit somewhat inconveniently) represent the bulk of our real world problems. More importantly, it can be translated *1:1* with a simple pseudo-assembly language designed over the architecture, emulating a stack using predefined tape locations as registers.
+Now we have a simple to implement instruction set that ***could*** (albeit somewhat inconveniently) represent the bulk of our real world problems. More importantly, though, it's possible to create a simple pseudo-assembly language designed over the architecture which translates to the instruction set *1:1*, emulating a stack using predefined tape locations as registers.
 
 ```fsharp
 fun fact // Factorial function in the pseudo-asm language
