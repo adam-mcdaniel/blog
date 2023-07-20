@@ -324,6 +324,8 @@ This web-demo shows the compiler in action: you can change the output to see the
 
 <embed type="text/html" src="https://adam-mcdaniel.github.io/sage/sage/web/index.html" title="Compiler" width="100%" height="940em"></embed>
 
+***Press the "Compile" button to compile and execute the source code in the editor! Write something in the text-box to supply your programs with input!***
+
 You might worry that the architecture forces the language to compile to a verbose number of instructions, and that this leads to inefficiency despite being portable. Fear not: optimizations can be applied very aggressively to make the code highly performant. A compiler, for example, might implement first class Tensor objects which can be compiled using the simple architectures instructions. An optimizing compiler can discern a matrix multiplication *very easily* just using peephole optimizations on the compiled instructions, and the optimizer can substitute those operations with the equivalent BLAS library calls. This allows programs to be compiled for distribution (write once run anywhere, *and* add a new supported platform in an afternoon), but then it also allows programs to utilize *optimized platform specific code upon execution / lowering to a given target*.
 
 ## Applying Evolutionary Algorithms to the Architecture
