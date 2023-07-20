@@ -92,7 +92,7 @@ One example of an immortal language is BrainF*$!. A novice programmer can implem
 
 This language is immortal because the *complexity* of the language is so minimal. The trade off in BrainF\\{& is that the complexity is shifted into the source code. The only way to simplify the source code is to take on more complexity in the language. This is the trade off of immortality. An immortal language must balance both the complexity required to implement the language and the complexity of source code required to implement any possible algorithm.
 
-> And a voice from heaven said, "This is my *Compiler*, whom I love; with it I am well pleased."
+> And a voice from heaven said, **"This is my *Compiler*, whom I love; with it I am well pleased."**
 
 The goal of a compiler author is that their language live. Their language is the embodiment of their programming philosophy (or some subset of their philosophy) and a part of their legacy. The compiler author *ought* to balance the complexity of the language and the complexity of the source code so that their language is immortal. The compiler author *ought* to express their language with the smallest set of architecture dependent primitives necessary. If they do not, their language will be choked by the thorns and thistles and will eventually suffocate from the unnecessary effort required to port the language due to the extra complexity.
 
