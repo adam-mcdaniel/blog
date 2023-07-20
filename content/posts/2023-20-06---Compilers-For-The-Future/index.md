@@ -166,17 +166,17 @@ void (*labels[10000])(void);
 9. `Where?`, which stores the current tape pointer in the register.
 10. `Deref`, which sets the tape pointer to the value stored under the tape pointer.
 11. `Refer`, which undoes a matching `Deref` operation.
-12. `Index`, which applies `Move(N)` to the pointer stored in the register, where `N` is the value stored in the tape at the current pointer.
+12. `Index`, which applies `Move(N)` to the pointer stored in the register, where `N` is the value stored in the tape at the current tape pointer.
 13. `Move(Int)`, which moves the tape pointer by the given integer; positive is right, negative is left.
 14. `Set(Int)`, which sets the register to the given integer.
-15. `Save`, which saves the value stored in the register to the tape at the current pointer.
-16. `Restore`, which restores the value stored in the register from the tape at the current pointer.
-17. `BitwiseNand`, which performs a bitwise NAND operation on the value stored in the register and the value stored in the tape at the current pointer.
-18. `Add`, which adds the value stored under the tape pointer to the value stored in the register.
-19. `Subtract`, which subtracts the value stored under the tape pointer from the value stored in the register.
-20. `Multiply`, which multiplies the value stored under the tape pointer by the value stored in the register.
-21. `Divide`, which divides the value stored in the register by the value stored under the tape pointer.
-22. `Remainder`, which sets the value stored in the register to the remainder of the value stored in the register divided by the value stored under the tape pointer.
+15. `Save`, which saves the value stored in the register to the tape under the pointer.
+16. `Restore`, which restores a value into register from the tape under the pointer.
+17. `BitwiseNand`, which performs a bitwise NAND operation on the value stored in the register and the value stored in the tape under the pointer.
+18. `Add`, which adds the value under the tape pointer to the register.
+19. `Subtract`, which subtracts the value under the tape pointer from the register.
+20. `Multiply`, which multiplies the register by the value under the tape pointer.
+21. `Divide`, which divides the register by the value under the tape pointer.
+22. `Remainder`, which divides the register by the value under the tape pointer, and stores the remainder in the register.
 23. `Get(Channel)`, which gets a `Cell` from an input device's channel and stores it in the register.
 24. `Put(Channel)`, which puts the `Cell` stored in the register to an output device's channel.
 
