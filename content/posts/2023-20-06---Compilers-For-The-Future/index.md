@@ -14,7 +14,7 @@ socialImage: /media/lisp.png
 
 ## Index
 
-[Link to the repository.](https://github.com/adam-mcdaniel/sage)
+[Link to the repository](https://github.com/adam-mcdaniel/sage)
 
 1. [The Life Of A Programming Language](#the-life-of-a-programming-language)
 2. [An Immortal Language](#an-immortal-language)
