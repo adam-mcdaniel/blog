@@ -105,6 +105,8 @@ The goal of a compiler author is that their language live. Their language is the
 |:--:|
 ||
 
+> And the *Developer* said, **"Come up to me on the mountain and stay here, and I will give you the tablets of silicon with the *Instruction Set* and *Architecture* I have written for your computation."**
+
 BrainF\*! is a simple language, but it is not a *useful* language. It is not useful for many reasons:
 
 1. It's not expressive enough to simply represent the logic of real world problems.
@@ -117,11 +119,9 @@ What might a language look like that is simple, expressive, and efficient? What 
 
 I propose the following architecture for a future-proof language: a Turing tape architecture with a register and a read/write head over the tape. The architecture is simple to understand, and a compiler for the instruction set could easily be implemented by a freshman computer science student. The architecture is flexible enough to represent real world problems efficiently, 1:1 with common programming constructs.
 
-[***Click here to skip directly to the web-demo of the compiler.***](#web-demo)
-
 ### The Primordial Prelude
 
->  And the *Developer* made the tape, and divided the cells which were to the left on the tape from the cells which were to the right on the tape: and it was so.
+> And the *Developer* made the tape, and divided the cells which were to the left on the tape from the cells which were to the right on the tape: and it was so.
 
 This prelude demonstrates the types of all the primitives necessary to implement this language. The Turing tape architecture, much like BrainF/\*!, is very simple to port, but it is much more expressive, efficient, and *complete*.
 
@@ -184,11 +184,13 @@ void (*labels[10000])(void);
 
 These are instructions that *must* be implemented for every target, although the implementation of the `Get` and `Put` input and output devices depends on the hardware executing the program; not all hardware has a keyboard and a screen, so compilers for targets aren't required to implement all of the `Get` and `Put` input and output device interfaces. Foreign function calls are implemented in the expanded ["standard" instructions](#the-standard-instructions), which aren't required to be implemented by every compiler.
 
-Below are diagrams for all of the core instructions, accompanied by slightly more in-depth descriptions of each instruction with some C psuedocode examples.
+All instructions should only operate on the register, the value under the tape, and (optionally) a constant literal argument. This design makes it very easy for an optimizer to make deductions about the state of the tape at any given moment — just short of statically determining all the values under the tape at runtime.
 
-[***<p style="text-align: center;">Click here to skip the diagrams.</p>***](#the-standard-instructions)
+[***<p style="text-align: center;">Click here to skip the detailed explanations for each instruction below.</p>***](#the-standard-instructions)
 
 ### The Core Instructions In Detail
+
+Below are diagrams for all of the core instructions, accompanied by slightly more in-depth descriptions of each instruction with some C psuedocode examples.
 
 #### Move
 
@@ -285,18 +287,16 @@ The compiler tries to use core instructions only, but will use standard instruct
 
 Additionally, the standard instructions implement the `Peek` and `Poke` instructions used for FFI. Any functionality that's outsourced to foreign code must use these instructions. The compiler for the target will then link in the foreign code in accordance with the interfaces used by the `Peek` and `Poke` instructions.
 
-These instruction sets aren't definitive by any means: I want less redundant instructions (Add and Subtract), support for more bit operations like leftshift and rightshift, and functionality for math expressions like logarithms.
-
-All instructions should only operate on the register, the value under the tape, and (optionally) a constant literal argument. This design makes it very easy for an optimizer to make deductions about the state of the tape at any given moment — just short of statically determining all the values under the tape at runtime.
-
-[***Click here to skip directly to the web-demo of the compiler.***](#web-demo)
-
 ## A Compiler for the Architecture
 
 ![Babel](assets/babel.jpeg)
 |***Babel***|
 |:--:|
 ||
+
+> They said to each other, “Come, let us make machines and instruct them thoroughly.” Then they said, “Come, let us build ourselves a language, with a compiler that reaches to the heavens, so that we may make a name for ourselves; otherwise we will be scattered.”
+
+> And the *Developer* said, **"If as one people speaking the same language they have begun to do this, then nothing they plan to do will be impossible for them."**
 
 Now we have a simple to implement instruction set that ***could*** (albeit somewhat inconveniently) represent the bulk of our real world problems. More importantly, though, it's possible to create a simple pseudo-assembly language designed over the architecture which translates to the instruction set *1:1*, emulating a stack using predefined tape locations as registers.
 
@@ -367,6 +367,8 @@ An optimizing compiler might use these techniques to provide additional optimiza
 |:--:|
 ||
 
+> The compiler author had a dream in which they saw a golden ladder resting on the earth, with its top reaching to *The Eternal Repository*, and the programs of the *Developer* were ascending and descending upon it. There above it stood the *Developer*, who said: **"I am the *Developer* most high, the *Developer* of The Great Runtime Environment in the Sky, the *Unfolding One*. I will give you and your programs the great repository which you see. Your programs will be like the dust of the earth, and they will spread out to the west and to the east, to the north and to the south. All peoples on earth will compute through you and your programs."**
+
 *Where does this architecture take us?*
 
 This instruction set is designed to be suitable for scripting-language applications that need to run on any kind of device: thermostats, desktop devices, or mobile phones. It's also designed to be a *convenient*, *safe*, and *long-lasting* glue; programs simply read data in from input channels and write outputs to output channels, and they can interact with optimized foreign code (through a channel) to fill in the gaps. Programs in this architecture are "information plumbers". Additionally, because programs simply think in terms of receiving/sending "cells" to input and output channels, these programs can easily be piped into one another. A program compiled to this instruction set will be guaranteed to run *long* into the future, so you won't have to struggle to run your old programs.
@@ -379,7 +381,7 @@ The architecture is *not*, however, suited for applications which demand extreme
 
 You'd be better off writing in C if you need to squeeze every last drop of performance out of your computer. If you want to write a program that needs *long-term operation and portability*, and just needs to be "not slow", then this architecture is suitable.
 
-> Therefore go and make disciples of all developers, teaching them in the name of the Type-system, the Compiler, and the Syntax, and teaching them to obey everything I have commanded you. And surely your code will be with you always, to the very end of the age.
+> **Therefore go and make disciples of all developers, teaching them in the name of the Type-system, the Compiler, and the Syntax, and teaching them to obey everything I have commanded you. And surely your code will be with you always, to the very end of the age.**
 
 ## Conclusion
 
