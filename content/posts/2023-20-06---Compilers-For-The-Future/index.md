@@ -12,6 +12,8 @@ description: "How can we future-proof our programming languages?"
 socialImage: /media/lisp.png
 ---
 
+[***Here is a link to the repository.***](https://github.com/adam-mcdaniel/sage)
+
 ## Index
 
 1. [The Life Of A Programming Language](#the-life-of-a-programming-language)
@@ -22,7 +24,7 @@ socialImage: /media/lisp.png
 6. [Purpose and Use Cases](#purpose-and-use-cases)
 7. [Conclusion](#conclusion)
 
-![The Script](assets/the-script.jpeg)
+[![The Script](assets/the-script.jpeg)](https://github.com/adam-mcdaniel/sage)
 |***The Script*** |
 |:--:|
 ||
@@ -37,7 +39,11 @@ A compiler author hits the enter key on their keyboard and their language implem
 
 ***Time ticks by and the Earth moves around the Sun.***
 
-The compiler author works on other projects for a time and later returns to their language after a few years. They find that: a dependency has been yanked, one of the libraries won't compile without python2, and old compiled programs no longer run on the latest version of their OS. The compiler author is sad. The compiler author fixes the issues and commits their changes like a responsible developer and goes home for the day.
+The compiler author works on other projects for a time and later returns to their language after a few years. They find that: a dependency requires CPU instructions only available on outdated hardware, one of the libraries won't compile without python2, and old compiled programs no longer run on the latest version of their OS. The compiler author is sad.
+
+> Oh, that my programs were recorded! Oh that they were written on a monument! That with an iron stylus and ink of gold they were engraved in electric silicon forever!
+
+The compiler author fixes the issues and commits their changes like a responsible developer and goes home for the day.
 
 ***Time ticks by and the Earth moves around the Sun.***
 
@@ -46,6 +52,8 @@ The compiler author is much older. The compiler author writes their philosophy r
 ***Time ticks by and the Earth moves around the Sun.***
 
 The compiler author is dead. The community for the language has slowly shrunk, and the only remnants of the dialect are a few programs used to check people's tax returns for the next ~1000 years. The compiler author's implementation of the language sits in a repository completely untouched over the ages. These files are the fossils of the language.
+
+> If this world is just, there will be someone who remembers my work! And they will plead my case in front of the Developer most high, demonstrating that the work is good. And my work will be redeemed and considered beautiful, and preserved in that same heavenly museum that houses all the other beautiful inventions!
 
 ***Time ticks by and the Earth moves around the Sun.***
 
@@ -111,7 +119,9 @@ I propose the following architecture for a future-proof language: a Turing tape 
 
 [***Click here to skip directly to the web-demo of the compiler.***](#web-demo)
 
-### Prelude
+### The Primordial Prelude
+
+>  And the *Developer* made the tape, and divided the cells which were to the left on the tape from the cells which were to the right on the tape: and it was so.
 
 This prelude demonstrates the types of all the primitives necessary to implement this language. The Turing tape architecture, much like BrainF/\*!, is very simple to port, but it is much more expressive, efficient, and *complete*.
 
@@ -119,7 +129,7 @@ This prelude demonstrates the types of all the primitives necessary to implement
 // The cells of the Turing tape can be interpreted as an integer, a float, or a pointer.
 union cell {
     long long int i;
-    double f;
+    double f; // Optional for floating point support.
     union cell *p;
 }   // The tape is a contiguous array of cells.
     tape[200000],
@@ -136,11 +146,49 @@ union cell {
 void (*labels[10000])(void);
 ```
 
-### Core Instructions
+### The Core Instructions
 
-[The current core instruction set.](https://adam-mcdaniel.github.io/sage/sage/vm/enum.CoreOp.html)
+![The Tree Of Eternal Support](assets/the-tree-of-eternal-support.jpeg)
+|***The Tree Of Eternal Support***|
+|:--:|
+||
 
-Below are diagrams for the **core** instructions. These are instructions that *must* be implemented for every target, although the implementation of the `Get` and `Put` input and output devices depends on the hardware executing the program; not every hardware has a keyboard and a screen, so compilers for targets aren't required to implement all of the `Get` and `Put` input and output device interfaces.
+> This is the written account of the *Instruction Set*'s family line, the language of the *Developer*, the immortal tongue:
+
+1. `Function`, which defines the `N++`th function in the program.
+2. `Call`, which calls the `N`th function defined in the program, where `N` is the integer stored in the register.
+3. `Return`, which returns from the current function.
+4. `While`, which loops until the matching `End` instruction while the value stored in the register is not zero.
+5. `If`, which conditionally jumps to the matching `Else` or `End` instruction if the value stored in the register is zero.
+6. `Else`, which marks the end of an `If` block and the beginning of an `Else` block.
+7. `End`, which marks the end of an `If`, `Else`, `While`, or `Function` block.
+8. `IsNonNegative?`, which sets the value stored in the register to 1 if the value stored in the register is non-negative, and 0 otherwise.
+9. `Where?`, which stores the current tape pointer in the register.
+10. `Deref`, which sets the tape pointer to the value stored under the tape pointer.
+11. `Refer`, which undoes a matching `Deref` operation.
+12. `Index`, which applies `Move(N)` to the pointer stored in the register, where `N` is the value stored in the tape at the current pointer.
+13. `Move(Int)`, which moves the tape pointer by the given integer; positive is right, negative is left.
+14. `Set(Int)`, which sets the register to the given integer.
+15. `Save`, which saves the value stored in the register to the tape at the current pointer.
+16. `Restore`, which restores the value stored in the register from the tape at the current pointer.
+17. `BitwiseNand`, which performs a bitwise NAND operation on the value stored in the register and the value stored in the tape at the current pointer.
+18. `Add`, which adds the value stored under the tape pointer to the value stored in the register.
+19. `Subtract`, which subtracts the value stored under the tape pointer from the value stored in the register.
+20. `Multiply`, which multiplies the value stored under the tape pointer by the value stored in the register.
+21. `Divide`, which divides the value stored in the register by the value stored under the tape pointer.
+22. `Remainder`, which sets the value stored in the register to the remainder of the value stored in the register divided by the value stored under the tape pointer.
+23. `Get(Channel)`, which gets a `Cell` from an input device's channel and stores it in the register.
+24. `Put(Channel)`, which puts the `Cell` stored in the register to an output device's channel.
+
+> Thus there are eight instructions in *Control Flow*, eight instructions in *Memory Manipulation*, six instructions in *Arithmetic*, and two instructions in *I/O*.
+
+These are instructions that *must* be implemented for every target, although the implementation of the `Get` and `Put` input and output devices depends on the hardware executing the program; not every hardware has a keyboard and a screen, so compilers for targets aren't required to implement all of the `Get` and `Put` input and output device interfaces. Foreign function calls are implemented in the expanded ["standard" instructions](#the-standard-instructions), which aren't required to be implemented by every compiler.
+
+Below are diagrams for all of the core instructions, accompanied by slightly more in-depth descriptions of each instruction with some C psuedocode examples.
+
+[***<p style="text-align: center;">Click here to skip the diagrams.</p>***](#the-standard-instructions)
+
+### The Core Instructions In Detail
 
 #### Move
 
@@ -229,7 +277,7 @@ This I/O device is statically known to the target, and can range from STDIN/STDO
 
 The `End` instruction has no use on its own: its only purpose is to serve as a matching instruction for the `While`, `If`, `Else`, and `Function` instructions.
 
-### Standard Instructions
+### The Standard Instructions
 
 [The current standard instruction set.](https://adam-mcdaniel.github.io/sage/sage/vm/enum.StandardOp.html)
 
@@ -250,7 +298,7 @@ All instructions should only operate on the register, the value under the tape, 
 
 Now that we have a simple to implement instruction set that ***could*** (albeit somewhat inconveniently) represent the bulk of our real world problems. More importantly, it can be translated *1:1* with a simple pseudo-assembly language designed over the architecture, emulating a stack using predefined tape locations as registers.
 
-```nasm
+```fsharp
 fun fact // Factorial function in the pseudo-asm language
     if [FP] // Is the argument non-zero?
         mov [FP], A // Move the argument into register A
