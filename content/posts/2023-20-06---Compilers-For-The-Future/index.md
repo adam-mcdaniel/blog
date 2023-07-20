@@ -41,7 +41,7 @@ A compiler author hits the enter key on their keyboard and their language implem
 
 The compiler author works on other projects for a time and later returns to their language after a few years. They find that: a dependency requires CPU instructions only available on outdated hardware, one of the libraries won't compile without python2, and old compiled programs no longer run on the latest version of their OS. The compiler author is sad.
 
-> Oh, that my programs were recorded! Oh that they were written on a monument! That with an iron stylus and ink of gold they were engraved in electric silicon forever!
+> Oh that my programs were recorded! Oh that they were written on a monument! That with an iron stylus and ink of gold they were engraved in electric silicon forever!
 
 The compiler author fixes the issues and commits their changes like a responsible developer and goes home for the day.
 
