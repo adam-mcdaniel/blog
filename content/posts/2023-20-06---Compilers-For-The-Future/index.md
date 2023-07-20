@@ -1,6 +1,6 @@
 ---
 title: Compilers For The Future
-date: "2023-06-20T11:52:37.121Z"
+date: "2023-07-20T11:52:37.121Z"
 template: "post"
 draft: false
 slug: "/compilers-for-the-future"
@@ -12,9 +12,9 @@ description: "How can we future-proof our programming languages?"
 socialImage: /media/lisp.png
 ---
 
-[***Here is a link to the repository.***](https://github.com/adam-mcdaniel/sage)
-
 ## Index
+
+[Link to the repository.](https://github.com/adam-mcdaniel/sage)
 
 1. [The Life Of A Programming Language](#the-life-of-a-programming-language)
 2. [An Immortal Language](#an-immortal-language)
