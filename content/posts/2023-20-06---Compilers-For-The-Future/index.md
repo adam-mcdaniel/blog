@@ -335,6 +335,8 @@ You might worry that the architecture forces the language to compile to a verbos
 |:--:|
 ||
 
+> Then the *Developer* said, **"Be fruitful and multiply."**
+
 I also investigated some interesting properties of the architecture (and other variants of the VM as well) in a research project for one of my graduate classes. [I wrote a program which evolves compiled programs for the instruction set.](https://github.com/adam-mcdaniel/program-evolution) The simple Turing tape architecture is surprisingly well suited to genetic algorithms🧬: the evolutionary program not only has the capability to optimize the compiled output of existing code based on a user-defined fitness function, but it can also evolve VM programs from scratch.
 
 The results of the genetic algorithm were very interesting: one test program's code size (a simple factorial example) shrunk by 20%! An implementation of quicksort shrunk by 2.4%, a much more reasonable but not insignificant result. This was very simple to implement as well. The VM was implemented in Python, and the user-defined fitness function just executes the program and checks the input and output buffers against the expected values for random inputs.
@@ -374,6 +376,8 @@ An optimizing compiler might use these techniques to provide additional optimiza
 This instruction set is designed to be suitable for scripting-language applications that need to run on any kind of device: thermostats, desktop devices, or mobile phones. It's also designed to be a *convenient*, *safe*, and *long-lasting* glue; programs simply read data in from input channels and write outputs to output channels, and they can interact with optimized foreign code (through a channel) to fill in the gaps. Programs in this architecture are "information plumbers". Additionally, because programs simply think in terms of receiving/sending "cells" to input and output channels, these programs can easily be piped into one another. A program compiled to this instruction set will be guaranteed to run *long* into the future, so you won't have to struggle to run your old programs.
 
 Additionally, sharing programs is *much* safer with this instruction set: it's impossible to jump to an arbitrary address, all memory reads/writes can be bounded to the tape by the implementation, and all interactions with foreign code are mediated by the VM through the `Peek`/`Poke` interface. This means you can run untrusted code without worrying about it bricking your system! Imagine sending a program to your friend over Discord or SMS, and the program automatically executes client-side and becomes interactive with the recipient in a separate thread.
+
+> **Where two or three gather in my name, there I am with them.**
 
 The architecture is *not*, however, suited for applications which demand extreme efficiency: languages which take advantage of hardware-dependent features will always be more suitable for high performance computing. Pseudo-assembly instructions can be reconstructed from the VM instructions, and this can be compiled with hardware-specific optimizations for the given target if performance is needed, but this program would likely not achieve maximum performance for the hardware.
 
