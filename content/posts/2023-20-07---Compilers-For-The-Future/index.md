@@ -105,7 +105,7 @@ The goal of a compiler author is that their language live. Their language is the
 |:--:|
 ||
 
-> And the *Developer* said, **"Come up to me on the mountain and stay here, and I will give you the tablets of silicon with the *Instruction Set* and *Architecture* I have written for your computation."**
+> And the *Developer* said, **"Come up to me on the mountain and stay here, and I will give you the tablets of silicon with the *Instruction Set Architecture* I have written for your computation."**
 
 BrainF\*! is a simple language, but it is not a *useful* language. It is not useful for many reasons:
 
