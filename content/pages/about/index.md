@@ -22,10 +22,19 @@ I'm very interested in how languages are related to one another: it's fascinatin
 
 I've played guitar since 2016, and I play often. I love the Beatles, the Rolling Stones, Pink Floyd, Jimi Hendrix, Bob Dylan, the Temptations, and Aphrodite's Child. Anything somewhat bluesy or psychedelic is right up my alley. In particular, [666 by Aphrodite's Child](https://open.spotify.com/album/2lWDphDAlgk8PNdODreJwv?si=_SmyNGqiRyyl6ib1HxcKoA) has likely been my favorite album throughout the past year.
 
+<center>
+    <video width="60%" controls>
+        <source src="./media/junk.webm" type="video/webm">
+        Your browser does not support the video tag.
+    </video>
+</center>
+
 ## Chess
 
-My [lichess](https://lichess.org) account is [adamthekiwi](https://lichess.org/@/adamthekiwi). I like to say that my peak blitz chess rating was 2161 (quite literally a chess master rating), but it was out of sheer luck that three ~2000 rated players in a row resigned early when I first started. I'm somewhere around 1300-1400 on Lichess.
+My [lichess](https://lichess.org) account is [adamthekiwi](https://lichess.org/@/adamthekiwi). I like to say that my peak blitz chess rating was 2161 (quite literally a chess master rating), but it was out of sheer luck that three ~2000 rated players in a row resigned early when I first started.
 
 I also wrote my own cross platform engine which runs anywhere. You can play against it right here in the browser!
 
-<embed type="text/html" src="https://adam-mcdaniel.github.io/chess-engine/examples/chess-web/chess-best.html" width="420" height="420"/>
+<center>
+    <embed type="text/html" src="https://adam-mcdaniel.github.io/chess-engine/examples/chess-web/chess-best.html" width="420" height="420"/>
+</center>
