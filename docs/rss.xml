@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Adam | Blog]]></title><description><![CDATA[Adam | Blog]]></description><link>http://github.com/dylang/node-rss</link><generator>GatsbyJS</generator><lastBuildDate>Thu, 10 Aug 2023 20:51:26 GMT</lastBuildDate><item><title><![CDATA[Compilers For The Future]]></title><description><![CDATA[How can we future-proof our programming languages?]]></description><link>https://adam-mcdaniel-blog.github.io//compilers-for-the-future</link><guid isPermaLink="false">https://adam-mcdaniel-blog.github.io//compilers-for-the-future</guid><pubDate>Thu, 20 Jul 2023 11:52:37 GMT</pubDate><content:encoded>&lt;h2 id=&quot;index&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#index&quot; aria-label=&quot;index permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Index&lt;/h2&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Adam | Blog]]></title><description><![CDATA[Adam | Blog]]></description><link>http://github.com/dylang/node-rss</link><generator>GatsbyJS</generator><lastBuildDate>Sun, 13 Aug 2023 16:02:20 GMT</lastBuildDate><item><title><![CDATA[Compilers For The Future]]></title><description><![CDATA[How can we future-proof our programming languages?]]></description><link>https://adam-mcdaniel-blog.github.io//compilers-for-the-future</link><guid isPermaLink="false">https://adam-mcdaniel-blog.github.io//compilers-for-the-future</guid><pubDate>Thu, 20 Jul 2023 11:52:37 GMT</pubDate><content:encoded>&lt;h2 id=&quot;index&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#index&quot; aria-label=&quot;index permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Index&lt;/h2&gt;
 &lt;p&gt;&lt;a href=&quot;https://github.com/adam-mcdaniel/sage&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;Link to the repository&lt;/a&gt;&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;&lt;a href=&quot;#the-life-of-a-programming-language&quot;&gt;The Life Of A Programming Language&lt;/a&gt;&lt;/li&gt;
@@ -984,7 +984,48 @@ This allows the computer to almost always play objectively better moves than the
 works, and what I’ve learned.&lt;/p&gt;
 &lt;h2 id=&quot;free&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#free&quot; aria-label=&quot;free permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Free&lt;/h2&gt;
 &lt;p&gt;About 6 months ago, I began exploring compilers with &lt;a href=&quot;https://en.wikipedia.org/wiki/Turing_tarpit&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;&lt;em&gt;extremely limited&lt;/em&gt;&lt;/a&gt; target backends. I came across &lt;a href=&quot;https://github.com/brain-lang/brain&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;the brain programming language&lt;/a&gt; and I was &lt;em&gt;immediately&lt;/em&gt; inspired. How could a high level programming language possibly use such a tiny backend? It was incredibly interesting to me, so I decided to write my own language, &lt;a href=&quot;https://github.com/adam-mcdaniel/free&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;free&lt;/a&gt;. It used a super-set of Brain**** with 3 new instructions for dynamic memory management. After a substantial amount of keyboard clacking and lots of confusion, I had accidentally made a working compiler! The end result looked like this:&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;media/free.png&quot; alt=&quot;Free Code&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 603px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/9836e88c878cc60a0b4b6dff0d02cc8d/9128f/free.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 67.5%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAOCAYAAAAvxDzwAAAACXBIWXMAAAsTAAALEwEAmpwYAAABXElEQVQ4y52TS26DMBRFvYYqQDDGGP+wEz4JkA5oO6m6/y3dCjeJSCJVIYMr7OfH0fuSUrYwbgCTDjGT2DKFhCmk3GCb6wct7eHMTfCf73EmQQpdo2pGaH+E8ye4bkJhG7DSIZc+fFnpkYnqaqOiQibc+c2BFjZoBhPGDahwiGiJhGnETCGiEptU3Gh+X54jKu7ufyIpU7BVB2Fq0NIjNy24bUMKs8OcxhqR+UdXNVBVC6ZqCNejsN016peAUSaD5nSTXIdaJCH1F4C52EHbHtofQmGXNbk4rQGTeNGAS7GXoAvsWSip3Ijm8Il2mMD1HltuH6JbAyW6arHvTmjHCdJ1kLZHaZowb2Z3BFe7dSnzXMHpBl3/FaCuHq9DunR8OuW3hEO5A96n77Atw/iDbvgITTL1GDZhVYTpeSe58kgLA8od8tKHKIXeh5VbBbzM23JcNlTc2O6b8x/wF98Ne1GPCBjnAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;picture&gt;
+          &lt;source
+              srcset=&quot;/static/9836e88c878cc60a0b4b6dff0d02cc8d/8ac56/free.webp 240w,
+/static/9836e88c878cc60a0b4b6dff0d02cc8d/d3be9/free.webp 480w,
+/static/9836e88c878cc60a0b4b6dff0d02cc8d/e7dd8/free.webp 603w&quot;
+              sizes=&quot;(max-width: 603px) 100vw, 603px&quot;
+              type=&quot;image/webp&quot;
+            /&gt;
+          &lt;source
+            srcset=&quot;/static/9836e88c878cc60a0b4b6dff0d02cc8d/8ff5a/free.png 240w,
+/static/9836e88c878cc60a0b4b6dff0d02cc8d/e85cb/free.png 480w,
+/static/9836e88c878cc60a0b4b6dff0d02cc8d/9128f/free.png 603w&quot;
+            sizes=&quot;(max-width: 603px) 100vw, 603px&quot;
+            type=&quot;image/png&quot;
+          /&gt;
+          &lt;img
+            class=&quot;gatsby-resp-image-image&quot;
+            src=&quot;/static/9836e88c878cc60a0b4b6dff0d02cc8d/9128f/free.png&quot;
+            alt=&quot;Free Code&quot;
+            title=&quot;Free Code&quot;
+            loading=&quot;lazy&quot;
+            decoding=&quot;async&quot;
+            style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+          /&gt;
+        &lt;/picture&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
 &lt;p&gt;I couldn’t believed it worked; it was incredible. The only problem was that &lt;em&gt;&lt;strong&gt;free was absolute garbage&lt;/strong&gt;&lt;/em&gt;. It couldn’t be used for anything. At all. There wasn’t a type system, memory was basically impossible to manage, there wasn’t any kind of IO other than STDIN and STDOUT, there was no error checking system of any kind, etc. I loved my creation, but it wasn’t practical.&lt;/p&gt;
 &lt;h2 id=&quot;oaks-conception&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#oaks-conception&quot; aria-label=&quot;oaks conception permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Oak’s Conception&lt;/h2&gt;
 &lt;p&gt;Then, I had an idea. What if I kept the tape memory structure from Brain****, kept the memory management operations from free, and added some operators for managing a stack? The result was Oak’s backend assembly language. After a week of experimenting, I created an incredibly reduced instruction set with only 12 operators that could output basic C code. &lt;em&gt;“This is perfect”&lt;/em&gt;, I thought. I implemented an intermediate representation that implemented functions, structures, a type system, and basic operations that any programming language needs. I even added a foreign function interface, so that users could import C code into their programs! I was incredibly excited.&lt;/p&gt;
