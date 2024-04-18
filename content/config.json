@@ -15,6 +15,14 @@
     {
       "label": "About me",
       "path": "/pages/about"
+    },
+    {
+      "label": "Personal Site",
+      "path": "https://adam-mcdaniel.github.io/"
+    },
+    {
+      "label": "Music",
+      "path": "https://adam-mcdaniel.github.io/music"
     }
   ],
   "author": {

@@ -17,19 +17,8 @@
   "scripts": {
     "build": "npm run clean && gatsby build",
     "clean": "rimraf .cache public",
-    "format": "npm run format:ts && npm run format:scss",
-    "format:scss": "stylelint \"src/**/*.scss\" --fix",
-    "format:ts": "eslint \"src\" --ext .tsx,.ts --fix && prettier --write .",
-    "lint": "npm run lint:ts && npm run lint:scss",
-    "lint:commit": "commitlint --edit",
-    "lint:scss": "stylelint \"src/**/*.scss\"",
-    "lint:staged": "lint-staged",
-    "lint:ts": "eslint \"src\" --ext .tsx,.ts && prettier --check .",
-    "prepare": "husky install",
-    "semantic-release": "semantic-release",
     "serve": "gatsby serve",
-    "start": "npm run clean && gatsby develop",
-    "test": "echo No tests yet"
+    "start": "npm run clean && gatsby develop"
   },
   "commitlint": {
     "extends": [
@@ -101,7 +90,6 @@
     "@typescript-eslint/parser": "^5.59.9",
     "autoprefixer": "^10.4.14",
     "browserslist": "^4.21.7",
-    "codecov": "^3.8.3",
     "concurrently": "^8.1.0",
     "conventional-changelog-conventionalcommits": "5.0.0",
     "eslint": "^8.42.0",
