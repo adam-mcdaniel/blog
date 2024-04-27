@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="x-ua-compatible" content="ie=edge"/><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/><meta name="generator" content="Gatsby 4.25.7"/><meta name="description" content="How can we future-proof our programming languages?" data-gatsby-head="true"/><meta name="twitter:card" content="summary_large_image" data-gatsby-head="true"/><meta name="twitter:title" content="Compilers For The Future - Adam | Blog" data-gatsby-head="true"/><meta name="twitter:description" content="How can we future-proof our programming languages?" data-gatsby-head="true"/><meta name="og:title" content="Compilers For The Future - Adam | Blog" data-gatsby-head="true"/><meta name="og:type" content="website" data-gatsby-head="true"/><meta name="og:description" content="How can we future-proof our programming languages?" data-gatsby-head="true"/><meta name="image" content="https://adam-mcdaniel-blog.github.io//media/lisp.png" data-gatsby-head="true"/><meta name="og:image" content="https://adam-mcdaniel-blog.github.io//media/lisp.png" data-gatsby-head="true"/><meta name="twitter:image" content="https://adam-mcdaniel-blog.github.io//media/lisp.png" data-gatsby-head="true"/><meta name="theme-color" content="hsl(31, 92%, 62%)"/><style data-href="/styles.462ccd878fdc76b93a3f.css" data-identity="gatsby-global-css">:after,:before,:root{--color-white:#fff;--color-primary:#5c92ff;--color-secondary:#f7a145;--color-prism-background:#eaeaeb;--color-typographic-base-font:#242933;--color-typographic-link-p-font:#5c92ff;--color-typographic-link-s-font:#f7a145;--color-page-border:#eaeaeb;--color-page-background:#fff;--color-sidebar-border:#eaeaeb;--color-sidebar-border-fade:#fff;--color-contacts-border:#eaeaeb;--color-button-border:#eaeaeb;--color-button-color:#242933;--color-theme-switcher:#3f485a;--color-theme-switcher-hover:#5c92ff}.dark :after,.dark :before,:root.dark{--color-white:#fff;--color-primary:#5c92ff;--color-secondary:#f7a145;--color-prism-background:#191d24;--color-typographic-base-font:#fff;--color-typographic-link-p-font:#5c92ff;--color-typographic-link-s-font:#f7a145;--color-page-border:#3f485a;--color-page-background:#242933;--color-sidebar-border:#3f485a;--color-sidebar-border-fade:#242933;--color-contacts-border:#3f485a;--color-button-border:#3f485a;--color-button-color:#fff;--color-theme-switcher:#eaeaeb;--color-theme-switcher-hover:#5c92ff}html{font-size:100}body{-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%;background:var(--color-page-background);color:var(--color-typographic-base-font);font-size:16px;line-height:1.625;margin:0 0 0 calc(100vw - 100%);text-rendering:optimizelegibility}body,h1,h2,h3,h4,h5,h6{font-family:-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif}h1,h2,h3,h4,h5,h6{font-weight:600}h1{font-size:40px;line-height:52px;margin-bottom:26px;margin-top:104px}h2{font-size:27px;line-height:39px}h2,h3{margin-bottom:13px;margin-top:52px}h3{font-size:22px;line-height:26px}h4{font-size:19.2px;margin-top:39px}h4,h5{line-height:26px;margin-bottom:13px}h5,h6{font-size:16px;margin-top:65px}h6{line-height:26px;margin-bottom:13px}img{max-width:100%}hr,img{border:0;display:block}hr{background-image:linear-gradient(180deg,transparent 1px,transparent 11px,#242933 0,#242933 15px,transparent 0,transparent 26px);background-size:100% 26px;color:var(--color-typographic-base-font);height:26px;margin:52px auto;width:100px}a{color:var(--color-typographic-link-p-font);text-decoration:none}a:active,a:focus,a:hover{color:var(--color-typographic-link-s-font)}b,strong{font-weight:600}ul{list-style:square;margin-bottom:26px}ul li{margin-bottom:10px;padding:0 5px}p{line-height:26px;margin-bottom:26px}blockquote{font-style:italic;padding:0;text-align:center}figure{display:block;height:auto;width:100%}figcaption{color:var(--color-typographic-base-font);font-size:14px;font-style:italic;line-height:19.5px;margin-bottom:0;margin-top:6.5px;text-align:center}@media screen and (min-width:685px){figure.float-left,figure.float-right{max-width:310px;padding:0 26px}.float-right{float:right}.float-left{float:left}}code[class*=language-],pre[class*=language-]{word-wrap:normal;color:#657b83;font-family:Consolas,Monaco,Andale Mono,Ubuntu Mono,monospace;font-size:1em;-webkit-hyphens:none;hyphens:none;line-height:1.5;tab-size:4;text-align:left;white-space:pre;word-break:normal;word-spacing:normal}pre[class*=language-]{border-radius:.3em;margin:.5em 0;overflow:auto;padding:1em}:not(pre)>code[class*=language-],pre[class*=language-]{background-color:var(--color-prism-background)}:not(pre)>code[class*=language-]{border-radius:.3em;padding:.1em}code[class*=language-] ::selection,code[class*=language-]::selection,pre[class*=language-] ::selection,pre[class*=language-]::selection{background:#073642}.token.cdata,.token.comment,.token.doctype,.token.prolog{color:#93a1a1}.token.punctuation{color:#586e75}.namespace{opacity:.7}.token.boolean,.token.constant,.token.deleted,.token.number,.token.property,.token.symbol,.token.tag{color:#268bd2}.token.attr-name,.token.builtin,.token.char,.token.inserted,.token.selector,.token.string,.token.url{color:#2aa198}.token.entity{background:#eee8d5;color:#657b83;cursor:help}.token.atrule,.token.attr-value,.token.keyword{color:#859900}.token.class-name,.token.function{color:#b58900}.token.important,.token.regex,.token.variable{color:#cb4b16}.token.bold,.token.important{font-weight:700}.token.italic{font-style:italic}.Feed-module--feed--a6204 .Feed-module--item--c7a63{margin-bottom:32.5px}.Feed-module--feed--a6204 .Feed-module--item--c7a63:last-child{margin-bottom:13px}.Feed-module--feed--a6204 .Feed-module--item--c7a63 .Feed-module--title--f252f{font-size:27px;line-height:39px;margin-bottom:13px;margin-top:0}.Feed-module--feed--a6204 .Feed-module--item--c7a63 .Feed-module--title--f252f .Feed-module--link--6123b{color:var(--color-typographic-base-font)}.Feed-module--feed--a6204 .Feed-module--item--c7a63 .Feed-module--title--f252f .Feed-module--link--6123b:focus,.Feed-module--feed--a6204 .Feed-module--item--c7a63 .Feed-module--title--f252f .Feed-module--link--6123b:hover{border-bottom:1px solid #242933;color:var(--color-typographic-base-font)}.Feed-module--feed--a6204 .Feed-module--item--c7a63 .Feed-module--description--57348{font-size:16px;line-height:26px;margin-bottom:19.5px}.Feed-module--feed--a6204 .Feed-module--item--c7a63 .Feed-module--meta--250c2 .Feed-module--time--72864{color:var(--color-typographic-base-font);font-size:14px;font-weight:600;text-transform:uppercase}.Feed-module--feed--a6204 .Feed-module--item--c7a63 .Feed-module--meta--250c2 .Feed-module--divider--81a18{margin:0 13px}.Feed-module--feed--a6204 .Feed-module--item--c7a63 .Feed-module--meta--250c2 .Feed-module--category--59f58 .Feed-module--link--6123b{color:var(--color-secondary);font-size:14px;font-weight:600;text-transform:uppercase}.Feed-module--feed--a6204 .Feed-module--item--c7a63 .Feed-module--meta--250c2 .Feed-module--category--59f58 .Feed-module--link--6123b:focus,.Feed-module--feed--a6204 .Feed-module--item--c7a63 .Feed-module--meta--250c2 .Feed-module--category--59f58 .Feed-module--link--6123b:hover{color:#5c92ff}.Feed-module--feed--a6204 .Feed-module--item--c7a63 .Feed-module--more--51a4e{color:var(--color-primary);font-size:16px}.Feed-module--feed--a6204 .Feed-module--item--c7a63 .Feed-module--more--51a4e:focus,.Feed-module--feed--a6204 .Feed-module--item--c7a63 .Feed-module--more--51a4e:hover{border-bottom:1px solid #5c92ff;color:var(--color-primary)}.Layout-module--layout--2c933{margin-left:auto;margin-right:auto;max-width:1070px}.Layout-module--layout--2c933:before{content:"";display:table}.Layout-module--layout--2c933:after{clear:both;content:"";display:table}.Page-module--page--24e03{margin-bottom:52px}.Page-module--page--24e03 .Page-module--inner--4b31d{padding:26px 19.5px 0}.Page-module--page--24e03 .Page-module--title--90338{font-size:40px;font-weight:600;line-height:52px;margin-bottom:37.7px;margin-top:0}.Page-module--page--24e03 .Page-module--body--561c4{font-size:16px;line-height:26px;margin:0 0 26px}@media screen and (min-width:685px){.Page-module--page--24e03{width:calc(58.275% - 12.5px)}.Page-module--page--24e03:nth-child(1n){clear:none;float:left;margin-right:30px}.Page-module--page--24e03:last-child{margin-right:0}.Page-module--page--24e03:nth-child(12n){float:right;margin-right:0}.Page-module--page--24e03:nth-child(12n+1){clear:both}.Page-module--page--24e03 .Page-module--inner--4b31d{padding:32.5px 19.5px 0}}@media screen and (min-width:960px){.Page-module--page--24e03{width:calc(66.6% - 10px)}.Page-module--page--24e03:nth-child(1n){clear:none;float:left;margin-right:30px}.Page-module--page--24e03:last-child{margin-right:0}.Page-module--page--24e03:nth-child(3n){float:right;margin-right:0}.Page-module--page--24e03:nth-child(3n+1){clear:both}.Page-module--page--24e03 .Page-module--inner--4b31d{padding:39px 26px 0}}.Pagination-module--pagination--d61cb{display:flex;margin-top:52px}.Pagination-module--pagination--d61cb .Pagination-module--previous--4a76b{text-align:left;width:50%}.Pagination-module--pagination--d61cb .Pagination-module--previous--4a76b .Pagination-module--previousLink--5590d{color:var(--color-secondary);font-size:26px;font-weight:700}.Pagination-module--pagination--d61cb .Pagination-module--previous--4a76b .Pagination-module--previousLink--5590d:focus,.Pagination-module--pagination--d61cb .Pagination-module--previous--4a76b .Pagination-module--previousLink--5590d:hover{color:var(--color-primary)}.Pagination-module--pagination--d61cb .Pagination-module--previous--4a76b .Pagination-module--previousLink--5590d.Pagination-module--disable--7e105{color:#3f485a;pointer-events:none}.Pagination-module--pagination--d61cb .Pagination-module--next--1cab8{text-align:right;width:50%}.Pagination-module--pagination--d61cb .Pagination-module--next--1cab8 .Pagination-module--nextLink--532ff{color:var(--color-secondary);font-size:26px;font-weight:700}.Pagination-module--pagination--d61cb .Pagination-module--next--1cab8 .Pagination-module--nextLink--532ff:focus,.Pagination-module--pagination--d61cb .Pagination-module--next--1cab8 .Pagination-module--nextLink--532ff:hover{color:var(--color-primary)}.Pagination-module--pagination--d61cb .Pagination-module--next--1cab8 .Pagination-module--nextLink--532ff.Pagination-module--disable--7e105{color:#3f485a;pointer-events:none}.Button-module--button--b1113{border:1px solid var(--color-button-border);border-radius:20px;color:var(--color-button-color);display:inline-block;font-size:16px;font-weight:400;height:40px;line-height:40px;margin-left:auto;margin-right:auto;padding:0 26px;text-align:center;text-decoration:none}.Button-module--button--b1113:focus,.Button-module--button--b1113:hover{color:#5c92ff}.ThemeSwitcher-module--themeSwitcher--8a77f{--color:var(--color-theme-switcher)}.ThemeSwitcher-module--themeSwitcher--8a77f .ThemeSwitcher-module--button--7cb7b{align-items:center;background:transparent;border:0;cursor:pointer;display:flex;justify-content:center;outline:0}.ThemeSwitcher-module--themeSwitcher--8a77f .ThemeSwitcher-module--button--7cb7b svg{stroke:var(--color);pointer-events:none;transition:stroke .4s}.ThemeSwitcher-module--themeSwitcher--8a77f .ThemeSwitcher-module--button--7cb7b:hover{--color:var(--color-theme-switcher-hover)}.ThemeSwitcher-module--themeSwitcher--8a77f .ThemeSwitcher-module--moon--10537{stroke-dasharray:0 1px;opacity:0;transition:stroke-dasharray .2s ease-in,opacity .4s ease-in}.ThemeSwitcher-module--themeSwitcher--8a77f .ThemeSwitcher-module--sun--2163a{stroke-dasharray:1px 1px;opacity:1;transition:stroke-dasharray .2s ease-in,opacity .4s ease-in}.ThemeSwitcher-module--themeSwitcher--8a77f.ThemeSwitcher-module--dark--6db0c .ThemeSwitcher-module--moon--10537{stroke-dasharray:1px 1px;opacity:1}.ThemeSwitcher-module--themeSwitcher--8a77f.ThemeSwitcher-module--dark--6db0c .ThemeSwitcher-module--sun--2163a{stroke-dasharray:0 1px;opacity:0}.Author-module--author--cbd31 .Author-module--photo--9787b{background-clip:padding-box;border-radius:50%;display:inline-block;height:75px;margin-bottom:0;width:75px}.Author-module--author--cbd31 .Author-module--photo--9787b img{border-radius:50%}.Author-module--author--cbd31 .Author-module--title--cf7e5{font-size:18px;font-weight:600;line-height:29.25px;margin:0}.Author-module--author--cbd31 .Author-module--title--cf7e5 .Author-module--link--09c17,.Author-module--author--cbd31 .Author-module--title--cf7e5 .Author-module--link--09c17:focus,.Author-module--author--cbd31 .Author-module--title--cf7e5 .Author-module--link--09c17:hover{color:var(--color-typographic-base-font)}.Author-module--author--cbd31 .Author-module--subtitle--86ec5{color:#7f8ba4;line-height:26px;margin-bottom:26px}.Author-module--author--cbd31 .Author-module--titleContainer--4f576{align-items:center;display:flex;justify-content:space-between;margin:13px 0}.Icon-module--icon--1d7da{fill:currentcolor;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;speak:none;stroke:currentcolor;stroke-width:0;display:inline-block;font-style:normal;font-variant:normal;font-weight:400;height:1em;line-height:1em;text-align:center;text-transform:none;width:1em}.Contacts-module--contacts--09178{margin-bottom:26px}.Contacts-module--contacts--09178 .Contacts-module--list--9670b{display:flex;flex-flow:row wrap;flex-grow:0;flex-shrink:0;list-style:none;margin:13px 0;max-width:165px;padding:0}.Contacts-module--contacts--09178 .Contacts-module--list--9670b .Contacts-module--item--f9cb0{align-content:center;align-items:center;border:1px solid var(--color-contacts-border);border-radius:50%;display:flex;height:40px;justify-content:center;line-height:40px;margin:6.5px;padding:0;text-align:center;width:40px}.Contacts-module--contacts--09178 .Contacts-module--list--9670b .Contacts-module--item--f9cb0:nth-child(3n+1){margin-left:0}.Contacts-module--contacts--09178 .Contacts-module--list--9670b .Contacts-module--item--f9cb0 .Contacts-module--link--de1e0{border:0;color:var(--color-typographic-base-font);cursor:pointer;display:flex}.Contacts-module--contacts--09178 .Contacts-module--list--9670b .Contacts-module--item--f9cb0 .Contacts-module--link--de1e0:focus,.Contacts-module--contacts--09178 .Contacts-module--list--9670b .Contacts-module--item--f9cb0 .Contacts-module--link--de1e0:hover{color:var(--color-typographic-link-p-font)}.Copyright-module--copyright--2c602{color:#7f8ba4;font-size:14px}.Menu-module--menu--113a9{margin-bottom:26px}.Menu-module--menu--113a9 .Menu-module--list--e1ae3{list-style:none;margin:0;padding:0}.Menu-module--menu--113a9 .Menu-module--list--e1ae3 .Menu-module--item--8b679{margin:13px 0;padding:0}.Menu-module--menu--113a9 .Menu-module--list--e1ae3 .Menu-module--item--8b679 .Menu-module--link--a6f02{border:0;color:var(--color-typographic-base-font);font-size:16px;font-weight:400}.Menu-module--menu--113a9 .Menu-module--list--e1ae3 .Menu-module--item--8b679 .Menu-module--link--a6f02:focus,.Menu-module--menu--113a9 .Menu-module--list--e1ae3 .Menu-module--item--8b679 .Menu-module--link--a6f02:hover{border-bottom:1px solid #5c92ff;color:#5c92ff}.Menu-module--menu--113a9 .Menu-module--list--e1ae3 .Menu-module--item--8b679 .Menu-module--link--a6f02.Menu-module--active--6cb74{border-bottom:1px solid var(--color-typographic-base-font);color:var(--color-typographic-base-font)}.Sidebar-module--sidebar--1bfa1{width:100%}.Sidebar-module--sidebar--1bfa1 .Sidebar-module--inner--344d0{padding:26px 19.5px 0;position:relative}.Sidebar-module--sidebar--1bfa1 .Sidebar-module--inner--344d0:after{background:var(--color-sidebar-border);background:linear-gradient(to bottom,var(--color-sidebar-border) 0,var(--color-sidebar-border) 48%,var(--color-sidebar-border-fade) 100%)}@media screen and (min-width:685px){.Sidebar-module--sidebar--1bfa1{width:calc(41.625% - 17.5px)}.Sidebar-module--sidebar--1bfa1:nth-child(1n){clear:none;float:left;margin-right:30px}.Sidebar-module--sidebar--1bfa1:last-child{margin-right:0}.Sidebar-module--sidebar--1bfa1:nth-child(12n){float:right;margin-right:0}.Sidebar-module--sidebar--1bfa1:nth-child(12n+1){clear:both}.Sidebar-module--sidebar--1bfa1 .Sidebar-module--inner--344d0{padding:32.5px 19.5px 0}.Sidebar-module--sidebar--1bfa1 .Sidebar-module--inner--344d0:after{bottom:0;content:"";height:540px;position:absolute;right:-10px;top:30px;width:1px}}@media screen and (min-width:960px){.Sidebar-module--sidebar--1bfa1{width:calc(33.3% - 20px)}.Sidebar-module--sidebar--1bfa1:nth-child(1n){clear:none;float:left;margin-right:30px}.Sidebar-module--sidebar--1bfa1:last-child{margin-right:0}.Sidebar-module--sidebar--1bfa1:nth-child(3n){float:right;margin-right:0}.Sidebar-module--sidebar--1bfa1:nth-child(3n+1){clear:both}.Sidebar-module--sidebar--1bfa1 .Sidebar-module--inner--344d0{padding:39px}}.Author-module--author--1c58d{border-top:1px solid var(--color-page-border);line-height:26px;margin-bottom:52px;margin-top:26px;max-width:640px;padding-top:26px}.Author-module--author--1c58d .Author-module--bio--08950 .Author-module--twitter--90647{display:block;text-decoration:underline}.Author-module--author--1c58d .Author-module--bio--08950 .Author-module--twitter--90647:focus,.Author-module--author--1c58d .Author-module--bio--08950 .Author-module--twitter--90647:hover{color:var(--color-typographic-link-s-font)}@media screen and (min-width:685px){.Author-module--author--1c58d{margin-left:auto;margin-right:auto}}.Content-module--content--80d58{margin:0 auto;max-width:945px;padding:0 13px}.Content-module--content--80d58 .Content-module--title--09504{font-size:32px;font-weight:600;line-height:42.9px;margin:26px auto 0;max-width:640px;text-align:center}.Content-module--content--80d58 .Content-module--body--726c2 figure{margin-bottom:26px}.Content-module--content--80d58 .Content-module--body--726c2 figure blockquote{font-style:italic;margin-top:0;padding:26px 0;text-align:center}.Content-module--content--80d58 .Content-module--body--726c2 figure blockquote p{font-size:26.9072px;line-height:39px;margin-bottom:26px;margin-top:0;max-width:640px}.Content-module--content--80d58 .Content-module--body--726c2 a{text-decoration:underline}.Content-module--content--80d58 .Content-module--body--726c2 *{margin-left:auto;margin-right:auto;max-width:640px}.Content-module--content--80d58 .Content-module--body--726c2 h2>a{visibility:hidden}.Content-module--content--80d58 .Content-module--body--726c2 h2>a>svg{fill:var(--color-typographic-base-font)}.Content-module--content--80d58 .Content-module--body--726c2 img{max-width:100%}@media screen and (min-width:960px){.Content-module--content--80d58{padding:0}.Content-module--content--80d58 .Content-module--title--09504{font-size:48px;line-height:58.5px;margin-bottom:39px;margin-top:58.5px}.Content-module--content--80d58 .Content-module--body--726c2,.Content-module--content--80d58 .Content-module--body--726c2 p{font-size:18px;line-height:29.25px;margin-bottom:29.25px}.Content-module--content--80d58 .Content-module--body--726c2 h2>a{padding-right:13px;visibility:unset}}.Meta-module--meta--dae0a .Meta-module--date--4d30d{font-style:italic}.Tags-module--tags--18589{margin-bottom:13px}.Tags-module--tags--18589 .Tags-module--list--82ae6{list-style:none;padding:0}.Tags-module--tags--18589 .Tags-module--list--82ae6 .Tags-module--item--52015{display:inline-block;margin:6.5px 0}@media screen and (min-width:685px){.Tags-module--tags--18589 .Tags-module--list--82ae6 .Tags-module--item--52015:first-child{margin-left:0;padding-left:0}}.Post-module--post--3a994 .Post-module--content--3c6e5{margin:0 auto}.Post-module--post--3a994 .Post-module--comments--d3b99,.Post-module--post--3a994 .Post-module--footer--f8705{margin:0 auto;max-width:640px;padding:0 13px}.Post-module--post--3a994 .Post-module--buttons--2972d{align-items:center;display:flex;justify-content:center;margin:26px 0 0;text-align:center}.Post-module--post--3a994 .Post-module--buttons--2972d .Post-module--buttonArticles--d793a{margin:0 13px 0 0}@media screen and (min-width:960px){.Post-module--post--3a994 .Post-module--comments--d3b99,.Post-module--post--3a994 .Post-module--footer--f8705{padding:0}.Post-module--post--3a994 .Post-module--buttons--2972d{left:30px;margin:0 13px 0 0;max-width:none;position:fixed;top:30px}}</style><title data-gatsby-head="true">Compilers For The Future - Adam | Blog</title><link rel="alternate" type="application/rss+xml" title="Adam | Blog" href="/rss.xml"/><style type="text/css">
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="x-ua-compatible" content="ie=edge"/><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/><meta name="generator" content="Gatsby 4.25.8"/><meta name="description" content="How can we future-proof our programming languages?" data-gatsby-head="true"/><meta name="twitter:card" content="summary_large_image" data-gatsby-head="true"/><meta name="twitter:title" content="Compilers For The Future - Adam | Blog" data-gatsby-head="true"/><meta name="twitter:description" content="How can we future-proof our programming languages?" data-gatsby-head="true"/><meta name="og:title" content="Compilers For The Future - Adam | Blog" data-gatsby-head="true"/><meta name="og:type" content="website" data-gatsby-head="true"/><meta name="og:description" content="How can we future-proof our programming languages?" data-gatsby-head="true"/><meta name="image" content="https://adam-mcdaniel-blog.github.io//media/lisp.png" data-gatsby-head="true"/><meta name="og:image" content="https://adam-mcdaniel-blog.github.io//media/lisp.png" data-gatsby-head="true"/><meta name="twitter:image" content="https://adam-mcdaniel-blog.github.io//media/lisp.png" data-gatsby-head="true"/><meta name="theme-color" content="hsl(31, 92%, 62%)"/><style data-href="/blog/styles.462ccd878fdc76b93a3f.css" data-identity="gatsby-global-css">:after,:before,:root{--color-white:#fff;--color-primary:#5c92ff;--color-secondary:#f7a145;--color-prism-background:#eaeaeb;--color-typographic-base-font:#242933;--color-typographic-link-p-font:#5c92ff;--color-typographic-link-s-font:#f7a145;--color-page-border:#eaeaeb;--color-page-background:#fff;--color-sidebar-border:#eaeaeb;--color-sidebar-border-fade:#fff;--color-contacts-border:#eaeaeb;--color-button-border:#eaeaeb;--color-button-color:#242933;--color-theme-switcher:#3f485a;--color-theme-switcher-hover:#5c92ff}.dark :after,.dark :before,:root.dark{--color-white:#fff;--color-primary:#5c92ff;--color-secondary:#f7a145;--color-prism-background:#191d24;--color-typographic-base-font:#fff;--color-typographic-link-p-font:#5c92ff;--color-typographic-link-s-font:#f7a145;--color-page-border:#3f485a;--color-page-background:#242933;--color-sidebar-border:#3f485a;--color-sidebar-border-fade:#242933;--color-contacts-border:#3f485a;--color-button-border:#3f485a;--color-button-color:#fff;--color-theme-switcher:#eaeaeb;--color-theme-switcher-hover:#5c92ff}html{font-size:100}body{-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%;background:var(--color-page-background);color:var(--color-typographic-base-font);font-size:16px;line-height:1.625;margin:0 0 0 calc(100vw - 100%);text-rendering:optimizelegibility}body,h1,h2,h3,h4,h5,h6{font-family:-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif}h1,h2,h3,h4,h5,h6{font-weight:600}h1{font-size:40px;line-height:52px;margin-bottom:26px;margin-top:104px}h2{font-size:27px;line-height:39px}h2,h3{margin-bottom:13px;margin-top:52px}h3{font-size:22px;line-height:26px}h4{font-size:19.2px;margin-top:39px}h4,h5{line-height:26px;margin-bottom:13px}h5,h6{font-size:16px;margin-top:65px}h6{line-height:26px;margin-bottom:13px}img{max-width:100%}hr,img{border:0;display:block}hr{background-image:linear-gradient(180deg,transparent 1px,transparent 11px,#242933 0,#242933 15px,transparent 0,transparent 26px);background-size:100% 26px;color:var(--color-typographic-base-font);height:26px;margin:52px auto;width:100px}a{color:var(--color-typographic-link-p-font);text-decoration:none}a:active,a:focus,a:hover{color:var(--color-typographic-link-s-font)}b,strong{font-weight:600}ul{list-style:square;margin-bottom:26px}ul li{margin-bottom:10px;padding:0 5px}p{line-height:26px;margin-bottom:26px}blockquote{font-style:italic;padding:0;text-align:center}figure{display:block;height:auto;width:100%}figcaption{color:var(--color-typographic-base-font);font-size:14px;font-style:italic;line-height:19.5px;margin-bottom:0;margin-top:6.5px;text-align:center}@media screen and (min-width:685px){figure.float-left,figure.float-right{max-width:310px;padding:0 26px}.float-right{float:right}.float-left{float:left}}code[class*=language-],pre[class*=language-]{word-wrap:normal;color:#657b83;font-family:Consolas,Monaco,Andale Mono,Ubuntu Mono,monospace;font-size:1em;-webkit-hyphens:none;hyphens:none;line-height:1.5;tab-size:4;text-align:left;white-space:pre;word-break:normal;word-spacing:normal}pre[class*=language-]{border-radius:.3em;margin:.5em 0;overflow:auto;padding:1em}:not(pre)>code[class*=language-],pre[class*=language-]{background-color:var(--color-prism-background)}:not(pre)>code[class*=language-]{border-radius:.3em;padding:.1em}code[class*=language-] ::selection,code[class*=language-]::selection,pre[class*=language-] ::selection,pre[class*=language-]::selection{background:#073642}.token.cdata,.token.comment,.token.doctype,.token.prolog{color:#93a1a1}.token.punctuation{color:#586e75}.namespace{opacity:.7}.token.boolean,.token.constant,.token.deleted,.token.number,.token.property,.token.symbol,.token.tag{color:#268bd2}.token.attr-name,.token.builtin,.token.char,.token.inserted,.token.selector,.token.string,.token.url{color:#2aa198}.token.entity{background:#eee8d5;color:#657b83;cursor:help}.token.atrule,.token.attr-value,.token.keyword{color:#859900}.token.class-name,.token.function{color:#b58900}.token.important,.token.regex,.token.variable{color:#cb4b16}.token.bold,.token.important{font-weight:700}.token.italic{font-style:italic}.Feed-module--feed--a6204 .Feed-module--item--c7a63{margin-bottom:32.5px}.Feed-module--feed--a6204 .Feed-module--item--c7a63:last-child{margin-bottom:13px}.Feed-module--feed--a6204 .Feed-module--item--c7a63 .Feed-module--title--f252f{font-size:27px;line-height:39px;margin-bottom:13px;margin-top:0}.Feed-module--feed--a6204 .Feed-module--item--c7a63 .Feed-module--title--f252f .Feed-module--link--6123b{color:var(--color-typographic-base-font)}.Feed-module--feed--a6204 .Feed-module--item--c7a63 .Feed-module--title--f252f .Feed-module--link--6123b:focus,.Feed-module--feed--a6204 .Feed-module--item--c7a63 .Feed-module--title--f252f .Feed-module--link--6123b:hover{border-bottom:1px solid #242933;color:var(--color-typographic-base-font)}.Feed-module--feed--a6204 .Feed-module--item--c7a63 .Feed-module--description--57348{font-size:16px;line-height:26px;margin-bottom:19.5px}.Feed-module--feed--a6204 .Feed-module--item--c7a63 .Feed-module--meta--250c2 .Feed-module--time--72864{color:var(--color-typographic-base-font);font-size:14px;font-weight:600;text-transform:uppercase}.Feed-module--feed--a6204 .Feed-module--item--c7a63 .Feed-module--meta--250c2 .Feed-module--divider--81a18{margin:0 13px}.Feed-module--feed--a6204 .Feed-module--item--c7a63 .Feed-module--meta--250c2 .Feed-module--category--59f58 .Feed-module--link--6123b{color:var(--color-secondary);font-size:14px;font-weight:600;text-transform:uppercase}.Feed-module--feed--a6204 .Feed-module--item--c7a63 .Feed-module--meta--250c2 .Feed-module--category--59f58 .Feed-module--link--6123b:focus,.Feed-module--feed--a6204 .Feed-module--item--c7a63 .Feed-module--meta--250c2 .Feed-module--category--59f58 .Feed-module--link--6123b:hover{color:#5c92ff}.Feed-module--feed--a6204 .Feed-module--item--c7a63 .Feed-module--more--51a4e{color:var(--color-primary);font-size:16px}.Feed-module--feed--a6204 .Feed-module--item--c7a63 .Feed-module--more--51a4e:focus,.Feed-module--feed--a6204 .Feed-module--item--c7a63 .Feed-module--more--51a4e:hover{border-bottom:1px solid #5c92ff;color:var(--color-primary)}.Layout-module--layout--2c933{margin-left:auto;margin-right:auto;max-width:1070px}.Layout-module--layout--2c933:before{content:"";display:table}.Layout-module--layout--2c933:after{clear:both;content:"";display:table}.Page-module--page--24e03{margin-bottom:52px}.Page-module--page--24e03 .Page-module--inner--4b31d{padding:26px 19.5px 0}.Page-module--page--24e03 .Page-module--title--90338{font-size:40px;font-weight:600;line-height:52px;margin-bottom:37.7px;margin-top:0}.Page-module--page--24e03 .Page-module--body--561c4{font-size:16px;line-height:26px;margin:0 0 26px}@media screen and (min-width:685px){.Page-module--page--24e03{width:calc(58.275% - 12.5px)}.Page-module--page--24e03:nth-child(1n){clear:none;float:left;margin-right:30px}.Page-module--page--24e03:last-child{margin-right:0}.Page-module--page--24e03:nth-child(12n){float:right;margin-right:0}.Page-module--page--24e03:nth-child(12n+1){clear:both}.Page-module--page--24e03 .Page-module--inner--4b31d{padding:32.5px 19.5px 0}}@media screen and (min-width:960px){.Page-module--page--24e03{width:calc(66.6% - 10px)}.Page-module--page--24e03:nth-child(1n){clear:none;float:left;margin-right:30px}.Page-module--page--24e03:last-child{margin-right:0}.Page-module--page--24e03:nth-child(3n){float:right;margin-right:0}.Page-module--page--24e03:nth-child(3n+1){clear:both}.Page-module--page--24e03 .Page-module--inner--4b31d{padding:39px 26px 0}}.Pagination-module--pagination--d61cb{display:flex;margin-top:52px}.Pagination-module--pagination--d61cb .Pagination-module--previous--4a76b{text-align:left;width:50%}.Pagination-module--pagination--d61cb .Pagination-module--previous--4a76b .Pagination-module--previousLink--5590d{color:var(--color-secondary);font-size:26px;font-weight:700}.Pagination-module--pagination--d61cb .Pagination-module--previous--4a76b .Pagination-module--previousLink--5590d:focus,.Pagination-module--pagination--d61cb .Pagination-module--previous--4a76b .Pagination-module--previousLink--5590d:hover{color:var(--color-primary)}.Pagination-module--pagination--d61cb .Pagination-module--previous--4a76b .Pagination-module--previousLink--5590d.Pagination-module--disable--7e105{color:#3f485a;pointer-events:none}.Pagination-module--pagination--d61cb .Pagination-module--next--1cab8{text-align:right;width:50%}.Pagination-module--pagination--d61cb .Pagination-module--next--1cab8 .Pagination-module--nextLink--532ff{color:var(--color-secondary);font-size:26px;font-weight:700}.Pagination-module--pagination--d61cb .Pagination-module--next--1cab8 .Pagination-module--nextLink--532ff:focus,.Pagination-module--pagination--d61cb .Pagination-module--next--1cab8 .Pagination-module--nextLink--532ff:hover{color:var(--color-primary)}.Pagination-module--pagination--d61cb .Pagination-module--next--1cab8 .Pagination-module--nextLink--532ff.Pagination-module--disable--7e105{color:#3f485a;pointer-events:none}.Button-module--button--b1113{border:1px solid var(--color-button-border);border-radius:20px;color:var(--color-button-color);display:inline-block;font-size:16px;font-weight:400;height:40px;line-height:40px;margin-left:auto;margin-right:auto;padding:0 26px;text-align:center;text-decoration:none}.Button-module--button--b1113:focus,.Button-module--button--b1113:hover{color:#5c92ff}.ThemeSwitcher-module--themeSwitcher--8a77f{--color:var(--color-theme-switcher)}.ThemeSwitcher-module--themeSwitcher--8a77f .ThemeSwitcher-module--button--7cb7b{align-items:center;background:transparent;border:0;cursor:pointer;display:flex;justify-content:center;outline:0}.ThemeSwitcher-module--themeSwitcher--8a77f .ThemeSwitcher-module--button--7cb7b svg{stroke:var(--color);pointer-events:none;transition:stroke .4s}.ThemeSwitcher-module--themeSwitcher--8a77f .ThemeSwitcher-module--button--7cb7b:hover{--color:var(--color-theme-switcher-hover)}.ThemeSwitcher-module--themeSwitcher--8a77f .ThemeSwitcher-module--moon--10537{stroke-dasharray:0 1px;opacity:0;transition:stroke-dasharray .2s ease-in,opacity .4s ease-in}.ThemeSwitcher-module--themeSwitcher--8a77f .ThemeSwitcher-module--sun--2163a{stroke-dasharray:1px 1px;opacity:1;transition:stroke-dasharray .2s ease-in,opacity .4s ease-in}.ThemeSwitcher-module--themeSwitcher--8a77f.ThemeSwitcher-module--dark--6db0c .ThemeSwitcher-module--moon--10537{stroke-dasharray:1px 1px;opacity:1}.ThemeSwitcher-module--themeSwitcher--8a77f.ThemeSwitcher-module--dark--6db0c .ThemeSwitcher-module--sun--2163a{stroke-dasharray:0 1px;opacity:0}.Author-module--author--cbd31 .Author-module--photo--9787b{background-clip:padding-box;border-radius:50%;display:inline-block;height:75px;margin-bottom:0;width:75px}.Author-module--author--cbd31 .Author-module--photo--9787b img{border-radius:50%}.Author-module--author--cbd31 .Author-module--title--cf7e5{font-size:18px;font-weight:600;line-height:29.25px;margin:0}.Author-module--author--cbd31 .Author-module--title--cf7e5 .Author-module--link--09c17,.Author-module--author--cbd31 .Author-module--title--cf7e5 .Author-module--link--09c17:focus,.Author-module--author--cbd31 .Author-module--title--cf7e5 .Author-module--link--09c17:hover{color:var(--color-typographic-base-font)}.Author-module--author--cbd31 .Author-module--subtitle--86ec5{color:#7f8ba4;line-height:26px;margin-bottom:26px}.Author-module--author--cbd31 .Author-module--titleContainer--4f576{align-items:center;display:flex;justify-content:space-between;margin:13px 0}.Icon-module--icon--1d7da{fill:currentcolor;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;speak:none;stroke:currentcolor;stroke-width:0;display:inline-block;font-style:normal;font-variant:normal;font-weight:400;height:1em;line-height:1em;text-align:center;text-transform:none;width:1em}.Contacts-module--contacts--09178{margin-bottom:26px}.Contacts-module--contacts--09178 .Contacts-module--list--9670b{display:flex;flex-flow:row wrap;flex-grow:0;flex-shrink:0;list-style:none;margin:13px 0;max-width:165px;padding:0}.Contacts-module--contacts--09178 .Contacts-module--list--9670b .Contacts-module--item--f9cb0{align-content:center;align-items:center;border:1px solid var(--color-contacts-border);border-radius:50%;display:flex;height:40px;justify-content:center;line-height:40px;margin:6.5px;padding:0;text-align:center;width:40px}.Contacts-module--contacts--09178 .Contacts-module--list--9670b .Contacts-module--item--f9cb0:nth-child(3n+1){margin-left:0}.Contacts-module--contacts--09178 .Contacts-module--list--9670b .Contacts-module--item--f9cb0 .Contacts-module--link--de1e0{border:0;color:var(--color-typographic-base-font);cursor:pointer;display:flex}.Contacts-module--contacts--09178 .Contacts-module--list--9670b .Contacts-module--item--f9cb0 .Contacts-module--link--de1e0:focus,.Contacts-module--contacts--09178 .Contacts-module--list--9670b .Contacts-module--item--f9cb0 .Contacts-module--link--de1e0:hover{color:var(--color-typographic-link-p-font)}.Copyright-module--copyright--2c602{color:#7f8ba4;font-size:14px}.Menu-module--menu--113a9{margin-bottom:26px}.Menu-module--menu--113a9 .Menu-module--list--e1ae3{list-style:none;margin:0;padding:0}.Menu-module--menu--113a9 .Menu-module--list--e1ae3 .Menu-module--item--8b679{margin:13px 0;padding:0}.Menu-module--menu--113a9 .Menu-module--list--e1ae3 .Menu-module--item--8b679 .Menu-module--link--a6f02{border:0;color:var(--color-typographic-base-font);font-size:16px;font-weight:400}.Menu-module--menu--113a9 .Menu-module--list--e1ae3 .Menu-module--item--8b679 .Menu-module--link--a6f02:focus,.Menu-module--menu--113a9 .Menu-module--list--e1ae3 .Menu-module--item--8b679 .Menu-module--link--a6f02:hover{border-bottom:1px solid #5c92ff;color:#5c92ff}.Menu-module--menu--113a9 .Menu-module--list--e1ae3 .Menu-module--item--8b679 .Menu-module--link--a6f02.Menu-module--active--6cb74{border-bottom:1px solid var(--color-typographic-base-font);color:var(--color-typographic-base-font)}.Sidebar-module--sidebar--1bfa1{width:100%}.Sidebar-module--sidebar--1bfa1 .Sidebar-module--inner--344d0{padding:26px 19.5px 0;position:relative}.Sidebar-module--sidebar--1bfa1 .Sidebar-module--inner--344d0:after{background:var(--color-sidebar-border);background:linear-gradient(to bottom,var(--color-sidebar-border) 0,var(--color-sidebar-border) 48%,var(--color-sidebar-border-fade) 100%)}@media screen and (min-width:685px){.Sidebar-module--sidebar--1bfa1{width:calc(41.625% - 17.5px)}.Sidebar-module--sidebar--1bfa1:nth-child(1n){clear:none;float:left;margin-right:30px}.Sidebar-module--sidebar--1bfa1:last-child{margin-right:0}.Sidebar-module--sidebar--1bfa1:nth-child(12n){float:right;margin-right:0}.Sidebar-module--sidebar--1bfa1:nth-child(12n+1){clear:both}.Sidebar-module--sidebar--1bfa1 .Sidebar-module--inner--344d0{padding:32.5px 19.5px 0}.Sidebar-module--sidebar--1bfa1 .Sidebar-module--inner--344d0:after{bottom:0;content:"";height:540px;position:absolute;right:-10px;top:30px;width:1px}}@media screen and (min-width:960px){.Sidebar-module--sidebar--1bfa1{width:calc(33.3% - 20px)}.Sidebar-module--sidebar--1bfa1:nth-child(1n){clear:none;float:left;margin-right:30px}.Sidebar-module--sidebar--1bfa1:last-child{margin-right:0}.Sidebar-module--sidebar--1bfa1:nth-child(3n){float:right;margin-right:0}.Sidebar-module--sidebar--1bfa1:nth-child(3n+1){clear:both}.Sidebar-module--sidebar--1bfa1 .Sidebar-module--inner--344d0{padding:39px}}.Author-module--author--1c58d{border-top:1px solid var(--color-page-border);line-height:26px;margin-bottom:52px;margin-top:26px;max-width:640px;padding-top:26px}.Author-module--author--1c58d .Author-module--bio--08950 .Author-module--twitter--90647{display:block;text-decoration:underline}.Author-module--author--1c58d .Author-module--bio--08950 .Author-module--twitter--90647:focus,.Author-module--author--1c58d .Author-module--bio--08950 .Author-module--twitter--90647:hover{color:var(--color-typographic-link-s-font)}@media screen and (min-width:685px){.Author-module--author--1c58d{margin-left:auto;margin-right:auto}}.Content-module--content--80d58{margin:0 auto;max-width:945px;padding:0 13px}.Content-module--content--80d58 .Content-module--title--09504{font-size:32px;font-weight:600;line-height:42.9px;margin:26px auto 0;max-width:640px;text-align:center}.Content-module--content--80d58 .Content-module--body--726c2 figure{margin-bottom:26px}.Content-module--content--80d58 .Content-module--body--726c2 figure blockquote{font-style:italic;margin-top:0;padding:26px 0;text-align:center}.Content-module--content--80d58 .Content-module--body--726c2 figure blockquote p{font-size:26.9072px;line-height:39px;margin-bottom:26px;margin-top:0;max-width:640px}.Content-module--content--80d58 .Content-module--body--726c2 a{text-decoration:underline}.Content-module--content--80d58 .Content-module--body--726c2 *{margin-left:auto;margin-right:auto;max-width:640px}.Content-module--content--80d58 .Content-module--body--726c2 h2>a{visibility:hidden}.Content-module--content--80d58 .Content-module--body--726c2 h2>a>svg{fill:var(--color-typographic-base-font)}.Content-module--content--80d58 .Content-module--body--726c2 img{max-width:100%}@media screen and (min-width:960px){.Content-module--content--80d58{padding:0}.Content-module--content--80d58 .Content-module--title--09504{font-size:48px;line-height:58.5px;margin-bottom:39px;margin-top:58.5px}.Content-module--content--80d58 .Content-module--body--726c2,.Content-module--content--80d58 .Content-module--body--726c2 p{font-size:18px;line-height:29.25px;margin-bottom:29.25px}.Content-module--content--80d58 .Content-module--body--726c2 h2>a{padding-right:13px;visibility:unset}}.Meta-module--meta--dae0a .Meta-module--date--4d30d{font-style:italic}.Tags-module--tags--18589{margin-bottom:13px}.Tags-module--tags--18589 .Tags-module--list--82ae6{list-style:none;padding:0}.Tags-module--tags--18589 .Tags-module--list--82ae6 .Tags-module--item--52015{display:inline-block;margin:6.5px 0}@media screen and (min-width:685px){.Tags-module--tags--18589 .Tags-module--list--82ae6 .Tags-module--item--52015:first-child{margin-left:0;padding-left:0}}.Post-module--post--3a994 .Post-module--content--3c6e5{margin:0 auto}.Post-module--post--3a994 .Post-module--comments--d3b99,.Post-module--post--3a994 .Post-module--footer--f8705{margin:0 auto;max-width:640px;padding:0 13px}.Post-module--post--3a994 .Post-module--buttons--2972d{align-items:center;display:flex;justify-content:center;margin:26px 0 0;text-align:center}.Post-module--post--3a994 .Post-module--buttons--2972d .Post-module--buttonArticles--d793a{margin:0 13px 0 0}@media screen and (min-width:960px){.Post-module--post--3a994 .Post-module--comments--d3b99,.Post-module--post--3a994 .Post-module--footer--f8705{padding:0}.Post-module--post--3a994 .Post-module--buttons--2972d{left:30px;margin:0 13px 0 0;max-width:none;position:fixed;top:30px}}</style><title data-gatsby-head="true">Compilers For The Future - Adam | Blog</title><link rel="alternate" type="application/rss+xml" title="Adam | Blog" href="/blog/rss.xml"/><style type="text/css">
     .anchor.before {
       position: absolute;
       top: 0;
@@ -58,7 +58,7 @@
 
         gtag('config', 'UA-73379983-2', {"send_page_view":false});
       }
-      </script><link rel="sitemap" type="application/xml" href="/sitemap/sitemap-index.xml"/><link rel="icon" href="/favicon-32x32.png?v=a87ece78b4a6f78497c9b7fbb4508048" type="image/png"/><link rel="manifest" href="/manifest.webmanifest" crossorigin="anonymous"/><link rel="apple-touch-icon" sizes="48x48" href="/icons/icon-48x48.png?v=a87ece78b4a6f78497c9b7fbb4508048"/><link rel="apple-touch-icon" sizes="72x72" href="/icons/icon-72x72.png?v=a87ece78b4a6f78497c9b7fbb4508048"/><link rel="apple-touch-icon" sizes="96x96" href="/icons/icon-96x96.png?v=a87ece78b4a6f78497c9b7fbb4508048"/><link rel="apple-touch-icon" sizes="144x144" href="/icons/icon-144x144.png?v=a87ece78b4a6f78497c9b7fbb4508048"/><link rel="apple-touch-icon" sizes="192x192" href="/icons/icon-192x192.png?v=a87ece78b4a6f78497c9b7fbb4508048"/><link rel="apple-touch-icon" sizes="256x256" href="/icons/icon-256x256.png?v=a87ece78b4a6f78497c9b7fbb4508048"/><link rel="apple-touch-icon" sizes="384x384" href="/icons/icon-384x384.png?v=a87ece78b4a6f78497c9b7fbb4508048"/><link rel="apple-touch-icon" sizes="512x512" href="/icons/icon-512x512.png?v=a87ece78b4a6f78497c9b7fbb4508048"/><style>.gatsby-image-wrapper{position:relative;overflow:hidden}.gatsby-image-wrapper picture.object-fit-polyfill{position:static!important}.gatsby-image-wrapper img{bottom:0;height:100%;left:0;margin:0;max-width:none;padding:0;position:absolute;right:0;top:0;width:100%;object-fit:cover}.gatsby-image-wrapper [data-main-image]{opacity:0;transform:translateZ(0);transition:opacity .25s linear;will-change:opacity}.gatsby-image-wrapper-constrained{display:inline-block;vertical-align:top}</style><noscript><style>.gatsby-image-wrapper noscript [data-main-image]{opacity:1!important}.gatsby-image-wrapper [data-placeholder-image]{opacity:0!important}</style></noscript><script type="module">const e="undefined"!=typeof HTMLImageElement&&"loading"in HTMLImageElement.prototype;e&&document.body.addEventListener("load",(function(e){const t=e.target;if(void 0===t.dataset.mainImage)return;if(void 0===t.dataset.gatsbyImageSsr)return;let a=null,n=t;for(;null===a&&n;)void 0!==n.parentNode.dataset.gatsbyImageWrapper&&(a=n.parentNode),n=n.parentNode;const o=a.querySelector("[data-placeholder-image]"),r=new Image;r.src=t.currentSrc,r.decode().catch((()=>{})).then((()=>{t.style.opacity=1,o&&(o.style.opacity=0,o.style.transition="opacity 500ms linear")}))}),!0);</script></head><body><script>
+      </script><link rel="sitemap" type="application/xml" href="/blog/sitemap/sitemap-index.xml"/><link rel="icon" href="/blog/favicon-32x32.png?v=a87ece78b4a6f78497c9b7fbb4508048" type="image/png"/><link rel="manifest" href="/blog/manifest.webmanifest" crossorigin="anonymous"/><link rel="apple-touch-icon" sizes="48x48" href="/blog/icons/icon-48x48.png?v=a87ece78b4a6f78497c9b7fbb4508048"/><link rel="apple-touch-icon" sizes="72x72" href="/blog/icons/icon-72x72.png?v=a87ece78b4a6f78497c9b7fbb4508048"/><link rel="apple-touch-icon" sizes="96x96" href="/blog/icons/icon-96x96.png?v=a87ece78b4a6f78497c9b7fbb4508048"/><link rel="apple-touch-icon" sizes="144x144" href="/blog/icons/icon-144x144.png?v=a87ece78b4a6f78497c9b7fbb4508048"/><link rel="apple-touch-icon" sizes="192x192" href="/blog/icons/icon-192x192.png?v=a87ece78b4a6f78497c9b7fbb4508048"/><link rel="apple-touch-icon" sizes="256x256" href="/blog/icons/icon-256x256.png?v=a87ece78b4a6f78497c9b7fbb4508048"/><link rel="apple-touch-icon" sizes="384x384" href="/blog/icons/icon-384x384.png?v=a87ece78b4a6f78497c9b7fbb4508048"/><link rel="apple-touch-icon" sizes="512x512" href="/blog/icons/icon-512x512.png?v=a87ece78b4a6f78497c9b7fbb4508048"/><style>.gatsby-image-wrapper{position:relative;overflow:hidden}.gatsby-image-wrapper picture.object-fit-polyfill{position:static!important}.gatsby-image-wrapper img{bottom:0;height:100%;left:0;margin:0;max-width:none;padding:0;position:absolute;right:0;top:0;width:100%;object-fit:cover}.gatsby-image-wrapper [data-main-image]{opacity:0;transform:translateZ(0);transition:opacity .25s linear;will-change:opacity}.gatsby-image-wrapper-constrained{display:inline-block;vertical-align:top}</style><noscript><style>.gatsby-image-wrapper noscript [data-main-image]{opacity:1!important}.gatsby-image-wrapper [data-placeholder-image]{opacity:0!important}</style></noscript><script type="module">const e="undefined"!=typeof HTMLImageElement&&"loading"in HTMLImageElement.prototype;e&&document.body.addEventListener("load",(function(e){const t=e.target;if(void 0===t.dataset.mainImage)return;if(void 0===t.dataset.gatsbyImageSsr)return;let a=null,n=t;for(;null===a&&n;)void 0!==n.parentNode.dataset.gatsbyImageWrapper&&(a=n.parentNode),n=n.parentNode;const o=a.querySelector("[data-placeholder-image]"),r=new Image;r.src=t.currentSrc,r.decode().catch((()=>{})).then((()=>{t.style.opacity=1,o&&(o.style.opacity=0,o.style.transition="opacity 500ms linear")}))}),!0);</script></head><body><script>
           void function() {
             var cachedMode;
 
@@ -78,7 +78,7 @@
 
             setTheme(cachedMode || (darkQuery.matches ? 'dark' : 'light'));
           }()
-        </script><div id="___gatsby"><div style="outline:none" tabindex="-1" id="gatsby-focus-wrapper"><div class="Layout-module--layout--2c933"><div class="Post-module--post--3a994"><div class="Post-module--buttons--2972d"><a class="Button-module--button--b1113 Post-module--buttonArticles--d793a" href="/">All Articles</a></div><div class="Post-module--content--3c6e5"><div class="Content-module--content--80d58"><h1 class="Content-module--title--09504">Compilers For The Future</h1><div class="Content-module--body--726c2"><h2 id="index" style="position:relative;"><a href="#index" aria-label="index permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Index</h2>
+        </script><div id="___gatsby"><div style="outline:none" tabindex="-1" id="gatsby-focus-wrapper"><div class="Layout-module--layout--2c933"><div class="Post-module--post--3a994"><div class="Post-module--buttons--2972d"><a class="Button-module--button--b1113 Post-module--buttonArticles--d793a" href="/blog/">All Articles</a></div><div class="Post-module--content--3c6e5"><div class="Content-module--content--80d58"><h1 class="Content-module--title--09504">Compilers For The Future</h1><div class="Content-module--body--726c2"><h2 id="index" style="position:relative;"><a href="#index" aria-label="index permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Index</h2>
 <p><a href="https://github.com/adam-mcdaniel/sage" target="_blank" rel="nofollow noopener noreferrer">Link to the repository</a></p>
 <ol>
 <li><a href="#the-life-of-a-programming-language">The Life Of A Programming Language</a></li>
@@ -99,24 +99,24 @@
   ></span>
   <picture>
           <source
-              srcset="/static/80ba54ded169d78fb10c8d0fe9934f7c/8ac56/the-script.webp 240w,
-/static/80ba54ded169d78fb10c8d0fe9934f7c/d3be9/the-script.webp 480w,
-/static/80ba54ded169d78fb10c8d0fe9934f7c/e46b2/the-script.webp 960w,
-/static/80ba54ded169d78fb10c8d0fe9934f7c/a9a89/the-script.webp 1024w"
+              srcset="/blog/static/80ba54ded169d78fb10c8d0fe9934f7c/8ac56/the-script.webp 240w,
+/blog/static/80ba54ded169d78fb10c8d0fe9934f7c/d3be9/the-script.webp 480w,
+/blog/static/80ba54ded169d78fb10c8d0fe9934f7c/e46b2/the-script.webp 960w,
+/blog/static/80ba54ded169d78fb10c8d0fe9934f7c/a9a89/the-script.webp 1024w"
               sizes="(max-width: 960px) 100vw, 960px"
               type="image/webp"
             />
           <source
-            srcset="/static/80ba54ded169d78fb10c8d0fe9934f7c/09b79/the-script.jpg 240w,
-/static/80ba54ded169d78fb10c8d0fe9934f7c/7cc5e/the-script.jpg 480w,
-/static/80ba54ded169d78fb10c8d0fe9934f7c/6a068/the-script.jpg 960w,
-/static/80ba54ded169d78fb10c8d0fe9934f7c/72e01/the-script.jpg 1024w"
+            srcset="/blog/static/80ba54ded169d78fb10c8d0fe9934f7c/09b79/the-script.jpg 240w,
+/blog/static/80ba54ded169d78fb10c8d0fe9934f7c/7cc5e/the-script.jpg 480w,
+/blog/static/80ba54ded169d78fb10c8d0fe9934f7c/6a068/the-script.jpg 960w,
+/blog/static/80ba54ded169d78fb10c8d0fe9934f7c/72e01/the-script.jpg 1024w"
             sizes="(max-width: 960px) 100vw, 960px"
             type="image/jpeg"
           />
           <img
             class="gatsby-resp-image-image"
-            src="/static/80ba54ded169d78fb10c8d0fe9934f7c/6a068/the-script.jpg"
+            src="/blog/static/80ba54ded169d78fb10c8d0fe9934f7c/6a068/the-script.jpg"
             alt="The Script"
             title="The Script"
             loading="lazy"
@@ -165,7 +165,7 @@
     >
       <a
     class="gatsby-resp-image-link"
-    href="/static/5a79275ed59ef450e7184fbc14ca4777/72e01/the-fossil.jpg"
+    href="/blog/static/5a79275ed59ef450e7184fbc14ca4777/72e01/the-fossil.jpg"
     style="display: block"
     target="_blank"
     rel="noopener"
@@ -176,24 +176,24 @@
   ></span>
   <picture>
           <source
-              srcset="/static/5a79275ed59ef450e7184fbc14ca4777/8ac56/the-fossil.webp 240w,
-/static/5a79275ed59ef450e7184fbc14ca4777/d3be9/the-fossil.webp 480w,
-/static/5a79275ed59ef450e7184fbc14ca4777/e46b2/the-fossil.webp 960w,
-/static/5a79275ed59ef450e7184fbc14ca4777/a9a89/the-fossil.webp 1024w"
+              srcset="/blog/static/5a79275ed59ef450e7184fbc14ca4777/8ac56/the-fossil.webp 240w,
+/blog/static/5a79275ed59ef450e7184fbc14ca4777/d3be9/the-fossil.webp 480w,
+/blog/static/5a79275ed59ef450e7184fbc14ca4777/e46b2/the-fossil.webp 960w,
+/blog/static/5a79275ed59ef450e7184fbc14ca4777/a9a89/the-fossil.webp 1024w"
               sizes="(max-width: 960px) 100vw, 960px"
               type="image/webp"
             />
           <source
-            srcset="/static/5a79275ed59ef450e7184fbc14ca4777/09b79/the-fossil.jpg 240w,
-/static/5a79275ed59ef450e7184fbc14ca4777/7cc5e/the-fossil.jpg 480w,
-/static/5a79275ed59ef450e7184fbc14ca4777/6a068/the-fossil.jpg 960w,
-/static/5a79275ed59ef450e7184fbc14ca4777/72e01/the-fossil.jpg 1024w"
+            srcset="/blog/static/5a79275ed59ef450e7184fbc14ca4777/09b79/the-fossil.jpg 240w,
+/blog/static/5a79275ed59ef450e7184fbc14ca4777/7cc5e/the-fossil.jpg 480w,
+/blog/static/5a79275ed59ef450e7184fbc14ca4777/6a068/the-fossil.jpg 960w,
+/blog/static/5a79275ed59ef450e7184fbc14ca4777/72e01/the-fossil.jpg 1024w"
             sizes="(max-width: 960px) 100vw, 960px"
             type="image/jpeg"
           />
           <img
             class="gatsby-resp-image-image"
-            src="/static/5a79275ed59ef450e7184fbc14ca4777/6a068/the-fossil.jpg"
+            src="/blog/static/5a79275ed59ef450e7184fbc14ca4777/6a068/the-fossil.jpg"
             alt="The Fossil"
             title="The Fossil"
             loading="lazy"
@@ -225,7 +225,7 @@
     >
       <a
     class="gatsby-resp-image-link"
-    href="/static/8bbd9de77f96a3e10272a9cbf5843209/72e01/the-immortal-language.jpg"
+    href="/blog/static/8bbd9de77f96a3e10272a9cbf5843209/72e01/the-immortal-language.jpg"
     style="display: block"
     target="_blank"
     rel="noopener"
@@ -236,24 +236,24 @@
   ></span>
   <picture>
           <source
-              srcset="/static/8bbd9de77f96a3e10272a9cbf5843209/8ac56/the-immortal-language.webp 240w,
-/static/8bbd9de77f96a3e10272a9cbf5843209/d3be9/the-immortal-language.webp 480w,
-/static/8bbd9de77f96a3e10272a9cbf5843209/e46b2/the-immortal-language.webp 960w,
-/static/8bbd9de77f96a3e10272a9cbf5843209/a9a89/the-immortal-language.webp 1024w"
+              srcset="/blog/static/8bbd9de77f96a3e10272a9cbf5843209/8ac56/the-immortal-language.webp 240w,
+/blog/static/8bbd9de77f96a3e10272a9cbf5843209/d3be9/the-immortal-language.webp 480w,
+/blog/static/8bbd9de77f96a3e10272a9cbf5843209/e46b2/the-immortal-language.webp 960w,
+/blog/static/8bbd9de77f96a3e10272a9cbf5843209/a9a89/the-immortal-language.webp 1024w"
               sizes="(max-width: 960px) 100vw, 960px"
               type="image/webp"
             />
           <source
-            srcset="/static/8bbd9de77f96a3e10272a9cbf5843209/09b79/the-immortal-language.jpg 240w,
-/static/8bbd9de77f96a3e10272a9cbf5843209/7cc5e/the-immortal-language.jpg 480w,
-/static/8bbd9de77f96a3e10272a9cbf5843209/6a068/the-immortal-language.jpg 960w,
-/static/8bbd9de77f96a3e10272a9cbf5843209/72e01/the-immortal-language.jpg 1024w"
+            srcset="/blog/static/8bbd9de77f96a3e10272a9cbf5843209/09b79/the-immortal-language.jpg 240w,
+/blog/static/8bbd9de77f96a3e10272a9cbf5843209/7cc5e/the-immortal-language.jpg 480w,
+/blog/static/8bbd9de77f96a3e10272a9cbf5843209/6a068/the-immortal-language.jpg 960w,
+/blog/static/8bbd9de77f96a3e10272a9cbf5843209/72e01/the-immortal-language.jpg 1024w"
             sizes="(max-width: 960px) 100vw, 960px"
             type="image/jpeg"
           />
           <img
             class="gatsby-resp-image-image"
-            src="/static/8bbd9de77f96a3e10272a9cbf5843209/6a068/the-immortal-language.jpg"
+            src="/blog/static/8bbd9de77f96a3e10272a9cbf5843209/6a068/the-immortal-language.jpg"
             alt="The Immortal Language"
             title="The Immortal Language"
             loading="lazy"
@@ -334,7 +334,7 @@
     >
       <a
     class="gatsby-resp-image-link"
-    href="/static/84bb8f174f095f5c1b9ce198174aad8d/72e01/the-law.jpg"
+    href="/blog/static/84bb8f174f095f5c1b9ce198174aad8d/72e01/the-law.jpg"
     style="display: block"
     target="_blank"
     rel="noopener"
@@ -345,24 +345,24 @@
   ></span>
   <picture>
           <source
-              srcset="/static/84bb8f174f095f5c1b9ce198174aad8d/8ac56/the-law.webp 240w,
-/static/84bb8f174f095f5c1b9ce198174aad8d/d3be9/the-law.webp 480w,
-/static/84bb8f174f095f5c1b9ce198174aad8d/e46b2/the-law.webp 960w,
-/static/84bb8f174f095f5c1b9ce198174aad8d/a9a89/the-law.webp 1024w"
+              srcset="/blog/static/84bb8f174f095f5c1b9ce198174aad8d/8ac56/the-law.webp 240w,
+/blog/static/84bb8f174f095f5c1b9ce198174aad8d/d3be9/the-law.webp 480w,
+/blog/static/84bb8f174f095f5c1b9ce198174aad8d/e46b2/the-law.webp 960w,
+/blog/static/84bb8f174f095f5c1b9ce198174aad8d/a9a89/the-law.webp 1024w"
               sizes="(max-width: 960px) 100vw, 960px"
               type="image/webp"
             />
           <source
-            srcset="/static/84bb8f174f095f5c1b9ce198174aad8d/09b79/the-law.jpg 240w,
-/static/84bb8f174f095f5c1b9ce198174aad8d/7cc5e/the-law.jpg 480w,
-/static/84bb8f174f095f5c1b9ce198174aad8d/6a068/the-law.jpg 960w,
-/static/84bb8f174f095f5c1b9ce198174aad8d/72e01/the-law.jpg 1024w"
+            srcset="/blog/static/84bb8f174f095f5c1b9ce198174aad8d/09b79/the-law.jpg 240w,
+/blog/static/84bb8f174f095f5c1b9ce198174aad8d/7cc5e/the-law.jpg 480w,
+/blog/static/84bb8f174f095f5c1b9ce198174aad8d/6a068/the-law.jpg 960w,
+/blog/static/84bb8f174f095f5c1b9ce198174aad8d/72e01/the-law.jpg 1024w"
             sizes="(max-width: 960px) 100vw, 960px"
             type="image/jpeg"
           />
           <img
             class="gatsby-resp-image-image"
-            src="/static/84bb8f174f095f5c1b9ce198174aad8d/6a068/the-law.jpg"
+            src="/blog/static/84bb8f174f095f5c1b9ce198174aad8d/6a068/the-law.jpg"
             alt="The Law"
             title="The Law"
             loading="lazy"
@@ -426,7 +426,7 @@
     >
       <a
     class="gatsby-resp-image-link"
-    href="/static/24ee2f795129a621f97ab94e7f920121/72e01/the-tree-of-eternal-support.jpg"
+    href="/blog/static/24ee2f795129a621f97ab94e7f920121/72e01/the-tree-of-eternal-support.jpg"
     style="display: block"
     target="_blank"
     rel="noopener"
@@ -437,24 +437,24 @@
   ></span>
   <picture>
           <source
-              srcset="/static/24ee2f795129a621f97ab94e7f920121/8ac56/the-tree-of-eternal-support.webp 240w,
-/static/24ee2f795129a621f97ab94e7f920121/d3be9/the-tree-of-eternal-support.webp 480w,
-/static/24ee2f795129a621f97ab94e7f920121/e46b2/the-tree-of-eternal-support.webp 960w,
-/static/24ee2f795129a621f97ab94e7f920121/a9a89/the-tree-of-eternal-support.webp 1024w"
+              srcset="/blog/static/24ee2f795129a621f97ab94e7f920121/8ac56/the-tree-of-eternal-support.webp 240w,
+/blog/static/24ee2f795129a621f97ab94e7f920121/d3be9/the-tree-of-eternal-support.webp 480w,
+/blog/static/24ee2f795129a621f97ab94e7f920121/e46b2/the-tree-of-eternal-support.webp 960w,
+/blog/static/24ee2f795129a621f97ab94e7f920121/a9a89/the-tree-of-eternal-support.webp 1024w"
               sizes="(max-width: 960px) 100vw, 960px"
               type="image/webp"
             />
           <source
-            srcset="/static/24ee2f795129a621f97ab94e7f920121/09b79/the-tree-of-eternal-support.jpg 240w,
-/static/24ee2f795129a621f97ab94e7f920121/7cc5e/the-tree-of-eternal-support.jpg 480w,
-/static/24ee2f795129a621f97ab94e7f920121/6a068/the-tree-of-eternal-support.jpg 960w,
-/static/24ee2f795129a621f97ab94e7f920121/72e01/the-tree-of-eternal-support.jpg 1024w"
+            srcset="/blog/static/24ee2f795129a621f97ab94e7f920121/09b79/the-tree-of-eternal-support.jpg 240w,
+/blog/static/24ee2f795129a621f97ab94e7f920121/7cc5e/the-tree-of-eternal-support.jpg 480w,
+/blog/static/24ee2f795129a621f97ab94e7f920121/6a068/the-tree-of-eternal-support.jpg 960w,
+/blog/static/24ee2f795129a621f97ab94e7f920121/72e01/the-tree-of-eternal-support.jpg 1024w"
             sizes="(max-width: 960px) 100vw, 960px"
             type="image/jpeg"
           />
           <img
             class="gatsby-resp-image-image"
-            src="/static/24ee2f795129a621f97ab94e7f920121/6a068/the-tree-of-eternal-support.jpg"
+            src="/blog/static/24ee2f795129a621f97ab94e7f920121/6a068/the-tree-of-eternal-support.jpg"
             alt="The Tree Of Eternal Support"
             title="The Tree Of Eternal Support"
             loading="lazy"
@@ -515,30 +515,30 @@
 <p>Below are diagrams for all of the core instructions, accompanied by slightly more in-depth descriptions of each instruction with some C psuedocode examples.</p>
 <h4 id="move" style="position:relative;"><a href="#move" aria-label="move permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Move</h4>
 <p>The <code class="language-text">Move</code> instruction takes a constant integer as an argument: the number of cells to move the pointer. The number of cells can be either positive or negative.</p>
-<p><img src="/e169851b6fcde2cedb0b366c38172ee3/move.svg" alt="Move"></p>
+<p><img src="/blog/e169851b6fcde2cedb0b366c38172ee3/move.svg" alt="Move"></p>
 <h4 id="index-1" style="position:relative;"><a href="#index-1" aria-label="index 1 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Index</h4>
 <p>The <code class="language-text">Index</code> instruction moves the register’s value as a pointer by the value pointed to on the tape. For any N stored on the tape under the pointer, the address stored in the register will move by N cells. If N is negative, it will move the pointer in the register N cells to the left. If N is positive, the pointer will move to the right.</p>
 <p>This is to account for the fact that the virtual machine is abstracted over pointers. Pointers, under the hood, are varying distances apart for different implementations. For implementations using an indexed array as a tape, the “address” of each cell is the previous address plus one. For implementations using <strong>real pointers</strong>, this difference can be 2, 4, 8 or who knows what: it depends on the implementation. So, to write code that uses pointers <em>without understanding how they work</em>, we need the <code class="language-text">Index</code> instruction along with <code class="language-text">Where?</code>, <code class="language-text">Deref</code>, and <code class="language-text">Refer</code>.</p>
-<p><img src="/a6da3bd6ccd47319b2fec55a21fe0ecf/index.svg" alt="Index"></p>
+<p><img src="/blog/a6da3bd6ccd47319b2fec55a21fe0ecf/index.svg" alt="Index"></p>
 <h4 id="bitwisenand" style="position:relative;"><a href="#bitwisenand" aria-label="bitwisenand permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>BitwiseNand</h4>
 <p><code class="language-text">BitwiseNand</code> performs a bitwise-NAND operation on the register and the tape, and stores the result in the register. This should perform a bitwise-NAND across all the bits which represent the cell. I would ideally like to ground bitwise operations in a more mathematical way, but this is good for now. I don’t necessarily like the concept of forcing a target to implement cells in terms of bits, though.</p>
-<p><img src="/f325129b14f148f2a1e611a386342dae/bitwise-nand.svg" alt="BitwiseNand"></p>
+<p><img src="/blog/f325129b14f148f2a1e611a386342dae/bitwise-nand.svg" alt="BitwiseNand"></p>
 <h4 id="where" style="position:relative;"><a href="#where" aria-label="where permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Where?</h4>
 <p><code class="language-text">Where?</code> sets the register equal to the current value of the pointer: <code class="language-text">reg = ptr</code>. Consider an implementation of the VM that uses <em>actual pointers</em> to implement the turing tape. Using cell indices as addresses simply doesn’t work: you can’t dereference addresses like <code class="language-text">0x00000005</code> on the hardware. This instruction helps the VM abstract any implementation details about the memory, while still allowing enough flexibility to be interoperable with different representations of pointers. With <code class="language-text">Where?</code>, the VM can use either cell indices or real pointers to implement the tape without the compiler needing to know the difference.</p>
-<p><img src="/e8f449d36f28952854c184775521fe40/where.svg" alt="Where?"></p>
+<p><img src="/blog/e8f449d36f28952854c184775521fe40/where.svg" alt="Where?"></p>
 <h4 id="deref-and-refer" style="position:relative;"><a href="#deref-and-refer" aria-label="deref and refer permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Deref and Refer</h4>
 <p>The <code class="language-text">Deref</code> instruction saves the current pointer to the “deref stack”, and <em>dereferences</em> the address stored at the pointer: <code class="language-text">push(ptr); ptr = *ptr</code>. The <code class="language-text">Refer</code> undoes the last <code class="language-text">Deref</code> instruction. It pops the top pointer off the deref stack, and stores it in the pointer: <code class="language-text">ptr = pop()</code>.</p>
-<p><img src="/bda37e611584be8d9424cdcedb8282b8/deref.svg" alt="Deref"> <img src="/d386aa31c1a993da86a6a935075b7ff1/refer.svg" alt="Refer"></p>
+<p><img src="/blog/bda37e611584be8d9424cdcedb8282b8/deref.svg" alt="Deref"> <img src="/blog/d386aa31c1a993da86a6a935075b7ff1/refer.svg" alt="Refer"></p>
 <h4 id="isnonnegative" style="position:relative;"><a href="#isnonnegative" aria-label="isnonnegative permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>IsNonNegative?</h4>
 <p><code class="language-text">IsNonNegative?</code> is the only operator for comparisons. It sets the register equal to 1 if the register is non-negative, 0 otherwise: <code class="language-text">register = register >= 0? 1 : 0</code>.</p>
 <h4 id="math" style="position:relative;"><a href="#math" aria-label="math permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Math</h4>
 <p>Each of the arithmetic operators function identically. For addition: <code class="language-text">register += *ptr</code>. For subtraction: <code class="language-text">register -= *ptr</code>. Very straightforward. Division (and remainder) by zero should halt the machine.</p>
 <h5 id="add-and-subtract" style="position:relative;"><a href="#add-and-subtract" aria-label="add and subtract permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Add and Subtract</h5>
-<p><img src="/30183ee1400e2ab09c287cb658c69b87/add.svg" alt="Addition"> <img src="/cf9aaf1aca347cbc896191a52203d09d/subtract.svg" alt="Subtract"></p>
+<p><img src="/blog/30183ee1400e2ab09c287cb658c69b87/add.svg" alt="Addition"> <img src="/blog/cf9aaf1aca347cbc896191a52203d09d/subtract.svg" alt="Subtract"></p>
 <h5 id="multiply-and-divide" style="position:relative;"><a href="#multiply-and-divide" aria-label="multiply and divide permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Multiply and Divide</h5>
-<p><img src="/ee4fc1a012a6290ae52eb124ae4c3542/multiply.svg" alt="Multiply"> <img src="/03734cf92121b7618c6c49fdc0cfa009/divide.svg" alt="Divide"></p>
+<p><img src="/blog/ee4fc1a012a6290ae52eb124ae4c3542/multiply.svg" alt="Multiply"> <img src="/blog/03734cf92121b7618c6c49fdc0cfa009/divide.svg" alt="Divide"></p>
 <h5 id="remainder" style="position:relative;"><a href="#remainder" aria-label="remainder permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Remainder</h5>
-<p><img src="/3e5bb0b95ed1e4389d77ca6d76edbaa2/remainder.svg" alt="Remainder"></p>
+<p><img src="/blog/3e5bb0b95ed1e4389d77ca6d76edbaa2/remainder.svg" alt="Remainder"></p>
 <h4 id="while-if-and-else" style="position:relative;"><a href="#while-if-and-else" aria-label="while if and else permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>While, If, and Else</h4>
 <p>The <code class="language-text">While</code> instruction creates a while-the-register-is-not-zero-loop over the block of code terminated by the matching <code class="language-text">End</code> instruction: <code class="language-text">while (register != 0) {</code>.</p>
 <p>The <code class="language-text">If</code> instruction functions similarly: it creates an if statement which can have an optional <code class="language-text">Else</code> instruction. If statements are structured either: <code class="language-text">If</code> … <code class="language-text">End</code>, or <code class="language-text">If</code> … <code class="language-text">Else</code> … <code class="language-text">End</code>.</p>
@@ -548,10 +548,10 @@
 <p>The <code class="language-text">Return</code> instruction makes the current function return early. Outside of a function body, this causes the program to terminate.</p>
 <h4 id="set" style="position:relative;"><a href="#set" aria-label="set permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Set</h4>
 <p>The <code class="language-text">Set</code> instruction takes a constant integer argument, and sets the register to that value.</p>
-<p><img src="/4904dd9669c04c040a662f328a503a27/set.svg" alt="Set"></p>
+<p><img src="/blog/4904dd9669c04c040a662f328a503a27/set.svg" alt="Set"></p>
 <h4 id="save-and-restore" style="position:relative;"><a href="#save-and-restore" aria-label="save and restore permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Save and Restore</h4>
 <p>The <code class="language-text">Save</code> instruction writes the value of the register to the cell at the pointer: <code class="language-text">*ptr = register</code>. The <code class="language-text">Restore</code> instruction is the inverse: <code class="language-text">register = *ptr</code>.</p>
-<p><img src="/5cbe98ad7dcfd59d021b89d422dcde23/save.svg" alt="Save"> <img src="/4531c8b7f9ef43f7f0c1bed4ba62caf2/restore.svg" alt="Restore"></p>
+<p><img src="/blog/5cbe98ad7dcfd59d021b89d422dcde23/save.svg" alt="Save"> <img src="/blog/4531c8b7f9ef43f7f0c1bed4ba62caf2/restore.svg" alt="Restore"></p>
 <h4 id="get-and-put" style="position:relative;"><a href="#get-and-put" aria-label="get and put permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Get and Put</h4>
 <p>The <code class="language-text">Get</code> instruction receives a value from the interface I/O device, and stores it in the register. The <code class="language-text">Put</code> instruction sends the value of the register to the interface I/O device.
 This I/O device is statically known to the target, and can range from STDIN/STDOUT to a motor device.</p>
@@ -568,7 +568,7 @@ This I/O device is statically known to the target, and can range from STDIN/STDO
     >
       <a
     class="gatsby-resp-image-link"
-    href="/static/f3869c35d590566a18a08e0bc307c47d/72e01/babel.jpg"
+    href="/blog/static/f3869c35d590566a18a08e0bc307c47d/72e01/babel.jpg"
     style="display: block"
     target="_blank"
     rel="noopener"
@@ -579,24 +579,24 @@ This I/O device is statically known to the target, and can range from STDIN/STDO
   ></span>
   <picture>
           <source
-              srcset="/static/f3869c35d590566a18a08e0bc307c47d/8ac56/babel.webp 240w,
-/static/f3869c35d590566a18a08e0bc307c47d/d3be9/babel.webp 480w,
-/static/f3869c35d590566a18a08e0bc307c47d/e46b2/babel.webp 960w,
-/static/f3869c35d590566a18a08e0bc307c47d/a9a89/babel.webp 1024w"
+              srcset="/blog/static/f3869c35d590566a18a08e0bc307c47d/8ac56/babel.webp 240w,
+/blog/static/f3869c35d590566a18a08e0bc307c47d/d3be9/babel.webp 480w,
+/blog/static/f3869c35d590566a18a08e0bc307c47d/e46b2/babel.webp 960w,
+/blog/static/f3869c35d590566a18a08e0bc307c47d/a9a89/babel.webp 1024w"
               sizes="(max-width: 960px) 100vw, 960px"
               type="image/webp"
             />
           <source
-            srcset="/static/f3869c35d590566a18a08e0bc307c47d/09b79/babel.jpg 240w,
-/static/f3869c35d590566a18a08e0bc307c47d/7cc5e/babel.jpg 480w,
-/static/f3869c35d590566a18a08e0bc307c47d/6a068/babel.jpg 960w,
-/static/f3869c35d590566a18a08e0bc307c47d/72e01/babel.jpg 1024w"
+            srcset="/blog/static/f3869c35d590566a18a08e0bc307c47d/09b79/babel.jpg 240w,
+/blog/static/f3869c35d590566a18a08e0bc307c47d/7cc5e/babel.jpg 480w,
+/blog/static/f3869c35d590566a18a08e0bc307c47d/6a068/babel.jpg 960w,
+/blog/static/f3869c35d590566a18a08e0bc307c47d/72e01/babel.jpg 1024w"
             sizes="(max-width: 960px) 100vw, 960px"
             type="image/jpeg"
           />
           <img
             class="gatsby-resp-image-image"
-            src="/static/f3869c35d590566a18a08e0bc307c47d/6a068/babel.jpg"
+            src="/blog/static/f3869c35d590566a18a08e0bc307c47d/6a068/babel.jpg"
             alt="Babel"
             title="Babel"
             loading="lazy"
@@ -651,7 +651,7 @@ This I/O device is statically known to the target, and can range from STDIN/STDO
     >
       <a
     class="gatsby-resp-image-link"
-    href="/static/220fc1f0b3113770953ab1742525b9f5/72e01/the-creator's-spindle.jpg"
+    href="/blog/static/220fc1f0b3113770953ab1742525b9f5/72e01/the-creator's-spindle.jpg"
     style="display: block"
     target="_blank"
     rel="noopener"
@@ -662,24 +662,24 @@ This I/O device is statically known to the target, and can range from STDIN/STDO
   ></span>
   <picture>
           <source
-              srcset="/static/220fc1f0b3113770953ab1742525b9f5/8ac56/the-creator's-spindle.webp 240w,
-/static/220fc1f0b3113770953ab1742525b9f5/d3be9/the-creator's-spindle.webp 480w,
-/static/220fc1f0b3113770953ab1742525b9f5/e46b2/the-creator's-spindle.webp 960w,
-/static/220fc1f0b3113770953ab1742525b9f5/a9a89/the-creator's-spindle.webp 1024w"
+              srcset="/blog/static/220fc1f0b3113770953ab1742525b9f5/8ac56/the-creator's-spindle.webp 240w,
+/blog/static/220fc1f0b3113770953ab1742525b9f5/d3be9/the-creator's-spindle.webp 480w,
+/blog/static/220fc1f0b3113770953ab1742525b9f5/e46b2/the-creator's-spindle.webp 960w,
+/blog/static/220fc1f0b3113770953ab1742525b9f5/a9a89/the-creator's-spindle.webp 1024w"
               sizes="(max-width: 960px) 100vw, 960px"
               type="image/webp"
             />
           <source
-            srcset="/static/220fc1f0b3113770953ab1742525b9f5/09b79/the-creator's-spindle.jpg 240w,
-/static/220fc1f0b3113770953ab1742525b9f5/7cc5e/the-creator's-spindle.jpg 480w,
-/static/220fc1f0b3113770953ab1742525b9f5/6a068/the-creator's-spindle.jpg 960w,
-/static/220fc1f0b3113770953ab1742525b9f5/72e01/the-creator's-spindle.jpg 1024w"
+            srcset="/blog/static/220fc1f0b3113770953ab1742525b9f5/09b79/the-creator's-spindle.jpg 240w,
+/blog/static/220fc1f0b3113770953ab1742525b9f5/7cc5e/the-creator's-spindle.jpg 480w,
+/blog/static/220fc1f0b3113770953ab1742525b9f5/6a068/the-creator's-spindle.jpg 960w,
+/blog/static/220fc1f0b3113770953ab1742525b9f5/72e01/the-creator's-spindle.jpg 1024w"
             sizes="(max-width: 960px) 100vw, 960px"
             type="image/jpeg"
           />
           <img
             class="gatsby-resp-image-image"
-            src="/static/220fc1f0b3113770953ab1742525b9f5/6a068/the-creator's-spindle.jpg"
+            src="/blog/static/220fc1f0b3113770953ab1742525b9f5/6a068/the-creator's-spindle.jpg"
             alt="The Creator&#39;s Spindle"
             title="The Creator&#39;s Spindle"
             loading="lazy"
@@ -715,15 +715,15 @@ This I/O device is statically known to the target, and can range from STDIN/STDO
 </thead>
 <tbody>
 <tr>
-<td align="center"><img src="/0c9925f0f851d5c804a1c8dd16efa26b/Factorial0.svg" alt="Factorial Before"></td>
-<td align="center"><img src="/6378f3b19b6c20f1afc03a5d03072292/Factorial300.svg" alt="Factorial After"></td>
+<td align="center"><img src="/blog/0c9925f0f851d5c804a1c8dd16efa26b/Factorial0.svg" alt="Factorial Before"></td>
+<td align="center"><img src="/blog/6378f3b19b6c20f1afc03a5d03072292/Factorial300.svg" alt="Factorial After"></td>
 </tr>
 </tbody>
 </table>
 <h4 id="quicksort-before" style="position:relative;"><a href="#quicksort-before" aria-label="quicksort before permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Quicksort Before</h4>
-<p><img src="/cf04f2d7d978d0e626a1d15acaf504cd/Sort0.svg" alt="Quicksort Before"></p>
+<p><img src="/blog/cf04f2d7d978d0e626a1d15acaf504cd/Sort0.svg" alt="Quicksort Before"></p>
 <h4 id="quicksort-after" style="position:relative;"><a href="#quicksort-after" aria-label="quicksort after permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Quicksort After</h4>
-<p><img src="/27b7d93e8d47d13e13983eca25ed83cc/Sort300.svg" alt="Quicksort After"></p>
+<p><img src="/blog/27b7d93e8d47d13e13983eca25ed83cc/Sort300.svg" alt="Quicksort After"></p>
 <p><a href="https://github.com/adam-mcdaniel/program-evolution#research-poster" target="_blank" rel="nofollow noopener noreferrer">You can see a more in-depth explanation of the evolutionary process and the results here.</a></p>
 <p>An optimizing compiler might use these techniques to provide additional optimizations on top of those achieved by inlining and peephole optimizations.</p>
 <p><span
@@ -732,7 +732,7 @@ This I/O device is statically known to the target, and can range from STDIN/STDO
     >
       <a
     class="gatsby-resp-image-link"
-    href="/static/272738fb2393c0a0ea6ee758519df5b0/72e01/the-genome.jpg"
+    href="/blog/static/272738fb2393c0a0ea6ee758519df5b0/72e01/the-genome.jpg"
     style="display: block"
     target="_blank"
     rel="noopener"
@@ -743,24 +743,24 @@ This I/O device is statically known to the target, and can range from STDIN/STDO
   ></span>
   <picture>
           <source
-              srcset="/static/272738fb2393c0a0ea6ee758519df5b0/8ac56/the-genome.webp 240w,
-/static/272738fb2393c0a0ea6ee758519df5b0/d3be9/the-genome.webp 480w,
-/static/272738fb2393c0a0ea6ee758519df5b0/e46b2/the-genome.webp 960w,
-/static/272738fb2393c0a0ea6ee758519df5b0/a9a89/the-genome.webp 1024w"
+              srcset="/blog/static/272738fb2393c0a0ea6ee758519df5b0/8ac56/the-genome.webp 240w,
+/blog/static/272738fb2393c0a0ea6ee758519df5b0/d3be9/the-genome.webp 480w,
+/blog/static/272738fb2393c0a0ea6ee758519df5b0/e46b2/the-genome.webp 960w,
+/blog/static/272738fb2393c0a0ea6ee758519df5b0/a9a89/the-genome.webp 1024w"
               sizes="(max-width: 960px) 100vw, 960px"
               type="image/webp"
             />
           <source
-            srcset="/static/272738fb2393c0a0ea6ee758519df5b0/09b79/the-genome.jpg 240w,
-/static/272738fb2393c0a0ea6ee758519df5b0/7cc5e/the-genome.jpg 480w,
-/static/272738fb2393c0a0ea6ee758519df5b0/6a068/the-genome.jpg 960w,
-/static/272738fb2393c0a0ea6ee758519df5b0/72e01/the-genome.jpg 1024w"
+            srcset="/blog/static/272738fb2393c0a0ea6ee758519df5b0/09b79/the-genome.jpg 240w,
+/blog/static/272738fb2393c0a0ea6ee758519df5b0/7cc5e/the-genome.jpg 480w,
+/blog/static/272738fb2393c0a0ea6ee758519df5b0/6a068/the-genome.jpg 960w,
+/blog/static/272738fb2393c0a0ea6ee758519df5b0/72e01/the-genome.jpg 1024w"
             sizes="(max-width: 960px) 100vw, 960px"
             type="image/jpeg"
           />
           <img
             class="gatsby-resp-image-image"
-            src="/static/272738fb2393c0a0ea6ee758519df5b0/6a068/the-genome.jpg"
+            src="/blog/static/272738fb2393c0a0ea6ee758519df5b0/6a068/the-genome.jpg"
             alt="The Genome"
             title="The Genome"
             loading="lazy"
@@ -789,7 +789,7 @@ This I/O device is statically known to the target, and can range from STDIN/STDO
     >
       <a
     class="gatsby-resp-image-link"
-    href="/static/1cc95c08c85d3ebebc78e1cd3d69705e/72e01/the-golden-ladder.jpg"
+    href="/blog/static/1cc95c08c85d3ebebc78e1cd3d69705e/72e01/the-golden-ladder.jpg"
     style="display: block"
     target="_blank"
     rel="noopener"
@@ -800,24 +800,24 @@ This I/O device is statically known to the target, and can range from STDIN/STDO
   ></span>
   <picture>
           <source
-              srcset="/static/1cc95c08c85d3ebebc78e1cd3d69705e/8ac56/the-golden-ladder.webp 240w,
-/static/1cc95c08c85d3ebebc78e1cd3d69705e/d3be9/the-golden-ladder.webp 480w,
-/static/1cc95c08c85d3ebebc78e1cd3d69705e/e46b2/the-golden-ladder.webp 960w,
-/static/1cc95c08c85d3ebebc78e1cd3d69705e/a9a89/the-golden-ladder.webp 1024w"
+              srcset="/blog/static/1cc95c08c85d3ebebc78e1cd3d69705e/8ac56/the-golden-ladder.webp 240w,
+/blog/static/1cc95c08c85d3ebebc78e1cd3d69705e/d3be9/the-golden-ladder.webp 480w,
+/blog/static/1cc95c08c85d3ebebc78e1cd3d69705e/e46b2/the-golden-ladder.webp 960w,
+/blog/static/1cc95c08c85d3ebebc78e1cd3d69705e/a9a89/the-golden-ladder.webp 1024w"
               sizes="(max-width: 960px) 100vw, 960px"
               type="image/webp"
             />
           <source
-            srcset="/static/1cc95c08c85d3ebebc78e1cd3d69705e/09b79/the-golden-ladder.jpg 240w,
-/static/1cc95c08c85d3ebebc78e1cd3d69705e/7cc5e/the-golden-ladder.jpg 480w,
-/static/1cc95c08c85d3ebebc78e1cd3d69705e/6a068/the-golden-ladder.jpg 960w,
-/static/1cc95c08c85d3ebebc78e1cd3d69705e/72e01/the-golden-ladder.jpg 1024w"
+            srcset="/blog/static/1cc95c08c85d3ebebc78e1cd3d69705e/09b79/the-golden-ladder.jpg 240w,
+/blog/static/1cc95c08c85d3ebebc78e1cd3d69705e/7cc5e/the-golden-ladder.jpg 480w,
+/blog/static/1cc95c08c85d3ebebc78e1cd3d69705e/6a068/the-golden-ladder.jpg 960w,
+/blog/static/1cc95c08c85d3ebebc78e1cd3d69705e/72e01/the-golden-ladder.jpg 1024w"
             sizes="(max-width: 960px) 100vw, 960px"
             type="image/jpeg"
           />
           <img
             class="gatsby-resp-image-image"
-            src="/static/1cc95c08c85d3ebebc78e1cd3d69705e/6a068/the-golden-ladder.jpg"
+            src="/blog/static/1cc95c08c85d3ebebc78e1cd3d69705e/6a068/the-golden-ladder.jpg"
             alt="The Golden Ladder"
             title="The Golden Ladder"
             loading="lazy"
@@ -865,7 +865,7 @@ This I/O device is statically known to the target, and can range from STDIN/STDO
     >
       <a
     class="gatsby-resp-image-link"
-    href="/static/897f4e490fa02ce0a2c4538890d1ac21/72e01/creation.jpg"
+    href="/blog/static/897f4e490fa02ce0a2c4538890d1ac21/72e01/creation.jpg"
     style="display: block"
     target="_blank"
     rel="noopener"
@@ -876,24 +876,24 @@ This I/O device is statically known to the target, and can range from STDIN/STDO
   ></span>
   <picture>
           <source
-              srcset="/static/897f4e490fa02ce0a2c4538890d1ac21/8ac56/creation.webp 240w,
-/static/897f4e490fa02ce0a2c4538890d1ac21/d3be9/creation.webp 480w,
-/static/897f4e490fa02ce0a2c4538890d1ac21/e46b2/creation.webp 960w,
-/static/897f4e490fa02ce0a2c4538890d1ac21/a9a89/creation.webp 1024w"
+              srcset="/blog/static/897f4e490fa02ce0a2c4538890d1ac21/8ac56/creation.webp 240w,
+/blog/static/897f4e490fa02ce0a2c4538890d1ac21/d3be9/creation.webp 480w,
+/blog/static/897f4e490fa02ce0a2c4538890d1ac21/e46b2/creation.webp 960w,
+/blog/static/897f4e490fa02ce0a2c4538890d1ac21/a9a89/creation.webp 1024w"
               sizes="(max-width: 960px) 100vw, 960px"
               type="image/webp"
             />
           <source
-            srcset="/static/897f4e490fa02ce0a2c4538890d1ac21/09b79/creation.jpg 240w,
-/static/897f4e490fa02ce0a2c4538890d1ac21/7cc5e/creation.jpg 480w,
-/static/897f4e490fa02ce0a2c4538890d1ac21/6a068/creation.jpg 960w,
-/static/897f4e490fa02ce0a2c4538890d1ac21/72e01/creation.jpg 1024w"
+            srcset="/blog/static/897f4e490fa02ce0a2c4538890d1ac21/09b79/creation.jpg 240w,
+/blog/static/897f4e490fa02ce0a2c4538890d1ac21/7cc5e/creation.jpg 480w,
+/blog/static/897f4e490fa02ce0a2c4538890d1ac21/6a068/creation.jpg 960w,
+/blog/static/897f4e490fa02ce0a2c4538890d1ac21/72e01/creation.jpg 1024w"
             sizes="(max-width: 960px) 100vw, 960px"
             type="image/jpeg"
           />
           <img
             class="gatsby-resp-image-image"
-            src="/static/897f4e490fa02ce0a2c4538890d1ac21/6a068/creation.jpg"
+            src="/blog/static/897f4e490fa02ce0a2c4538890d1ac21/6a068/creation.jpg"
             alt="Creation"
             title="Creation"
             loading="lazy"
@@ -914,4 +914,4 @@ This I/O device is statically known to the target, and can range from STDIN/STDO
 <td align="center"></td>
 </tr>
 </tbody>
-</table></div></div></div><div class="Post-module--footer--f8705"><div class="Meta-module--meta--dae0a"><p class="Meta-module--date--4d30d">Published<!-- --> <!-- -->Jul 20, 2023</p></div><div class="Tags-module--tags--18589"><ul class="Tags-module--list--82ae6"><li class="Tags-module--item--52015"><a class="Button-module--button--b1113" href="/tag/compilers/">Compilers</a></li><li class="Tags-module--item--52015"><a class="Button-module--button--b1113" href="/tag/opinion/">Opinion</a></li></ul></div><div class="Author-module--author--1c58d"><p class="Author-module--bio--08950">Programmer, musician, and graduate student at UTK.</p></div></div><div class="Post-module--comments--d3b99"></div></div></div></div><div id="gatsby-announcer" style="position:absolute;top:0;width:1px;height:1px;padding:0;overflow:hidden;clip:rect(0, 0, 0, 0);white-space:nowrap;border:0" aria-live="assertive" aria-atomic="true"></div></div><script id="gatsby-script-loader">/*<![CDATA[*/window.pagePath="/compilers-for-the-future";window.___webpackCompilationHash="f4341df4131f1a81b194";/*]]>*/</script><script id="gatsby-chunk-mapping">/*<![CDATA[*/window.___chunkMapping={"app":["/app-6b7cb138ac769bf0303e.js"],"component---cache-caches-gatsby-plugin-offline-app-shell-js":["/component---cache-caches-gatsby-plugin-offline-app-shell-js-0c915c7b1bdb5eac4fdf.js"],"component---src-templates-categories-template-categories-template-tsx":["/component---src-templates-categories-template-categories-template-tsx-7dd5e776d35dcaf516f1.js"],"component---src-templates-category-template-category-template-tsx":["/component---src-templates-category-template-category-template-tsx-1dfbf69f48a0f668c5ad.js"],"component---src-templates-index-template-index-template-tsx":["/component---src-templates-index-template-index-template-tsx-22e1bba6fba5c5f5b9ef.js"],"component---src-templates-not-found-template-not-found-template-tsx":["/component---src-templates-not-found-template-not-found-template-tsx-5e53faadc7e554aa135e.js"],"component---src-templates-page-template-page-template-tsx":["/component---src-templates-page-template-page-template-tsx-2eea3ffe2002a5254ba7.js"],"component---src-templates-post-template-post-template-tsx":["/component---src-templates-post-template-post-template-tsx-142171b6c6c7e82222c6.js"],"component---src-templates-tag-template-tag-template-tsx":["/component---src-templates-tag-template-tag-template-tsx-13fdaad2f043c733536a.js"],"component---src-templates-tags-template-tags-template-tsx":["/component---src-templates-tags-template-tags-template-tsx-334b3ccd61caaf94fa60.js"]};/*]]>*/</script><script src="/app-6b7cb138ac769bf0303e.js" async=""></script><script src="/framework-745d5d28c0250a1a333b.js" async=""></script><script src="/webpack-runtime-9134b21a27b0e6b2a7db.js" async=""></script></body></html>
+</table></div></div></div><div class="Post-module--footer--f8705"><div class="Meta-module--meta--dae0a"><p class="Meta-module--date--4d30d">Published<!-- --> <!-- -->Jul 20, 2023</p></div><div class="Tags-module--tags--18589"><ul class="Tags-module--list--82ae6"><li class="Tags-module--item--52015"><a class="Button-module--button--b1113" href="/blog/tag/compilers/">Compilers</a></li><li class="Tags-module--item--52015"><a class="Button-module--button--b1113" href="/blog/tag/opinion/">Opinion</a></li></ul></div><div class="Author-module--author--1c58d"><p class="Author-module--bio--08950">Programmer, musician, and graduate student at UTK.</p></div></div><div class="Post-module--comments--d3b99"></div></div></div></div><div id="gatsby-announcer" style="position:absolute;top:0;width:1px;height:1px;padding:0;overflow:hidden;clip:rect(0, 0, 0, 0);white-space:nowrap;border:0" aria-live="assertive" aria-atomic="true"></div></div><script id="gatsby-script-loader">/*<![CDATA[*/window.pagePath="/compilers-for-the-future";window.___webpackCompilationHash="3ce95d98633cbed201cd";/*]]>*/</script><script id="gatsby-chunk-mapping">/*<![CDATA[*/window.___chunkMapping={"app":["/app-442133d0e0e51ed6f86f.js"],"component---cache-caches-gatsby-plugin-offline-app-shell-js":["/component---cache-caches-gatsby-plugin-offline-app-shell-js-02abafd21f3ca3501462.js"],"component---src-templates-categories-template-categories-template-tsx":["/component---src-templates-categories-template-categories-template-tsx-b449ea18ac689b1b4d05.js"],"component---src-templates-category-template-category-template-tsx":["/component---src-templates-category-template-category-template-tsx-f25335f9ad4d1e083e1e.js"],"component---src-templates-index-template-index-template-tsx":["/component---src-templates-index-template-index-template-tsx-574bb2c842b72a4f56d6.js"],"component---src-templates-not-found-template-not-found-template-tsx":["/component---src-templates-not-found-template-not-found-template-tsx-87d8cb04f32ef1c28bb0.js"],"component---src-templates-page-template-page-template-tsx":["/component---src-templates-page-template-page-template-tsx-efa695dc50d2a91bc2ae.js"],"component---src-templates-post-template-post-template-tsx":["/component---src-templates-post-template-post-template-tsx-d5932ed5cf3ded155b03.js"],"component---src-templates-tag-template-tag-template-tsx":["/component---src-templates-tag-template-tag-template-tsx-dbf1278bb80575247891.js"],"component---src-templates-tags-template-tags-template-tsx":["/component---src-templates-tags-template-tags-template-tsx-e89bc401e74db52ece1a.js"]};/*]]>*/</script><script src="/blog/app-442133d0e0e51ed6f86f.js" async=""></script><script src="/blog/framework-5a9d309ce209c63b9210.js" async=""></script><script src="/blog/webpack-runtime-e2cca663d19bb2d77e03.js" async=""></script></body></html>

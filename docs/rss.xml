@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Adam | Blog]]></title><description><![CDATA[Adam | Blog]]></description><link>http://github.com/dylang/node-rss</link><generator>GatsbyJS</generator><lastBuildDate>Thu, 18 Apr 2024 03:35:30 GMT</lastBuildDate><item><title><![CDATA[Compilers For The Future]]></title><description><![CDATA[How can we future-proof our programming languages?]]></description><link>https://adam-mcdaniel-blog.github.io//compilers-for-the-future</link><guid isPermaLink="false">https://adam-mcdaniel-blog.github.io//compilers-for-the-future</guid><pubDate>Thu, 20 Jul 2023 11:52:37 GMT</pubDate><content:encoded>&lt;h2 id=&quot;index&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#index&quot; aria-label=&quot;index permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Index&lt;/h2&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Adam | Blog]]></title><description><![CDATA[Adam | Blog]]></description><link>http://github.com/dylang/node-rss</link><generator>GatsbyJS</generator><lastBuildDate>Sat, 27 Apr 2024 23:28:55 GMT</lastBuildDate><item><title><![CDATA[Compilers For The Future]]></title><description><![CDATA[How can we future-proof our programming languages?]]></description><link>https://adam-mcdaniel-blog.github.io//compilers-for-the-future</link><guid isPermaLink="false">https://adam-mcdaniel-blog.github.io//compilers-for-the-future</guid><pubDate>Thu, 20 Jul 2023 11:52:37 GMT</pubDate><content:encoded>&lt;h2 id=&quot;index&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#index&quot; aria-label=&quot;index permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Index&lt;/h2&gt;
 &lt;p&gt;&lt;a href=&quot;https://github.com/adam-mcdaniel/sage&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;Link to the repository&lt;/a&gt;&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;&lt;a href=&quot;#the-life-of-a-programming-language&quot;&gt;The Life Of A Programming Language&lt;/a&gt;&lt;/li&gt;
@@ -19,24 +19,24 @@
   &gt;&lt;/span&gt;
   &lt;picture&gt;
           &lt;source
-              srcset=&quot;/static/80ba54ded169d78fb10c8d0fe9934f7c/8ac56/the-script.webp 240w,
-/static/80ba54ded169d78fb10c8d0fe9934f7c/d3be9/the-script.webp 480w,
-/static/80ba54ded169d78fb10c8d0fe9934f7c/e46b2/the-script.webp 960w,
-/static/80ba54ded169d78fb10c8d0fe9934f7c/a9a89/the-script.webp 1024w&quot;
+              srcset=&quot;/blog/static/80ba54ded169d78fb10c8d0fe9934f7c/8ac56/the-script.webp 240w,
+/blog/static/80ba54ded169d78fb10c8d0fe9934f7c/d3be9/the-script.webp 480w,
+/blog/static/80ba54ded169d78fb10c8d0fe9934f7c/e46b2/the-script.webp 960w,
+/blog/static/80ba54ded169d78fb10c8d0fe9934f7c/a9a89/the-script.webp 1024w&quot;
               sizes=&quot;(max-width: 960px) 100vw, 960px&quot;
               type=&quot;image/webp&quot;
             /&gt;
           &lt;source
-            srcset=&quot;/static/80ba54ded169d78fb10c8d0fe9934f7c/09b79/the-script.jpg 240w,
-/static/80ba54ded169d78fb10c8d0fe9934f7c/7cc5e/the-script.jpg 480w,
-/static/80ba54ded169d78fb10c8d0fe9934f7c/6a068/the-script.jpg 960w,
-/static/80ba54ded169d78fb10c8d0fe9934f7c/72e01/the-script.jpg 1024w&quot;
+            srcset=&quot;/blog/static/80ba54ded169d78fb10c8d0fe9934f7c/09b79/the-script.jpg 240w,
+/blog/static/80ba54ded169d78fb10c8d0fe9934f7c/7cc5e/the-script.jpg 480w,
+/blog/static/80ba54ded169d78fb10c8d0fe9934f7c/6a068/the-script.jpg 960w,
+/blog/static/80ba54ded169d78fb10c8d0fe9934f7c/72e01/the-script.jpg 1024w&quot;
             sizes=&quot;(max-width: 960px) 100vw, 960px&quot;
             type=&quot;image/jpeg&quot;
           /&gt;
           &lt;img
             class=&quot;gatsby-resp-image-image&quot;
-            src=&quot;/static/80ba54ded169d78fb10c8d0fe9934f7c/6a068/the-script.jpg&quot;
+            src=&quot;/blog/static/80ba54ded169d78fb10c8d0fe9934f7c/6a068/the-script.jpg&quot;
             alt=&quot;The Script&quot;
             title=&quot;The Script&quot;
             loading=&quot;lazy&quot;
@@ -85,7 +85,7 @@
     &gt;
       &lt;a
     class=&quot;gatsby-resp-image-link&quot;
-    href=&quot;/static/5a79275ed59ef450e7184fbc14ca4777/72e01/the-fossil.jpg&quot;
+    href=&quot;/blog/static/5a79275ed59ef450e7184fbc14ca4777/72e01/the-fossil.jpg&quot;
     style=&quot;display: block&quot;
     target=&quot;_blank&quot;
     rel=&quot;noopener&quot;
@@ -96,24 +96,24 @@
   &gt;&lt;/span&gt;
   &lt;picture&gt;
           &lt;source
-              srcset=&quot;/static/5a79275ed59ef450e7184fbc14ca4777/8ac56/the-fossil.webp 240w,
-/static/5a79275ed59ef450e7184fbc14ca4777/d3be9/the-fossil.webp 480w,
-/static/5a79275ed59ef450e7184fbc14ca4777/e46b2/the-fossil.webp 960w,
-/static/5a79275ed59ef450e7184fbc14ca4777/a9a89/the-fossil.webp 1024w&quot;
+              srcset=&quot;/blog/static/5a79275ed59ef450e7184fbc14ca4777/8ac56/the-fossil.webp 240w,
+/blog/static/5a79275ed59ef450e7184fbc14ca4777/d3be9/the-fossil.webp 480w,
+/blog/static/5a79275ed59ef450e7184fbc14ca4777/e46b2/the-fossil.webp 960w,
+/blog/static/5a79275ed59ef450e7184fbc14ca4777/a9a89/the-fossil.webp 1024w&quot;
               sizes=&quot;(max-width: 960px) 100vw, 960px&quot;
               type=&quot;image/webp&quot;
             /&gt;
           &lt;source
-            srcset=&quot;/static/5a79275ed59ef450e7184fbc14ca4777/09b79/the-fossil.jpg 240w,
-/static/5a79275ed59ef450e7184fbc14ca4777/7cc5e/the-fossil.jpg 480w,
-/static/5a79275ed59ef450e7184fbc14ca4777/6a068/the-fossil.jpg 960w,
-/static/5a79275ed59ef450e7184fbc14ca4777/72e01/the-fossil.jpg 1024w&quot;
+            srcset=&quot;/blog/static/5a79275ed59ef450e7184fbc14ca4777/09b79/the-fossil.jpg 240w,
+/blog/static/5a79275ed59ef450e7184fbc14ca4777/7cc5e/the-fossil.jpg 480w,
+/blog/static/5a79275ed59ef450e7184fbc14ca4777/6a068/the-fossil.jpg 960w,
+/blog/static/5a79275ed59ef450e7184fbc14ca4777/72e01/the-fossil.jpg 1024w&quot;
             sizes=&quot;(max-width: 960px) 100vw, 960px&quot;
             type=&quot;image/jpeg&quot;
           /&gt;
           &lt;img
             class=&quot;gatsby-resp-image-image&quot;
-            src=&quot;/static/5a79275ed59ef450e7184fbc14ca4777/6a068/the-fossil.jpg&quot;
+            src=&quot;/blog/static/5a79275ed59ef450e7184fbc14ca4777/6a068/the-fossil.jpg&quot;
             alt=&quot;The Fossil&quot;
             title=&quot;The Fossil&quot;
             loading=&quot;lazy&quot;
@@ -145,7 +145,7 @@
     &gt;
       &lt;a
     class=&quot;gatsby-resp-image-link&quot;
-    href=&quot;/static/8bbd9de77f96a3e10272a9cbf5843209/72e01/the-immortal-language.jpg&quot;
+    href=&quot;/blog/static/8bbd9de77f96a3e10272a9cbf5843209/72e01/the-immortal-language.jpg&quot;
     style=&quot;display: block&quot;
     target=&quot;_blank&quot;
     rel=&quot;noopener&quot;
@@ -156,24 +156,24 @@
   &gt;&lt;/span&gt;
   &lt;picture&gt;
           &lt;source
-              srcset=&quot;/static/8bbd9de77f96a3e10272a9cbf5843209/8ac56/the-immortal-language.webp 240w,
-/static/8bbd9de77f96a3e10272a9cbf5843209/d3be9/the-immortal-language.webp 480w,
-/static/8bbd9de77f96a3e10272a9cbf5843209/e46b2/the-immortal-language.webp 960w,
-/static/8bbd9de77f96a3e10272a9cbf5843209/a9a89/the-immortal-language.webp 1024w&quot;
+              srcset=&quot;/blog/static/8bbd9de77f96a3e10272a9cbf5843209/8ac56/the-immortal-language.webp 240w,
+/blog/static/8bbd9de77f96a3e10272a9cbf5843209/d3be9/the-immortal-language.webp 480w,
+/blog/static/8bbd9de77f96a3e10272a9cbf5843209/e46b2/the-immortal-language.webp 960w,
+/blog/static/8bbd9de77f96a3e10272a9cbf5843209/a9a89/the-immortal-language.webp 1024w&quot;
               sizes=&quot;(max-width: 960px) 100vw, 960px&quot;
               type=&quot;image/webp&quot;
             /&gt;
           &lt;source
-            srcset=&quot;/static/8bbd9de77f96a3e10272a9cbf5843209/09b79/the-immortal-language.jpg 240w,
-/static/8bbd9de77f96a3e10272a9cbf5843209/7cc5e/the-immortal-language.jpg 480w,
-/static/8bbd9de77f96a3e10272a9cbf5843209/6a068/the-immortal-language.jpg 960w,
-/static/8bbd9de77f96a3e10272a9cbf5843209/72e01/the-immortal-language.jpg 1024w&quot;
+            srcset=&quot;/blog/static/8bbd9de77f96a3e10272a9cbf5843209/09b79/the-immortal-language.jpg 240w,
+/blog/static/8bbd9de77f96a3e10272a9cbf5843209/7cc5e/the-immortal-language.jpg 480w,
+/blog/static/8bbd9de77f96a3e10272a9cbf5843209/6a068/the-immortal-language.jpg 960w,
+/blog/static/8bbd9de77f96a3e10272a9cbf5843209/72e01/the-immortal-language.jpg 1024w&quot;
             sizes=&quot;(max-width: 960px) 100vw, 960px&quot;
             type=&quot;image/jpeg&quot;
           /&gt;
           &lt;img
             class=&quot;gatsby-resp-image-image&quot;
-            src=&quot;/static/8bbd9de77f96a3e10272a9cbf5843209/6a068/the-immortal-language.jpg&quot;
+            src=&quot;/blog/static/8bbd9de77f96a3e10272a9cbf5843209/6a068/the-immortal-language.jpg&quot;
             alt=&quot;The Immortal Language&quot;
             title=&quot;The Immortal Language&quot;
             loading=&quot;lazy&quot;
@@ -254,7 +254,7 @@
     &gt;
       &lt;a
     class=&quot;gatsby-resp-image-link&quot;
-    href=&quot;/static/84bb8f174f095f5c1b9ce198174aad8d/72e01/the-law.jpg&quot;
+    href=&quot;/blog/static/84bb8f174f095f5c1b9ce198174aad8d/72e01/the-law.jpg&quot;
     style=&quot;display: block&quot;
     target=&quot;_blank&quot;
     rel=&quot;noopener&quot;
@@ -265,24 +265,24 @@
   &gt;&lt;/span&gt;
   &lt;picture&gt;
           &lt;source
-              srcset=&quot;/static/84bb8f174f095f5c1b9ce198174aad8d/8ac56/the-law.webp 240w,
-/static/84bb8f174f095f5c1b9ce198174aad8d/d3be9/the-law.webp 480w,
-/static/84bb8f174f095f5c1b9ce198174aad8d/e46b2/the-law.webp 960w,
-/static/84bb8f174f095f5c1b9ce198174aad8d/a9a89/the-law.webp 1024w&quot;
+              srcset=&quot;/blog/static/84bb8f174f095f5c1b9ce198174aad8d/8ac56/the-law.webp 240w,
+/blog/static/84bb8f174f095f5c1b9ce198174aad8d/d3be9/the-law.webp 480w,
+/blog/static/84bb8f174f095f5c1b9ce198174aad8d/e46b2/the-law.webp 960w,
+/blog/static/84bb8f174f095f5c1b9ce198174aad8d/a9a89/the-law.webp 1024w&quot;
               sizes=&quot;(max-width: 960px) 100vw, 960px&quot;
               type=&quot;image/webp&quot;
             /&gt;
           &lt;source
-            srcset=&quot;/static/84bb8f174f095f5c1b9ce198174aad8d/09b79/the-law.jpg 240w,
-/static/84bb8f174f095f5c1b9ce198174aad8d/7cc5e/the-law.jpg 480w,
-/static/84bb8f174f095f5c1b9ce198174aad8d/6a068/the-law.jpg 960w,
-/static/84bb8f174f095f5c1b9ce198174aad8d/72e01/the-law.jpg 1024w&quot;
+            srcset=&quot;/blog/static/84bb8f174f095f5c1b9ce198174aad8d/09b79/the-law.jpg 240w,
+/blog/static/84bb8f174f095f5c1b9ce198174aad8d/7cc5e/the-law.jpg 480w,
+/blog/static/84bb8f174f095f5c1b9ce198174aad8d/6a068/the-law.jpg 960w,
+/blog/static/84bb8f174f095f5c1b9ce198174aad8d/72e01/the-law.jpg 1024w&quot;
             sizes=&quot;(max-width: 960px) 100vw, 960px&quot;
             type=&quot;image/jpeg&quot;
           /&gt;
           &lt;img
             class=&quot;gatsby-resp-image-image&quot;
-            src=&quot;/static/84bb8f174f095f5c1b9ce198174aad8d/6a068/the-law.jpg&quot;
+            src=&quot;/blog/static/84bb8f174f095f5c1b9ce198174aad8d/6a068/the-law.jpg&quot;
             alt=&quot;The Law&quot;
             title=&quot;The Law&quot;
             loading=&quot;lazy&quot;
@@ -346,7 +346,7 @@
     &gt;
       &lt;a
     class=&quot;gatsby-resp-image-link&quot;
-    href=&quot;/static/24ee2f795129a621f97ab94e7f920121/72e01/the-tree-of-eternal-support.jpg&quot;
+    href=&quot;/blog/static/24ee2f795129a621f97ab94e7f920121/72e01/the-tree-of-eternal-support.jpg&quot;
     style=&quot;display: block&quot;
     target=&quot;_blank&quot;
     rel=&quot;noopener&quot;
@@ -357,24 +357,24 @@
   &gt;&lt;/span&gt;
   &lt;picture&gt;
           &lt;source
-              srcset=&quot;/static/24ee2f795129a621f97ab94e7f920121/8ac56/the-tree-of-eternal-support.webp 240w,
-/static/24ee2f795129a621f97ab94e7f920121/d3be9/the-tree-of-eternal-support.webp 480w,
-/static/24ee2f795129a621f97ab94e7f920121/e46b2/the-tree-of-eternal-support.webp 960w,
-/static/24ee2f795129a621f97ab94e7f920121/a9a89/the-tree-of-eternal-support.webp 1024w&quot;
+              srcset=&quot;/blog/static/24ee2f795129a621f97ab94e7f920121/8ac56/the-tree-of-eternal-support.webp 240w,
+/blog/static/24ee2f795129a621f97ab94e7f920121/d3be9/the-tree-of-eternal-support.webp 480w,
+/blog/static/24ee2f795129a621f97ab94e7f920121/e46b2/the-tree-of-eternal-support.webp 960w,
+/blog/static/24ee2f795129a621f97ab94e7f920121/a9a89/the-tree-of-eternal-support.webp 1024w&quot;
               sizes=&quot;(max-width: 960px) 100vw, 960px&quot;
               type=&quot;image/webp&quot;
             /&gt;
           &lt;source
-            srcset=&quot;/static/24ee2f795129a621f97ab94e7f920121/09b79/the-tree-of-eternal-support.jpg 240w,
-/static/24ee2f795129a621f97ab94e7f920121/7cc5e/the-tree-of-eternal-support.jpg 480w,
-/static/24ee2f795129a621f97ab94e7f920121/6a068/the-tree-of-eternal-support.jpg 960w,
-/static/24ee2f795129a621f97ab94e7f920121/72e01/the-tree-of-eternal-support.jpg 1024w&quot;
+            srcset=&quot;/blog/static/24ee2f795129a621f97ab94e7f920121/09b79/the-tree-of-eternal-support.jpg 240w,
+/blog/static/24ee2f795129a621f97ab94e7f920121/7cc5e/the-tree-of-eternal-support.jpg 480w,
+/blog/static/24ee2f795129a621f97ab94e7f920121/6a068/the-tree-of-eternal-support.jpg 960w,
+/blog/static/24ee2f795129a621f97ab94e7f920121/72e01/the-tree-of-eternal-support.jpg 1024w&quot;
             sizes=&quot;(max-width: 960px) 100vw, 960px&quot;
             type=&quot;image/jpeg&quot;
           /&gt;
           &lt;img
             class=&quot;gatsby-resp-image-image&quot;
-            src=&quot;/static/24ee2f795129a621f97ab94e7f920121/6a068/the-tree-of-eternal-support.jpg&quot;
+            src=&quot;/blog/static/24ee2f795129a621f97ab94e7f920121/6a068/the-tree-of-eternal-support.jpg&quot;
             alt=&quot;The Tree Of Eternal Support&quot;
             title=&quot;The Tree Of Eternal Support&quot;
             loading=&quot;lazy&quot;
@@ -435,30 +435,30 @@
 &lt;p&gt;Below are diagrams for all of the core instructions, accompanied by slightly more in-depth descriptions of each instruction with some C psuedocode examples.&lt;/p&gt;
 &lt;h4 id=&quot;move&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#move&quot; aria-label=&quot;move permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Move&lt;/h4&gt;
 &lt;p&gt;The &lt;code class=&quot;language-text&quot;&gt;Move&lt;/code&gt; instruction takes a constant integer as an argument: the number of cells to move the pointer. The number of cells can be either positive or negative.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;/e169851b6fcde2cedb0b366c38172ee3/move.svg&quot; alt=&quot;Move&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/blog/e169851b6fcde2cedb0b366c38172ee3/move.svg&quot; alt=&quot;Move&quot;&gt;&lt;/p&gt;
 &lt;h4 id=&quot;index-1&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#index-1&quot; aria-label=&quot;index 1 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Index&lt;/h4&gt;
 &lt;p&gt;The &lt;code class=&quot;language-text&quot;&gt;Index&lt;/code&gt; instruction moves the register’s value as a pointer by the value pointed to on the tape. For any N stored on the tape under the pointer, the address stored in the register will move by N cells. If N is negative, it will move the pointer in the register N cells to the left. If N is positive, the pointer will move to the right.&lt;/p&gt;
 &lt;p&gt;This is to account for the fact that the virtual machine is abstracted over pointers. Pointers, under the hood, are varying distances apart for different implementations. For implementations using an indexed array as a tape, the “address” of each cell is the previous address plus one. For implementations using &lt;strong&gt;real pointers&lt;/strong&gt;, this difference can be 2, 4, 8 or who knows what: it depends on the implementation. So, to write code that uses pointers &lt;em&gt;without understanding how they work&lt;/em&gt;, we need the &lt;code class=&quot;language-text&quot;&gt;Index&lt;/code&gt; instruction along with &lt;code class=&quot;language-text&quot;&gt;Where?&lt;/code&gt;, &lt;code class=&quot;language-text&quot;&gt;Deref&lt;/code&gt;, and &lt;code class=&quot;language-text&quot;&gt;Refer&lt;/code&gt;.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;/a6da3bd6ccd47319b2fec55a21fe0ecf/index.svg&quot; alt=&quot;Index&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/blog/a6da3bd6ccd47319b2fec55a21fe0ecf/index.svg&quot; alt=&quot;Index&quot;&gt;&lt;/p&gt;
 &lt;h4 id=&quot;bitwisenand&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#bitwisenand&quot; aria-label=&quot;bitwisenand permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;BitwiseNand&lt;/h4&gt;
 &lt;p&gt;&lt;code class=&quot;language-text&quot;&gt;BitwiseNand&lt;/code&gt; performs a bitwise-NAND operation on the register and the tape, and stores the result in the register. This should perform a bitwise-NAND across all the bits which represent the cell. I would ideally like to ground bitwise operations in a more mathematical way, but this is good for now. I don’t necessarily like the concept of forcing a target to implement cells in terms of bits, though.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;/f325129b14f148f2a1e611a386342dae/bitwise-nand.svg&quot; alt=&quot;BitwiseNand&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/blog/f325129b14f148f2a1e611a386342dae/bitwise-nand.svg&quot; alt=&quot;BitwiseNand&quot;&gt;&lt;/p&gt;
 &lt;h4 id=&quot;where&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#where&quot; aria-label=&quot;where permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Where?&lt;/h4&gt;
 &lt;p&gt;&lt;code class=&quot;language-text&quot;&gt;Where?&lt;/code&gt; sets the register equal to the current value of the pointer: &lt;code class=&quot;language-text&quot;&gt;reg = ptr&lt;/code&gt;. Consider an implementation of the VM that uses &lt;em&gt;actual pointers&lt;/em&gt; to implement the turing tape. Using cell indices as addresses simply doesn’t work: you can’t dereference addresses like &lt;code class=&quot;language-text&quot;&gt;0x00000005&lt;/code&gt; on the hardware. This instruction helps the VM abstract any implementation details about the memory, while still allowing enough flexibility to be interoperable with different representations of pointers. With &lt;code class=&quot;language-text&quot;&gt;Where?&lt;/code&gt;, the VM can use either cell indices or real pointers to implement the tape without the compiler needing to know the difference.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;/e8f449d36f28952854c184775521fe40/where.svg&quot; alt=&quot;Where?&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/blog/e8f449d36f28952854c184775521fe40/where.svg&quot; alt=&quot;Where?&quot;&gt;&lt;/p&gt;
 &lt;h4 id=&quot;deref-and-refer&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#deref-and-refer&quot; aria-label=&quot;deref and refer permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Deref and Refer&lt;/h4&gt;
 &lt;p&gt;The &lt;code class=&quot;language-text&quot;&gt;Deref&lt;/code&gt; instruction saves the current pointer to the “deref stack”, and &lt;em&gt;dereferences&lt;/em&gt; the address stored at the pointer: &lt;code class=&quot;language-text&quot;&gt;push(ptr); ptr = *ptr&lt;/code&gt;. The &lt;code class=&quot;language-text&quot;&gt;Refer&lt;/code&gt; undoes the last &lt;code class=&quot;language-text&quot;&gt;Deref&lt;/code&gt; instruction. It pops the top pointer off the deref stack, and stores it in the pointer: &lt;code class=&quot;language-text&quot;&gt;ptr = pop()&lt;/code&gt;.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;/bda37e611584be8d9424cdcedb8282b8/deref.svg&quot; alt=&quot;Deref&quot;&gt; &lt;img src=&quot;/d386aa31c1a993da86a6a935075b7ff1/refer.svg&quot; alt=&quot;Refer&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/blog/bda37e611584be8d9424cdcedb8282b8/deref.svg&quot; alt=&quot;Deref&quot;&gt; &lt;img src=&quot;/blog/d386aa31c1a993da86a6a935075b7ff1/refer.svg&quot; alt=&quot;Refer&quot;&gt;&lt;/p&gt;
 &lt;h4 id=&quot;isnonnegative&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#isnonnegative&quot; aria-label=&quot;isnonnegative permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;IsNonNegative?&lt;/h4&gt;
 &lt;p&gt;&lt;code class=&quot;language-text&quot;&gt;IsNonNegative?&lt;/code&gt; is the only operator for comparisons. It sets the register equal to 1 if the register is non-negative, 0 otherwise: &lt;code class=&quot;language-text&quot;&gt;register = register &gt;= 0? 1 : 0&lt;/code&gt;.&lt;/p&gt;
 &lt;h4 id=&quot;math&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#math&quot; aria-label=&quot;math permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Math&lt;/h4&gt;
 &lt;p&gt;Each of the arithmetic operators function identically. For addition: &lt;code class=&quot;language-text&quot;&gt;register += *ptr&lt;/code&gt;. For subtraction: &lt;code class=&quot;language-text&quot;&gt;register -= *ptr&lt;/code&gt;. Very straightforward. Division (and remainder) by zero should halt the machine.&lt;/p&gt;
 &lt;h5 id=&quot;add-and-subtract&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#add-and-subtract&quot; aria-label=&quot;add and subtract permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Add and Subtract&lt;/h5&gt;
-&lt;p&gt;&lt;img src=&quot;/30183ee1400e2ab09c287cb658c69b87/add.svg&quot; alt=&quot;Addition&quot;&gt; &lt;img src=&quot;/cf9aaf1aca347cbc896191a52203d09d/subtract.svg&quot; alt=&quot;Subtract&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/blog/30183ee1400e2ab09c287cb658c69b87/add.svg&quot; alt=&quot;Addition&quot;&gt; &lt;img src=&quot;/blog/cf9aaf1aca347cbc896191a52203d09d/subtract.svg&quot; alt=&quot;Subtract&quot;&gt;&lt;/p&gt;
 &lt;h5 id=&quot;multiply-and-divide&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#multiply-and-divide&quot; aria-label=&quot;multiply and divide permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Multiply and Divide&lt;/h5&gt;
-&lt;p&gt;&lt;img src=&quot;/ee4fc1a012a6290ae52eb124ae4c3542/multiply.svg&quot; alt=&quot;Multiply&quot;&gt; &lt;img src=&quot;/03734cf92121b7618c6c49fdc0cfa009/divide.svg&quot; alt=&quot;Divide&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/blog/ee4fc1a012a6290ae52eb124ae4c3542/multiply.svg&quot; alt=&quot;Multiply&quot;&gt; &lt;img src=&quot;/blog/03734cf92121b7618c6c49fdc0cfa009/divide.svg&quot; alt=&quot;Divide&quot;&gt;&lt;/p&gt;
 &lt;h5 id=&quot;remainder&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#remainder&quot; aria-label=&quot;remainder permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Remainder&lt;/h5&gt;
-&lt;p&gt;&lt;img src=&quot;/3e5bb0b95ed1e4389d77ca6d76edbaa2/remainder.svg&quot; alt=&quot;Remainder&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/blog/3e5bb0b95ed1e4389d77ca6d76edbaa2/remainder.svg&quot; alt=&quot;Remainder&quot;&gt;&lt;/p&gt;
 &lt;h4 id=&quot;while-if-and-else&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#while-if-and-else&quot; aria-label=&quot;while if and else permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;While, If, and Else&lt;/h4&gt;
 &lt;p&gt;The &lt;code class=&quot;language-text&quot;&gt;While&lt;/code&gt; instruction creates a while-the-register-is-not-zero-loop over the block of code terminated by the matching &lt;code class=&quot;language-text&quot;&gt;End&lt;/code&gt; instruction: &lt;code class=&quot;language-text&quot;&gt;while (register != 0) {&lt;/code&gt;.&lt;/p&gt;
 &lt;p&gt;The &lt;code class=&quot;language-text&quot;&gt;If&lt;/code&gt; instruction functions similarly: it creates an if statement which can have an optional &lt;code class=&quot;language-text&quot;&gt;Else&lt;/code&gt; instruction. If statements are structured either: &lt;code class=&quot;language-text&quot;&gt;If&lt;/code&gt; … &lt;code class=&quot;language-text&quot;&gt;End&lt;/code&gt;, or &lt;code class=&quot;language-text&quot;&gt;If&lt;/code&gt; … &lt;code class=&quot;language-text&quot;&gt;Else&lt;/code&gt; … &lt;code class=&quot;language-text&quot;&gt;End&lt;/code&gt;.&lt;/p&gt;
@@ -468,10 +468,10 @@
 &lt;p&gt;The &lt;code class=&quot;language-text&quot;&gt;Return&lt;/code&gt; instruction makes the current function return early. Outside of a function body, this causes the program to terminate.&lt;/p&gt;
 &lt;h4 id=&quot;set&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#set&quot; aria-label=&quot;set permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Set&lt;/h4&gt;
 &lt;p&gt;The &lt;code class=&quot;language-text&quot;&gt;Set&lt;/code&gt; instruction takes a constant integer argument, and sets the register to that value.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;/4904dd9669c04c040a662f328a503a27/set.svg&quot; alt=&quot;Set&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/blog/4904dd9669c04c040a662f328a503a27/set.svg&quot; alt=&quot;Set&quot;&gt;&lt;/p&gt;
 &lt;h4 id=&quot;save-and-restore&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#save-and-restore&quot; aria-label=&quot;save and restore permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Save and Restore&lt;/h4&gt;
 &lt;p&gt;The &lt;code class=&quot;language-text&quot;&gt;Save&lt;/code&gt; instruction writes the value of the register to the cell at the pointer: &lt;code class=&quot;language-text&quot;&gt;*ptr = register&lt;/code&gt;. The &lt;code class=&quot;language-text&quot;&gt;Restore&lt;/code&gt; instruction is the inverse: &lt;code class=&quot;language-text&quot;&gt;register = *ptr&lt;/code&gt;.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;/5cbe98ad7dcfd59d021b89d422dcde23/save.svg&quot; alt=&quot;Save&quot;&gt; &lt;img src=&quot;/4531c8b7f9ef43f7f0c1bed4ba62caf2/restore.svg&quot; alt=&quot;Restore&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/blog/5cbe98ad7dcfd59d021b89d422dcde23/save.svg&quot; alt=&quot;Save&quot;&gt; &lt;img src=&quot;/blog/4531c8b7f9ef43f7f0c1bed4ba62caf2/restore.svg&quot; alt=&quot;Restore&quot;&gt;&lt;/p&gt;
 &lt;h4 id=&quot;get-and-put&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#get-and-put&quot; aria-label=&quot;get and put permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Get and Put&lt;/h4&gt;
 &lt;p&gt;The &lt;code class=&quot;language-text&quot;&gt;Get&lt;/code&gt; instruction receives a value from the interface I/O device, and stores it in the register. The &lt;code class=&quot;language-text&quot;&gt;Put&lt;/code&gt; instruction sends the value of the register to the interface I/O device.
 This I/O device is statically known to the target, and can range from STDIN/STDOUT to a motor device.&lt;/p&gt;
@@ -488,7 +488,7 @@ This I/O device is statically known to the target, and can range from STDIN/STDO
     &gt;
       &lt;a
     class=&quot;gatsby-resp-image-link&quot;
-    href=&quot;/static/f3869c35d590566a18a08e0bc307c47d/72e01/babel.jpg&quot;
+    href=&quot;/blog/static/f3869c35d590566a18a08e0bc307c47d/72e01/babel.jpg&quot;
     style=&quot;display: block&quot;
     target=&quot;_blank&quot;
     rel=&quot;noopener&quot;
@@ -499,24 +499,24 @@ This I/O device is statically known to the target, and can range from STDIN/STDO
   &gt;&lt;/span&gt;
   &lt;picture&gt;
           &lt;source
-              srcset=&quot;/static/f3869c35d590566a18a08e0bc307c47d/8ac56/babel.webp 240w,
-/static/f3869c35d590566a18a08e0bc307c47d/d3be9/babel.webp 480w,
-/static/f3869c35d590566a18a08e0bc307c47d/e46b2/babel.webp 960w,
-/static/f3869c35d590566a18a08e0bc307c47d/a9a89/babel.webp 1024w&quot;
+              srcset=&quot;/blog/static/f3869c35d590566a18a08e0bc307c47d/8ac56/babel.webp 240w,
+/blog/static/f3869c35d590566a18a08e0bc307c47d/d3be9/babel.webp 480w,
+/blog/static/f3869c35d590566a18a08e0bc307c47d/e46b2/babel.webp 960w,
+/blog/static/f3869c35d590566a18a08e0bc307c47d/a9a89/babel.webp 1024w&quot;
               sizes=&quot;(max-width: 960px) 100vw, 960px&quot;
               type=&quot;image/webp&quot;
             /&gt;
           &lt;source
-            srcset=&quot;/static/f3869c35d590566a18a08e0bc307c47d/09b79/babel.jpg 240w,
-/static/f3869c35d590566a18a08e0bc307c47d/7cc5e/babel.jpg 480w,
-/static/f3869c35d590566a18a08e0bc307c47d/6a068/babel.jpg 960w,
-/static/f3869c35d590566a18a08e0bc307c47d/72e01/babel.jpg 1024w&quot;
+            srcset=&quot;/blog/static/f3869c35d590566a18a08e0bc307c47d/09b79/babel.jpg 240w,
+/blog/static/f3869c35d590566a18a08e0bc307c47d/7cc5e/babel.jpg 480w,
+/blog/static/f3869c35d590566a18a08e0bc307c47d/6a068/babel.jpg 960w,
+/blog/static/f3869c35d590566a18a08e0bc307c47d/72e01/babel.jpg 1024w&quot;
             sizes=&quot;(max-width: 960px) 100vw, 960px&quot;
             type=&quot;image/jpeg&quot;
           /&gt;
           &lt;img
             class=&quot;gatsby-resp-image-image&quot;
-            src=&quot;/static/f3869c35d590566a18a08e0bc307c47d/6a068/babel.jpg&quot;
+            src=&quot;/blog/static/f3869c35d590566a18a08e0bc307c47d/6a068/babel.jpg&quot;
             alt=&quot;Babel&quot;
             title=&quot;Babel&quot;
             loading=&quot;lazy&quot;
@@ -571,7 +571,7 @@ This I/O device is statically known to the target, and can range from STDIN/STDO
     &gt;
       &lt;a
     class=&quot;gatsby-resp-image-link&quot;
-    href=&quot;/static/220fc1f0b3113770953ab1742525b9f5/72e01/the-creator&apos;s-spindle.jpg&quot;
+    href=&quot;/blog/static/220fc1f0b3113770953ab1742525b9f5/72e01/the-creator&apos;s-spindle.jpg&quot;
     style=&quot;display: block&quot;
     target=&quot;_blank&quot;
     rel=&quot;noopener&quot;
@@ -582,24 +582,24 @@ This I/O device is statically known to the target, and can range from STDIN/STDO
   &gt;&lt;/span&gt;
   &lt;picture&gt;
           &lt;source
-              srcset=&quot;/static/220fc1f0b3113770953ab1742525b9f5/8ac56/the-creator&apos;s-spindle.webp 240w,
-/static/220fc1f0b3113770953ab1742525b9f5/d3be9/the-creator&apos;s-spindle.webp 480w,
-/static/220fc1f0b3113770953ab1742525b9f5/e46b2/the-creator&apos;s-spindle.webp 960w,
-/static/220fc1f0b3113770953ab1742525b9f5/a9a89/the-creator&apos;s-spindle.webp 1024w&quot;
+              srcset=&quot;/blog/static/220fc1f0b3113770953ab1742525b9f5/8ac56/the-creator&apos;s-spindle.webp 240w,
+/blog/static/220fc1f0b3113770953ab1742525b9f5/d3be9/the-creator&apos;s-spindle.webp 480w,
+/blog/static/220fc1f0b3113770953ab1742525b9f5/e46b2/the-creator&apos;s-spindle.webp 960w,
+/blog/static/220fc1f0b3113770953ab1742525b9f5/a9a89/the-creator&apos;s-spindle.webp 1024w&quot;
               sizes=&quot;(max-width: 960px) 100vw, 960px&quot;
               type=&quot;image/webp&quot;
             /&gt;
           &lt;source
-            srcset=&quot;/static/220fc1f0b3113770953ab1742525b9f5/09b79/the-creator&apos;s-spindle.jpg 240w,
-/static/220fc1f0b3113770953ab1742525b9f5/7cc5e/the-creator&apos;s-spindle.jpg 480w,
-/static/220fc1f0b3113770953ab1742525b9f5/6a068/the-creator&apos;s-spindle.jpg 960w,
-/static/220fc1f0b3113770953ab1742525b9f5/72e01/the-creator&apos;s-spindle.jpg 1024w&quot;
+            srcset=&quot;/blog/static/220fc1f0b3113770953ab1742525b9f5/09b79/the-creator&apos;s-spindle.jpg 240w,
+/blog/static/220fc1f0b3113770953ab1742525b9f5/7cc5e/the-creator&apos;s-spindle.jpg 480w,
+/blog/static/220fc1f0b3113770953ab1742525b9f5/6a068/the-creator&apos;s-spindle.jpg 960w,
+/blog/static/220fc1f0b3113770953ab1742525b9f5/72e01/the-creator&apos;s-spindle.jpg 1024w&quot;
             sizes=&quot;(max-width: 960px) 100vw, 960px&quot;
             type=&quot;image/jpeg&quot;
           /&gt;
           &lt;img
             class=&quot;gatsby-resp-image-image&quot;
-            src=&quot;/static/220fc1f0b3113770953ab1742525b9f5/6a068/the-creator&apos;s-spindle.jpg&quot;
+            src=&quot;/blog/static/220fc1f0b3113770953ab1742525b9f5/6a068/the-creator&apos;s-spindle.jpg&quot;
             alt=&quot;The Creator&amp;#39;s Spindle&quot;
             title=&quot;The Creator&amp;#39;s Spindle&quot;
             loading=&quot;lazy&quot;
@@ -635,15 +635,15 @@ This I/O device is statically known to the target, and can range from STDIN/STDO
 &lt;/thead&gt;
 &lt;tbody&gt;
 &lt;tr&gt;
-&lt;td align=&quot;center&quot;&gt;&lt;img src=&quot;/0c9925f0f851d5c804a1c8dd16efa26b/Factorial0.svg&quot; alt=&quot;Factorial Before&quot;&gt;&lt;/td&gt;
-&lt;td align=&quot;center&quot;&gt;&lt;img src=&quot;/6378f3b19b6c20f1afc03a5d03072292/Factorial300.svg&quot; alt=&quot;Factorial After&quot;&gt;&lt;/td&gt;
+&lt;td align=&quot;center&quot;&gt;&lt;img src=&quot;/blog/0c9925f0f851d5c804a1c8dd16efa26b/Factorial0.svg&quot; alt=&quot;Factorial Before&quot;&gt;&lt;/td&gt;
+&lt;td align=&quot;center&quot;&gt;&lt;img src=&quot;/blog/6378f3b19b6c20f1afc03a5d03072292/Factorial300.svg&quot; alt=&quot;Factorial After&quot;&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
 &lt;h4 id=&quot;quicksort-before&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#quicksort-before&quot; aria-label=&quot;quicksort before permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Quicksort Before&lt;/h4&gt;
-&lt;p&gt;&lt;img src=&quot;/cf04f2d7d978d0e626a1d15acaf504cd/Sort0.svg&quot; alt=&quot;Quicksort Before&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/blog/cf04f2d7d978d0e626a1d15acaf504cd/Sort0.svg&quot; alt=&quot;Quicksort Before&quot;&gt;&lt;/p&gt;
 &lt;h4 id=&quot;quicksort-after&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#quicksort-after&quot; aria-label=&quot;quicksort after permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Quicksort After&lt;/h4&gt;
-&lt;p&gt;&lt;img src=&quot;/27b7d93e8d47d13e13983eca25ed83cc/Sort300.svg&quot; alt=&quot;Quicksort After&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/blog/27b7d93e8d47d13e13983eca25ed83cc/Sort300.svg&quot; alt=&quot;Quicksort After&quot;&gt;&lt;/p&gt;
 &lt;p&gt;&lt;a href=&quot;https://github.com/adam-mcdaniel/program-evolution#research-poster&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;You can see a more in-depth explanation of the evolutionary process and the results here.&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;An optimizing compiler might use these techniques to provide additional optimizations on top of those achieved by inlining and peephole optimizations.&lt;/p&gt;
 &lt;p&gt;&lt;span
@@ -652,7 +652,7 @@ This I/O device is statically known to the target, and can range from STDIN/STDO
     &gt;
       &lt;a
     class=&quot;gatsby-resp-image-link&quot;
-    href=&quot;/static/272738fb2393c0a0ea6ee758519df5b0/72e01/the-genome.jpg&quot;
+    href=&quot;/blog/static/272738fb2393c0a0ea6ee758519df5b0/72e01/the-genome.jpg&quot;
     style=&quot;display: block&quot;
     target=&quot;_blank&quot;
     rel=&quot;noopener&quot;
@@ -663,24 +663,24 @@ This I/O device is statically known to the target, and can range from STDIN/STDO
   &gt;&lt;/span&gt;
   &lt;picture&gt;
           &lt;source
-              srcset=&quot;/static/272738fb2393c0a0ea6ee758519df5b0/8ac56/the-genome.webp 240w,
-/static/272738fb2393c0a0ea6ee758519df5b0/d3be9/the-genome.webp 480w,
-/static/272738fb2393c0a0ea6ee758519df5b0/e46b2/the-genome.webp 960w,
-/static/272738fb2393c0a0ea6ee758519df5b0/a9a89/the-genome.webp 1024w&quot;
+              srcset=&quot;/blog/static/272738fb2393c0a0ea6ee758519df5b0/8ac56/the-genome.webp 240w,
+/blog/static/272738fb2393c0a0ea6ee758519df5b0/d3be9/the-genome.webp 480w,
+/blog/static/272738fb2393c0a0ea6ee758519df5b0/e46b2/the-genome.webp 960w,
+/blog/static/272738fb2393c0a0ea6ee758519df5b0/a9a89/the-genome.webp 1024w&quot;
               sizes=&quot;(max-width: 960px) 100vw, 960px&quot;
               type=&quot;image/webp&quot;
             /&gt;
           &lt;source
-            srcset=&quot;/static/272738fb2393c0a0ea6ee758519df5b0/09b79/the-genome.jpg 240w,
-/static/272738fb2393c0a0ea6ee758519df5b0/7cc5e/the-genome.jpg 480w,
-/static/272738fb2393c0a0ea6ee758519df5b0/6a068/the-genome.jpg 960w,
-/static/272738fb2393c0a0ea6ee758519df5b0/72e01/the-genome.jpg 1024w&quot;
+            srcset=&quot;/blog/static/272738fb2393c0a0ea6ee758519df5b0/09b79/the-genome.jpg 240w,
+/blog/static/272738fb2393c0a0ea6ee758519df5b0/7cc5e/the-genome.jpg 480w,
+/blog/static/272738fb2393c0a0ea6ee758519df5b0/6a068/the-genome.jpg 960w,
+/blog/static/272738fb2393c0a0ea6ee758519df5b0/72e01/the-genome.jpg 1024w&quot;
             sizes=&quot;(max-width: 960px) 100vw, 960px&quot;
             type=&quot;image/jpeg&quot;
           /&gt;
           &lt;img
             class=&quot;gatsby-resp-image-image&quot;
-            src=&quot;/static/272738fb2393c0a0ea6ee758519df5b0/6a068/the-genome.jpg&quot;
+            src=&quot;/blog/static/272738fb2393c0a0ea6ee758519df5b0/6a068/the-genome.jpg&quot;
             alt=&quot;The Genome&quot;
             title=&quot;The Genome&quot;
             loading=&quot;lazy&quot;
@@ -709,7 +709,7 @@ This I/O device is statically known to the target, and can range from STDIN/STDO
     &gt;
       &lt;a
     class=&quot;gatsby-resp-image-link&quot;
-    href=&quot;/static/1cc95c08c85d3ebebc78e1cd3d69705e/72e01/the-golden-ladder.jpg&quot;
+    href=&quot;/blog/static/1cc95c08c85d3ebebc78e1cd3d69705e/72e01/the-golden-ladder.jpg&quot;
     style=&quot;display: block&quot;
     target=&quot;_blank&quot;
     rel=&quot;noopener&quot;
@@ -720,24 +720,24 @@ This I/O device is statically known to the target, and can range from STDIN/STDO
   &gt;&lt;/span&gt;
   &lt;picture&gt;
           &lt;source
-              srcset=&quot;/static/1cc95c08c85d3ebebc78e1cd3d69705e/8ac56/the-golden-ladder.webp 240w,
-/static/1cc95c08c85d3ebebc78e1cd3d69705e/d3be9/the-golden-ladder.webp 480w,
-/static/1cc95c08c85d3ebebc78e1cd3d69705e/e46b2/the-golden-ladder.webp 960w,
-/static/1cc95c08c85d3ebebc78e1cd3d69705e/a9a89/the-golden-ladder.webp 1024w&quot;
+              srcset=&quot;/blog/static/1cc95c08c85d3ebebc78e1cd3d69705e/8ac56/the-golden-ladder.webp 240w,
+/blog/static/1cc95c08c85d3ebebc78e1cd3d69705e/d3be9/the-golden-ladder.webp 480w,
+/blog/static/1cc95c08c85d3ebebc78e1cd3d69705e/e46b2/the-golden-ladder.webp 960w,
+/blog/static/1cc95c08c85d3ebebc78e1cd3d69705e/a9a89/the-golden-ladder.webp 1024w&quot;
               sizes=&quot;(max-width: 960px) 100vw, 960px&quot;
               type=&quot;image/webp&quot;
             /&gt;
           &lt;source
-            srcset=&quot;/static/1cc95c08c85d3ebebc78e1cd3d69705e/09b79/the-golden-ladder.jpg 240w,
-/static/1cc95c08c85d3ebebc78e1cd3d69705e/7cc5e/the-golden-ladder.jpg 480w,
-/static/1cc95c08c85d3ebebc78e1cd3d69705e/6a068/the-golden-ladder.jpg 960w,
-/static/1cc95c08c85d3ebebc78e1cd3d69705e/72e01/the-golden-ladder.jpg 1024w&quot;
+            srcset=&quot;/blog/static/1cc95c08c85d3ebebc78e1cd3d69705e/09b79/the-golden-ladder.jpg 240w,
+/blog/static/1cc95c08c85d3ebebc78e1cd3d69705e/7cc5e/the-golden-ladder.jpg 480w,
+/blog/static/1cc95c08c85d3ebebc78e1cd3d69705e/6a068/the-golden-ladder.jpg 960w,
+/blog/static/1cc95c08c85d3ebebc78e1cd3d69705e/72e01/the-golden-ladder.jpg 1024w&quot;
             sizes=&quot;(max-width: 960px) 100vw, 960px&quot;
             type=&quot;image/jpeg&quot;
           /&gt;
           &lt;img
             class=&quot;gatsby-resp-image-image&quot;
-            src=&quot;/static/1cc95c08c85d3ebebc78e1cd3d69705e/6a068/the-golden-ladder.jpg&quot;
+            src=&quot;/blog/static/1cc95c08c85d3ebebc78e1cd3d69705e/6a068/the-golden-ladder.jpg&quot;
             alt=&quot;The Golden Ladder&quot;
             title=&quot;The Golden Ladder&quot;
             loading=&quot;lazy&quot;
@@ -785,7 +785,7 @@ This I/O device is statically known to the target, and can range from STDIN/STDO
     &gt;
       &lt;a
     class=&quot;gatsby-resp-image-link&quot;
-    href=&quot;/static/897f4e490fa02ce0a2c4538890d1ac21/72e01/creation.jpg&quot;
+    href=&quot;/blog/static/897f4e490fa02ce0a2c4538890d1ac21/72e01/creation.jpg&quot;
     style=&quot;display: block&quot;
     target=&quot;_blank&quot;
     rel=&quot;noopener&quot;
@@ -796,24 +796,24 @@ This I/O device is statically known to the target, and can range from STDIN/STDO
   &gt;&lt;/span&gt;
   &lt;picture&gt;
           &lt;source
-              srcset=&quot;/static/897f4e490fa02ce0a2c4538890d1ac21/8ac56/creation.webp 240w,
-/static/897f4e490fa02ce0a2c4538890d1ac21/d3be9/creation.webp 480w,
-/static/897f4e490fa02ce0a2c4538890d1ac21/e46b2/creation.webp 960w,
-/static/897f4e490fa02ce0a2c4538890d1ac21/a9a89/creation.webp 1024w&quot;
+              srcset=&quot;/blog/static/897f4e490fa02ce0a2c4538890d1ac21/8ac56/creation.webp 240w,
+/blog/static/897f4e490fa02ce0a2c4538890d1ac21/d3be9/creation.webp 480w,
+/blog/static/897f4e490fa02ce0a2c4538890d1ac21/e46b2/creation.webp 960w,
+/blog/static/897f4e490fa02ce0a2c4538890d1ac21/a9a89/creation.webp 1024w&quot;
               sizes=&quot;(max-width: 960px) 100vw, 960px&quot;
               type=&quot;image/webp&quot;
             /&gt;
           &lt;source
-            srcset=&quot;/static/897f4e490fa02ce0a2c4538890d1ac21/09b79/creation.jpg 240w,
-/static/897f4e490fa02ce0a2c4538890d1ac21/7cc5e/creation.jpg 480w,
-/static/897f4e490fa02ce0a2c4538890d1ac21/6a068/creation.jpg 960w,
-/static/897f4e490fa02ce0a2c4538890d1ac21/72e01/creation.jpg 1024w&quot;
+            srcset=&quot;/blog/static/897f4e490fa02ce0a2c4538890d1ac21/09b79/creation.jpg 240w,
+/blog/static/897f4e490fa02ce0a2c4538890d1ac21/7cc5e/creation.jpg 480w,
+/blog/static/897f4e490fa02ce0a2c4538890d1ac21/6a068/creation.jpg 960w,
+/blog/static/897f4e490fa02ce0a2c4538890d1ac21/72e01/creation.jpg 1024w&quot;
             sizes=&quot;(max-width: 960px) 100vw, 960px&quot;
             type=&quot;image/jpeg&quot;
           /&gt;
           &lt;img
             class=&quot;gatsby-resp-image-image&quot;
-            src=&quot;/static/897f4e490fa02ce0a2c4538890d1ac21/6a068/creation.jpg&quot;
+            src=&quot;/blog/static/897f4e490fa02ce0a2c4538890d1ac21/6a068/creation.jpg&quot;
             alt=&quot;Creation&quot;
             title=&quot;Creation&quot;
             loading=&quot;lazy&quot;
@@ -843,7 +843,7 @@ This I/O device is statically known to the target, and can range from STDIN/STDO
     &gt;
       &lt;a
     class=&quot;gatsby-resp-image-link&quot;
-    href=&quot;/static/efd345d5cfba37440f3db1110b0e67af/e5166/lesson.jpg&quot;
+    href=&quot;/blog/static/efd345d5cfba37440f3db1110b0e67af/e5166/lesson.jpg&quot;
     style=&quot;display: block&quot;
     target=&quot;_blank&quot;
     rel=&quot;noopener&quot;
@@ -854,24 +854,24 @@ This I/O device is statically known to the target, and can range from STDIN/STDO
   &gt;&lt;/span&gt;
   &lt;picture&gt;
           &lt;source
-              srcset=&quot;/static/efd345d5cfba37440f3db1110b0e67af/8ac56/lesson.webp 240w,
-/static/efd345d5cfba37440f3db1110b0e67af/d3be9/lesson.webp 480w,
-/static/efd345d5cfba37440f3db1110b0e67af/e46b2/lesson.webp 960w,
-/static/efd345d5cfba37440f3db1110b0e67af/92f8c/lesson.webp 1200w&quot;
+              srcset=&quot;/blog/static/efd345d5cfba37440f3db1110b0e67af/8ac56/lesson.webp 240w,
+/blog/static/efd345d5cfba37440f3db1110b0e67af/d3be9/lesson.webp 480w,
+/blog/static/efd345d5cfba37440f3db1110b0e67af/e46b2/lesson.webp 960w,
+/blog/static/efd345d5cfba37440f3db1110b0e67af/92f8c/lesson.webp 1200w&quot;
               sizes=&quot;(max-width: 960px) 100vw, 960px&quot;
               type=&quot;image/webp&quot;
             /&gt;
           &lt;source
-            srcset=&quot;/static/efd345d5cfba37440f3db1110b0e67af/09b79/lesson.jpg 240w,
-/static/efd345d5cfba37440f3db1110b0e67af/7cc5e/lesson.jpg 480w,
-/static/efd345d5cfba37440f3db1110b0e67af/6a068/lesson.jpg 960w,
-/static/efd345d5cfba37440f3db1110b0e67af/e5166/lesson.jpg 1200w&quot;
+            srcset=&quot;/blog/static/efd345d5cfba37440f3db1110b0e67af/09b79/lesson.jpg 240w,
+/blog/static/efd345d5cfba37440f3db1110b0e67af/7cc5e/lesson.jpg 480w,
+/blog/static/efd345d5cfba37440f3db1110b0e67af/6a068/lesson.jpg 960w,
+/blog/static/efd345d5cfba37440f3db1110b0e67af/e5166/lesson.jpg 1200w&quot;
             sizes=&quot;(max-width: 960px) 100vw, 960px&quot;
             type=&quot;image/jpeg&quot;
           /&gt;
           &lt;img
             class=&quot;gatsby-resp-image-image&quot;
-            src=&quot;/static/efd345d5cfba37440f3db1110b0e67af/6a068/lesson.jpg&quot;
+            src=&quot;/blog/static/efd345d5cfba37440f3db1110b0e67af/6a068/lesson.jpg&quot;
             alt=&quot;Lesson&quot;
             title=&quot;Lesson&quot;
             loading=&quot;lazy&quot;
@@ -919,7 +919,7 @@ This I/O device is statically known to the target, and can range from STDIN/STDO
     &gt;
       &lt;a
     class=&quot;gatsby-resp-image-link&quot;
-    href=&quot;/static/7792648c328dbcd9a9422a845bd3d47d/39240/mini-max.jpg&quot;
+    href=&quot;/blog/static/7792648c328dbcd9a9422a845bd3d47d/39240/mini-max.jpg&quot;
     style=&quot;display: block&quot;
     target=&quot;_blank&quot;
     rel=&quot;noopener&quot;
@@ -930,22 +930,22 @@ This I/O device is statically known to the target, and can range from STDIN/STDO
   &gt;&lt;/span&gt;
   &lt;picture&gt;
           &lt;source
-              srcset=&quot;/static/7792648c328dbcd9a9422a845bd3d47d/8ac56/mini-max.webp 240w,
-/static/7792648c328dbcd9a9422a845bd3d47d/d3be9/mini-max.webp 480w,
-/static/7792648c328dbcd9a9422a845bd3d47d/5f564/mini-max.webp 791w&quot;
+              srcset=&quot;/blog/static/7792648c328dbcd9a9422a845bd3d47d/8ac56/mini-max.webp 240w,
+/blog/static/7792648c328dbcd9a9422a845bd3d47d/d3be9/mini-max.webp 480w,
+/blog/static/7792648c328dbcd9a9422a845bd3d47d/5f564/mini-max.webp 791w&quot;
               sizes=&quot;(max-width: 791px) 100vw, 791px&quot;
               type=&quot;image/webp&quot;
             /&gt;
           &lt;source
-            srcset=&quot;/static/7792648c328dbcd9a9422a845bd3d47d/09b79/mini-max.jpg 240w,
-/static/7792648c328dbcd9a9422a845bd3d47d/7cc5e/mini-max.jpg 480w,
-/static/7792648c328dbcd9a9422a845bd3d47d/39240/mini-max.jpg 791w&quot;
+            srcset=&quot;/blog/static/7792648c328dbcd9a9422a845bd3d47d/09b79/mini-max.jpg 240w,
+/blog/static/7792648c328dbcd9a9422a845bd3d47d/7cc5e/mini-max.jpg 480w,
+/blog/static/7792648c328dbcd9a9422a845bd3d47d/39240/mini-max.jpg 791w&quot;
             sizes=&quot;(max-width: 791px) 100vw, 791px&quot;
             type=&quot;image/jpeg&quot;
           /&gt;
           &lt;img
             class=&quot;gatsby-resp-image-image&quot;
-            src=&quot;/static/7792648c328dbcd9a9422a845bd3d47d/39240/mini-max.jpg&quot;
+            src=&quot;/blog/static/7792648c328dbcd9a9422a845bd3d47d/39240/mini-max.jpg&quot;
             alt=&quot;Minimax&quot;
             title=&quot;Minimax&quot;
             loading=&quot;lazy&quot;
@@ -990,7 +990,7 @@ works, and what I’ve learned.&lt;/p&gt;
     &gt;
       &lt;a
     class=&quot;gatsby-resp-image-link&quot;
-    href=&quot;/static/9836e88c878cc60a0b4b6dff0d02cc8d/9128f/free.png&quot;
+    href=&quot;/blog/static/9836e88c878cc60a0b4b6dff0d02cc8d/9128f/free.png&quot;
     style=&quot;display: block&quot;
     target=&quot;_blank&quot;
     rel=&quot;noopener&quot;
@@ -1001,22 +1001,22 @@ works, and what I’ve learned.&lt;/p&gt;
   &gt;&lt;/span&gt;
   &lt;picture&gt;
           &lt;source
-              srcset=&quot;/static/9836e88c878cc60a0b4b6dff0d02cc8d/8ac56/free.webp 240w,
-/static/9836e88c878cc60a0b4b6dff0d02cc8d/d3be9/free.webp 480w,
-/static/9836e88c878cc60a0b4b6dff0d02cc8d/e7dd8/free.webp 603w&quot;
+              srcset=&quot;/blog/static/9836e88c878cc60a0b4b6dff0d02cc8d/8ac56/free.webp 240w,
+/blog/static/9836e88c878cc60a0b4b6dff0d02cc8d/d3be9/free.webp 480w,
+/blog/static/9836e88c878cc60a0b4b6dff0d02cc8d/e7dd8/free.webp 603w&quot;
               sizes=&quot;(max-width: 603px) 100vw, 603px&quot;
               type=&quot;image/webp&quot;
             /&gt;
           &lt;source
-            srcset=&quot;/static/9836e88c878cc60a0b4b6dff0d02cc8d/8ff5a/free.png 240w,
-/static/9836e88c878cc60a0b4b6dff0d02cc8d/e85cb/free.png 480w,
-/static/9836e88c878cc60a0b4b6dff0d02cc8d/9128f/free.png 603w&quot;
+            srcset=&quot;/blog/static/9836e88c878cc60a0b4b6dff0d02cc8d/8ff5a/free.png 240w,
+/blog/static/9836e88c878cc60a0b4b6dff0d02cc8d/e85cb/free.png 480w,
+/blog/static/9836e88c878cc60a0b4b6dff0d02cc8d/9128f/free.png 603w&quot;
             sizes=&quot;(max-width: 603px) 100vw, 603px&quot;
             type=&quot;image/png&quot;
           /&gt;
           &lt;img
             class=&quot;gatsby-resp-image-image&quot;
-            src=&quot;/static/9836e88c878cc60a0b4b6dff0d02cc8d/9128f/free.png&quot;
+            src=&quot;/blog/static/9836e88c878cc60a0b4b6dff0d02cc8d/9128f/free.png&quot;
             alt=&quot;Free Code&quot;
             title=&quot;Free Code&quot;
             loading=&quot;lazy&quot;
@@ -1035,7 +1035,7 @@ works, and what I’ve learned.&lt;/p&gt;
     &gt;
       &lt;a
     class=&quot;gatsby-resp-image-link&quot;
-    href=&quot;/static/ae048bb20d0d5b1894ea70ea0ab93dfd/1bba8/oak.png&quot;
+    href=&quot;/blog/static/ae048bb20d0d5b1894ea70ea0ab93dfd/1bba8/oak.png&quot;
     style=&quot;display: block&quot;
     target=&quot;_blank&quot;
     rel=&quot;noopener&quot;
@@ -1046,22 +1046,22 @@ works, and what I’ve learned.&lt;/p&gt;
   &gt;&lt;/span&gt;
   &lt;picture&gt;
           &lt;source
-              srcset=&quot;/static/ae048bb20d0d5b1894ea70ea0ab93dfd/8ac56/oak.webp 240w,
-/static/ae048bb20d0d5b1894ea70ea0ab93dfd/d3be9/oak.webp 480w,
-/static/ae048bb20d0d5b1894ea70ea0ab93dfd/7eb86/oak.webp 642w&quot;
+              srcset=&quot;/blog/static/ae048bb20d0d5b1894ea70ea0ab93dfd/8ac56/oak.webp 240w,
+/blog/static/ae048bb20d0d5b1894ea70ea0ab93dfd/d3be9/oak.webp 480w,
+/blog/static/ae048bb20d0d5b1894ea70ea0ab93dfd/7eb86/oak.webp 642w&quot;
               sizes=&quot;(max-width: 642px) 100vw, 642px&quot;
               type=&quot;image/webp&quot;
             /&gt;
           &lt;source
-            srcset=&quot;/static/ae048bb20d0d5b1894ea70ea0ab93dfd/8ff5a/oak.png 240w,
-/static/ae048bb20d0d5b1894ea70ea0ab93dfd/e85cb/oak.png 480w,
-/static/ae048bb20d0d5b1894ea70ea0ab93dfd/1bba8/oak.png 642w&quot;
+            srcset=&quot;/blog/static/ae048bb20d0d5b1894ea70ea0ab93dfd/8ff5a/oak.png 240w,
+/blog/static/ae048bb20d0d5b1894ea70ea0ab93dfd/e85cb/oak.png 480w,
+/blog/static/ae048bb20d0d5b1894ea70ea0ab93dfd/1bba8/oak.png 642w&quot;
             sizes=&quot;(max-width: 642px) 100vw, 642px&quot;
             type=&quot;image/png&quot;
           /&gt;
           &lt;img
             class=&quot;gatsby-resp-image-image&quot;
-            src=&quot;/static/ae048bb20d0d5b1894ea70ea0ab93dfd/1bba8/oak.png&quot;
+            src=&quot;/blog/static/ae048bb20d0d5b1894ea70ea0ab93dfd/1bba8/oak.png&quot;
             alt=&quot;Oak Code&quot;
             title=&quot;Oak Code&quot;
             loading=&quot;lazy&quot;
@@ -1081,7 +1081,7 @@ works, and what I’ve learned.&lt;/p&gt;
     &gt;
       &lt;a
     class=&quot;gatsby-resp-image-link&quot;
-    href=&quot;/static/7fd3cfa9fe99d3d9c17afd8b10e831ee/0c1c2/typecheck.png&quot;
+    href=&quot;/blog/static/7fd3cfa9fe99d3d9c17afd8b10e831ee/0c1c2/typecheck.png&quot;
     style=&quot;display: block&quot;
     target=&quot;_blank&quot;
     rel=&quot;noopener&quot;
@@ -1092,26 +1092,26 @@ works, and what I’ve learned.&lt;/p&gt;
   &gt;&lt;/span&gt;
   &lt;picture&gt;
           &lt;source
-              srcset=&quot;/static/7fd3cfa9fe99d3d9c17afd8b10e831ee/8ac56/typecheck.webp 240w,
-/static/7fd3cfa9fe99d3d9c17afd8b10e831ee/d3be9/typecheck.webp 480w,
-/static/7fd3cfa9fe99d3d9c17afd8b10e831ee/e46b2/typecheck.webp 960w,
-/static/7fd3cfa9fe99d3d9c17afd8b10e831ee/f992d/typecheck.webp 1440w,
-/static/7fd3cfa9fe99d3d9c17afd8b10e831ee/64634/typecheck.webp 1542w&quot;
+              srcset=&quot;/blog/static/7fd3cfa9fe99d3d9c17afd8b10e831ee/8ac56/typecheck.webp 240w,
+/blog/static/7fd3cfa9fe99d3d9c17afd8b10e831ee/d3be9/typecheck.webp 480w,
+/blog/static/7fd3cfa9fe99d3d9c17afd8b10e831ee/e46b2/typecheck.webp 960w,
+/blog/static/7fd3cfa9fe99d3d9c17afd8b10e831ee/f992d/typecheck.webp 1440w,
+/blog/static/7fd3cfa9fe99d3d9c17afd8b10e831ee/64634/typecheck.webp 1542w&quot;
               sizes=&quot;(max-width: 960px) 100vw, 960px&quot;
               type=&quot;image/webp&quot;
             /&gt;
           &lt;source
-            srcset=&quot;/static/7fd3cfa9fe99d3d9c17afd8b10e831ee/8ff5a/typecheck.png 240w,
-/static/7fd3cfa9fe99d3d9c17afd8b10e831ee/e85cb/typecheck.png 480w,
-/static/7fd3cfa9fe99d3d9c17afd8b10e831ee/d9199/typecheck.png 960w,
-/static/7fd3cfa9fe99d3d9c17afd8b10e831ee/07a9c/typecheck.png 1440w,
-/static/7fd3cfa9fe99d3d9c17afd8b10e831ee/0c1c2/typecheck.png 1542w&quot;
+            srcset=&quot;/blog/static/7fd3cfa9fe99d3d9c17afd8b10e831ee/8ff5a/typecheck.png 240w,
+/blog/static/7fd3cfa9fe99d3d9c17afd8b10e831ee/e85cb/typecheck.png 480w,
+/blog/static/7fd3cfa9fe99d3d9c17afd8b10e831ee/d9199/typecheck.png 960w,
+/blog/static/7fd3cfa9fe99d3d9c17afd8b10e831ee/07a9c/typecheck.png 1440w,
+/blog/static/7fd3cfa9fe99d3d9c17afd8b10e831ee/0c1c2/typecheck.png 1542w&quot;
             sizes=&quot;(max-width: 960px) 100vw, 960px&quot;
             type=&quot;image/png&quot;
           /&gt;
           &lt;img
             class=&quot;gatsby-resp-image-image&quot;
-            src=&quot;/static/7fd3cfa9fe99d3d9c17afd8b10e831ee/d9199/typecheck.png&quot;
+            src=&quot;/blog/static/7fd3cfa9fe99d3d9c17afd8b10e831ee/d9199/typecheck.png&quot;
             alt=&quot;Typechecking&quot;
             title=&quot;Typechecking&quot;
             loading=&quot;lazy&quot;
@@ -1128,7 +1128,7 @@ works, and what I’ve learned.&lt;/p&gt;
     &gt;
       &lt;a
     class=&quot;gatsby-resp-image-link&quot;
-    href=&quot;/static/c5fce671842c4b265a1423f0cf3e21b8/00d43/design.png&quot;
+    href=&quot;/blog/static/c5fce671842c4b265a1423f0cf3e21b8/00d43/design.png&quot;
     style=&quot;display: block&quot;
     target=&quot;_blank&quot;
     rel=&quot;noopener&quot;
@@ -1139,24 +1139,24 @@ works, and what I’ve learned.&lt;/p&gt;
   &gt;&lt;/span&gt;
   &lt;picture&gt;
           &lt;source
-              srcset=&quot;/static/c5fce671842c4b265a1423f0cf3e21b8/8ac56/design.webp 240w,
-/static/c5fce671842c4b265a1423f0cf3e21b8/d3be9/design.webp 480w,
-/static/c5fce671842c4b265a1423f0cf3e21b8/e46b2/design.webp 960w,
-/static/c5fce671842c4b265a1423f0cf3e21b8/a5d4d/design.webp 1000w&quot;
+              srcset=&quot;/blog/static/c5fce671842c4b265a1423f0cf3e21b8/8ac56/design.webp 240w,
+/blog/static/c5fce671842c4b265a1423f0cf3e21b8/d3be9/design.webp 480w,
+/blog/static/c5fce671842c4b265a1423f0cf3e21b8/e46b2/design.webp 960w,
+/blog/static/c5fce671842c4b265a1423f0cf3e21b8/a5d4d/design.webp 1000w&quot;
               sizes=&quot;(max-width: 960px) 100vw, 960px&quot;
               type=&quot;image/webp&quot;
             /&gt;
           &lt;source
-            srcset=&quot;/static/c5fce671842c4b265a1423f0cf3e21b8/8ff5a/design.png 240w,
-/static/c5fce671842c4b265a1423f0cf3e21b8/e85cb/design.png 480w,
-/static/c5fce671842c4b265a1423f0cf3e21b8/d9199/design.png 960w,
-/static/c5fce671842c4b265a1423f0cf3e21b8/00d43/design.png 1000w&quot;
+            srcset=&quot;/blog/static/c5fce671842c4b265a1423f0cf3e21b8/8ff5a/design.png 240w,
+/blog/static/c5fce671842c4b265a1423f0cf3e21b8/e85cb/design.png 480w,
+/blog/static/c5fce671842c4b265a1423f0cf3e21b8/d9199/design.png 960w,
+/blog/static/c5fce671842c4b265a1423f0cf3e21b8/00d43/design.png 1000w&quot;
             sizes=&quot;(max-width: 960px) 100vw, 960px&quot;
             type=&quot;image/png&quot;
           /&gt;
           &lt;img
             class=&quot;gatsby-resp-image-image&quot;
-            src=&quot;/static/c5fce671842c4b265a1423f0cf3e21b8/d9199/design.png&quot;
+            src=&quot;/blog/static/c5fce671842c4b265a1423f0cf3e21b8/d9199/design.png&quot;
             alt=&quot;Design&quot;
             title=&quot;Design&quot;
             loading=&quot;lazy&quot;
@@ -1173,7 +1173,7 @@ works, and what I’ve learned.&lt;/p&gt;
     &gt;
       &lt;a
     class=&quot;gatsby-resp-image-link&quot;
-    href=&quot;/static/ab356761ba4610412e63a3ad5818e55c/efc66/vidi.png&quot;
+    href=&quot;/blog/static/ab356761ba4610412e63a3ad5818e55c/efc66/vidi.png&quot;
     style=&quot;display: block&quot;
     target=&quot;_blank&quot;
     rel=&quot;noopener&quot;
@@ -1184,22 +1184,22 @@ works, and what I’ve learned.&lt;/p&gt;
   &gt;&lt;/span&gt;
   &lt;picture&gt;
           &lt;source
-              srcset=&quot;/static/ab356761ba4610412e63a3ad5818e55c/8ac56/vidi.webp 240w,
-/static/ab356761ba4610412e63a3ad5818e55c/d3be9/vidi.webp 480w,
-/static/ab356761ba4610412e63a3ad5818e55c/dad35/vidi.webp 885w&quot;
+              srcset=&quot;/blog/static/ab356761ba4610412e63a3ad5818e55c/8ac56/vidi.webp 240w,
+/blog/static/ab356761ba4610412e63a3ad5818e55c/d3be9/vidi.webp 480w,
+/blog/static/ab356761ba4610412e63a3ad5818e55c/dad35/vidi.webp 885w&quot;
               sizes=&quot;(max-width: 885px) 100vw, 885px&quot;
               type=&quot;image/webp&quot;
             /&gt;
           &lt;source
-            srcset=&quot;/static/ab356761ba4610412e63a3ad5818e55c/8ff5a/vidi.png 240w,
-/static/ab356761ba4610412e63a3ad5818e55c/e85cb/vidi.png 480w,
-/static/ab356761ba4610412e63a3ad5818e55c/efc66/vidi.png 885w&quot;
+            srcset=&quot;/blog/static/ab356761ba4610412e63a3ad5818e55c/8ff5a/vidi.png 240w,
+/blog/static/ab356761ba4610412e63a3ad5818e55c/e85cb/vidi.png 480w,
+/blog/static/ab356761ba4610412e63a3ad5818e55c/efc66/vidi.png 885w&quot;
             sizes=&quot;(max-width: 885px) 100vw, 885px&quot;
             type=&quot;image/png&quot;
           /&gt;
           &lt;img
             class=&quot;gatsby-resp-image-image&quot;
-            src=&quot;/static/ab356761ba4610412e63a3ad5818e55c/efc66/vidi.png&quot;
+            src=&quot;/blog/static/ab356761ba4610412e63a3ad5818e55c/efc66/vidi.png&quot;
             alt=&quot;Vidi&quot;
             title=&quot;Vidi&quot;
             loading=&quot;lazy&quot;
@@ -1217,7 +1217,7 @@ works, and what I’ve learned.&lt;/p&gt;
     &gt;
       &lt;a
     class=&quot;gatsby-resp-image-link&quot;
-    href=&quot;/static/0e207ba47448af5aff2217a9413a8905/07484/beta_reduction.png&quot;
+    href=&quot;/blog/static/0e207ba47448af5aff2217a9413a8905/07484/beta_reduction.png&quot;
     style=&quot;display: block&quot;
     target=&quot;_blank&quot;
     rel=&quot;noopener&quot;
@@ -1228,22 +1228,22 @@ works, and what I’ve learned.&lt;/p&gt;
   &gt;&lt;/span&gt;
   &lt;picture&gt;
           &lt;source
-              srcset=&quot;/static/0e207ba47448af5aff2217a9413a8905/8ac56/beta_reduction.webp 240w,
-/static/0e207ba47448af5aff2217a9413a8905/d3be9/beta_reduction.webp 480w,
-/static/0e207ba47448af5aff2217a9413a8905/9e625/beta_reduction.webp 540w&quot;
+              srcset=&quot;/blog/static/0e207ba47448af5aff2217a9413a8905/8ac56/beta_reduction.webp 240w,
+/blog/static/0e207ba47448af5aff2217a9413a8905/d3be9/beta_reduction.webp 480w,
+/blog/static/0e207ba47448af5aff2217a9413a8905/9e625/beta_reduction.webp 540w&quot;
               sizes=&quot;(max-width: 540px) 100vw, 540px&quot;
               type=&quot;image/webp&quot;
             /&gt;
           &lt;source
-            srcset=&quot;/static/0e207ba47448af5aff2217a9413a8905/8ff5a/beta_reduction.png 240w,
-/static/0e207ba47448af5aff2217a9413a8905/e85cb/beta_reduction.png 480w,
-/static/0e207ba47448af5aff2217a9413a8905/07484/beta_reduction.png 540w&quot;
+            srcset=&quot;/blog/static/0e207ba47448af5aff2217a9413a8905/8ff5a/beta_reduction.png 240w,
+/blog/static/0e207ba47448af5aff2217a9413a8905/e85cb/beta_reduction.png 480w,
+/blog/static/0e207ba47448af5aff2217a9413a8905/07484/beta_reduction.png 540w&quot;
             sizes=&quot;(max-width: 540px) 100vw, 540px&quot;
             type=&quot;image/png&quot;
           /&gt;
           &lt;img
             class=&quot;gatsby-resp-image-image&quot;
-            src=&quot;/static/0e207ba47448af5aff2217a9413a8905/07484/beta_reduction.png&quot;
+            src=&quot;/blog/static/0e207ba47448af5aff2217a9413a8905/07484/beta_reduction.png&quot;
             alt=&quot;Beta Reduction&quot;
             title=&quot;Beta Reduction&quot;
             loading=&quot;lazy&quot;
@@ -1269,7 +1269,7 @@ works, and what I’ve learned.&lt;/p&gt;
     &gt;
       &lt;a
     class=&quot;gatsby-resp-image-link&quot;
-    href=&quot;/static/c460f3973469f218664cf5b421082984/07484/dune.png&quot;
+    href=&quot;/blog/static/c460f3973469f218664cf5b421082984/07484/dune.png&quot;
     style=&quot;display: block&quot;
     target=&quot;_blank&quot;
     rel=&quot;noopener&quot;
@@ -1280,22 +1280,22 @@ works, and what I’ve learned.&lt;/p&gt;
   &gt;&lt;/span&gt;
   &lt;picture&gt;
           &lt;source
-              srcset=&quot;/static/c460f3973469f218664cf5b421082984/8ac56/dune.webp 240w,
-/static/c460f3973469f218664cf5b421082984/d3be9/dune.webp 480w,
-/static/c460f3973469f218664cf5b421082984/9e625/dune.webp 540w&quot;
+              srcset=&quot;/blog/static/c460f3973469f218664cf5b421082984/8ac56/dune.webp 240w,
+/blog/static/c460f3973469f218664cf5b421082984/d3be9/dune.webp 480w,
+/blog/static/c460f3973469f218664cf5b421082984/9e625/dune.webp 540w&quot;
               sizes=&quot;(max-width: 540px) 100vw, 540px&quot;
               type=&quot;image/webp&quot;
             /&gt;
           &lt;source
-            srcset=&quot;/static/c460f3973469f218664cf5b421082984/8ff5a/dune.png 240w,
-/static/c460f3973469f218664cf5b421082984/e85cb/dune.png 480w,
-/static/c460f3973469f218664cf5b421082984/07484/dune.png 540w&quot;
+            srcset=&quot;/blog/static/c460f3973469f218664cf5b421082984/8ff5a/dune.png 240w,
+/blog/static/c460f3973469f218664cf5b421082984/e85cb/dune.png 480w,
+/blog/static/c460f3973469f218664cf5b421082984/07484/dune.png 540w&quot;
             sizes=&quot;(max-width: 540px) 100vw, 540px&quot;
             type=&quot;image/png&quot;
           /&gt;
           &lt;img
             class=&quot;gatsby-resp-image-image&quot;
-            src=&quot;/static/c460f3973469f218664cf5b421082984/07484/dune.png&quot;
+            src=&quot;/blog/static/c460f3973469f218664cf5b421082984/07484/dune.png&quot;
             alt=&quot;Dune&quot;
             title=&quot;Dune&quot;
             loading=&quot;lazy&quot;

@@ -15,7 +15,7 @@
   "license": "MIT",
   "author": "Alexander Shelepenok <alxshelepenok@gmail.com>",
   "scripts": {
-    "build": "npm run clean && gatsby build",
+    "build": "npm run clean && gatsby build --prefix-paths",
     "clean": "rimraf .cache public",
     "serve": "gatsby serve",
     "start": "npm run clean && gatsby develop"
