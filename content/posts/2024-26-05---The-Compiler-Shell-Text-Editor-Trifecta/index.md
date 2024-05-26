@@ -123,8 +123,8 @@ I didn't write my first shell until the beginning of my freshman year of college
         <td>Rummy Game</td> -->
     </th>
     <tr>
-        <td><img src="./assets/rummy-splash.png" style="width:100%;height:auto;"/></td>
-        <td><img src="./assets/rummy-game.png" style="width:100%;height:auto;"/></td>
+        <td><a href="https://asciinema.org/a/383254"><img src="./assets/rummy-splash.png" style="width:100%;height:auto;"/></a></td>
+        <td><a href="https://asciinema.org/a/383254"><img src="./assets/rummy-game.png" style="width:100%;height:auto;"/></a></td>
     </tr>
 </table>
 
