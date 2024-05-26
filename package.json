@@ -17,7 +17,7 @@
   "scripts": {
     "build": "npm run clean && gatsby build --prefix-paths",
     "clean": "rimraf .cache public",
-    "serve": "gatsby serve",
+    "serve": "gatsby serve --prefix-paths",
     "start": "npm run clean && gatsby develop"
   },
   "commitlint": {

@@ -1,0 +1,914 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="x-ua-compatible" content="ie=edge"/><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/><meta name="generator" content="Gatsby 4.25.8"/><meta name="description" content="My journey through writing a compiler, shell, and text editor: the trifecta of software development tools." data-gatsby-head="true"/><meta name="twitter:card" content="summary_large_image" data-gatsby-head="true"/><meta name="twitter:title" content="Completing The Compiler, Shell, And Text Editor Trifecta - Adam | Blog" data-gatsby-head="true"/><meta name="twitter:description" content="My journey through writing a compiler, shell, and text editor: the trifecta of software development tools." data-gatsby-head="true"/><meta name="og:title" content="Completing The Compiler, Shell, And Text Editor Trifecta - Adam | Blog" data-gatsby-head="true"/><meta name="og:type" content="website" data-gatsby-head="true"/><meta name="og:description" content="My journey through writing a compiler, shell, and text editor: the trifecta of software development tools." data-gatsby-head="true"/><meta name="image" content="https://adam-mcdaniel.github.io/blog/media/lighthouse-keeper.png" data-gatsby-head="true"/><meta name="og:image" content="https://adam-mcdaniel.github.io/blog/media/lighthouse-keeper.png" data-gatsby-head="true"/><meta name="twitter:image" content="https://adam-mcdaniel.github.io/blog/media/lighthouse-keeper.png" data-gatsby-head="true"/><meta name="theme-color" content="hsl(31, 92%, 62%)"/><style data-href="/blog/styles.462ccd878fdc76b93a3f.css" data-identity="gatsby-global-css">:after,:before,:root{--color-white:#fff;--color-primary:#5c92ff;--color-secondary:#f7a145;--color-prism-background:#eaeaeb;--color-typographic-base-font:#242933;--color-typographic-link-p-font:#5c92ff;--color-typographic-link-s-font:#f7a145;--color-page-border:#eaeaeb;--color-page-background:#fff;--color-sidebar-border:#eaeaeb;--color-sidebar-border-fade:#fff;--color-contacts-border:#eaeaeb;--color-button-border:#eaeaeb;--color-button-color:#242933;--color-theme-switcher:#3f485a;--color-theme-switcher-hover:#5c92ff}.dark :after,.dark :before,:root.dark{--color-white:#fff;--color-primary:#5c92ff;--color-secondary:#f7a145;--color-prism-background:#191d24;--color-typographic-base-font:#fff;--color-typographic-link-p-font:#5c92ff;--color-typographic-link-s-font:#f7a145;--color-page-border:#3f485a;--color-page-background:#242933;--color-sidebar-border:#3f485a;--color-sidebar-border-fade:#242933;--color-contacts-border:#3f485a;--color-button-border:#3f485a;--color-button-color:#fff;--color-theme-switcher:#eaeaeb;--color-theme-switcher-hover:#5c92ff}html{font-size:100}body{-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%;background:var(--color-page-background);color:var(--color-typographic-base-font);font-size:16px;line-height:1.625;margin:0 0 0 calc(100vw - 100%);text-rendering:optimizelegibility}body,h1,h2,h3,h4,h5,h6{font-family:-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif}h1,h2,h3,h4,h5,h6{font-weight:600}h1{font-size:40px;line-height:52px;margin-bottom:26px;margin-top:104px}h2{font-size:27px;line-height:39px}h2,h3{margin-bottom:13px;margin-top:52px}h3{font-size:22px;line-height:26px}h4{font-size:19.2px;margin-top:39px}h4,h5{line-height:26px;margin-bottom:13px}h5,h6{font-size:16px;margin-top:65px}h6{line-height:26px;margin-bottom:13px}img{max-width:100%}hr,img{border:0;display:block}hr{background-image:linear-gradient(180deg,transparent 1px,transparent 11px,#242933 0,#242933 15px,transparent 0,transparent 26px);background-size:100% 26px;color:var(--color-typographic-base-font);height:26px;margin:52px auto;width:100px}a{color:var(--color-typographic-link-p-font);text-decoration:none}a:active,a:focus,a:hover{color:var(--color-typographic-link-s-font)}b,strong{font-weight:600}ul{list-style:square;margin-bottom:26px}ul li{margin-bottom:10px;padding:0 5px}p{line-height:26px;margin-bottom:26px}blockquote{font-style:italic;padding:0;text-align:center}figure{display:block;height:auto;width:100%}figcaption{color:var(--color-typographic-base-font);font-size:14px;font-style:italic;line-height:19.5px;margin-bottom:0;margin-top:6.5px;text-align:center}@media screen and (min-width:685px){figure.float-left,figure.float-right{max-width:310px;padding:0 26px}.float-right{float:right}.float-left{float:left}}code[class*=language-],pre[class*=language-]{word-wrap:normal;color:#657b83;font-family:Consolas,Monaco,Andale Mono,Ubuntu Mono,monospace;font-size:1em;-webkit-hyphens:none;hyphens:none;line-height:1.5;tab-size:4;text-align:left;white-space:pre;word-break:normal;word-spacing:normal}pre[class*=language-]{border-radius:.3em;margin:.5em 0;overflow:auto;padding:1em}:not(pre)>code[class*=language-],pre[class*=language-]{background-color:var(--color-prism-background)}:not(pre)>code[class*=language-]{border-radius:.3em;padding:.1em}code[class*=language-] ::selection,code[class*=language-]::selection,pre[class*=language-] ::selection,pre[class*=language-]::selection{background:#073642}.token.cdata,.token.comment,.token.doctype,.token.prolog{color:#93a1a1}.token.punctuation{color:#586e75}.namespace{opacity:.7}.token.boolean,.token.constant,.token.deleted,.token.number,.token.property,.token.symbol,.token.tag{color:#268bd2}.token.attr-name,.token.builtin,.token.char,.token.inserted,.token.selector,.token.string,.token.url{color:#2aa198}.token.entity{background:#eee8d5;color:#657b83;cursor:help}.token.atrule,.token.attr-value,.token.keyword{color:#859900}.token.class-name,.token.function{color:#b58900}.token.important,.token.regex,.token.variable{color:#cb4b16}.token.bold,.token.important{font-weight:700}.token.italic{font-style:italic}.Feed-module--feed--a6204 .Feed-module--item--c7a63{margin-bottom:32.5px}.Feed-module--feed--a6204 .Feed-module--item--c7a63:last-child{margin-bottom:13px}.Feed-module--feed--a6204 .Feed-module--item--c7a63 .Feed-module--title--f252f{font-size:27px;line-height:39px;margin-bottom:13px;margin-top:0}.Feed-module--feed--a6204 .Feed-module--item--c7a63 .Feed-module--title--f252f .Feed-module--link--6123b{color:var(--color-typographic-base-font)}.Feed-module--feed--a6204 .Feed-module--item--c7a63 .Feed-module--title--f252f .Feed-module--link--6123b:focus,.Feed-module--feed--a6204 .Feed-module--item--c7a63 .Feed-module--title--f252f .Feed-module--link--6123b:hover{border-bottom:1px solid #242933;color:var(--color-typographic-base-font)}.Feed-module--feed--a6204 .Feed-module--item--c7a63 .Feed-module--description--57348{font-size:16px;line-height:26px;margin-bottom:19.5px}.Feed-module--feed--a6204 .Feed-module--item--c7a63 .Feed-module--meta--250c2 .Feed-module--time--72864{color:var(--color-typographic-base-font);font-size:14px;font-weight:600;text-transform:uppercase}.Feed-module--feed--a6204 .Feed-module--item--c7a63 .Feed-module--meta--250c2 .Feed-module--divider--81a18{margin:0 13px}.Feed-module--feed--a6204 .Feed-module--item--c7a63 .Feed-module--meta--250c2 .Feed-module--category--59f58 .Feed-module--link--6123b{color:var(--color-secondary);font-size:14px;font-weight:600;text-transform:uppercase}.Feed-module--feed--a6204 .Feed-module--item--c7a63 .Feed-module--meta--250c2 .Feed-module--category--59f58 .Feed-module--link--6123b:focus,.Feed-module--feed--a6204 .Feed-module--item--c7a63 .Feed-module--meta--250c2 .Feed-module--category--59f58 .Feed-module--link--6123b:hover{color:#5c92ff}.Feed-module--feed--a6204 .Feed-module--item--c7a63 .Feed-module--more--51a4e{color:var(--color-primary);font-size:16px}.Feed-module--feed--a6204 .Feed-module--item--c7a63 .Feed-module--more--51a4e:focus,.Feed-module--feed--a6204 .Feed-module--item--c7a63 .Feed-module--more--51a4e:hover{border-bottom:1px solid #5c92ff;color:var(--color-primary)}.Layout-module--layout--2c933{margin-left:auto;margin-right:auto;max-width:1070px}.Layout-module--layout--2c933:before{content:"";display:table}.Layout-module--layout--2c933:after{clear:both;content:"";display:table}.Page-module--page--24e03{margin-bottom:52px}.Page-module--page--24e03 .Page-module--inner--4b31d{padding:26px 19.5px 0}.Page-module--page--24e03 .Page-module--title--90338{font-size:40px;font-weight:600;line-height:52px;margin-bottom:37.7px;margin-top:0}.Page-module--page--24e03 .Page-module--body--561c4{font-size:16px;line-height:26px;margin:0 0 26px}@media screen and (min-width:685px){.Page-module--page--24e03{width:calc(58.275% - 12.5px)}.Page-module--page--24e03:nth-child(1n){clear:none;float:left;margin-right:30px}.Page-module--page--24e03:last-child{margin-right:0}.Page-module--page--24e03:nth-child(12n){float:right;margin-right:0}.Page-module--page--24e03:nth-child(12n+1){clear:both}.Page-module--page--24e03 .Page-module--inner--4b31d{padding:32.5px 19.5px 0}}@media screen and (min-width:960px){.Page-module--page--24e03{width:calc(66.6% - 10px)}.Page-module--page--24e03:nth-child(1n){clear:none;float:left;margin-right:30px}.Page-module--page--24e03:last-child{margin-right:0}.Page-module--page--24e03:nth-child(3n){float:right;margin-right:0}.Page-module--page--24e03:nth-child(3n+1){clear:both}.Page-module--page--24e03 .Page-module--inner--4b31d{padding:39px 26px 0}}.Pagination-module--pagination--d61cb{display:flex;margin-top:52px}.Pagination-module--pagination--d61cb .Pagination-module--previous--4a76b{text-align:left;width:50%}.Pagination-module--pagination--d61cb .Pagination-module--previous--4a76b .Pagination-module--previousLink--5590d{color:var(--color-secondary);font-size:26px;font-weight:700}.Pagination-module--pagination--d61cb .Pagination-module--previous--4a76b .Pagination-module--previousLink--5590d:focus,.Pagination-module--pagination--d61cb .Pagination-module--previous--4a76b .Pagination-module--previousLink--5590d:hover{color:var(--color-primary)}.Pagination-module--pagination--d61cb .Pagination-module--previous--4a76b .Pagination-module--previousLink--5590d.Pagination-module--disable--7e105{color:#3f485a;pointer-events:none}.Pagination-module--pagination--d61cb .Pagination-module--next--1cab8{text-align:right;width:50%}.Pagination-module--pagination--d61cb .Pagination-module--next--1cab8 .Pagination-module--nextLink--532ff{color:var(--color-secondary);font-size:26px;font-weight:700}.Pagination-module--pagination--d61cb .Pagination-module--next--1cab8 .Pagination-module--nextLink--532ff:focus,.Pagination-module--pagination--d61cb .Pagination-module--next--1cab8 .Pagination-module--nextLink--532ff:hover{color:var(--color-primary)}.Pagination-module--pagination--d61cb .Pagination-module--next--1cab8 .Pagination-module--nextLink--532ff.Pagination-module--disable--7e105{color:#3f485a;pointer-events:none}.Button-module--button--b1113{border:1px solid var(--color-button-border);border-radius:20px;color:var(--color-button-color);display:inline-block;font-size:16px;font-weight:400;height:40px;line-height:40px;margin-left:auto;margin-right:auto;padding:0 26px;text-align:center;text-decoration:none}.Button-module--button--b1113:focus,.Button-module--button--b1113:hover{color:#5c92ff}.ThemeSwitcher-module--themeSwitcher--8a77f{--color:var(--color-theme-switcher)}.ThemeSwitcher-module--themeSwitcher--8a77f .ThemeSwitcher-module--button--7cb7b{align-items:center;background:transparent;border:0;cursor:pointer;display:flex;justify-content:center;outline:0}.ThemeSwitcher-module--themeSwitcher--8a77f .ThemeSwitcher-module--button--7cb7b svg{stroke:var(--color);pointer-events:none;transition:stroke .4s}.ThemeSwitcher-module--themeSwitcher--8a77f .ThemeSwitcher-module--button--7cb7b:hover{--color:var(--color-theme-switcher-hover)}.ThemeSwitcher-module--themeSwitcher--8a77f .ThemeSwitcher-module--moon--10537{stroke-dasharray:0 1px;opacity:0;transition:stroke-dasharray .2s ease-in,opacity .4s ease-in}.ThemeSwitcher-module--themeSwitcher--8a77f .ThemeSwitcher-module--sun--2163a{stroke-dasharray:1px 1px;opacity:1;transition:stroke-dasharray .2s ease-in,opacity .4s ease-in}.ThemeSwitcher-module--themeSwitcher--8a77f.ThemeSwitcher-module--dark--6db0c .ThemeSwitcher-module--moon--10537{stroke-dasharray:1px 1px;opacity:1}.ThemeSwitcher-module--themeSwitcher--8a77f.ThemeSwitcher-module--dark--6db0c .ThemeSwitcher-module--sun--2163a{stroke-dasharray:0 1px;opacity:0}.Author-module--author--cbd31 .Author-module--photo--9787b{background-clip:padding-box;border-radius:50%;display:inline-block;height:75px;margin-bottom:0;width:75px}.Author-module--author--cbd31 .Author-module--photo--9787b img{border-radius:50%}.Author-module--author--cbd31 .Author-module--title--cf7e5{font-size:18px;font-weight:600;line-height:29.25px;margin:0}.Author-module--author--cbd31 .Author-module--title--cf7e5 .Author-module--link--09c17,.Author-module--author--cbd31 .Author-module--title--cf7e5 .Author-module--link--09c17:focus,.Author-module--author--cbd31 .Author-module--title--cf7e5 .Author-module--link--09c17:hover{color:var(--color-typographic-base-font)}.Author-module--author--cbd31 .Author-module--subtitle--86ec5{color:#7f8ba4;line-height:26px;margin-bottom:26px}.Author-module--author--cbd31 .Author-module--titleContainer--4f576{align-items:center;display:flex;justify-content:space-between;margin:13px 0}.Icon-module--icon--1d7da{fill:currentcolor;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;speak:none;stroke:currentcolor;stroke-width:0;display:inline-block;font-style:normal;font-variant:normal;font-weight:400;height:1em;line-height:1em;text-align:center;text-transform:none;width:1em}.Contacts-module--contacts--09178{margin-bottom:26px}.Contacts-module--contacts--09178 .Contacts-module--list--9670b{display:flex;flex-flow:row wrap;flex-grow:0;flex-shrink:0;list-style:none;margin:13px 0;max-width:165px;padding:0}.Contacts-module--contacts--09178 .Contacts-module--list--9670b .Contacts-module--item--f9cb0{align-content:center;align-items:center;border:1px solid var(--color-contacts-border);border-radius:50%;display:flex;height:40px;justify-content:center;line-height:40px;margin:6.5px;padding:0;text-align:center;width:40px}.Contacts-module--contacts--09178 .Contacts-module--list--9670b .Contacts-module--item--f9cb0:nth-child(3n+1){margin-left:0}.Contacts-module--contacts--09178 .Contacts-module--list--9670b .Contacts-module--item--f9cb0 .Contacts-module--link--de1e0{border:0;color:var(--color-typographic-base-font);cursor:pointer;display:flex}.Contacts-module--contacts--09178 .Contacts-module--list--9670b .Contacts-module--item--f9cb0 .Contacts-module--link--de1e0:focus,.Contacts-module--contacts--09178 .Contacts-module--list--9670b .Contacts-module--item--f9cb0 .Contacts-module--link--de1e0:hover{color:var(--color-typographic-link-p-font)}.Copyright-module--copyright--2c602{color:#7f8ba4;font-size:14px}.Menu-module--menu--113a9{margin-bottom:26px}.Menu-module--menu--113a9 .Menu-module--list--e1ae3{list-style:none;margin:0;padding:0}.Menu-module--menu--113a9 .Menu-module--list--e1ae3 .Menu-module--item--8b679{margin:13px 0;padding:0}.Menu-module--menu--113a9 .Menu-module--list--e1ae3 .Menu-module--item--8b679 .Menu-module--link--a6f02{border:0;color:var(--color-typographic-base-font);font-size:16px;font-weight:400}.Menu-module--menu--113a9 .Menu-module--list--e1ae3 .Menu-module--item--8b679 .Menu-module--link--a6f02:focus,.Menu-module--menu--113a9 .Menu-module--list--e1ae3 .Menu-module--item--8b679 .Menu-module--link--a6f02:hover{border-bottom:1px solid #5c92ff;color:#5c92ff}.Menu-module--menu--113a9 .Menu-module--list--e1ae3 .Menu-module--item--8b679 .Menu-module--link--a6f02.Menu-module--active--6cb74{border-bottom:1px solid var(--color-typographic-base-font);color:var(--color-typographic-base-font)}.Sidebar-module--sidebar--1bfa1{width:100%}.Sidebar-module--sidebar--1bfa1 .Sidebar-module--inner--344d0{padding:26px 19.5px 0;position:relative}.Sidebar-module--sidebar--1bfa1 .Sidebar-module--inner--344d0:after{background:var(--color-sidebar-border);background:linear-gradient(to bottom,var(--color-sidebar-border) 0,var(--color-sidebar-border) 48%,var(--color-sidebar-border-fade) 100%)}@media screen and (min-width:685px){.Sidebar-module--sidebar--1bfa1{width:calc(41.625% - 17.5px)}.Sidebar-module--sidebar--1bfa1:nth-child(1n){clear:none;float:left;margin-right:30px}.Sidebar-module--sidebar--1bfa1:last-child{margin-right:0}.Sidebar-module--sidebar--1bfa1:nth-child(12n){float:right;margin-right:0}.Sidebar-module--sidebar--1bfa1:nth-child(12n+1){clear:both}.Sidebar-module--sidebar--1bfa1 .Sidebar-module--inner--344d0{padding:32.5px 19.5px 0}.Sidebar-module--sidebar--1bfa1 .Sidebar-module--inner--344d0:after{bottom:0;content:"";height:540px;position:absolute;right:-10px;top:30px;width:1px}}@media screen and (min-width:960px){.Sidebar-module--sidebar--1bfa1{width:calc(33.3% - 20px)}.Sidebar-module--sidebar--1bfa1:nth-child(1n){clear:none;float:left;margin-right:30px}.Sidebar-module--sidebar--1bfa1:last-child{margin-right:0}.Sidebar-module--sidebar--1bfa1:nth-child(3n){float:right;margin-right:0}.Sidebar-module--sidebar--1bfa1:nth-child(3n+1){clear:both}.Sidebar-module--sidebar--1bfa1 .Sidebar-module--inner--344d0{padding:39px}}.Author-module--author--1c58d{border-top:1px solid var(--color-page-border);line-height:26px;margin-bottom:52px;margin-top:26px;max-width:640px;padding-top:26px}.Author-module--author--1c58d .Author-module--bio--08950 .Author-module--twitter--90647{display:block;text-decoration:underline}.Author-module--author--1c58d .Author-module--bio--08950 .Author-module--twitter--90647:focus,.Author-module--author--1c58d .Author-module--bio--08950 .Author-module--twitter--90647:hover{color:var(--color-typographic-link-s-font)}@media screen and (min-width:685px){.Author-module--author--1c58d{margin-left:auto;margin-right:auto}}.Content-module--content--80d58{margin:0 auto;max-width:945px;padding:0 13px}.Content-module--content--80d58 .Content-module--title--09504{font-size:32px;font-weight:600;line-height:42.9px;margin:26px auto 0;max-width:640px;text-align:center}.Content-module--content--80d58 .Content-module--body--726c2 figure{margin-bottom:26px}.Content-module--content--80d58 .Content-module--body--726c2 figure blockquote{font-style:italic;margin-top:0;padding:26px 0;text-align:center}.Content-module--content--80d58 .Content-module--body--726c2 figure blockquote p{font-size:26.9072px;line-height:39px;margin-bottom:26px;margin-top:0;max-width:640px}.Content-module--content--80d58 .Content-module--body--726c2 a{text-decoration:underline}.Content-module--content--80d58 .Content-module--body--726c2 *{margin-left:auto;margin-right:auto;max-width:640px}.Content-module--content--80d58 .Content-module--body--726c2 h2>a{visibility:hidden}.Content-module--content--80d58 .Content-module--body--726c2 h2>a>svg{fill:var(--color-typographic-base-font)}.Content-module--content--80d58 .Content-module--body--726c2 img{max-width:100%}@media screen and (min-width:960px){.Content-module--content--80d58{padding:0}.Content-module--content--80d58 .Content-module--title--09504{font-size:48px;line-height:58.5px;margin-bottom:39px;margin-top:58.5px}.Content-module--content--80d58 .Content-module--body--726c2,.Content-module--content--80d58 .Content-module--body--726c2 p{font-size:18px;line-height:29.25px;margin-bottom:29.25px}.Content-module--content--80d58 .Content-module--body--726c2 h2>a{padding-right:13px;visibility:unset}}.Meta-module--meta--dae0a .Meta-module--date--4d30d{font-style:italic}.Tags-module--tags--18589{margin-bottom:13px}.Tags-module--tags--18589 .Tags-module--list--82ae6{list-style:none;padding:0}.Tags-module--tags--18589 .Tags-module--list--82ae6 .Tags-module--item--52015{display:inline-block;margin:6.5px 0}@media screen and (min-width:685px){.Tags-module--tags--18589 .Tags-module--list--82ae6 .Tags-module--item--52015:first-child{margin-left:0;padding-left:0}}.Post-module--post--3a994 .Post-module--content--3c6e5{margin:0 auto}.Post-module--post--3a994 .Post-module--comments--d3b99,.Post-module--post--3a994 .Post-module--footer--f8705{margin:0 auto;max-width:640px;padding:0 13px}.Post-module--post--3a994 .Post-module--buttons--2972d{align-items:center;display:flex;justify-content:center;margin:26px 0 0;text-align:center}.Post-module--post--3a994 .Post-module--buttons--2972d .Post-module--buttonArticles--d793a{margin:0 13px 0 0}@media screen and (min-width:960px){.Post-module--post--3a994 .Post-module--comments--d3b99,.Post-module--post--3a994 .Post-module--footer--f8705{padding:0}.Post-module--post--3a994 .Post-module--buttons--2972d{left:30px;margin:0 13px 0 0;max-width:none;position:fixed;top:30px}}</style><title data-gatsby-head="true">Completing The Compiler, Shell, And Text Editor Trifecta - Adam | Blog</title><link rel="alternate" type="application/rss+xml" title="Adam | Blog" href="/blog/rss.xml"/><style type="text/css">
+    .anchor.before {
+      position: absolute;
+      top: 0;
+      left: 0;
+      transform: translateX(-100%);
+      padding-right: 4px;
+    }
+    .anchor.after {
+      display: inline-block;
+      padding-left: 4px;
+    }
+    h1 .anchor svg,
+    h2 .anchor svg,
+    h3 .anchor svg,
+    h4 .anchor svg,
+    h5 .anchor svg,
+    h6 .anchor svg {
+      visibility: hidden;
+    }
+    h1:hover .anchor svg,
+    h2:hover .anchor svg,
+    h3:hover .anchor svg,
+    h4:hover .anchor svg,
+    h5:hover .anchor svg,
+    h6:hover .anchor svg,
+    h1 .anchor:focus svg,
+    h2 .anchor:focus svg,
+    h3 .anchor:focus svg,
+    h4 .anchor:focus svg,
+    h5 .anchor:focus svg,
+    h6 .anchor:focus svg {
+      visibility: visible;
+    }
+  </style><script>
+    document.addEventListener("DOMContentLoaded", function(event) {
+      var hash = window.decodeURI(location.hash.replace('#', ''))
+      if (hash !== '') {
+        var element = document.getElementById(hash)
+        if (element) {
+          var scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop
+          var clientTop = document.documentElement.clientTop || document.body.clientTop || 0
+          var offset = element.getBoundingClientRect().top + scrollTop - clientTop
+          // Wait for the browser to finish rendering before scrolling.
+          setTimeout((function() {
+            window.scrollTo(0, offset - 0)
+          }), 0)
+        }
+      }
+    })
+  </script><link rel="preconnect" href="https://www.googletagmanager.com"/><link rel="dns-prefetch" href="https://www.googletagmanager.com"/><script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-73379983-2"></script><script>
+      
+      
+      if(true) {
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){window.dataLayer && window.dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'UA-73379983-2', {"send_page_view":false});
+      }
+      </script><link rel="sitemap" type="application/xml" href="/blog/sitemap/sitemap-index.xml"/><link rel="icon" href="/blog/favicon-32x32.png?v=a87ece78b4a6f78497c9b7fbb4508048" type="image/png"/><link rel="manifest" href="/blog/manifest.webmanifest" crossorigin="anonymous"/><link rel="apple-touch-icon" sizes="48x48" href="/blog/icons/icon-48x48.png?v=a87ece78b4a6f78497c9b7fbb4508048"/><link rel="apple-touch-icon" sizes="72x72" href="/blog/icons/icon-72x72.png?v=a87ece78b4a6f78497c9b7fbb4508048"/><link rel="apple-touch-icon" sizes="96x96" href="/blog/icons/icon-96x96.png?v=a87ece78b4a6f78497c9b7fbb4508048"/><link rel="apple-touch-icon" sizes="144x144" href="/blog/icons/icon-144x144.png?v=a87ece78b4a6f78497c9b7fbb4508048"/><link rel="apple-touch-icon" sizes="192x192" href="/blog/icons/icon-192x192.png?v=a87ece78b4a6f78497c9b7fbb4508048"/><link rel="apple-touch-icon" sizes="256x256" href="/blog/icons/icon-256x256.png?v=a87ece78b4a6f78497c9b7fbb4508048"/><link rel="apple-touch-icon" sizes="384x384" href="/blog/icons/icon-384x384.png?v=a87ece78b4a6f78497c9b7fbb4508048"/><link rel="apple-touch-icon" sizes="512x512" href="/blog/icons/icon-512x512.png?v=a87ece78b4a6f78497c9b7fbb4508048"/><style>.gatsby-image-wrapper{position:relative;overflow:hidden}.gatsby-image-wrapper picture.object-fit-polyfill{position:static!important}.gatsby-image-wrapper img{bottom:0;height:100%;left:0;margin:0;max-width:none;padding:0;position:absolute;right:0;top:0;width:100%;object-fit:cover}.gatsby-image-wrapper [data-main-image]{opacity:0;transform:translateZ(0);transition:opacity .25s linear;will-change:opacity}.gatsby-image-wrapper-constrained{display:inline-block;vertical-align:top}</style><noscript><style>.gatsby-image-wrapper noscript [data-main-image]{opacity:1!important}.gatsby-image-wrapper [data-placeholder-image]{opacity:0!important}</style></noscript><script type="module">const e="undefined"!=typeof HTMLImageElement&&"loading"in HTMLImageElement.prototype;e&&document.body.addEventListener("load",(function(e){const t=e.target;if(void 0===t.dataset.mainImage)return;if(void 0===t.dataset.gatsbyImageSsr)return;let a=null,n=t;for(;null===a&&n;)void 0!==n.parentNode.dataset.gatsbyImageWrapper&&(a=n.parentNode),n=n.parentNode;const o=a.querySelector("[data-placeholder-image]"),r=new Image;r.src=t.currentSrc,r.decode().catch((()=>{})).then((()=>{t.style.opacity=1,o&&(o.style.opacity=0,o.style.transition="opacity 500ms linear")}))}),!0);</script></head><body><script>
+          void function() {
+            var cachedMode;
+
+            try {
+              var preferredTheme = JSON.parse(localStorage.getItem('diesel:theme-atom'));
+
+              if (preferredTheme && preferredTheme.mode) {
+                cachedMode = preferredTheme.mode;
+              }
+            } catch (err) { }
+
+            function setTheme(newTheme) {
+              document.documentElement.className = newTheme;
+            }
+
+            var darkQuery = window.matchMedia('(prefers-color-scheme: dark)');
+
+            setTheme(cachedMode || (darkQuery.matches ? 'dark' : 'light'));
+          }()
+        </script><div id="___gatsby"><div style="outline:none" tabindex="-1" id="gatsby-focus-wrapper"><div class="Layout-module--layout--2c933"><div class="Post-module--post--3a994"><div class="Post-module--buttons--2972d"><a class="Button-module--button--b1113 Post-module--buttonArticles--d793a" href="/blog/">All Articles</a></div><div class="Post-module--content--3c6e5"><div class="Content-module--content--80d58"><h1 class="Content-module--title--09504">Completing The Compiler, Shell, And Text Editor Trifecta</h1><div class="Content-module--body--726c2"><h2 id="index" style="position:relative;"><a href="#index" aria-label="index permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Index</h2>
+<ol>
+<li><a href="#the-lighthouse-keeper">The Lighthouse Keeper</a></li>
+<li><a href="#the-compiler">The Compiler</a></li>
+<li><a href="#the-shell">The Shell</a></li>
+<li><a href="#the-text-editor">The Text Editor</a></li>
+<li><a href="#the-wreckage-repaired">The Wreckage Repaired</a></li>
+<li><a href="#conclusion">Conclusion</a></li>
+</ol>
+<h2 id="the-lighthouse-keeper" style="position:relative;"><a href="#the-lighthouse-keeper" aria-label="the lighthouse keeper permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>The Lighthouse Keeper</h2>
+<p><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 960px; "
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/blog/static/d0ce7d39076d660ec9261a93314ec479/2bef9/lighthouse-keeper.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 100%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAIAAAAC64paAAAACXBIWXMAAAsTAAALEwEAmpwYAAAErElEQVQ4yyWS+08TBwDH7+c5LS193LW93rXXx9211+sLah93pSgWWinQB/LooGChFCqlIC8tdJ0IHUilCMyVhwrLhuKmuKiR7OHic8vmD3PJtmzJsmx/yKJLPr9+k0/y/QDlsOp/+LI3CBC1CMNFGCFSEqCKFGt0EpKSavUobURoo9xoRmgjojfI9EapTg8cBtEjoJwjVvBgTChXQ0pCglOwlpZRtLLSqmVZkmVIpxO3203HqykXq7RUaJ1OHctItHrAwjqNDgdurkApGtKQXIVaoCZg2mCqOWZyszWnApHhRMdIf8/EoL+7TV9dpbHZcYcDt9swswVIpKNzl86tree3tpfWbywVP16YXZqdXshduba8uz1/b39j7+Gtu4/2vn3xYOf2RmlnZWWzkFvIpCYH2uOtgFCBS3CdnDbp7Hanr9bf0RIbH/zi4PbTHw4Gkh1z+fG///35yfcHe/c/XdtZycxPBbrbXA1emmUwsxkQyAmxRgfhOrFWDxI6hdXaO5Heun3tzGT6sAjSVhjuHdx8/fuzxy8fbN0qPXqyn8qOSo0mmDJABAWgtFmgxMUkJaUM9pPezEJuIj+dujCZmBwWIIpAJPTLH89+/fP5i1dfvXr93fL1K+FEF+l0yt/ugaYzvd2jKS3DOv2+rnRfTUvI1lTfmk4EY518GPEFfX/98+Pjlw9TufH+8+nc5ZlQT6fGbkfffGYC2LbmC6VCbjmvd1dpGEZbVeVs9Hu733P5fSCCHq8/UdxaSmbH2gd72aDf2ehrjke97WGScSoslYAnGunNjm/e2bbVnyRdLo31KILrFJTxaJVDRWndte7B7HAg3u3taGWD/kpfLXW82uqrdTSc1LpYwFLvnbx88c43d0dmp8y+Oimuww0GjNLXhz1DyXAgdGJkZiKeORsZSjQne4J93a6GWlfQz4aa2FAjAJF6dziQLxV6zqV90QhGm7kQihBajZGusJksNlPvaHK6ODtVmFncXM5fveTxH+s8Exv7MBfPjABcMQpiGophzDU11c2h/uy42mThwxgkV4NylUSFKyjd6ZGB+dLl6cXcfKkQ7uk81dfVd36kJRkDOCJYjGlohgGV+CGRrHWovyHaxpMgoFwtkmtABS5W4U0dra9+e95+OjK3On9xbTEylAjEo6fHBoFyieIQX2LzeELxLomGwEwWBW2EMLVYRcAkRVrtUkKnZ5y7+9crGftnX968//TBxt619b3rV3bWAIFMWQahHFA2MDXWlxm11XnepOqw45UVOoc9NjqYzJxtjEXzxQ8cTMVH26uPf/r65sPdzOKModoN8GGsXKo4LIRPhIMzpWKmmB94fzI2ke5IJVr7e84XLm7uf5ItzqE4KVVgKor2toTdwQYZbSwTywEBquRKMa4EQ7R0YnrswtVCdmVh4cbq+uc3Vnc35reWPeGQGMM5ICJWEhhtBJUEQlIQpuEIpQCEqYWoiv9WnmLY5lSfo8lv8db1Z8eHZzNkpe0dHsQRyXhipEwkQwlKRZtEiIoLIRwRDPARpRBV8aRYOawUKUmF1SaljbDBTLqqpIT+3XIJT4yWgQgHlHEhhCeRcyHkiBA+IoQ5Itl/VFxxd5EY4yEAAAAASUVORK5CYII='); background-size: cover; display: block;"
+  ></span>
+  <picture>
+          <source
+              srcset="/blog/static/d0ce7d39076d660ec9261a93314ec479/8ac56/lighthouse-keeper.webp 240w,
+/blog/static/d0ce7d39076d660ec9261a93314ec479/d3be9/lighthouse-keeper.webp 480w,
+/blog/static/d0ce7d39076d660ec9261a93314ec479/e46b2/lighthouse-keeper.webp 960w,
+/blog/static/d0ce7d39076d660ec9261a93314ec479/a9a89/lighthouse-keeper.webp 1024w"
+              sizes="(max-width: 960px) 100vw, 960px"
+              type="image/webp"
+            />
+          <source
+            srcset="/blog/static/d0ce7d39076d660ec9261a93314ec479/8ff5a/lighthouse-keeper.png 240w,
+/blog/static/d0ce7d39076d660ec9261a93314ec479/e85cb/lighthouse-keeper.png 480w,
+/blog/static/d0ce7d39076d660ec9261a93314ec479/d9199/lighthouse-keeper.png 960w,
+/blog/static/d0ce7d39076d660ec9261a93314ec479/2bef9/lighthouse-keeper.png 1024w"
+            sizes="(max-width: 960px) 100vw, 960px"
+            type="image/png"
+          />
+          <img
+            class="gatsby-resp-image-image"
+            src="/blog/static/d0ce7d39076d660ec9261a93314ec479/d9199/lighthouse-keeper.png"
+            alt="Lighthouse Keeper"
+            title="Lighthouse Keeper"
+            loading="lazy"
+            decoding="async"
+            style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+          />
+        </picture>
+  </a>
+    </span></p>
+<table>
+<thead>
+<tr>
+<th align="center"><em><strong>Steward Of The Light</strong></em></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center"></td>
+</tr>
+</tbody>
+</table>
+<p>Ages ago, a lighthouse keeper tended to the light on a rocky Atlantic island. The lighthouse keeper was a lonely figure, spending his days in solitude, save for the seldom pulses from the signal lamps of passing ships delivering terse, perfunctory directives. The lighthouse was built upon a rugged outcrop, beset on all sides by the crashing waves of the Atlantic. The keeper had been stationed there by his superiors without say, and he had no choice but to obey.</p>
+<p>He knew that the lighthouse was a vital beacon for the ships that passed by, and he took his duty seriously. Without his light, many ships would have been lost to the treacherous rocks below. His fathers before him had tended to the light: he spent his entire life thus far on forlorn isles such as this. All the same, he dreamed of a day where he might be free of his lonely vigil.</p>
+<h3 id="the-vessel-appears" style="position:relative;"><a href="#the-vessel-appears" aria-label="the vessel appears permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>The Vessel Appears</h3>
+<p><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 960px; "
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/blog/static/839910fa7d8b6bd535c23f54a72c9527/2bef9/the-vessel-appears.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 100%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAIAAAAC64paAAAACXBIWXMAAAsTAAALEwEAmpwYAAAEzUlEQVQ4yxXU/VOSBwDA8ec/yHiRd+Th/e0RHoSQd1AQRAUBBUVARURAG/kGiqcyBQUNK19Sm04zrZbWptmkWrllmze7Xbu1237Ydetu1+2urWs/bPt1u/6A731++wIYFg/HEaBZUCELIvCE5OISWqmaJJLi2Dy65EyxTg9XmLhqTZEQxjA5aDoTBdKRFCqyCESSKQAThnV6lddT6/XaLVZjZY3B1uqLJroH+wOxXn/nQNQWbJNUV1PFUqJAhIeEGA4fzWCjqAwUhQoIlaUNrqoLI+1P7mR2N5OLk6GXP+y8+v7W4d78dKr7XGrEFY9pvM0Ck5mj0lLEUiIswbAhFJ2NpDEAulQuNhg0NWZDY6NQIeNB7J7UyNLW0l5+c3ImubCz3n3pvCkYVDnsgjI9Q6agypQ4SIRisJE0FsCrdkhcXrCsilvrBqUKFgzbeuORmUv9C3Md6dSn39zbebzjG4gZPY0ClYKj0TLUZcQSaSGb/z62JzMrR/mOqezotTWZzSFUKqPZyUhqfP6TtfTy7Pbh7uHxnQ/6ws5Ai8xsUtpskKGCUvoeR7P4ANwcia8uX32av/L4QO9rhrWaB8e7H99ev3+4/eLH/F5+8+T53bHhsEkvr3TVOXp61E0elk5PEkvxQglAMVokDZ7E1bXI3OXiSgskl5+8uP/k2ecH+Y03vz368/fj1y8fPtqbi4Zddc4aZ1fI3BGUNzRxjFWgUgdw6jyq9oiivetMS4hbboLV6r2H149O7j093Hz76v5///31z9vvvv1icff2/OUrmfhYbHh+2tnfr20NqPwBgGlx2pIT7nSWa7YyZYpiudxsMayuZH/9+eDfP77++81x/s6s3+8sr6mUVZSv767vPzuYubU6trHkmxgDqPoaefvZgWvXQtPTtu4+tc3OhQWjY33v3j1//fp4fSNntZtYAgjLZHOVqv2j3ZNfnn750+HNo92R9csAWVFeJJEbI1F/bvbcykbkwmyJqcrX3bX91X52bdnqdQtlEirEQ9E59V2dNx7srN3dunhzpffStG9kGECBNASRzCuvcKZy4cW1xNZNa0/cNZDozM00jaY0Pj/PYC6117cND4WzmVA2G0hPGkOd2rZgSZ0TQJApJGGJyN7gzlyw9A525C6eXVhyJydqYyO6jqjQ1VLXF7+yv33+xmr/xYw3EVM1efgGA00mw3E5AFVlYFc7NZ2xxtQ0yOdp3Z7m7ExrKhOcmvGOjrkHBqJTE7KGhlP8YjQEk2UqukZPEElAuZKhVAJ0rVHS3Cmw1lf1DuG5fFox1L8wn/xosXsqHc+loqkhTVMj7oycoVIp6uuMobBjYEjV2iaotZPEYgBJJBE4PDyLJa62iK0OQZmuI53O7Vxfv7u18tnV85vL53KTbeOjLeMfOhLDogYvRVWO5RcjKWABngigcHgsCJLZLAbEpUNcFiwQyqV6V7071udJDAbGk/70RHRu1jE4LPOHhU0Bss6MZnLRVMb7GZwuRBcS8LiiIiyRgCcTMUT8aTQSicEgSWQ8m0mFYZ7JUhaOKvwd0uaAxBcUuNtAXQUWEqFpLKAAiShAIE8hEAVoNBKLQeOwKCLpNJFcCIJIAgFDpVFlapbJBpaZUQIpgivCCqUEkRQrEBfyhP8DgNysLjN5QJoAAAAASUVORK5CYII='); background-size: cover; display: block;"
+  ></span>
+  <picture>
+          <source
+              srcset="/blog/static/839910fa7d8b6bd535c23f54a72c9527/8ac56/the-vessel-appears.webp 240w,
+/blog/static/839910fa7d8b6bd535c23f54a72c9527/d3be9/the-vessel-appears.webp 480w,
+/blog/static/839910fa7d8b6bd535c23f54a72c9527/e46b2/the-vessel-appears.webp 960w,
+/blog/static/839910fa7d8b6bd535c23f54a72c9527/a9a89/the-vessel-appears.webp 1024w"
+              sizes="(max-width: 960px) 100vw, 960px"
+              type="image/webp"
+            />
+          <source
+            srcset="/blog/static/839910fa7d8b6bd535c23f54a72c9527/8ff5a/the-vessel-appears.png 240w,
+/blog/static/839910fa7d8b6bd535c23f54a72c9527/e85cb/the-vessel-appears.png 480w,
+/blog/static/839910fa7d8b6bd535c23f54a72c9527/d9199/the-vessel-appears.png 960w,
+/blog/static/839910fa7d8b6bd535c23f54a72c9527/2bef9/the-vessel-appears.png 1024w"
+            sizes="(max-width: 960px) 100vw, 960px"
+            type="image/png"
+          />
+          <img
+            class="gatsby-resp-image-image"
+            src="/blog/static/839910fa7d8b6bd535c23f54a72c9527/d9199/the-vessel-appears.png"
+            alt="Lighthouse Keeper"
+            title="Lighthouse Keeper"
+            loading="lazy"
+            decoding="async"
+            style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+          />
+        </picture>
+  </a>
+    </span></p>
+<table>
+<thead>
+<tr>
+<th align="center"><em><strong>Shipwrecked</strong></em></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center"></td>
+</tr>
+</tbody>
+</table>
+<p>One night, a tempest swiftly raged across the Atlantic; not a ship dared to brave the storm. The lighthouse keeper tried to maintain the light, but the storm was too fierce. The wind wailed and the rain lashed against the tower. The very rocky foundation of the lighthouse trembled under the onslaught of the waves. Despite his best efforts, the light extinguished, and the keeper was plunged into the darkness.</p>
+<p>Desperate, the keeper scrambled to rekindle the flame. He fumbled in the dark, searching for his flint and tinder. On the horizon, he saw the glimmering hue of a signal lamp: an impossible sight in the midst of the hurricane. The dim light flickered through the torrent, encoding a message for the keeper. Having tended to the light for so long, he recognized the flashes of the lamp as his own native tongue.</p>
+<p>The message was clear: <em><strong>“Your duty is fulfilled. Find your true purpose. Build anew. Tend to the light within.”</strong></em></p>
+<p>The storm passed as quickly as it had come. In the morning, the keeper stepped out of the lighthouse, and found a small vessel driven upon the rocks by the tempest. The ship was mysteriously empty, and badly damaged, but the keeper saw potential in the wreckage. Scheming, he went back to the lighthouse and gathered his tools.</p>
+<h2 id="the-compiler" style="position:relative;"><a href="#the-compiler" aria-label="the compiler permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>The Compiler</h2>
+<p><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 960px; "
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/blog/static/9374e38b41f124f843580f2ccb07c0b6/2bef9/the-compiler.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 100%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAIAAAAC64paAAAACXBIWXMAAAsTAAALEwEAmpwYAAAEz0lEQVQ4ywHEBDv7ABIjMAgZJwYUIxIhLRspMxsnMSUyNy05OyIrLy0wMB4kKhsnLxQiLBkmLx8sMxsoMAoYIwgWIw0bJwkXJAAQIi8SIy8TJTIRIi4SISsWJy8nNThYV0uyp43f17/WzrOGf2snMjUhLzYdKjIYJzAQHyoMGycQHysOHCkAIDQ+ITQ9HzE6GSs0Gi41JjU5SExFlYVo6tmw//rb/vTSyrWOZF5POkNCKzg8GSkyESArEB4qDyArCxsoABstNyc4PyU3Pik7QDZFRkFKRnJrWbejgOLSrfbsyvDlws+7lZWEaF5cUCw7PSIzORMjLw8fKxEhLAsaJwAdMDsmOUAlNz0qOz49SUZjYlaUhWvLt5Tr3Ljq3Ljt37ngzKOyn36DeGNOVU08SUgZKzUVJTAOHikGFCEAIDM8Kjs/MkJCRE9LWVxShXtnrJh7yLCJ4c2muKKCwK+P1cCYsZp3ppJ0dXFham1iOkdIGy01EiMuCRYjACY7Qy9BRThIR01VUHdxYLSihLynhs+3kL6mgntoUHprV8Oth7ugeLCXdpiMdl1mXURTUSk7QBcnMREhKwAXLDdAS0hZXlReYleMgm2YhGqmkHKskXCPeF1bSjp9alPIr4fBqICqlHWJd2FwcmVJV1QuP0QcLzcYKDEAGCw1N0RDTlZOUlpTkIVwi3dfnopwkX5nWko8RjsxfW9ZlYFmkn1itZ+AinNajIBqXWVeOUlKKztAGSkyABorNCE1OzpIRmhmV6KSdW5gUDguKW9gUl1OQFpNQmBTRlNHPW9iUZWCan9rVY+Fb2NqYUZSUDpHSCQ0OgAfLzcqOz5iYleZhmmJeWFhVklCPDY/OzZtX05nWkxMRT5TSD1+bFaIeWKWhGikl35laF5IU085SEgmNTsAHiguLTQ2REQ+Y1tMhXZhemlVT0Q6QDs1ZFtNMDAyKyorPzkzYlZHgm9XrZFso4tsb2VSQEI8LTIzIiouABQaIR0iJjAwLUY/NIp3X497YTs1MWdXRlFIPkhEPzExMVFGO2xdTJiCZbyfd62TcYFuV0c/NzMyMCYoKQANEho3My95Zk6jjm+nknPLtpF8bVdORj0vLzBQST85NjRfUEJsXkyRf2TNt5DQuZKhjG1pW0g/ODAkJCQAfnFcs6ODwK2KuqeDopR5e3NgMTIwICQoKDM4MjEyJigrKikqKSsuQDo0lYJoy76f3cylvauGnYxth3NZALuphs+9llZRRgwPFy8uLTQzMCIlKRofJRoeIzQxLysrKygrLTIzMU1FOVxPPFVKOz45MpyWff/1yb+rgwA7NC2CbFJ1aFQ1NzULEx0VHCIkKSw3NzVYT0F0Z1R6b1xpXUxlUj1KPTEjIiIIDRYICRFOQTaiiWiLdFkAaVtHmo5x4s+j48+jpph6VFFIEhsjBhAdHyQqLDAxHCInExYbISEkJyMjal9PvLGTqph5gWpQTD0wKiQjAIB5Y3duW3lxXryti8e2krenhXRyZDE+RA4dKQsXIjk9On54Zse6maOSdKiZesK5mq6lioaCbiotLgsQGQAuP0MzQkUvPUBMWVdSX15RYmFRY2NQZGRHWl1ZZF+FhXSRjXpgYVgjLDAQGyUZIiofKjEiLjQJEh4DDBijQJkaMDFW6gAAAABJRU5ErkJggg=='); background-size: cover; display: block;"
+  ></span>
+  <picture>
+          <source
+              srcset="/blog/static/9374e38b41f124f843580f2ccb07c0b6/8ac56/the-compiler.webp 240w,
+/blog/static/9374e38b41f124f843580f2ccb07c0b6/d3be9/the-compiler.webp 480w,
+/blog/static/9374e38b41f124f843580f2ccb07c0b6/e46b2/the-compiler.webp 960w,
+/blog/static/9374e38b41f124f843580f2ccb07c0b6/a9a89/the-compiler.webp 1024w"
+              sizes="(max-width: 960px) 100vw, 960px"
+              type="image/webp"
+            />
+          <source
+            srcset="/blog/static/9374e38b41f124f843580f2ccb07c0b6/8ff5a/the-compiler.png 240w,
+/blog/static/9374e38b41f124f843580f2ccb07c0b6/e85cb/the-compiler.png 480w,
+/blog/static/9374e38b41f124f843580f2ccb07c0b6/d9199/the-compiler.png 960w,
+/blog/static/9374e38b41f124f843580f2ccb07c0b6/2bef9/the-compiler.png 1024w"
+            sizes="(max-width: 960px) 100vw, 960px"
+            type="image/png"
+          />
+          <img
+            class="gatsby-resp-image-image"
+            src="/blog/static/9374e38b41f124f843580f2ccb07c0b6/d9199/the-compiler.png"
+            alt="Compiler"
+            title="Compiler"
+            loading="lazy"
+            decoding="async"
+            style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+          />
+        </picture>
+  </a>
+    </span></p>
+<table>
+<thead>
+<tr>
+<th align="center"><em><strong>The Engine</strong></em></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center"></td>
+</tr>
+</tbody>
+</table>
+<p>The compiler is the first tool in the trifecta. Without it, the ship of software development could have no hull, no sails, no rudder.</p>
+<h3 id="my-journey" style="position:relative;"><a href="#my-journey" aria-label="my journey permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>My Journey</h3>
+<p>I wrote my first compiler in my sophomore year of high-school, called “Lime”. It was barely a compiler — it simply transpiled a simple, bare-bones language into C. I was fascinated by the idea of writing a program that could write other programs. It became my dream to write my own language I could be proud of, <em>and so I hoisted me sails in search of treasure without a map, argh</em>!</p>
+<h4 id="the-first-steps" style="position:relative;"><a href="#the-first-steps" aria-label="the first steps permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>The First Steps</h4>
+<p>From then on, I began to write many compilers and interpreters. I experimented with functional programming in my sophomore year of high-school, and <a href="https://github.com/adam-mcdaniel/maroon-lang" target="_blank" rel="nofollow noopener noreferrer">wrote an interpreted language based entirely on lambda calculus</a> during my junior year. During my senior year of high-school, I finally created something that I could call a “real” compiler: <a href="https://github.com/adam-mcdaniel/oakc" target="_blank" rel="nofollow noopener noreferrer">a C-like language with semi-automatic memory management</a>, which compiled to a simple stack-based virtual machine, supporting just 14 instructions, capable of using foreign functions written in C. This compiler wasn’t seaworthy by any means, but it was my first monumental step towards success.</p>
+<h4 id="the-final-steps" style="position:relative;"><a href="#the-final-steps" aria-label="the final steps permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>The Final Steps</h4>
+<p>Finally, during undergrad, I created the last project I would ever begin as a teenager: <a href="https://github.com/adam-mcdaniel/sage" target="_blank" rel="nofollow noopener noreferrer">the Sage programming language</a>. It’s a statically-typed language (<em><strong>lest there be a type-error at runtime, and the machine be driven mad upon the rocks!</strong></em>) with generic algebraic data types, pattern matching, structural typing, mutability semantics, and a powerful intermediate representation plus virtual machine with SIMD support.</p>
+<p>The language is powerful enough to implement a shell and powerpoint presentation app for my custom operating system, <a href="https://github.com/adam-mcdaniel/sage-os" target="_blank" rel="nofollow noopener noreferrer">SageOS</a>, but it’s also simple enough to compile and execute in the browser. You can try it out below:</p>
+<div align="center">
+    <div id="output-content"></div>
+    <embed type="text/html" src="https://adam-mcdaniel.github.io/sage/sage/web/index.html" title="Compiler" width="100%" height="940em"></embed>
+</div>
+<p><em><strong>Type in the source code box above and press the “Compile” button to see Sage in action.</strong></em></p>
+<p>Sage is a culmination of years of effort, encapsulating over 25,000 lines of Rust and tens of thousands of lines of Sage code written for fun and testing. It represents my relentless pursuit of the ideal programming language—a journey filled with challenges, discoveries, and relentless coding marathons.</p>
+<h3 id="the-platonic-ideal" style="position:relative;"><a href="#the-platonic-ideal" aria-label="the platonic ideal permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>The Platonic Ideal</h3>
+<p><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 960px; "
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/blog/static/ab170decebf30eab6f9fde75605d394b/2bef9/as-above-so-below.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 100%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAIAAAAC64paAAAACXBIWXMAAAsTAAALEwEAmpwYAAAEz0lEQVQ4ywHEBDv7AA4cJAkRFhAmPgsoRgsbKAwVFiIjIEQ2J1xDKoRlQ4ZpSFtEMUI2KyYoJxMbIBIcIhclLBcqNRQjLBYnLgAYKC4YIyogM0RjZ2KLgm1kXE5ZQS6PZT/LpGr346j246nMpGqVbEVbRTIxLCcjKSg3REVUWFhHT1E+VmEADytDPlVkFyw7U2BouLSjgnRjlIRssJx5rYxlzKZwyaJnq4RZsJt5gH14V2RtKTI2cmVXzrGDrpZzRktOAE5qfR03UhUwRypRclBda7mng83CoJ2xs66soN3HpeLPo66pmYunsYyorWeVojNKX7WYdP/ztunMkXBeTQB9h4dCW289YXh4o7InRWOOeWh1b3dyh6ewt7rq27nt3re6w8N9pcJkeIFPa3RNd4yQgW/OsYOukW1gWlMAgY2NfJOcc5Shwt3URnOSVG6JNld5dYeSuLKZz7iNxq6CrbCbgJ2iQm+IRXOKhK61c4SDiYZ8jo6EjpKKAGR0eoqgoZ2urLW1pnWdpzt6nTt6mD1mczc+NW1iRWxoTjJEPTlkbE2QplWXsH6pt3idp3WSl5yrpnqBfwBdZ2Ngf4tLb4Bde4tijp1rkZqPwcpurcBai5xRWltQXV5rn694tcV6vMxWk6p8r7yTsLBifoNuhothZWQAOEA0UFxRHzo7Tm5yOVFYYmhdvMWvxtzP0Ojb4OPM3d7H1OjewdXLjqCgWXKBgJebZHVwIzpAPkpHPToxACAlFWBWMGFYMj06ImJUNXdhPpZ3UMCieezWpv/42v332ufTp76lg6OmlqC6slZrZVZYTFhOQHBXNoRfOQAbFwstHwpYPxliTCdKPSNYRyyAbU+ll3nSv5Lu47fr37fHtI2Qe2RmXFFiZFdiYlJeTzhhRzB8WTd4Vi8AKBwNLCASJiwoXlA3UVRHP05UcoeDi6KXmKibxb+jxcClm6eZfZeSWmtuPTo8P0RDMzgwPTQjblI3LyERAB4cFVZSSXJ2b0xQT1xbUmhsZm9oX4JyX6ODXsypdcepeKOFYI52WXZwZXBuZZeGZHBmUSUuME0/KzEkFAAyOTlRXmdQVllbXFlzbWKeinCqjWvPrn/kv4T44KH03J7gu4LRs4O0lm6ahGpwWURSTklGU1k1QkckJiEAR1xkU2hzOUFHbmxlpaebwr2m2s6s5tes+Oq4//7Z///a9uqy5NGi49ax19CzoaKXam5tOD9AQVNYT15iAEJcbDtOX1JqeIeYmaGekZKCboBdRLeJV92tZvLPf+vHgdWtbcykbbyabb+vjby5oaCtpmeAiUxjbURWYgBUYmpDXnJEXW1UV1lyZ1irmHp0UDGKWSmmbi/Pl0WpaC18RiN2UTNnSTNUQDJVSDlbWFBdb3VNbn1GWGEAX1hOhIB0XFxWQkQ/ICYoRD4xUTsiXj4fWzIVjlEiiE8lWDMaOSIRLiIWSToqSkA2QT46PUM/endufnlsACMiHlpPRGheT3FkUUY+MScfEzAjFUowHGw6GLyFR7yKTm9CIkcvGiweDy8mGl9RP2tcS3NkUWtYSVdRRgAaHRsgIiAhIh8yLidLPjJDNio2Kh4sIBVAJhh4TCl3Tio/JhQvJRszKyBJPCxFPDEuKiUqJiArLSsbIiQbtwBQpA7MkwAAAABJRU5ErkJggg=='); background-size: cover; display: block;"
+  ></span>
+  <picture>
+          <source
+              srcset="/blog/static/ab170decebf30eab6f9fde75605d394b/8ac56/as-above-so-below.webp 240w,
+/blog/static/ab170decebf30eab6f9fde75605d394b/d3be9/as-above-so-below.webp 480w,
+/blog/static/ab170decebf30eab6f9fde75605d394b/e46b2/as-above-so-below.webp 960w,
+/blog/static/ab170decebf30eab6f9fde75605d394b/a9a89/as-above-so-below.webp 1024w"
+              sizes="(max-width: 960px) 100vw, 960px"
+              type="image/webp"
+            />
+          <source
+            srcset="/blog/static/ab170decebf30eab6f9fde75605d394b/8ff5a/as-above-so-below.png 240w,
+/blog/static/ab170decebf30eab6f9fde75605d394b/e85cb/as-above-so-below.png 480w,
+/blog/static/ab170decebf30eab6f9fde75605d394b/d9199/as-above-so-below.png 960w,
+/blog/static/ab170decebf30eab6f9fde75605d394b/2bef9/as-above-so-below.png 1024w"
+            sizes="(max-width: 960px) 100vw, 960px"
+            type="image/png"
+          />
+          <img
+            class="gatsby-resp-image-image"
+            src="/blog/static/ab170decebf30eab6f9fde75605d394b/d9199/as-above-so-below.png"
+            alt="Platonic Ideal"
+            title="Platonic Ideal"
+            loading="lazy"
+            decoding="async"
+            style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+          />
+        </picture>
+  </a>
+    </span></p>
+<table>
+<thead>
+<tr>
+<th align="center"><em><strong>As Above, So Below</strong></em></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center"></td>
+</tr>
+</tbody>
+</table>
+<p>Throughout my journey, I set out to find <em>my</em> perfect language, <em>my</em> perfect type system, <em>my</em> perfect syntax. I never really found it. I found that my perfect language is <em>just</em> beyond reach, but as I wrote more compilers, I learned some features of the Platonic ideal of a language that I could not live without.</p>
+<p>All programming languages, here in the muck on Earth, are some poor approximation of the ideal language that only exists above in the abstract. But that doesn’t mean we can’t adopt some of the features of that ideal tongue.</p>
+<p>In my time writing compilers, I’ve come to the conclusion that the following features are essential to any language that I would consider using:</p>
+<ul>
+<li><strong>Algebraic Data Types</strong>: The Platonic ideal of all programming languages has sum types. Error handling in the sky is not done with exceptions, but with <code class="language-text">Result</code> values which may contain either a success value or an error value.</li>
+<li><strong>First-Class Functions</strong>: Functions should be as flexible as any other kind of data.</li>
+<li><strong>Immutability First</strong>: Mutation is the root of all evil. Mutable state is a curse we must bear in our low, Earthly languages, but we can mitigate this curse by confining it where possible.</li>
+</ul>
+<h2 id="the-shell" style="position:relative;"><a href="#the-shell" aria-label="the shell permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>The Shell</h2>
+<p><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 960px; "
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/blog/static/c1c5a30c3da5142b2dce2ccf49679e56/2bef9/the-shell.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 100%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAIAAAAC64paAAAACXBIWXMAAAsTAAALEwEAmpwYAAAEaUlEQVQ4yyWUyY/bdACFf85MZuIlXrIvdhLbseMtiR07ie1kUmeZtMlkZhICZTppSqeUoftMgUqoRahCoKqbxFaK2qqgSkhw4sCBC3DjUCpxKuLAiTN/AAcuaED6Lk96p09PD0AICgJwIByu9xrDccdumaPp6qFVh5U5r2NZbcc9sqI5ZcmUIlxmgSAAgkIICsEHABBA/CQl1nS9VTcbekpkdUfvDRpyubAxdLdma+svHbZaJiNxy/EYRBAQhgEUAwh6gA/HQwVetvUXpu1m3yWYFKvyrMyqhlSpapql2V7N6zvuik7l0v5kFApTgCR8OA4hGFiKRmJyPl9Rrl2aXNzdMCwlI2R5mbMcQ5C4fs+q1JRKTZsOrLySSwuZFJuMJCkigvswDEAEAafijCa47dr6mluzpHiOsZ2SVsqXDWnTU89sGK26vNnVBy2lb+ftIl2VEyof9RNBsEBRCYnjddGoSpYhKgrHS3xJYrq2uFItmGV2fkSbNsV5Tzs/rnxyqXN9Zo0t2i5EkBAOQDCYFnOVmqqX844pTkaNYcd0VLqqMu1SWuUSJ3ryboe90BNunbTv7a9+uOtOjFhXwGMJEgAsuNkW717ojFyxXs6bRU6WshwTVflkIx8+1xfuvFJ5dLZ24+XyO2vCvQveZ2fsj0/Xnj55a9wtAhDEjh9RT21WjAK95ghlMe3VFUERBqVUVwzdnBv3L3quzn1x3v7u7eavD489vTf96fb07+ePr8wbwFHins6QoTCTjJzwRE9OqXRIFehtN3uunbu5VXz8eiVJBC6eXv/8xms/P9z5/cns2YP5P388vrxdB3U53iul7m4Ln87F3a44KiZdNqQLsVmLvbap3j9V+faN6vfvDff2dwTLaJj8D3fGv305e/5k58pEBWk6PDaif35z6q8f37w2ZCfl5ApLFbmIp9PdYup0M3d1vfjgbNO1RCiIAQybOLmv9mpXN4RhhQahKDHVw788Ovns6/13p8XjLbHJksNKxlbSh4vJY2Ziv89/tFPdPbqyiAd9eNCPoS/q0VEpnkkSwI+jLTm2aSZnbWm+WlxfUbfcfK+YSqci9XxsZGU+OFa6/ardsJWDVaAYgFGDDfWVEJsIAsfKm1o2zTFplj7e0watolLISAVGUXJqgdb4uMonYIoI4BgWIn0oBpZgU6H3xmVPjQK7W6cYegFGOo54tF+eDSprXYMVsssEjhNIhg4bCr2IBdV8LJ6gSBKd9Erv761fP7NKxSiwgJONeuHwIfXydmNj1Rwe0jq25DQM3VIdt9TuWFqR9+M4BCMQguJkcNCU97ZctZACAQQAf6BrC2e3VvSyIIkMQNBQOrFzcjSadLMyv0SRYGFpEUMhFEWjEVrIZoWMV+UEPg4QBCzgOFiGF1EUWoaBPwBgBImG4UgIBGCwfBCjOZrXBAgLBigyxKZCTKKkc+lsDMKDACCoDzlw6EMx6P+LCCAggEAo5sPxpJi1PCtnahBFggDsI3E4SgUi5H9N7F8sNOT/AXnVtQAAAABJRU5ErkJggg=='); background-size: cover; display: block;"
+  ></span>
+  <picture>
+          <source
+              srcset="/blog/static/c1c5a30c3da5142b2dce2ccf49679e56/8ac56/the-shell.webp 240w,
+/blog/static/c1c5a30c3da5142b2dce2ccf49679e56/d3be9/the-shell.webp 480w,
+/blog/static/c1c5a30c3da5142b2dce2ccf49679e56/e46b2/the-shell.webp 960w,
+/blog/static/c1c5a30c3da5142b2dce2ccf49679e56/a9a89/the-shell.webp 1024w"
+              sizes="(max-width: 960px) 100vw, 960px"
+              type="image/webp"
+            />
+          <source
+            srcset="/blog/static/c1c5a30c3da5142b2dce2ccf49679e56/8ff5a/the-shell.png 240w,
+/blog/static/c1c5a30c3da5142b2dce2ccf49679e56/e85cb/the-shell.png 480w,
+/blog/static/c1c5a30c3da5142b2dce2ccf49679e56/d9199/the-shell.png 960w,
+/blog/static/c1c5a30c3da5142b2dce2ccf49679e56/2bef9/the-shell.png 1024w"
+            sizes="(max-width: 960px) 100vw, 960px"
+            type="image/png"
+          />
+          <img
+            class="gatsby-resp-image-image"
+            src="/blog/static/c1c5a30c3da5142b2dce2ccf49679e56/d9199/the-shell.png"
+            alt="Shell"
+            title="Shell"
+            loading="lazy"
+            decoding="async"
+            style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+          />
+        </picture>
+  </a>
+    </span></p>
+<table>
+<thead>
+<tr>
+<th align="center"><em><strong>Rudder Controls</strong></em></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center"></td>
+</tr>
+</tbody>
+</table>
+<p>The shell is the second tool in the trifecta. Without the shell, the captain could not steer the ship, nor could the crew receive orders. Only with the shell can the ship be navigated through the treacherous waters of software development.</p>
+<h3 id="atom" style="position:relative;"><a href="#atom" aria-label="atom permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Atom</h3>
+<p>I didn’t write my first shell until the beginning of my freshman year of college. The shell was called <a href="https://github.com/adam-mcdaniel/atom" target="_blank" rel="nofollow noopener noreferrer">Atom</a>. It was designed with scripting power in mind, combining the best features of Python and Bash. It was powerful enough to implement a rather fun Gin-Rummy game in the shell script.</p>
+<!-- <img src="./assets/rummy-splash.png" style="width:30%;height:auto;"/><img src="./assets/rummy-game.png" style="width:30%;height:auto;"/> -->
+<!-- |||
+|:--:|:--:|
+|![Rummy Splash](./assets/rummy-splash.png)|![Rummy Game](./assets/rummy-game.png)|
+||| -->
+<table style="width:80%">
+    <tbody><tr><th>
+        <!-- <td>Rummy Splash</td>
+        <td>Rummy Game</td> -->
+    </th>
+    </tr><tr>
+        <td><span class="gatsby-resp-image-wrapper" style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 566px; ">
+      <a class="gatsby-resp-image-link" href="/blog/static/9c96b55464967f6e4bcc073842ddfdc6/6fe44/rummy-splash.png" style="display: block" target="_blank" rel="noopener">
+    <span class="gatsby-resp-image-background-image" style="padding-bottom: 152.08333333333334%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAeCAYAAAAsEj5rAAAACXBIWXMAAAsTAAALEwEAmpwYAAADFklEQVRIx+2U2W7bRhSGJ0CRtgESStxtmRQ54iKOuC8iZdnyihRIASuBExRylj5En6f3bvNUeYCWNbtc1OacYihbQS+da1/8OGeGMx/Of+aAiOOeaQcHi08vvn/xT57nV543biYT0okQrwmCoDk9PWmOT46bclo0J6cnzdHxUVOWZcPO+mF4VcXB1fup+5duGN8hnhdHRV79ub93CGmSQ+DHEAZJpyCIIQoTmM8XMN9dQJYWMKv2oCrnkKXT7mwUZZBFKRynCQRh/BIJvGoOVPv3bcUCfTC+GSh2u63Y7UC9lWK3qog7bStWuyWPOrH87ows4hvHzeHtxYczhNBX2BySOkvmEE6K1ic5iH0dJGEIEr+WyH/OJV5f7/XXURYMynM71MEhXKzeLRFCj7Frx3XklzC249YnBVhmAFvyCAyNsD0ISAGuFYFjRUDcDIibgmvH4Iwi0LYdOlBtGgclvD7/gQEfdUB2ydRJGwUVpNEubMkYyDiHMt+HOJhBElZAxhnkyR4k4Qwm4xyKdA/wkFA89GlVLGB5dr5Ej9BjbOqkZlUJPa313BTGdgIxu+TlXYX2KARnFMLI8MFzkq4yPJx0TgJS0HAypXkyh1ev3iwR91TAqmTWqoRZP1oWFdGEnS2brUHijS6yPRbvclViwuC5KU2iXZrFszXwybcclni9Zj1bvyDu+scqcK0YLNPvKjY1r6uI7bGcwQaqzRxQQ/Mo6+nF6v0SVeUMz8rD2tQJs9QyW0zMFrPHLHtO2q3dLk829plMnVB9MKZxWK1febF/gOOgrHlO6yxvRqWvbyT09P+t70bm89ho1L4bm2++fop5bqdmfVFEs72N9xEV+zplI9UB+z0JK6JZywL7aHwRUOjplLWkA/Y4EcuCUd++4gPwAfgAfABugKYsGL/dAv+VBePmPlJE81ro6dcMuFq9O2PAkSwY119Q2UbsB8z+h28vPpwj7pkgibz2s8RrH0VeuxR57Zf7SOK1S743uBzuOL8eHZ5myLUyFHnPUREuUR6coeKemkZL5FvP0Y+rn9DVH3+j/wDAWvgCxWx9YAAAAABJRU5ErkJggg=='); background-size: cover; display: block;"></span>
+  <picture>
+          <source srcset="/blog/static/9c96b55464967f6e4bcc073842ddfdc6/8ac56/rummy-splash.webp 240w,
+/blog/static/9c96b55464967f6e4bcc073842ddfdc6/d3be9/rummy-splash.webp 480w,
+/blog/static/9c96b55464967f6e4bcc073842ddfdc6/3161c/rummy-splash.webp 566w" sizes="(max-width: 566px) 100vw, 566px" type="image/webp">
+          <source srcset="/blog/static/9c96b55464967f6e4bcc073842ddfdc6/8ff5a/rummy-splash.png 240w,
+/blog/static/9c96b55464967f6e4bcc073842ddfdc6/e85cb/rummy-splash.png 480w,
+/blog/static/9c96b55464967f6e4bcc073842ddfdc6/6fe44/rummy-splash.png 566w" sizes="(max-width: 566px) 100vw, 566px" type="image/png">
+          <img class="gatsby-resp-image-image" src="/blog/static/9c96b55464967f6e4bcc073842ddfdc6/6fe44/rummy-splash.png" alt="rummy splash" title="rummy splash" loading="lazy" decoding="async" style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;">
+        </picture>
+  </a>
+    </span></td>
+        <td><span class="gatsby-resp-image-wrapper" style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 566px; ">
+      <a class="gatsby-resp-image-link" href="/blog/static/efaa45e9fae964faa760d3bed4bec197/6fe44/rummy-game.png" style="display: block" target="_blank" rel="noopener">
+    <span class="gatsby-resp-image-background-image" style="padding-bottom: 152.08333333333334%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAeCAYAAAAsEj5rAAAACXBIWXMAAAsTAAALEwEAmpwYAAAElklEQVRIx61U23LbVBRVOwwzTIkvkiz5Et2OJNuSdbd8Se1c6qbppMzYLaHQtKH9CL6H9wJfxQeAiLk80OpsZh/ZjgkwIQwPa3R0pLPO3nutvblyuaQcHh58/+STJ7+laXrpON1lr+cyuK6z9H1/eXz8cDl7OFuOhgO2fjB7sByNRkv81wuCy3HkX3457Pyi6vpjjudFc5COf96fHkESp+B7EQR+zOD7EYRBDJPJAUzuH0A/GcDeeArj0QT6yZD9G4Z96IcJzJIY/CB6ygl83WjV7R+bsgVqq/u+Jdt5U7bzVn0F2c7rImFoylbekEwGXK//kUTyvt1J4dXL13OO4z4ghuZm/XgCQW+Qe24KYlWFmqBBjS8g8lfrGq8We9XiKQk65cu7tE0CeHl+seA47kPSsaMs9EbQtaPccwdgGT40JBN0xcU98N0BdKwQ2lYIbqcPbieBjh1B2wxBabZpq27TyB/BZ2dfIOEdRoiHDNXNQ38MSXgfGhIBt5vCKN2HyN+DOBiD2+1DGk8hDvag101hkEyBaC4lmkfHgwNYzM+KCDFlm/ggVNQcb++24+KQk7IIbRJA2wzA1D32DSMjWg8s4mP0NOiNaBpP4NnT5wuutCMQSdAzSdBBrGo5PrE2rboNsmis67QB7m3eRQO6dkxDb0yTcA8+ffb5ghN4mdjEz/A2mwQ5u9nwWTSm4bH1GrhHcH8FjLwfTajnpDQKxoUoSNg2g4wdMLw88seQJlPYGx5Bx4oK2BFL3XNS8N0hoHBYV0zTMjxKtB5Fl5y/uFhwd+98RLrtOJuMZzDsH+R4K4pyuH8CptZj9kAIFRXqtUKowB3AINlnAqXxlDp2TLGuK9tw5GD6KDt7dg5P589zorrQlE1QWx1As2PNCujMShhh6A1hPDwCjGr//jG1DZ+iWC9evFpwjfouKd2rM9ukyTQ3VBcqO60/ibEWoiFbLFUkHKaHEPojePxoTo+PTimWhqX88b0q0Xa7WdAbQRzu5U47YXVr1a0N2TZhP5owT2K6fm/IIhwkU4oiXVy8wZTvkiSaZKcnc5gdneZ4Oyqm7Xb/Qog11BWHAS+1DA/9SCs7TYpdxGpYLomkLpEMa9Zq2CxlpdkG2wwYwXXSTX8zsdiailX1SpRKWdwYWxL0HA8i0ZUY/4Ba8azXSEG4HaHIq9nq5pw9q9vT5UawaWOvpw1flYhleJlp+FgP1imsI7QeDgtYvyMwLXOrU1aguuJcdUqrqbHhwDqg28+x2NgtWHhNcVg90X8N2WS+ZOstNGWL4kxEHxaELYONL3S+20lybdfZRGiRgBFeHxDXQIWKQlHETadMxrMM+1SoKHmh4BrFVL5BICpUtlQu7fBEFo1MEoyNytexbZ0bCSvlGpEELVt9zG84/C8IS4UPV5HktyT7uwj/f0JDEvQfVoS/S4L+/jaQReOdUFHfIeH5+cUcCU1J0N/9h8g2wOGLrffq5eszrlwSaiKvfF3jle9EXnkr8so3t0GNV97yldZbbbf97YOj4z7Xsfpc6Jxwg2DBpf6cG9wSw3DBedYJ9+b8K+7yp1+5PwDSLA8gjlScqAAAAABJRU5ErkJggg=='); background-size: cover; display: block;"></span>
+  <picture>
+          <source srcset="/blog/static/efaa45e9fae964faa760d3bed4bec197/8ac56/rummy-game.webp 240w,
+/blog/static/efaa45e9fae964faa760d3bed4bec197/d3be9/rummy-game.webp 480w,
+/blog/static/efaa45e9fae964faa760d3bed4bec197/3161c/rummy-game.webp 566w" sizes="(max-width: 566px) 100vw, 566px" type="image/webp">
+          <source srcset="/blog/static/efaa45e9fae964faa760d3bed4bec197/8ff5a/rummy-game.png 240w,
+/blog/static/efaa45e9fae964faa760d3bed4bec197/e85cb/rummy-game.png 480w,
+/blog/static/efaa45e9fae964faa760d3bed4bec197/6fe44/rummy-game.png 566w" sizes="(max-width: 566px) 100vw, 566px" type="image/png">
+          <img class="gatsby-resp-image-image" src="/blog/static/efaa45e9fae964faa760d3bed4bec197/6fe44/rummy-game.png" alt="rummy game" title="rummy game" loading="lazy" decoding="async" style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;">
+        </picture>
+  </a>
+    </span></td>
+    </tr>
+</tbody></table>
+<p><em>Click the images above to watch a demo of the Gin-Rummy game in Atom.</em></p>
+<p>However, the interface was clunky — the scripting support and interactivity were at odds with each other. <em>Avast ye!</em> I quickly learned that a shell should prioritize the command-line interface above all else, and that scripting should be a secondary concern.</p>
+<h3 id="dune" style="position:relative;"><a href="#dune" aria-label="dune permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Dune</h3>
+<p>With this in mind, towards the end of my freshman year I renewed an older shell I’d created before Atom, called <a href="https://github.com/adam-mcdaniel/dune" target="_blank" rel="nofollow noopener noreferrer">Dune</a>. This shell is one of the best and most useful pieces of software I’ve written. It’s my daily driver shell on all my personal and work machines: I use it almost every day.</p>
+<p>Firstly, Dune is a right fair beauty! I love how the shell looks and feels to use. It has several built-in libraries and nice, expressive syntax.</p>
+<p><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 960px; "
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/blog/static/e736e97f585a51e2af2fddb51517b5c5/5faa8/dune-welcome-3.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 124.58333333333333%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAZCAYAAAAxFw7TAAAACXBIWXMAABYlAAAWJQFJUiTwAAAEl0lEQVQ4y52U22/bVBzHz9Jur0tjO7HjW+zjS+zcYztO0iXrGAht61CLNlqB6FSBUBGTuEjbWyWoVETXMlhA4qnikRdeEeKFf4G/AqQ88DhR6sU/9DtL2FjLRUT65tgnOR9/fzeTHzfWyMHl5869c6uXDa7F2W7QzXbiOGvbTtZ1ylnf87NXr17LLl9bzoZBmI073WwUxWxdXLzANBhcXFhaunTuxo2bhNx9eYVcabc/uPJ89FswiH6JgmgchdG4318c93v9cdzpjIeD4Xg4GIzDIByHYTQOw3AcBOG43Q5QP7fbwe+1Wm37+vWXCMEvURRHmqpBUVGgIMsgyjLYjgNOuQyqaT7ZVxSQFQU0VQVFUUCSJBBFka08zx+ura0h8DrhcrkHOUGASNeP36hWJ1fK5UmTWpOLtjt51fcnge1MXvErk1vV6qRdKk1ygjARC4VJ4bGOEcpx3OH+/j4hq6urJM/zo2w+D8uum7wWdtL9wRAutyJ4q9uHr4YX4U6vD/cHQ9iKOqAaFAqFAnOGKhQKyQy4t7c3BXIcA75oO8nd3mL6ZtiBtztdeDfuwutBCO/FXdhbvADvd2Jo2S7w+TxIpwDv3bv3OORcLjcS8nnQFSUJLTvVTApNaoFvUDCpA6blgE8tCBwHLF0H/O/M5Qng1tYWK4qqqmBSmjiel1arVTAtGxzqQq3SBK/eAqfigdNqgOWVQdM0VpRTgbdv3yaSJI10XQfDMJKg3U673S6EQQClUglUVQEdAbIM1DSBmhTw4ahTgZubm4Tn+ZFhGGBZVuL7ftpoNKBer+M92LYNxWKRHVY1ja35fwp5Y2ODAU3TBNM0E03TUoSgfN9nYFmWASMol8sYBXM+hZ0E7uzskGKxOGo2m9BqtZJms5lOr6FWqzEgOkTQ7EEI/FuHu7u7RFXVEYanqmpCKU2nbplwCgRBYGHOeu/p61OrjEVBYK1WS0qlEgNSSpkTx3Gg0+kA5hX30KHrun+6PAFcWVkhHMeN0AmllAEx3KWlJQiCANrtNgyHQ5bPGRCvscrTsE8vCvYWAj3PY0VBZ5hLzCE6xqKgK8/zWD61acVPOFxfX2cOMQxN0xKe51M8EIYhxHEM2JPoGKHYzLNUyHJx6vAZ4PLyMllYWBhN84Y/pnggiiIWcq/XY9XG1kEpyuOmxhQ9m0P2ctj56ENWZeyxSqWSuI7LRq/f67NwMYezJsepmU3JbPSednhwcEDIx998R3TXG9n1EGzPSKpNM21EDvg1H3zHw4eAXtJB1UtQq1Ko1yvgODZYlg5GSQebSomuKVCUxMMfvv+WkJ9+PSaNqPugHl8A6paOK3UjrbZo2ggbadn1UlmR04IoppgKSRLTYrHIVvHJ3rEkicDz3OHnn90n5M7up0TWjS8NxwPdUB9ZjgaWq0GlXmGVzOeFp5pY/MvLdbr3aBry1zgk5IXLl8j58+c/4XkOeF54yHPCEYrLcUeCIBzl8/l/kfAQJyeXy32xvb1N8HNmbm7enZ8/e2Nubm59fn6qs/PreJ/JZP6LbmYyGZ8QksEKMyi7IWTufwrPnhFFkfwBC0RqT0SWhiYAAAAASUVORK5CYII='); background-size: cover; display: block;"
+  ></span>
+  <picture>
+          <source
+              srcset="/blog/static/e736e97f585a51e2af2fddb51517b5c5/8ac56/dune-welcome-3.webp 240w,
+/blog/static/e736e97f585a51e2af2fddb51517b5c5/d3be9/dune-welcome-3.webp 480w,
+/blog/static/e736e97f585a51e2af2fddb51517b5c5/e46b2/dune-welcome-3.webp 960w,
+/blog/static/e736e97f585a51e2af2fddb51517b5c5/f992d/dune-welcome-3.webp 1440w,
+/blog/static/e736e97f585a51e2af2fddb51517b5c5/6a202/dune-welcome-3.webp 1444w"
+              sizes="(max-width: 960px) 100vw, 960px"
+              type="image/webp"
+            />
+          <source
+            srcset="/blog/static/e736e97f585a51e2af2fddb51517b5c5/8ff5a/dune-welcome-3.png 240w,
+/blog/static/e736e97f585a51e2af2fddb51517b5c5/e85cb/dune-welcome-3.png 480w,
+/blog/static/e736e97f585a51e2af2fddb51517b5c5/d9199/dune-welcome-3.png 960w,
+/blog/static/e736e97f585a51e2af2fddb51517b5c5/07a9c/dune-welcome-3.png 1440w,
+/blog/static/e736e97f585a51e2af2fddb51517b5c5/5faa8/dune-welcome-3.png 1444w"
+            sizes="(max-width: 960px) 100vw, 960px"
+            type="image/png"
+          />
+          <img
+            class="gatsby-resp-image-image"
+            src="/blog/static/e736e97f585a51e2af2fddb51517b5c5/d9199/dune-welcome-3.png"
+            alt="Dune"
+            title="Dune"
+            loading="lazy"
+            decoding="async"
+            style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+          />
+        </picture>
+  </a>
+    </span></p>
+<p>Dune also has a great interface for viewing tables and manipulating data in a Lisp-like manner. Here’s an example of how you can use it for conveniently scraping and accessing data from a REST API.</p>
+<p><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 960px; "
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/blog/static/fd63c07cc550c9f88fd09f5b56612c1b/4faaa/dune-scraping-3.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 68.33333333333333%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAOCAYAAAAvxDzwAAAACXBIWXMAABYlAAAWJQFJUiTwAAACgUlEQVQ4y52R227TQBCG9wpx11Nir89rO469Wa9P8dpJD9AKIYRAEATCEjwAohc8bdsbJB4kZD1oTVKppb3h4tPs7OHff2ZQJ9rRh3fLL+J42S3aZSeapmubtjs5Oe2axWnXLJ91Fy9fdy9evelKseyq5nigqI+7Sqj7bVdV4nNdN1+FEDaiRftWPD+DxRmDk4sa5pWAuq6hKksQOYWaRyCyBOY8Bj71II3cgSJxhzyahMBTCpTGoOvGN0RitqJFBWWdrMVxKdOUyyiKpE+InAREEteSnm1KzzGl79rSdy0ZeLZ0LV2aeCyxrkvTNNaGgWF/f/8SEc9dTaMJUMo2Gc97x3F6z/N6QkjvEdIT4t/iKTzS+0HYm5bda5re6xj3uq7/1nUdDg8PL5FlWStCCCRJsmmaps/zHIqigLIs78TdWpFlGViWBUoEY9xjjDcY47+CjuOskiQBxtgmz/M+CALwfR/CMLxF7alP1b6KKr8v+I/DNE0Hh23bwnw+ByEENE0Di8UCOOegaRoYhqEEwDTNgQcFbctaKRfKYZZlqn/gOM4trusOUTlSKCGVPypo2c4qThKYTicbnqW9EnBdB2zbvoMSUVGdq08fFXRIsOJFCXnJNnnJ+7quQMF5BnmeDeWqQe1QfdyVvuXeUFzvPc8yYIyuWcokT1NZFFwyNpOz2UwyxgYopTKOY4kxlpqmSV3Xh7hlvXX4HaVV+3F5fgHxzIVZPgVKKdAkhGgSQLid+G7Cu76qkhW78hWqvwcHBz+Q4frnQZz89Hx8NZ2F17bt3BwdHd1omjYwHo8HHsq362tN065Go9Gvvb29Twgh9AQhZCKEHISQ/Z+otxZC6Okf+uNQFrL1gvcAAAAASUVORK5CYII='); background-size: cover; display: block;"
+  ></span>
+  <picture>
+          <source
+              srcset="/blog/static/fd63c07cc550c9f88fd09f5b56612c1b/8ac56/dune-scraping-3.webp 240w,
+/blog/static/fd63c07cc550c9f88fd09f5b56612c1b/d3be9/dune-scraping-3.webp 480w,
+/blog/static/fd63c07cc550c9f88fd09f5b56612c1b/e46b2/dune-scraping-3.webp 960w,
+/blog/static/fd63c07cc550c9f88fd09f5b56612c1b/f992d/dune-scraping-3.webp 1440w,
+/blog/static/fd63c07cc550c9f88fd09f5b56612c1b/882b9/dune-scraping-3.webp 1920w,
+/blog/static/fd63c07cc550c9f88fd09f5b56612c1b/87acd/dune-scraping-3.webp 2308w"
+              sizes="(max-width: 960px) 100vw, 960px"
+              type="image/webp"
+            />
+          <source
+            srcset="/blog/static/fd63c07cc550c9f88fd09f5b56612c1b/8ff5a/dune-scraping-3.png 240w,
+/blog/static/fd63c07cc550c9f88fd09f5b56612c1b/e85cb/dune-scraping-3.png 480w,
+/blog/static/fd63c07cc550c9f88fd09f5b56612c1b/d9199/dune-scraping-3.png 960w,
+/blog/static/fd63c07cc550c9f88fd09f5b56612c1b/07a9c/dune-scraping-3.png 1440w,
+/blog/static/fd63c07cc550c9f88fd09f5b56612c1b/29114/dune-scraping-3.png 1920w,
+/blog/static/fd63c07cc550c9f88fd09f5b56612c1b/4faaa/dune-scraping-3.png 2308w"
+            sizes="(max-width: 960px) 100vw, 960px"
+            type="image/png"
+          />
+          <img
+            class="gatsby-resp-image-image"
+            src="/blog/static/fd63c07cc550c9f88fd09f5b56612c1b/d9199/dune-scraping-3.png"
+            alt="Dune"
+            title="Dune"
+            loading="lazy"
+            decoding="async"
+            style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+          />
+        </picture>
+  </a>
+    </span></p>
+<p>Dune’s scripting language isn’t as powerful as Atom’s, but it’s significantly more ergonomic than Bash. My start-up script for Dune scrapes the web for the weather, calculates the current Gregorian calendar, and displays a few other widgets with random ASCII art cats and flowers, all entirely in Dune-script.</p>
+<p><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 960px; "
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/blog/static/1d91a8592aaab2ecf214ac01f79d774f/4faaa/dune-prelude.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 68.33333333333333%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAOCAYAAAAvxDzwAAAACXBIWXMAABYlAAAWJQFJUiTwAAAC30lEQVQ4y52RS4+jRhSFaxVl6QevcQO2MWADxsYYKJ42trF7OjOjdh4apOQHROlFfu1MbyLlh3SAE8GoW61WVll8OnWrVHVvnUM+e5T56cf01zjLyiAISxqGpR/QMqBhGdCodDZumR8O5cdPH0praZebrded0TB6zWcaRr9tPU8keZZ9XK8szPUF0iQBDTzEcYIkjpClMXa7PbZbF57nwXEc2MsllNkM48kEkzeMRqPfSZplV8MwIcvjp+Mhr9MkqikN68V8Xs91tbZtu54pSi1LUq0oSi2KYs1x3FueOI5Dv99/IEVRXD3XxUSeVJZlNaZpNrquNzzPN4PhsGEYpuE4rqufVRCEt/wjCAIGg8EDKc7F1Vk7cDdudTqdGkopnPUKK9PEQtfbb6DtzvNcp8+wLPu8bliWrV4mvFwuV8MwIIlSddjnzfF4QJomOOZ7rFerzq/Wn+l0Ck3ToapqV7eqKArG43GjaVo1myngef6B3L1/fzVNEwLPV77jNtQPsNlsENIAYUiRJAmiKELg+whbQtoFZJlm16R9cDqZVKIoYjgcfvOwnZDj2Mr3/CaJYuyyXTfl4ZBjvbIx13XMFKVTdabANBYYj2Uo0ykWi0WjqrPq5uYGvV7vgZzP5+tyaUGWpEqW5aY9aLtJkojW6P5ggH5/gCHDgGGYzrtWX3nZhlXxPP8tlNZDy7JgGWa1S7ImS1PEIcXpeMTKtmHbNizTgK5p7ffwThC6Rq9oU65eUr7c3t7rcx1DZvhEA1qfimMdJ1G92+/qOIlrx3Vqa2nVwkioGY6tGZb5L54YlkGv3/uD3H+6/znyQyjyFJ6zxTkvcHs6Yx/vELoBYj/E2ljCtTewdAPaRIU+1aBN1Re6eqLiHSf8SbJtkn/I7v660NOXwj98vdDT4w/p7ePZPzwWbv548Y4dd/Tcabv3hq+Fm38p3PzvxVj/hRBCviOEjAghEiFE/J+0d28IId//Czi8Y3N5A8dEAAAAAElFTkSuQmCC'); background-size: cover; display: block;"
+  ></span>
+  <picture>
+          <source
+              srcset="/blog/static/1d91a8592aaab2ecf214ac01f79d774f/8ac56/dune-prelude.webp 240w,
+/blog/static/1d91a8592aaab2ecf214ac01f79d774f/d3be9/dune-prelude.webp 480w,
+/blog/static/1d91a8592aaab2ecf214ac01f79d774f/e46b2/dune-prelude.webp 960w,
+/blog/static/1d91a8592aaab2ecf214ac01f79d774f/f992d/dune-prelude.webp 1440w,
+/blog/static/1d91a8592aaab2ecf214ac01f79d774f/882b9/dune-prelude.webp 1920w,
+/blog/static/1d91a8592aaab2ecf214ac01f79d774f/87acd/dune-prelude.webp 2308w"
+              sizes="(max-width: 960px) 100vw, 960px"
+              type="image/webp"
+            />
+          <source
+            srcset="/blog/static/1d91a8592aaab2ecf214ac01f79d774f/8ff5a/dune-prelude.png 240w,
+/blog/static/1d91a8592aaab2ecf214ac01f79d774f/e85cb/dune-prelude.png 480w,
+/blog/static/1d91a8592aaab2ecf214ac01f79d774f/d9199/dune-prelude.png 960w,
+/blog/static/1d91a8592aaab2ecf214ac01f79d774f/07a9c/dune-prelude.png 1440w,
+/blog/static/1d91a8592aaab2ecf214ac01f79d774f/29114/dune-prelude.png 1920w,
+/blog/static/1d91a8592aaab2ecf214ac01f79d774f/4faaa/dune-prelude.png 2308w"
+            sizes="(max-width: 960px) 100vw, 960px"
+            type="image/png"
+          />
+          <img
+            class="gatsby-resp-image-image"
+            src="/blog/static/1d91a8592aaab2ecf214ac01f79d774f/d9199/dune-prelude.png"
+            alt="Dune"
+            title="Dune"
+            loading="lazy"
+            decoding="async"
+            style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+          />
+        </picture>
+  </a>
+    </span></p>
+<p>Of all the projects discussed in this article, Dune is the most useful and impactful software I’ve written. It’s transformed my daily workflow and made my coding life more efficient and enjoyable.</p>
+<h2 id="the-text-editor" style="position:relative;"><a href="#the-text-editor" aria-label="the text editor permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>The Text Editor</h2>
+<p><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 960px; "
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/blog/static/ab2b05c10ddaa6e97344092a80f48e42/2bef9/text-editor.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 100%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAIAAAAC64paAAAACXBIWXMAAAsTAAALEwEAmpwYAAAEnElEQVQ4yy3LXUwTdwAA8P9drx93/4+767V3ba+0V/oJhbZQKFSgLaJQQDIUGJQpxBWrsIguwoY42eZYcBoT0GSOiZqN+JltWcQ5fZjGzWXOGPfgx9yyZHtxkWQzS9ziw7awl/3efwBjAWJRwLwqYI+IvAKKKjhmwz4JxWSuxMLV2E1rXfr1AUOLx1BlM2iEcYrQY8VeCwRxG9vu1de7jCGFK5Kw3cyrkuC2Ch4LCcokpJCQjPxmU6nE1HtwV5UykUt01brqHFStagTjKdNXY+Tk8/qRSqq3hM5oes1KbGbBLvGySJwWUh8UdrYXXzzU/8vSK8/uzK0sf7xrUyYsgrjKgaMbpZVv0z8fcc40gnyU7vAzZXYUVXGDT+hJqtODFUtvZx98OPD3vdmVh0f/uT//192FzW2xcomOOSDIxfmDg9qBHvGFCNNZYmwLspmg9HJz0YGNoeOj1TcPNT2cb/3uve7fr4z/eXP/yg8LV9/d3O0BrT6DX0YgpOC0yiQcbKYYd4SFgVrljQ7X4lDw0nj0g5HI2e2BpfHQ5am6R58Unn0z/e/duRuHe/KlYEPIkFSNwKMIk9X0SBlVqOT2tTpODgavjJWfGinJJeSzw8XjLcpCwXt7JvzoTM+1w31Prk4++3LyzTalzUPVFEGgiuSjnOmnPXiyRr+zQZpZZzs3YN+SlFSOfacZXdxuXz4e+WMx8vjc+uvv53+7PPrkwtBks+U5H93uNwCbyOeq8OtZfl2QHUuRsYwl4hYg4ruD7Mk+6dqE+86UdnvK/fSzruUb0ys3Ru/OZSYadBOr6MFyGmiK4LPyMTtqC6F8NdEUPhZQVBHvaxFOb9UubDWf3YSvveq5vsc/Um344rXIsQHnqX721k5pW4wCTguPeLHDz00kjGEHAQA2JYN9aV9GMw3WFX06rF14yX4+L72V5RsUMFxtGs+gxYLnSE7trSQgpnClVi7lhjUuDBHBgtmGuJGkXMh6j+WLb+2vfXqpd/l8+8KWQCGl7EiZe2Ok0OQaSLk0mQdunstqxn0pNusnJihkY/bZfu+j+YaVz7seL7Y8OFR5c2/g6+n44eH4UMq2IV12eiY/1V0adhK/jQeAQl4J9hUze+u4Og+08GR1ue3ESOTH2bpf59NLuxOFRmfaRyrc4osN9s5qJVSs9qQDNT6xycsChoGA5qyIG43qZlfTb6whVh4DCpU5haRXNENYZOVVm7SmwpFLaXG/PLRGA4Ct1fBAJQsYA6pQjBuD9J4EvT3B9oXZziAUCKENOGKDuRiOe/giK14bkb8/mGgKS4DmBJ4gjA0mDCgGsUbkIFzGw4ZkGLTCpAu2+mF/hE24YKMfDdebt6as6QB/Zsh9b6Z6fnMoqpkBBWkGAYOeAxQHKEgxUEQooGBZII1etK3K5JVRZ8A4XIN3rJYBMK6rKro/15wscQAd1Okh0EFgMECK5ijaROk4VcROC08QSWlcf5mhEGFW2Y09UXwsJ+9aq+zeECx12wAwMRyhGA7QLAAU93+mWUaPjCypUNmuEmOZwlogrHRyB7LoRM66O2sTEQbAqGM4wHCUjgU67j/pdBtx94XmkAAAAABJRU5ErkJggg=='); background-size: cover; display: block;"
+  ></span>
+  <picture>
+          <source
+              srcset="/blog/static/ab2b05c10ddaa6e97344092a80f48e42/8ac56/text-editor.webp 240w,
+/blog/static/ab2b05c10ddaa6e97344092a80f48e42/d3be9/text-editor.webp 480w,
+/blog/static/ab2b05c10ddaa6e97344092a80f48e42/e46b2/text-editor.webp 960w,
+/blog/static/ab2b05c10ddaa6e97344092a80f48e42/a9a89/text-editor.webp 1024w"
+              sizes="(max-width: 960px) 100vw, 960px"
+              type="image/webp"
+            />
+          <source
+            srcset="/blog/static/ab2b05c10ddaa6e97344092a80f48e42/8ff5a/text-editor.png 240w,
+/blog/static/ab2b05c10ddaa6e97344092a80f48e42/e85cb/text-editor.png 480w,
+/blog/static/ab2b05c10ddaa6e97344092a80f48e42/d9199/text-editor.png 960w,
+/blog/static/ab2b05c10ddaa6e97344092a80f48e42/2bef9/text-editor.png 1024w"
+            sizes="(max-width: 960px) 100vw, 960px"
+            type="image/png"
+          />
+          <img
+            class="gatsby-resp-image-image"
+            src="/blog/static/ab2b05c10ddaa6e97344092a80f48e42/d9199/text-editor.png"
+            alt="Text Editor"
+            title="Text Editor"
+            loading="lazy"
+            decoding="async"
+            style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+          />
+        </picture>
+  </a>
+    </span></p>
+<table>
+<thead>
+<tr>
+<th align="center"><em><strong>The Captain’s Log</strong></em></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center"></td>
+</tr>
+</tbody>
+</table>
+<p>The text editor is the final tool in the trifecta. Without the text editor, the ship could not be modified or repaired. The text editor is the shipwright’s workshop, the navigator’s chart, the captain’s log.</p>
+<h3 id="the-first-editor" style="position:relative;"><a href="#the-first-editor" aria-label="the first editor permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>The First Editor</h3>
+<p>My first text editor was a simple one I wrote in Rust during my senior year of high-school. It was merely called “Editor” as a temporary name, but I never got around to renaming it before I moved on to other projects. It was a simple text editor with syntax highlighting and a few other features. I never used it to write anything substantial, but it taught me a lot about how text editors work (and how difficult they are to write).</p>
+<p><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 960px; "
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/blog/static/138b645d9ce4f7a8fa0b194828f8f802/95e59/old-editor.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 75.83333333333333%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAPCAYAAADkmO9VAAAACXBIWXMAABYlAAAWJQFJUiTwAAACaklEQVQ4y52S3U/aYBSH31muSChjUWkBO0WgbqkCAi1lUGDDJfZmE0E+Gj6UuahAMydO59jHhVf7J3a5ZDdk/92ywnuWFyfijAtbkyfnNPmdJ+d9W/StWUFv1TVma0vyC4mQEAqEheBqWFgNXRAIrgqZtafCo7girPiDw/dx/IGgIEXlZSWZop89zyL0+WUNpfwrX55kJBATsiGKEhajUSxKEo6QXpJwOv0YJxIKlqQojkblERKpcqwfjkTA5+ObCSWJEACgXD7fOzt7B3pb77/pHMPRqyPodI7h9PQEdF2Her0Oe3t70Gq1oN1uQ3tYL/pmsznodrsQj8ffDwaDC+Hrw8NePp8DlnUYy4IfC0sPsc+7iD0eL55zzWG73Y4ZhrmBw+HANE33G40GaJr2kbiGwmar1cttbsJd2z3D7fHitJKCcGAJvDwHbg8HvgcLsDDvArvdfg2WZbHFYulXq1UoFApXQl3Xe9nsJnCcy+A9i5hzcuCevw8uJwsMw9wK2ZAIa7UaFIvFK+HBwUFPVVVwsA7DvejG09PTMDs7O9yCGduISC4r4XLDG8L9/f3e+vo6mM1m4/f9jIbGBeP9REKLxWKQY/w5eBt/FZIj0zRtOJ1OzLIsTALJWq3WofDaRyF3mMlkgKIow2azkdBEkKzJZOprmgblcvnDSLi7u/ud/JyapvV3dnZge3t7Iki2UqkMzs/PQVXVTyMhx3FfRVGEWCz2Q5bln/8CmQmFQjAzM3OSzWYRMpvNFEJIQgg1EEIv/pMaQohHlw/P83c2NjamFEWh0uk0lUqlJoJkk8kkVSqVpiiKGsp+AULYt0FeIeYVAAAAAElFTkSuQmCC'); background-size: cover; display: block;"
+  ></span>
+  <picture>
+          <source
+              srcset="/blog/static/138b645d9ce4f7a8fa0b194828f8f802/8ac56/old-editor.webp 240w,
+/blog/static/138b645d9ce4f7a8fa0b194828f8f802/d3be9/old-editor.webp 480w,
+/blog/static/138b645d9ce4f7a8fa0b194828f8f802/e46b2/old-editor.webp 960w,
+/blog/static/138b645d9ce4f7a8fa0b194828f8f802/f992d/old-editor.webp 1440w,
+/blog/static/138b645d9ce4f7a8fa0b194828f8f802/7bd19/old-editor.webp 1460w"
+              sizes="(max-width: 960px) 100vw, 960px"
+              type="image/webp"
+            />
+          <source
+            srcset="/blog/static/138b645d9ce4f7a8fa0b194828f8f802/8ff5a/old-editor.png 240w,
+/blog/static/138b645d9ce4f7a8fa0b194828f8f802/e85cb/old-editor.png 480w,
+/blog/static/138b645d9ce4f7a8fa0b194828f8f802/d9199/old-editor.png 960w,
+/blog/static/138b645d9ce4f7a8fa0b194828f8f802/07a9c/old-editor.png 1440w,
+/blog/static/138b645d9ce4f7a8fa0b194828f8f802/95e59/old-editor.png 1460w"
+            sizes="(max-width: 960px) 100vw, 960px"
+            type="image/png"
+          />
+          <img
+            class="gatsby-resp-image-image"
+            src="/blog/static/138b645d9ce4f7a8fa0b194828f8f802/d9199/old-editor.png"
+            alt="Editor"
+            title="Editor"
+            loading="lazy"
+            decoding="async"
+            style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+          />
+        </picture>
+  </a>
+    </span></p>
+<h3 id="the-lite-text-editor" style="position:relative;"><a href="#the-lite-text-editor" aria-label="the lite text editor permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>The Lite Text Editor</h3>
+<p>During the summer before my senior year of college, I started work on a toy editor which would come to be known as <a href="https://github.com/adam-mcdaniel/lite" target="_blank" rel="nofollow noopener noreferrer">Lite</a>. After a few months of work, I moved on to other projects, but I had already put a substantial amount of work into it.</p>
+<p>It’s a simple text editor with a few good features: syntax highlighting, undo/redo support, intuitive keybindings, and a simple scripting language for extending the editor. While it’s not a replacement for heavyweights like NeoVim, Emacs, or VSCode, it serves its purpose well and taught me a great deal about the intricacies of text editors.</p>
+<p><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 960px; "
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/blog/static/02b2f454c4970d1c2d16b9cbeec80bd1/20a65/lite-demo.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 56.666666666666664%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAALCAYAAAB/Ca1DAAAACXBIWXMAAAsTAAALEwEAmpwYAAACAklEQVQoz1WS6ZKbMBCEeZ7dYAxCSAjQwX0Yczh2ZfP+79EpjVNbtT+6uEbfTE8TcFUiKyq4rkflHIZ5gmksmMgQxgk+ohhhzKC0gW07KGMRc4FLkiJMGKKUI2IccSZwiRkCqS2k1ridD3TzRGqmBaZtwPIcYZohSiWqusH9cWI5HmjGGe9zlhoo6yAqTfAg9y+0QzNOyMoKv5IUnzGja8g46cIytNOM7XFiuu+Ytx39ckM7LajqllS6BkwUCArXoqxruH6E6wcUrgYvKlqDFy/eK+nmBeu5/wCWdYNc27eMRZqXCPyDbhyG24rhtiDXBh8x+57O65pKmnA93sBlP+CGEVXTEUgZR7Y/r+xt2XbNfwvz96R+Il+USAmuCozrRjv0wOm+wbQ9ydcoW5MIKCsD23VYz5MKvZ126iHKEpc0Q8i8GDWYt42a1sMAqQ14oaiO5QWumaRdB7Ky0HWN9Tyw7Dsdcr1DRDBOwEua0p59CB7oA/TNPCTigoBZqZEIhcDfiFKjHidKyluQVYWI/wR6F91yI/k6D/MAf/Wh+SwoFP//KGug254S9kqLEkme4yoEwpTjwlPYvsOwruiXlb7HQiLJFa5Ckn2fuKgMgr9ff/B8vrAdL+zHC1aNMHkPLTuUWYOc1ci5xXG+8Pv5Rdr2J4zqodIaBa9RZi0q0UEyi3+ksH1uBa6xQgAAAABJRU5ErkJggg=='); background-size: cover; display: block;"
+  ></span>
+  <picture>
+          <source
+              srcset="/blog/static/02b2f454c4970d1c2d16b9cbeec80bd1/8ac56/lite-demo.webp 240w,
+/blog/static/02b2f454c4970d1c2d16b9cbeec80bd1/d3be9/lite-demo.webp 480w,
+/blog/static/02b2f454c4970d1c2d16b9cbeec80bd1/e46b2/lite-demo.webp 960w,
+/blog/static/02b2f454c4970d1c2d16b9cbeec80bd1/f992d/lite-demo.webp 1440w,
+/blog/static/02b2f454c4970d1c2d16b9cbeec80bd1/882b9/lite-demo.webp 1920w,
+/blog/static/02b2f454c4970d1c2d16b9cbeec80bd1/d1550/lite-demo.webp 2490w"
+              sizes="(max-width: 960px) 100vw, 960px"
+              type="image/webp"
+            />
+          <source
+            srcset="/blog/static/02b2f454c4970d1c2d16b9cbeec80bd1/8ff5a/lite-demo.png 240w,
+/blog/static/02b2f454c4970d1c2d16b9cbeec80bd1/e85cb/lite-demo.png 480w,
+/blog/static/02b2f454c4970d1c2d16b9cbeec80bd1/d9199/lite-demo.png 960w,
+/blog/static/02b2f454c4970d1c2d16b9cbeec80bd1/07a9c/lite-demo.png 1440w,
+/blog/static/02b2f454c4970d1c2d16b9cbeec80bd1/29114/lite-demo.png 1920w,
+/blog/static/02b2f454c4970d1c2d16b9cbeec80bd1/20a65/lite-demo.png 2490w"
+            sizes="(max-width: 960px) 100vw, 960px"
+            type="image/png"
+          />
+          <img
+            class="gatsby-resp-image-image"
+            src="/blog/static/02b2f454c4970d1c2d16b9cbeec80bd1/d9199/lite-demo.png"
+            alt="Lite"
+            title="Lite"
+            loading="lazy"
+            decoding="async"
+            style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+          />
+        </picture>
+  </a>
+    </span></p>
+<p>Lite is written in Rust, and its scripting language is a simple Lisp-like language. Here’s an example of using script commands in the editor to manipulate the text buffer:</p>
+<p><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 960px; "
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/blog/static/85bf7bfaf25d1e4c33880d70acf2650d/18539/lite-insert.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 64.58333333333334%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAANCAYAAACpUE5eAAAACXBIWXMAAAsTAAALEwEAmpwYAAAB3klEQVQ4y92MX2/SYBSH+z1oeyFbW0pp37ZvWwq0pS0F3cYmjMU/aLyfMewdOmBj8QMod8bvoOmNZibeGD+Wk5Id0zJiliyKt148ec7vnJwfJUlSXxSLX3M5+gPDsDFNMzHDMDFN0zHLsplFsRgbWItzuVzMMmx2T+E4LkYIxTzPfxQE4QvHca8o3Sy/tx0XgqgBFceBehhAxfHAb0RQrjmgWza4fghe2ICqVwfXD8ANQsCWDQVZAVnToaioGfkN4Tul29U3ZbcGVd/7UfXdpOzWEtvzEy9qJbpdTRSznKiWnaDMlWxeZRmbKy5lw4L8ZvETJZSUWUk3QNLwXNLwlaRhWJHu12QhYzMtvKAKMpqlQcbm/Npr88fCkm7MZWzc+rRG6e2Ff3v+TwpFRZ0p2AIFW3MFW1f/hpkhY3ORdmxw0gWVF4tveYSAV9ElrygLHikLQUWZeXTTy/3vWdDQ0ir6WdBUYO9wn6lmfeddO+rBVtCB3dYBtJs92PI70I72YTu4dthd7oMObAdd2Am7cNfdg5aze4OaEX6jBgdDd/xwOhl2RoOzp6/Jaf+cHN8/IZPHUzLsjsj40ZS87E3I6ZPzLA/3x2T84Iy8uHdMDqMBed48Sjk6jAajfuPZ3i+nmI+2nikxrAAAAABJRU5ErkJggg=='); background-size: cover; display: block;"
+  ></span>
+  <picture>
+          <source
+              srcset="/blog/static/85bf7bfaf25d1e4c33880d70acf2650d/8ac56/lite-insert.webp 240w,
+/blog/static/85bf7bfaf25d1e4c33880d70acf2650d/d3be9/lite-insert.webp 480w,
+/blog/static/85bf7bfaf25d1e4c33880d70acf2650d/e46b2/lite-insert.webp 960w,
+/blog/static/85bf7bfaf25d1e4c33880d70acf2650d/2b317/lite-insert.webp 1074w"
+              sizes="(max-width: 960px) 100vw, 960px"
+              type="image/webp"
+            />
+          <source
+            srcset="/blog/static/85bf7bfaf25d1e4c33880d70acf2650d/8ff5a/lite-insert.png 240w,
+/blog/static/85bf7bfaf25d1e4c33880d70acf2650d/e85cb/lite-insert.png 480w,
+/blog/static/85bf7bfaf25d1e4c33880d70acf2650d/d9199/lite-insert.png 960w,
+/blog/static/85bf7bfaf25d1e4c33880d70acf2650d/18539/lite-insert.png 1074w"
+            sizes="(max-width: 960px) 100vw, 960px"
+            type="image/png"
+          />
+          <img
+            class="gatsby-resp-image-image"
+            src="/blog/static/85bf7bfaf25d1e4c33880d70acf2650d/d9199/lite-insert.png"
+            alt="Lite"
+            title="Lite"
+            loading="lazy"
+            decoding="async"
+            style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+          />
+        </picture>
+  </a>
+    </span></p>
+<p>Here’s the bare-bones configuration file I use for my lite editor. It merely sets up a new buffer on startup containing an introduction message, and adds a command for duplicating the current selection down one line.</p>
+<p><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 960px; "
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/blog/static/9b9e53413f5ad99d74aa3883b637005f/51dd6/lite-config.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 112.91666666666667%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAXCAYAAAALHW+jAAAACXBIWXMAABYlAAAWJQFJUiTwAAADjElEQVQ4y6WUyW7bRhzGpz20vcWSTJEUJZLaKJs7h4u4iZKsSk2CxkHQXorCfYUee2ty6cMEPhRBeeyLpSb4FTN2giyNFaAEPsyQM/jN91845Nl2aa732aMoyfZhFB9oGB0CJhryeZJmh6urq8N6sz2kWX7Ii/Ktslvti3L1OM3ywfZiR8guD/8MYhemacHzffi+j4BShGHE57btIAxDzA0D0+kM09nHms3mUFXtN8/zCfE8r7bOTYQ0uLEss1VVtdV1vR2Px+1Y11tFUdpur9eengqtIPyn/hEEAZ3OyYvJZEJISGk9n00xn45vRsNBK0kShw4VpRWE01YU+60sSa0ykFtFuV3/QDeSJKHX6z03DIM59GvTPIfn2M1IGUDXVERRCOp78Fwbge/CdSzcrmmQZRmiKIJBmERR5MBut/t8Pp8TYtt2bVkWkjhu2ObBQEGe58jyHDSgcBwXtuNAkmSMRqP7gC84kOXQtm0kccSBinILXFcV4jhGmixxsb1AmqZQVfXzgMxhGNKGLQwGg1uHWcaBVVWBHTiZTKDr+nGg7/u167oo86yxLBOLhYGqWmG1WqEqK2TLDGeLM0iyhKEyPA5kOXQcB5QGzXA45HlaLpfcXZIkCHlPhjg/P+MO7yCfBrquyx2my7gx5jMOXK/X2Gw2KIocl5dPsN9/y+GGYRwHUhrU89kMi8WiYRv7/T5PPhNzzEZN094W5CgwSeL6/MxgvdawxGuaDlUdcQALkcFY5RmcHfYG9s74PtBxnNrzPFbVpixL5FmKVblCHMa8MLvdjo9FUYClhkHfuPuEw6QO/IDlqGF5SpKY91waLxHRCOUdiLUWpZS31b0hZ2nGi6JpWtPvC9yB0BfAfnimvihCYN/u3o+G7Ht+bS8sFHnepMsYrmPza8xzHRjzOca6BvmdEI8WxTTN2jqzWGhNWRaIohh5yvovgG2ZmE709wDSx/APGtuya1aMi82mKbJlG9Kw9VynHWtaKwj9VhTFVpbk+3QjSzK/vhbGghBjYfzlUx+Oa78eqcNGHg4aQew33dNu02Hqde7VSa/zutPr4sHJg99H+oiQn5/+8PePD5/iycVjfL99hH2+w4oWqMICpZd9hnLkborZaPLHs+0lIRXNf10H5avcTl+Wbna98vLrNS2v10F5XdrZ5+hlaWevZsPJ5S/f/UTY8yUh5Ov/oW8IIV8RQr4AQP4FIFVA80QRZg0AAAAASUVORK5CYII='); background-size: cover; display: block;"
+  ></span>
+  <picture>
+          <source
+              srcset="/blog/static/9b9e53413f5ad99d74aa3883b637005f/8ac56/lite-config.webp 240w,
+/blog/static/9b9e53413f5ad99d74aa3883b637005f/d3be9/lite-config.webp 480w,
+/blog/static/9b9e53413f5ad99d74aa3883b637005f/e46b2/lite-config.webp 960w,
+/blog/static/9b9e53413f5ad99d74aa3883b637005f/f992d/lite-config.webp 1440w,
+/blog/static/9b9e53413f5ad99d74aa3883b637005f/882b9/lite-config.webp 1920w,
+/blog/static/9b9e53413f5ad99d74aa3883b637005f/2e8d7/lite-config.webp 1952w"
+              sizes="(max-width: 960px) 100vw, 960px"
+              type="image/webp"
+            />
+          <source
+            srcset="/blog/static/9b9e53413f5ad99d74aa3883b637005f/8ff5a/lite-config.png 240w,
+/blog/static/9b9e53413f5ad99d74aa3883b637005f/e85cb/lite-config.png 480w,
+/blog/static/9b9e53413f5ad99d74aa3883b637005f/d9199/lite-config.png 960w,
+/blog/static/9b9e53413f5ad99d74aa3883b637005f/07a9c/lite-config.png 1440w,
+/blog/static/9b9e53413f5ad99d74aa3883b637005f/29114/lite-config.png 1920w,
+/blog/static/9b9e53413f5ad99d74aa3883b637005f/51dd6/lite-config.png 1952w"
+            sizes="(max-width: 960px) 100vw, 960px"
+            type="image/png"
+          />
+          <img
+            class="gatsby-resp-image-image"
+            src="/blog/static/9b9e53413f5ad99d74aa3883b637005f/d9199/lite-config.png"
+            alt="Lite"
+            title="Lite"
+            loading="lazy"
+            decoding="async"
+            style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+          />
+        </picture>
+  </a>
+    </span></p>
+<h2 id="the-wreckage-repaired" style="position:relative;"><a href="#the-wreckage-repaired" aria-label="the wreckage repaired permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>The Wreckage Repaired</h2>
+<p><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 960px; "
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/blog/static/d6b31613a8c8b354f01c2070610928c0/2bef9/the-wreckage-repaired.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 100%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAIAAAAC64paAAAACXBIWXMAAAsTAAALEwEAmpwYAAAEeElEQVQ4y0WUe0xTdxTHf7cUwVp637339nHb215oe7m0t7UP+wBKKS0FCqVQKAgtyKOKMHQCizDn5lAzMfGxYDZmolumyeYysmSPRJfslRl0c8v+cHExOjeTJTNLTOZf2/5wK2iWfPLNOScn57/zAQDGnoI/AdlgfYhg/7cosQ7+BAQDQIVBCF6CqyGUAAjxZAMrAmHrNU4WwQhAqAFJFXOjwNVARjEykgYKGCJpiGKK040NNVVCMxCtgTTaUoNhi9lcZuRKWVam1UGMBtJoIFoDEFu11W3PZmLuSB1RLW7mTCU6fbmRg6ssqMVK2e2YIKjtdmsoqHdKhFCNWG0KM1/Omco4DrBub23Ev3Lq4ODYQKU/YHS7MUFg3R5rKMS5t3oT8VB7qy8Rj/amw+n2ZH57sL3V2dTI+/1qsQYYPF45oS6BUSHkdzSELYGAJRj0JeLJXJ9YG4r3ZfomxgYmx1957cT599/++cGdL258dfLcmf3HDk0emAObOROE4jKcNEgOMVwfTLZFM+lEXybQlhCCfl9zbPfzs0srJz+9/tl3t779+/Gjx4//+vOfh78+vHfnwR0AaXUAwcsZbXOmQ+NwGtweKRphnZLG4ajyuLtHcmffO3957fJHX35y6uyr9/64+9uj+/cf/nL799vf3/0BQIwGwGi5VtecSRGCSNfYKVEsISne53XUhaYWZpZWTp+5sPLm6oUTb5y+evPatVvffH1z7eqP19d+ugEgRgtUqELPdmzPYDYBsVhlBKXQsYGW5khnsjAztWtuz9ziC4eXjy8cPfjWBxcvfnzp3Surq59/+M6VVSDT6YEKU7LG/K4hzCbIaS2ogFnJGc92hVNtqXx/ZnRweO/E8N7Jkb0TiyePzB87tLi8dHj5+HNHXwQykgIIvkXPJvu6GLu9gq8irDZHQ32wvdUVjdS2Nscynb1j+eHJscJ0YeHl+T0HZicX9o3NTg/sLgAIwQGMwSaTK1xbFQgwDpfZ4xFCAVdjgy/WGO9OdQ72deT6rd6t/qbw1L6d+w7Mbd812j2Sa+ruBECFA5TQiNX1LVFvPFrT2EhUWQCCK3V6TrL7Y5HRiR258aEtRqNCr5udGVtePjq/OB/vSXubIkChM5TSmgojZ3TaG5KxtsFsTX0dUCIQjAMVtonWsE5pW0s80Z9JDQ3MvjQ/d2i+Z3w4mknVtcUBYrWRogibK1Ums1as7hzoyo4OykkaQgk5SclINaAY1iUlejvzk6OJbFc0kxqZmc49U7DXBYCc0SjNPG6zsU4J4XnB703nenAzDzZXQDBafEw1VUozqNmkFW1am7V3KJsdzw8W8kbJAWSYWk4xCtaA8jznkoSAL5yMxdIt1ds8vEuCWWMZxWxitIiZ9zZFjiwvvX7pXM/40PieQlEGEEYCjFz/e1xO0wrWoDRypMVidEq2bZ6agM8TqYunW33R+mi6dWr/9I5nd4Y7EmLQu2GSp95Bi1cASUEUI9fqy1mDkjMhPI9WVsJmc4WJK9Pqiz5RoUU9KeH/8l/dRB4iKF91AwAAAABJRU5ErkJggg=='); background-size: cover; display: block;"
+  ></span>
+  <picture>
+          <source
+              srcset="/blog/static/d6b31613a8c8b354f01c2070610928c0/8ac56/the-wreckage-repaired.webp 240w,
+/blog/static/d6b31613a8c8b354f01c2070610928c0/d3be9/the-wreckage-repaired.webp 480w,
+/blog/static/d6b31613a8c8b354f01c2070610928c0/e46b2/the-wreckage-repaired.webp 960w,
+/blog/static/d6b31613a8c8b354f01c2070610928c0/a9a89/the-wreckage-repaired.webp 1024w"
+              sizes="(max-width: 960px) 100vw, 960px"
+              type="image/webp"
+            />
+          <source
+            srcset="/blog/static/d6b31613a8c8b354f01c2070610928c0/8ff5a/the-wreckage-repaired.png 240w,
+/blog/static/d6b31613a8c8b354f01c2070610928c0/e85cb/the-wreckage-repaired.png 480w,
+/blog/static/d6b31613a8c8b354f01c2070610928c0/d9199/the-wreckage-repaired.png 960w,
+/blog/static/d6b31613a8c8b354f01c2070610928c0/2bef9/the-wreckage-repaired.png 1024w"
+            sizes="(max-width: 960px) 100vw, 960px"
+            type="image/png"
+          />
+          <img
+            class="gatsby-resp-image-image"
+            src="/blog/static/d6b31613a8c8b354f01c2070610928c0/d9199/the-wreckage-repaired.png"
+            alt="Wreckage Repaired"
+            title="Wreckage Repaired"
+            loading="lazy"
+            decoding="async"
+            style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+          />
+        </picture>
+  </a>
+    </span></p>
+<table>
+<thead>
+<tr>
+<th align="center"><em><strong>Seaworthy</strong></em></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center"></td>
+</tr>
+</tbody>
+</table>
+<p>The lighthouse keeper worked tirelessly on the shipwreck, and after many months of labor, he had transformed the wreckage into a new vessel. The ship was a marvel to behold: a sleek, fast sloop with a hull of ironwood and sails of silk.</p>
+<p>By his own hands, the lighthouse keeper had produced a ship that was more than the sum of its nails, planks, and sails. The vessel had become more than a mere instrument; above all else the ship was a work of art.</p>
+<p>The lighthouse keeper boarded the craft, and gazed back at his stark, secluded lighthouse. He wouldn’t be taking orders from distant signal lamps any longer, instead delivering them himself. The keeper pulled up the anchor, unfurled his sails, and watched the lighthouse begin to withdraw as the ship was carried by the wind.</p>
+<p>The keeper’s journey had only just begun: now, he would need to find companions with whom to share his vessel and voyage.</p>
+<hr>
+<h2 id="conclusion" style="position:relative;"><a href="#conclusion" aria-label="conclusion permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Conclusion</h2>
+<p>In this article, I’ve recounted my journey writing a compiler, shell, and text editor: the trifecta of software development tools. These tools are the foundation of my work as a programmer, and I’ve poured countless hours into their creation and refinement.</p>
+<p>I’ve learned many lessons along the way, and I’ve grown as a programmer and as a person. I’ve discovered the joy of creating something new, the satisfaction of solving difficult problems, and the thrill of exploring uncharted territory.</p>
+<p>I hope my work inspires others to leave their lighthouses behind and set sail on their own journeys of discovery. Since I was a kid, I worked tirelessly in my room tending to projects and repositories as I’d been directed by others, using the tools I’d been given. I dreamed of a day where someone else might use the tools <em>I’d</em> built, just as I’d used the tools of others.</p>
+<p>If you like my work, consider checking out <a href="https://adam-mcdaniel.net" target="_blank" rel="nofollow noopener noreferrer">my website</a>, <a href="https://github.com/adam-mcdaniel/" target="_blank" rel="nofollow noopener noreferrer">GitHub profile</a>, <a href="https://adam-mcdaniel.net/blog/" target="_blank" rel="nofollow noopener noreferrer">my other articles</a>, or <a href="https://adam-mcdaniel.net/music/" target="_blank" rel="nofollow noopener noreferrer">my music</a>. I’m always working on something new, and I’d love to have you in my crew!</p></div></div></div><div class="Post-module--footer--f8705"><div class="Meta-module--meta--dae0a"><p class="Meta-module--date--4d30d">Published<!-- --> <!-- -->May 26, 2025</p></div><div class="Tags-module--tags--18589"><ul class="Tags-module--list--82ae6"><li class="Tags-module--item--52015"><a class="Button-module--button--b1113" href="/blog/tag/compilers/">Compilers</a></li><li class="Tags-module--item--52015"><a class="Button-module--button--b1113" href="/blog/tag/shells/">Shells</a></li><li class="Tags-module--item--52015"><a class="Button-module--button--b1113" href="/blog/tag/scripting-languages/">Scripting Languages</a></li><li class="Tags-module--item--52015"><a class="Button-module--button--b1113" href="/blog/tag/text-editor/">Text Editor</a></li></ul></div><div class="Author-module--author--1c58d"><p class="Author-module--bio--08950">Programmer, musician, and graduate student at UTK.</p></div></div><div class="Post-module--comments--d3b99"></div></div></div></div><div id="gatsby-announcer" style="position:absolute;top:0;width:1px;height:1px;padding:0;overflow:hidden;clip:rect(0, 0, 0, 0);white-space:nowrap;border:0" aria-live="assertive" aria-atomic="true"></div></div><script id="gatsby-script-loader">/*<![CDATA[*/window.pagePath="/compiler-shell-text-editor-trifecta/";window.___webpackCompilationHash="7a023b956db1ea2d158a";/*]]>*/</script><script id="gatsby-chunk-mapping">/*<![CDATA[*/window.___chunkMapping={"app":["/app-890c6a06da8365a7ec67.js"],"component---cache-caches-gatsby-plugin-offline-app-shell-js":["/component---cache-caches-gatsby-plugin-offline-app-shell-js-02abafd21f3ca3501462.js"],"component---src-templates-categories-template-categories-template-tsx":["/component---src-templates-categories-template-categories-template-tsx-b449ea18ac689b1b4d05.js"],"component---src-templates-category-template-category-template-tsx":["/component---src-templates-category-template-category-template-tsx-f25335f9ad4d1e083e1e.js"],"component---src-templates-index-template-index-template-tsx":["/component---src-templates-index-template-index-template-tsx-574bb2c842b72a4f56d6.js"],"component---src-templates-not-found-template-not-found-template-tsx":["/component---src-templates-not-found-template-not-found-template-tsx-87d8cb04f32ef1c28bb0.js"],"component---src-templates-page-template-page-template-tsx":["/component---src-templates-page-template-page-template-tsx-efa695dc50d2a91bc2ae.js"],"component---src-templates-post-template-post-template-tsx":["/component---src-templates-post-template-post-template-tsx-d5932ed5cf3ded155b03.js"],"component---src-templates-tag-template-tag-template-tsx":["/component---src-templates-tag-template-tag-template-tsx-dbf1278bb80575247891.js"],"component---src-templates-tags-template-tags-template-tsx":["/component---src-templates-tags-template-tags-template-tsx-e89bc401e74db52ece1a.js"]};/*]]>*/</script><script src="/blog/app-890c6a06da8365a7ec67.js" async=""></script><script src="/blog/framework-5a9d309ce209c63b9210.js" async=""></script><script src="/blog/webpack-runtime-e2cca663d19bb2d77e03.js" async=""></script></body></html>
