@@ -1,6 +1,6 @@
 ---
 title: Completing The Compiler, Shell, And Text Editor Trifecta
-date: "2025-05-26T11:52:37.121Z"
+date: "2024-05-26T11:52:37.121Z"
 template: "post"
 draft: false
 slug: "/compiler-shell-text-editor-trifecta/"
