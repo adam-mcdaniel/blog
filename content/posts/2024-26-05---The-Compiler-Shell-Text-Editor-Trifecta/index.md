@@ -191,13 +191,11 @@ Here's the bare-bones configuration file I use for my lite editor. It merely set
 
 The lighthouse keeper worked tirelessly on the shipwreck, and after many months of labor, he had transformed the wreckage into a new vessel. The ship was a marvel to behold: a sleek, fast sloop with a hull of ironwood and sails of silk.
 
-By his own hands, the lighthouse keeper had produced a ship that was more than the sum of its nails, planks, and sails. The vessel had become more than a mere instrument; above all else the ship was a work of art.
+By his own hands, the lighthouse keeper had produced a ship that was more than the sum of its nails, planks, and sails. The vessel had become more than a mere instrument; above all else, the ship was a work of art.
 
 The lighthouse keeper boarded the craft, and gazed back at his stark, secluded lighthouse. He wouldn't be taking orders from distant signal lamps any longer, instead delivering them himself. The keeper pulled up the anchor, unfurled his sails, and watched the lighthouse begin to withdraw as the ship was carried by the wind.
 
 The keeper's journey had only just begun: now, he would need to find companions with whom to share his vessel and voyage.
-
----
 
 ## Conclusion
 
