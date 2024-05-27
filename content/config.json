@@ -9,19 +9,19 @@
   "pathPrefix": "/blog",
   "menu": [
     {
-      "label": "Articles",
+      "label": "Articles📝",
       "path": "/"
     },
     {
-      "label": "About me",
+      "label": "About me👋",
       "path": "/pages/about"
     },
     {
-      "label": "Personal Site",
+      "label": "Personal Site🌐",
       "path": "https://adam-mcdaniel.github.io/"
     },
     {
-      "label": "Music",
+      "label": "Music🎶",
       "path": "https://adam-mcdaniel.github.io/music"
     }
   ],
