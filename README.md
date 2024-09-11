@@ -1,3 +1,5 @@
+***Built with Node v18.20.4 and NPM v10.7.0***
+
 <h1 align="center">
     <picture>
       <source media="(prefers-color-scheme: dark)" srcset="https://github.com/alxshelepenok/gatsby-starter-lumen/blob/master/.github/logo-light.png" width="140">

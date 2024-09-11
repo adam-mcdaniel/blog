@@ -27,6 +27,14 @@
     {
       "label": "YouTube📺",
       "path": "https://youtu.be/QdnxjYj1pS0?si=GzZ0Qfly2vvuVwIy"
+    },
+    {
+      "label": "My Programming Language🧮",
+      "path": "https://adam-mcdaniel.github.io/sage-website"
+    },
+    {
+      "label": "My Shell🐚",
+      "path": "https://adam-mcdaniel.github.io/dune-website"
     }
   ],
   "author": {
