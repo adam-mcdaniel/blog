@@ -1,0 +1,509 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="x-ua-compatible" content="ie=edge"/><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/><meta name="generator" content="Gatsby 4.25.9"/><meta name="description" content="My adventure creating a programming language, engine, and a game in just one week!" data-gatsby-head="true"/><meta name="twitter:card" content="summary_large_image" data-gatsby-head="true"/><meta name="twitter:title" content="A Language, Engine, And Game For The Langjam Gamejam! - Adam | Blog" data-gatsby-head="true"/><meta name="twitter:description" content="My adventure creating a programming language, engine, and a game in just one week!" data-gatsby-head="true"/><meta name="og:title" content="A Language, Engine, And Game For The Langjam Gamejam! - Adam | Blog" data-gatsby-head="true"/><meta name="og:type" content="website" data-gatsby-head="true"/><meta name="og:description" content="My adventure creating a programming language, engine, and a game in just one week!" data-gatsby-head="true"/><meta name="image" content="https://adam-mcdaniel.github.io/blog/media/onion.jpg" data-gatsby-head="true"/><meta name="og:image" content="https://adam-mcdaniel.github.io/blog/media/onion.jpg" data-gatsby-head="true"/><meta name="twitter:image" content="https://adam-mcdaniel.github.io/blog/media/onion.jpg" data-gatsby-head="true"/><meta name="theme-color" content="hsl(31, 92%, 62%)"/><style data-href="/blog/styles.462ccd878fdc76b93a3f.css" data-identity="gatsby-global-css">:after,:before,:root{--color-white:#fff;--color-primary:#5c92ff;--color-secondary:#f7a145;--color-prism-background:#eaeaeb;--color-typographic-base-font:#242933;--color-typographic-link-p-font:#5c92ff;--color-typographic-link-s-font:#f7a145;--color-page-border:#eaeaeb;--color-page-background:#fff;--color-sidebar-border:#eaeaeb;--color-sidebar-border-fade:#fff;--color-contacts-border:#eaeaeb;--color-button-border:#eaeaeb;--color-button-color:#242933;--color-theme-switcher:#3f485a;--color-theme-switcher-hover:#5c92ff}.dark :after,.dark :before,:root.dark{--color-white:#fff;--color-primary:#5c92ff;--color-secondary:#f7a145;--color-prism-background:#191d24;--color-typographic-base-font:#fff;--color-typographic-link-p-font:#5c92ff;--color-typographic-link-s-font:#f7a145;--color-page-border:#3f485a;--color-page-background:#242933;--color-sidebar-border:#3f485a;--color-sidebar-border-fade:#242933;--color-contacts-border:#3f485a;--color-button-border:#3f485a;--color-button-color:#fff;--color-theme-switcher:#eaeaeb;--color-theme-switcher-hover:#5c92ff}html{font-size:100}body{-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%;background:var(--color-page-background);color:var(--color-typographic-base-font);font-size:16px;line-height:1.625;margin:0 0 0 calc(100vw - 100%);text-rendering:optimizelegibility}body,h1,h2,h3,h4,h5,h6{font-family:-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif}h1,h2,h3,h4,h5,h6{font-weight:600}h1{font-size:40px;line-height:52px;margin-bottom:26px;margin-top:104px}h2{font-size:27px;line-height:39px}h2,h3{margin-bottom:13px;margin-top:52px}h3{font-size:22px;line-height:26px}h4{font-size:19.2px;margin-top:39px}h4,h5{line-height:26px;margin-bottom:13px}h5,h6{font-size:16px;margin-top:65px}h6{line-height:26px;margin-bottom:13px}img{max-width:100%}hr,img{border:0;display:block}hr{background-image:linear-gradient(180deg,transparent 1px,transparent 11px,#242933 0,#242933 15px,transparent 0,transparent 26px);background-size:100% 26px;color:var(--color-typographic-base-font);height:26px;margin:52px auto;width:100px}a{color:var(--color-typographic-link-p-font);text-decoration:none}a:active,a:focus,a:hover{color:var(--color-typographic-link-s-font)}b,strong{font-weight:600}ul{list-style:square;margin-bottom:26px}ul li{margin-bottom:10px;padding:0 5px}p{line-height:26px;margin-bottom:26px}blockquote{font-style:italic;padding:0;text-align:center}figure{display:block;height:auto;width:100%}figcaption{color:var(--color-typographic-base-font);font-size:14px;font-style:italic;line-height:19.5px;margin-bottom:0;margin-top:6.5px;text-align:center}@media screen and (min-width:685px){figure.float-left,figure.float-right{max-width:310px;padding:0 26px}.float-right{float:right}.float-left{float:left}}code[class*=language-],pre[class*=language-]{word-wrap:normal;color:#657b83;font-family:Consolas,Monaco,Andale Mono,Ubuntu Mono,monospace;font-size:1em;-webkit-hyphens:none;hyphens:none;line-height:1.5;tab-size:4;text-align:left;white-space:pre;word-break:normal;word-spacing:normal}pre[class*=language-]{border-radius:.3em;margin:.5em 0;overflow:auto;padding:1em}:not(pre)>code[class*=language-],pre[class*=language-]{background-color:var(--color-prism-background)}:not(pre)>code[class*=language-]{border-radius:.3em;padding:.1em}code[class*=language-] ::selection,code[class*=language-]::selection,pre[class*=language-] ::selection,pre[class*=language-]::selection{background:#073642}.token.cdata,.token.comment,.token.doctype,.token.prolog{color:#93a1a1}.token.punctuation{color:#586e75}.namespace{opacity:.7}.token.boolean,.token.constant,.token.deleted,.token.number,.token.property,.token.symbol,.token.tag{color:#268bd2}.token.attr-name,.token.builtin,.token.char,.token.inserted,.token.selector,.token.string,.token.url{color:#2aa198}.token.entity{background:#eee8d5;color:#657b83;cursor:help}.token.atrule,.token.attr-value,.token.keyword{color:#859900}.token.class-name,.token.function{color:#b58900}.token.important,.token.regex,.token.variable{color:#cb4b16}.token.bold,.token.important{font-weight:700}.token.italic{font-style:italic}.Feed-module--feed--a6204 .Feed-module--item--c7a63{margin-bottom:32.5px}.Feed-module--feed--a6204 .Feed-module--item--c7a63:last-child{margin-bottom:13px}.Feed-module--feed--a6204 .Feed-module--item--c7a63 .Feed-module--title--f252f{font-size:27px;line-height:39px;margin-bottom:13px;margin-top:0}.Feed-module--feed--a6204 .Feed-module--item--c7a63 .Feed-module--title--f252f .Feed-module--link--6123b{color:var(--color-typographic-base-font)}.Feed-module--feed--a6204 .Feed-module--item--c7a63 .Feed-module--title--f252f .Feed-module--link--6123b:focus,.Feed-module--feed--a6204 .Feed-module--item--c7a63 .Feed-module--title--f252f .Feed-module--link--6123b:hover{border-bottom:1px solid #242933;color:var(--color-typographic-base-font)}.Feed-module--feed--a6204 .Feed-module--item--c7a63 .Feed-module--description--57348{font-size:16px;line-height:26px;margin-bottom:19.5px}.Feed-module--feed--a6204 .Feed-module--item--c7a63 .Feed-module--meta--250c2 .Feed-module--time--72864{color:var(--color-typographic-base-font);font-size:14px;font-weight:600;text-transform:uppercase}.Feed-module--feed--a6204 .Feed-module--item--c7a63 .Feed-module--meta--250c2 .Feed-module--divider--81a18{margin:0 13px}.Feed-module--feed--a6204 .Feed-module--item--c7a63 .Feed-module--meta--250c2 .Feed-module--category--59f58 .Feed-module--link--6123b{color:var(--color-secondary);font-size:14px;font-weight:600;text-transform:uppercase}.Feed-module--feed--a6204 .Feed-module--item--c7a63 .Feed-module--meta--250c2 .Feed-module--category--59f58 .Feed-module--link--6123b:focus,.Feed-module--feed--a6204 .Feed-module--item--c7a63 .Feed-module--meta--250c2 .Feed-module--category--59f58 .Feed-module--link--6123b:hover{color:#5c92ff}.Feed-module--feed--a6204 .Feed-module--item--c7a63 .Feed-module--more--51a4e{color:var(--color-primary);font-size:16px}.Feed-module--feed--a6204 .Feed-module--item--c7a63 .Feed-module--more--51a4e:focus,.Feed-module--feed--a6204 .Feed-module--item--c7a63 .Feed-module--more--51a4e:hover{border-bottom:1px solid #5c92ff;color:var(--color-primary)}.Layout-module--layout--2c933{margin-left:auto;margin-right:auto;max-width:1070px}.Layout-module--layout--2c933:before{content:"";display:table}.Layout-module--layout--2c933:after{clear:both;content:"";display:table}.Page-module--page--24e03{margin-bottom:52px}.Page-module--page--24e03 .Page-module--inner--4b31d{padding:26px 19.5px 0}.Page-module--page--24e03 .Page-module--title--90338{font-size:40px;font-weight:600;line-height:52px;margin-bottom:37.7px;margin-top:0}.Page-module--page--24e03 .Page-module--body--561c4{font-size:16px;line-height:26px;margin:0 0 26px}@media screen and (min-width:685px){.Page-module--page--24e03{width:calc(58.275% - 12.5px)}.Page-module--page--24e03:nth-child(1n){clear:none;float:left;margin-right:30px}.Page-module--page--24e03:last-child{margin-right:0}.Page-module--page--24e03:nth-child(12n){float:right;margin-right:0}.Page-module--page--24e03:nth-child(12n+1){clear:both}.Page-module--page--24e03 .Page-module--inner--4b31d{padding:32.5px 19.5px 0}}@media screen and (min-width:960px){.Page-module--page--24e03{width:calc(66.6% - 10px)}.Page-module--page--24e03:nth-child(1n){clear:none;float:left;margin-right:30px}.Page-module--page--24e03:last-child{margin-right:0}.Page-module--page--24e03:nth-child(3n){float:right;margin-right:0}.Page-module--page--24e03:nth-child(3n+1){clear:both}.Page-module--page--24e03 .Page-module--inner--4b31d{padding:39px 26px 0}}.Pagination-module--pagination--d61cb{display:flex;margin-top:52px}.Pagination-module--pagination--d61cb .Pagination-module--previous--4a76b{text-align:left;width:50%}.Pagination-module--pagination--d61cb .Pagination-module--previous--4a76b .Pagination-module--previousLink--5590d{color:var(--color-secondary);font-size:26px;font-weight:700}.Pagination-module--pagination--d61cb .Pagination-module--previous--4a76b .Pagination-module--previousLink--5590d:focus,.Pagination-module--pagination--d61cb .Pagination-module--previous--4a76b .Pagination-module--previousLink--5590d:hover{color:var(--color-primary)}.Pagination-module--pagination--d61cb .Pagination-module--previous--4a76b .Pagination-module--previousLink--5590d.Pagination-module--disable--7e105{color:#3f485a;pointer-events:none}.Pagination-module--pagination--d61cb .Pagination-module--next--1cab8{text-align:right;width:50%}.Pagination-module--pagination--d61cb .Pagination-module--next--1cab8 .Pagination-module--nextLink--532ff{color:var(--color-secondary);font-size:26px;font-weight:700}.Pagination-module--pagination--d61cb .Pagination-module--next--1cab8 .Pagination-module--nextLink--532ff:focus,.Pagination-module--pagination--d61cb .Pagination-module--next--1cab8 .Pagination-module--nextLink--532ff:hover{color:var(--color-primary)}.Pagination-module--pagination--d61cb .Pagination-module--next--1cab8 .Pagination-module--nextLink--532ff.Pagination-module--disable--7e105{color:#3f485a;pointer-events:none}.Button-module--button--b1113{border:1px solid var(--color-button-border);border-radius:20px;color:var(--color-button-color);display:inline-block;font-size:16px;font-weight:400;height:40px;line-height:40px;margin-left:auto;margin-right:auto;padding:0 26px;text-align:center;text-decoration:none}.Button-module--button--b1113:focus,.Button-module--button--b1113:hover{color:#5c92ff}.ThemeSwitcher-module--themeSwitcher--8a77f{--color:var(--color-theme-switcher)}.ThemeSwitcher-module--themeSwitcher--8a77f .ThemeSwitcher-module--button--7cb7b{align-items:center;background:transparent;border:0;cursor:pointer;display:flex;justify-content:center;outline:0}.ThemeSwitcher-module--themeSwitcher--8a77f .ThemeSwitcher-module--button--7cb7b svg{stroke:var(--color);pointer-events:none;transition:stroke .4s}.ThemeSwitcher-module--themeSwitcher--8a77f .ThemeSwitcher-module--button--7cb7b:hover{--color:var(--color-theme-switcher-hover)}.ThemeSwitcher-module--themeSwitcher--8a77f .ThemeSwitcher-module--moon--10537{stroke-dasharray:0 1px;opacity:0;transition:stroke-dasharray .2s ease-in,opacity .4s ease-in}.ThemeSwitcher-module--themeSwitcher--8a77f .ThemeSwitcher-module--sun--2163a{stroke-dasharray:1px 1px;opacity:1;transition:stroke-dasharray .2s ease-in,opacity .4s ease-in}.ThemeSwitcher-module--themeSwitcher--8a77f.ThemeSwitcher-module--dark--6db0c .ThemeSwitcher-module--moon--10537{stroke-dasharray:1px 1px;opacity:1}.ThemeSwitcher-module--themeSwitcher--8a77f.ThemeSwitcher-module--dark--6db0c .ThemeSwitcher-module--sun--2163a{stroke-dasharray:0 1px;opacity:0}.Author-module--author--cbd31 .Author-module--photo--9787b{background-clip:padding-box;border-radius:50%;display:inline-block;height:75px;margin-bottom:0;width:75px}.Author-module--author--cbd31 .Author-module--photo--9787b img{border-radius:50%}.Author-module--author--cbd31 .Author-module--title--cf7e5{font-size:18px;font-weight:600;line-height:29.25px;margin:0}.Author-module--author--cbd31 .Author-module--title--cf7e5 .Author-module--link--09c17,.Author-module--author--cbd31 .Author-module--title--cf7e5 .Author-module--link--09c17:focus,.Author-module--author--cbd31 .Author-module--title--cf7e5 .Author-module--link--09c17:hover{color:var(--color-typographic-base-font)}.Author-module--author--cbd31 .Author-module--subtitle--86ec5{color:#7f8ba4;line-height:26px;margin-bottom:26px}.Author-module--author--cbd31 .Author-module--titleContainer--4f576{align-items:center;display:flex;justify-content:space-between;margin:13px 0}.Icon-module--icon--1d7da{fill:currentcolor;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;speak:none;stroke:currentcolor;stroke-width:0;display:inline-block;font-style:normal;font-variant:normal;font-weight:400;height:1em;line-height:1em;text-align:center;text-transform:none;width:1em}.Contacts-module--contacts--09178{margin-bottom:26px}.Contacts-module--contacts--09178 .Contacts-module--list--9670b{display:flex;flex-flow:row wrap;flex-grow:0;flex-shrink:0;list-style:none;margin:13px 0;max-width:165px;padding:0}.Contacts-module--contacts--09178 .Contacts-module--list--9670b .Contacts-module--item--f9cb0{align-content:center;align-items:center;border:1px solid var(--color-contacts-border);border-radius:50%;display:flex;height:40px;justify-content:center;line-height:40px;margin:6.5px;padding:0;text-align:center;width:40px}.Contacts-module--contacts--09178 .Contacts-module--list--9670b .Contacts-module--item--f9cb0:nth-child(3n+1){margin-left:0}.Contacts-module--contacts--09178 .Contacts-module--list--9670b .Contacts-module--item--f9cb0 .Contacts-module--link--de1e0{border:0;color:var(--color-typographic-base-font);cursor:pointer;display:flex}.Contacts-module--contacts--09178 .Contacts-module--list--9670b .Contacts-module--item--f9cb0 .Contacts-module--link--de1e0:focus,.Contacts-module--contacts--09178 .Contacts-module--list--9670b .Contacts-module--item--f9cb0 .Contacts-module--link--de1e0:hover{color:var(--color-typographic-link-p-font)}.Copyright-module--copyright--2c602{color:#7f8ba4;font-size:14px}.Menu-module--menu--113a9{margin-bottom:26px}.Menu-module--menu--113a9 .Menu-module--list--e1ae3{list-style:none;margin:0;padding:0}.Menu-module--menu--113a9 .Menu-module--list--e1ae3 .Menu-module--item--8b679{margin:13px 0;padding:0}.Menu-module--menu--113a9 .Menu-module--list--e1ae3 .Menu-module--item--8b679 .Menu-module--link--a6f02{border:0;color:var(--color-typographic-base-font);font-size:16px;font-weight:400}.Menu-module--menu--113a9 .Menu-module--list--e1ae3 .Menu-module--item--8b679 .Menu-module--link--a6f02:focus,.Menu-module--menu--113a9 .Menu-module--list--e1ae3 .Menu-module--item--8b679 .Menu-module--link--a6f02:hover{border-bottom:1px solid #5c92ff;color:#5c92ff}.Menu-module--menu--113a9 .Menu-module--list--e1ae3 .Menu-module--item--8b679 .Menu-module--link--a6f02.Menu-module--active--6cb74{border-bottom:1px solid var(--color-typographic-base-font);color:var(--color-typographic-base-font)}.Sidebar-module--sidebar--1bfa1{width:100%}.Sidebar-module--sidebar--1bfa1 .Sidebar-module--inner--344d0{padding:26px 19.5px 0;position:relative}.Sidebar-module--sidebar--1bfa1 .Sidebar-module--inner--344d0:after{background:var(--color-sidebar-border);background:linear-gradient(to bottom,var(--color-sidebar-border) 0,var(--color-sidebar-border) 48%,var(--color-sidebar-border-fade) 100%)}@media screen and (min-width:685px){.Sidebar-module--sidebar--1bfa1{width:calc(41.625% - 17.5px)}.Sidebar-module--sidebar--1bfa1:nth-child(1n){clear:none;float:left;margin-right:30px}.Sidebar-module--sidebar--1bfa1:last-child{margin-right:0}.Sidebar-module--sidebar--1bfa1:nth-child(12n){float:right;margin-right:0}.Sidebar-module--sidebar--1bfa1:nth-child(12n+1){clear:both}.Sidebar-module--sidebar--1bfa1 .Sidebar-module--inner--344d0{padding:32.5px 19.5px 0}.Sidebar-module--sidebar--1bfa1 .Sidebar-module--inner--344d0:after{bottom:0;content:"";height:540px;position:absolute;right:-10px;top:30px;width:1px}}@media screen and (min-width:960px){.Sidebar-module--sidebar--1bfa1{width:calc(33.3% - 20px)}.Sidebar-module--sidebar--1bfa1:nth-child(1n){clear:none;float:left;margin-right:30px}.Sidebar-module--sidebar--1bfa1:last-child{margin-right:0}.Sidebar-module--sidebar--1bfa1:nth-child(3n){float:right;margin-right:0}.Sidebar-module--sidebar--1bfa1:nth-child(3n+1){clear:both}.Sidebar-module--sidebar--1bfa1 .Sidebar-module--inner--344d0{padding:39px}}.Author-module--author--1c58d{border-top:1px solid var(--color-page-border);line-height:26px;margin-bottom:52px;margin-top:26px;max-width:640px;padding-top:26px}.Author-module--author--1c58d .Author-module--bio--08950 .Author-module--twitter--90647{display:block;text-decoration:underline}.Author-module--author--1c58d .Author-module--bio--08950 .Author-module--twitter--90647:focus,.Author-module--author--1c58d .Author-module--bio--08950 .Author-module--twitter--90647:hover{color:var(--color-typographic-link-s-font)}@media screen and (min-width:685px){.Author-module--author--1c58d{margin-left:auto;margin-right:auto}}.Content-module--content--80d58{margin:0 auto;max-width:945px;padding:0 13px}.Content-module--content--80d58 .Content-module--title--09504{font-size:32px;font-weight:600;line-height:42.9px;margin:26px auto 0;max-width:640px;text-align:center}.Content-module--content--80d58 .Content-module--body--726c2 figure{margin-bottom:26px}.Content-module--content--80d58 .Content-module--body--726c2 figure blockquote{font-style:italic;margin-top:0;padding:26px 0;text-align:center}.Content-module--content--80d58 .Content-module--body--726c2 figure blockquote p{font-size:26.9072px;line-height:39px;margin-bottom:26px;margin-top:0;max-width:640px}.Content-module--content--80d58 .Content-module--body--726c2 a{text-decoration:underline}.Content-module--content--80d58 .Content-module--body--726c2 *{margin-left:auto;margin-right:auto;max-width:640px}.Content-module--content--80d58 .Content-module--body--726c2 h2>a{visibility:hidden}.Content-module--content--80d58 .Content-module--body--726c2 h2>a>svg{fill:var(--color-typographic-base-font)}.Content-module--content--80d58 .Content-module--body--726c2 img{max-width:100%}@media screen and (min-width:960px){.Content-module--content--80d58{padding:0}.Content-module--content--80d58 .Content-module--title--09504{font-size:48px;line-height:58.5px;margin-bottom:39px;margin-top:58.5px}.Content-module--content--80d58 .Content-module--body--726c2,.Content-module--content--80d58 .Content-module--body--726c2 p{font-size:18px;line-height:29.25px;margin-bottom:29.25px}.Content-module--content--80d58 .Content-module--body--726c2 h2>a{padding-right:13px;visibility:unset}}.Meta-module--meta--dae0a .Meta-module--date--4d30d{font-style:italic}.Tags-module--tags--18589{margin-bottom:13px}.Tags-module--tags--18589 .Tags-module--list--82ae6{list-style:none;padding:0}.Tags-module--tags--18589 .Tags-module--list--82ae6 .Tags-module--item--52015{display:inline-block;margin:6.5px 0}@media screen and (min-width:685px){.Tags-module--tags--18589 .Tags-module--list--82ae6 .Tags-module--item--52015:first-child{margin-left:0;padding-left:0}}.Post-module--post--3a994 .Post-module--content--3c6e5{margin:0 auto}.Post-module--post--3a994 .Post-module--comments--d3b99,.Post-module--post--3a994 .Post-module--footer--f8705{margin:0 auto;max-width:640px;padding:0 13px}.Post-module--post--3a994 .Post-module--buttons--2972d{align-items:center;display:flex;justify-content:center;margin:26px 0 0;text-align:center}.Post-module--post--3a994 .Post-module--buttons--2972d .Post-module--buttonArticles--d793a{margin:0 13px 0 0}@media screen and (min-width:960px){.Post-module--post--3a994 .Post-module--comments--d3b99,.Post-module--post--3a994 .Post-module--footer--f8705{padding:0}.Post-module--post--3a994 .Post-module--buttons--2972d{left:30px;margin:0 13px 0 0;max-width:none;position:fixed;top:30px}}</style><title data-gatsby-head="true">A Language, Engine, And Game For The Langjam Gamejam! - Adam | Blog</title><link rel="alternate" type="application/rss+xml" title="Adam | Blog" href="/blog/rss.xml"/><style type="text/css">
+    .anchor.before {
+      position: absolute;
+      top: 0;
+      left: 0;
+      transform: translateX(-100%);
+      padding-right: 4px;
+    }
+    .anchor.after {
+      display: inline-block;
+      padding-left: 4px;
+    }
+    h1 .anchor svg,
+    h2 .anchor svg,
+    h3 .anchor svg,
+    h4 .anchor svg,
+    h5 .anchor svg,
+    h6 .anchor svg {
+      visibility: hidden;
+    }
+    h1:hover .anchor svg,
+    h2:hover .anchor svg,
+    h3:hover .anchor svg,
+    h4:hover .anchor svg,
+    h5:hover .anchor svg,
+    h6:hover .anchor svg,
+    h1 .anchor:focus svg,
+    h2 .anchor:focus svg,
+    h3 .anchor:focus svg,
+    h4 .anchor:focus svg,
+    h5 .anchor:focus svg,
+    h6 .anchor:focus svg {
+      visibility: visible;
+    }
+  </style><script>
+    document.addEventListener("DOMContentLoaded", function(event) {
+      var hash = window.decodeURI(location.hash.replace('#', ''))
+      if (hash !== '') {
+        var element = document.getElementById(hash)
+        if (element) {
+          var scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop
+          var clientTop = document.documentElement.clientTop || document.body.clientTop || 0
+          var offset = element.getBoundingClientRect().top + scrollTop - clientTop
+          // Wait for the browser to finish rendering before scrolling.
+          setTimeout((function() {
+            window.scrollTo(0, offset - 0)
+          }), 0)
+        }
+      }
+    })
+  </script><link rel="preconnect" href="https://www.googletagmanager.com"/><link rel="dns-prefetch" href="https://www.googletagmanager.com"/><script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-73379983-2"></script><script>
+      
+      
+      if(true) {
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){window.dataLayer && window.dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'UA-73379983-2', {"send_page_view":false});
+      }
+      </script><link rel="sitemap" type="application/xml" href="/blog/sitemap/sitemap-index.xml"/><link rel="icon" href="/blog/favicon-32x32.png?v=471d5c9be37af6bb952e7f97d6fbc4af" type="image/png"/><link rel="manifest" href="/blog/manifest.webmanifest" crossorigin="anonymous"/><link rel="apple-touch-icon" sizes="48x48" href="/blog/icons/icon-48x48.png?v=471d5c9be37af6bb952e7f97d6fbc4af"/><link rel="apple-touch-icon" sizes="72x72" href="/blog/icons/icon-72x72.png?v=471d5c9be37af6bb952e7f97d6fbc4af"/><link rel="apple-touch-icon" sizes="96x96" href="/blog/icons/icon-96x96.png?v=471d5c9be37af6bb952e7f97d6fbc4af"/><link rel="apple-touch-icon" sizes="144x144" href="/blog/icons/icon-144x144.png?v=471d5c9be37af6bb952e7f97d6fbc4af"/><link rel="apple-touch-icon" sizes="192x192" href="/blog/icons/icon-192x192.png?v=471d5c9be37af6bb952e7f97d6fbc4af"/><link rel="apple-touch-icon" sizes="256x256" href="/blog/icons/icon-256x256.png?v=471d5c9be37af6bb952e7f97d6fbc4af"/><link rel="apple-touch-icon" sizes="384x384" href="/blog/icons/icon-384x384.png?v=471d5c9be37af6bb952e7f97d6fbc4af"/><link rel="apple-touch-icon" sizes="512x512" href="/blog/icons/icon-512x512.png?v=471d5c9be37af6bb952e7f97d6fbc4af"/><style>.gatsby-image-wrapper{position:relative;overflow:hidden}.gatsby-image-wrapper picture.object-fit-polyfill{position:static!important}.gatsby-image-wrapper img{bottom:0;height:100%;left:0;margin:0;max-width:none;padding:0;position:absolute;right:0;top:0;width:100%;object-fit:cover}.gatsby-image-wrapper [data-main-image]{opacity:0;transform:translateZ(0);transition:opacity .25s linear;will-change:opacity}.gatsby-image-wrapper-constrained{display:inline-block;vertical-align:top}</style><noscript><style>.gatsby-image-wrapper noscript [data-main-image]{opacity:1!important}.gatsby-image-wrapper [data-placeholder-image]{opacity:0!important}</style></noscript><script type="module">const e="undefined"!=typeof HTMLImageElement&&"loading"in HTMLImageElement.prototype;e&&document.body.addEventListener("load",(function(e){const t=e.target;if(void 0===t.dataset.mainImage)return;if(void 0===t.dataset.gatsbyImageSsr)return;let a=null,n=t;for(;null===a&&n;)void 0!==n.parentNode.dataset.gatsbyImageWrapper&&(a=n.parentNode),n=n.parentNode;const o=a.querySelector("[data-placeholder-image]"),r=new Image;r.src=t.currentSrc,r.decode().catch((()=>{})).then((()=>{t.style.opacity=1,o&&(o.style.opacity=0,o.style.transition="opacity 500ms linear")}))}),!0);</script></head><body><script>
+          void function() {
+            var cachedMode;
+
+            try {
+              var preferredTheme = JSON.parse(localStorage.getItem('diesel:theme-atom'));
+
+              if (preferredTheme && preferredTheme.mode) {
+                cachedMode = preferredTheme.mode;
+              }
+            } catch (err) { }
+
+            function setTheme(newTheme) {
+              document.documentElement.className = newTheme;
+            }
+
+            var darkQuery = window.matchMedia('(prefers-color-scheme: dark)');
+
+            setTheme(cachedMode || (darkQuery.matches ? 'dark' : 'light'));
+          }()
+        </script><div id="___gatsby"><div style="outline:none" tabindex="-1" id="gatsby-focus-wrapper"><div class="Layout-module--layout--2c933"><div class="Post-module--post--3a994"><div class="Post-module--buttons--2972d"><a class="Button-module--button--b1113 Post-module--buttonArticles--d793a" href="/blog/">All Articles</a></div><div class="Post-module--content--3c6e5"><div class="Content-module--content--80d58"><h1 class="Content-module--title--09504">A Language, Engine, And Game For The Langjam Gamejam!</h1><div class="Content-module--body--726c2"><p><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 960px; "
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/blog/static/360870e210e67e96198a6059efba7700/50066/onion.jpg"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 54.166666666666664%; position: relative; bottom: 0; left: 0; background-image: url('data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAALABQDASIAAhEBAxEB/8QAGAAAAwEBAAAAAAAAAAAAAAAAAAIFAwT/xAAVAQEBAAAAAAAAAAAAAAAAAAAAAf/aAAwDAQACEAMQAAABm9U5RzIs/8QAGhAAAgIDAAAAAAAAAAAAAAAAAREAAgMQE//aAAgBAQABBQLHRw8wbJixEZ1//8QAFREBAQAAAAAAAAAAAAAAAAAAARD/2gAIAQMBAT8BGf/EABURAQEAAAAAAAAAAAAAAAAAAAEQ/9oACAECAQE/AUn/xAAZEAACAwEAAAAAAAAAAAAAAAABEAARISL/2gAIAQEABj8CFzkLC//EABkQAQEBAQEBAAAAAAAAAAAAAAEAESFBMf/aAAgBAQABPyEX4Nv45kvC5SBLHW+3/9oADAMBAAIAAwAAABAX7//EABYRAQEBAAAAAAAAAAAAAAAAAAEQEf/aAAgBAwEBPxAATJ//xAAWEQEBAQAAAAAAAAAAAAAAAAABEBH/2gAIAQIBAT8QRR2f/8QAGRABAQEBAQEAAAAAAAAAAAAAAREAITFB/9oACAEBAAE/EK0YDT6YiQaL3u77FKfKYlgHg6cVH3PSvd//2Q=='); background-size: cover; display: block;"
+  ></span>
+  <picture>
+          <source
+              srcset="/blog/static/360870e210e67e96198a6059efba7700/8ac56/onion.webp 240w,
+/blog/static/360870e210e67e96198a6059efba7700/d3be9/onion.webp 480w,
+/blog/static/360870e210e67e96198a6059efba7700/e46b2/onion.webp 960w,
+/blog/static/360870e210e67e96198a6059efba7700/878c0/onion.webp 1384w"
+              sizes="(max-width: 960px) 100vw, 960px"
+              type="image/webp"
+            />
+          <source
+            srcset="/blog/static/360870e210e67e96198a6059efba7700/09b79/onion.jpg 240w,
+/blog/static/360870e210e67e96198a6059efba7700/7cc5e/onion.jpg 480w,
+/blog/static/360870e210e67e96198a6059efba7700/6a068/onion.jpg 960w,
+/blog/static/360870e210e67e96198a6059efba7700/50066/onion.jpg 1384w"
+            sizes="(max-width: 960px) 100vw, 960px"
+            type="image/jpeg"
+          />
+          <img
+            class="gatsby-resp-image-image"
+            src="/blog/static/360870e210e67e96198a6059efba7700/6a068/onion.jpg"
+            alt="Lighthouse Keeper"
+            title="Lighthouse Keeper"
+            loading="lazy"
+            decoding="async"
+            style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+          />
+        </picture>
+  </a>
+    </span></p>
+<table>
+<thead>
+<tr>
+<th align="center"><em><strong>The Great Onion In The Sky</strong></em></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center"></td>
+</tr>
+</tbody>
+</table>
+<h2 id="index" style="position:relative;"><a href="#index" aria-label="index permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Index</h2>
+<ol>
+<li><a href="#introduction">Introduction</a></li>
+<li><a href="#onions-design">Onion’s Design</a>
+<ol>
+<li><a href="#design-goals">Design Goals</a></li>
+<li><a href="#peeling-the-onion">Peeling The Onion</a></li>
+<li><a href="#a-familiar-example">A Familiar Example</a></li>
+<li><a href="#alien-features">Alien Features</a></li>
+<li><a href="#operator-syntax">Operator Syntax</a></li>
+<li><a href="#blocks">Blocks</a></li>
+<li><a href="#tree-map--hashmap">Tree Map &#x26; HashMap</a></li>
+<li><a href="#modules">Modules</a></li>
+<li><a href="#pointers">Pointers</a></li>
+<li><a href="#structures">Structures</a></li>
+<li><a href="#drawbacks">Drawbacks</a></li>
+<li><a href="#benefits">Benefits</a></li>
+</ol>
+</li>
+<li><a href="#onion2d">Onion2D</a>
+<ol>
+<li><a href="#inspiration">Inspiration</a></li>
+<li><a href="#demo">Demo</a></li>
+<li><a href="#introduction-1">Introduction</a></li>
+</ol>
+</li>
+<li><a href="#hold-the-line">Hold The Line!</a></li>
+<li><a href="#conclusion">Conclusion</a></li>
+</ol>
+<h2 id="introduction" style="position:relative;"><a href="#introduction" aria-label="introduction permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Introduction</h2>
+<p>One of my friends recently told me about the <a href="https://langjamgamejam.com/" target="_blank" rel="nofollow noopener noreferrer">Langjam Gamejam</a>, a really awesome challenge where you create a programming language and a game using that language in just one week! Naturally I was fascinated by the idea since I loved programming games in high school, and I love making programming languages.</p>
+<p>So, I set out to create <a href="https://github.com/adam-mcdaniel/onion" target="_blank" rel="nofollow noopener noreferrer">Onion</a>, and used it to create <a href="https://github.com/adam-mcdaniel/hold-the-line" target="_blank" rel="nofollow noopener noreferrer">Hold The Line!</a>, a small 2D strategy game using the Onion2D engine built into the standard library.</p>
+<p><img src="/blog/8719071a3ab46e442aca1d12acc95aca/hold-the-line.gif" alt="Hold The Line!"></p>
+<p>The programming language is inspired by LISP, but with a ton of syntactic sugar and special forms to make it easier to read and write.
+The engine is inspired by the LÖVE framework for Lua, and provides a simple way to create 2D games with minimal boilerplate.</p>
+<h2 id="onions-design" style="position:relative;"><a href="#onions-design" aria-label="onions design permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Onion’s Design</h2>
+<h3 id="design-goals" style="position:relative;"><a href="#design-goals" aria-label="design goals permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Design Goals</h3>
+<p>The purpose of Onion’s design was based on two pressures:</p>
+<ul>
+<li>I needed a language easy enough to implement in a short amount of time for a game jam.</li>
+<li>I needed it to support rich features to enable game development.</li>
+</ul>
+<p>Now, despite my love for LISP and its excellent &#x26; elegant design, I find it <strong>incredibly</strong> difficult to read due to the syntax.
+Prefix syntax does not come naturally to me, and the turbo-nested layers of parens make it impossible to tell what code section
+I’m looking at sometimes.</p>
+<p>I wanted to keep the core beauty of LISP, which makes it so easy to implement, while also putting bandaids on the drawbacks.
+As a result, I struck a balance where, the semantics of the Onion language are just LISP’s: the <strong>core interpreter is just running a pure Scheme-like LISP</strong>.
+Instead of modifying the interpreter, I added loads of special forms and parser features to enable all the crazy features!</p>
+<h3 id="peeling-the-onion" style="position:relative;"><a href="#peeling-the-onion" aria-label="peeling the onion permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Peeling The Onion</h3>
+<h4 id="a-familiar-example" style="position:relative;"><a href="#a-familiar-example" aria-label="a familiar example permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>A Familiar Example</h4>
+<p>First, let’s take a look at some pure Scheme-like code, and how we might modify it to be easier to read.</p>
+<div class="gatsby-highlight" data-language="clojure"><pre class="language-clojure"><code class="language-clojure"><span class="token punctuation">(</span><span class="token function">defun</span> fib <span class="token punctuation">(</span><span class="token function">n</span><span class="token punctuation">)</span>
+    <span class="token punctuation">(</span><span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token keyword">&lt;=</span> n <span class="token number">1</span><span class="token punctuation">)</span>
+        n
+        <span class="token punctuation">(</span><span class="token keyword">+</span> <span class="token punctuation">(</span><span class="token function">fib</span> <span class="token punctuation">(</span><span class="token keyword">-</span> n <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">(</span><span class="token function">fib</span> <span class="token punctuation">(</span><span class="token keyword">-</span> n <span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span></code></pre></div>
+<p>This code, specifically to non-LISPers such as myself, is pretty difficult to read; the same code in Python or C is
+significantly more readable.</p>
+<p>Let’s see if we can make it easier by introducing some Onionisms.</p>
+<div class="gatsby-highlight" data-language="clojure"><pre class="language-clojure"><code class="language-clojure"><span class="token punctuation">(</span><span class="token function">defun</span> fib <span class="token punctuation">(</span><span class="token function">n</span><span class="token punctuation">)</span> 
+    <span class="token punctuation">(</span><span class="token keyword">if</span> n &lt;= <span class="token number">1</span>
+        n
+        <span class="token punctuation">(</span><span class="token function">fib</span> n - <span class="token number">1</span><span class="token punctuation">)</span> + <span class="token punctuation">(</span><span class="token function">fib</span> n - <span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span></code></pre></div>
+<p>Wow, that shaved off some parentheses and made it easier to read the math! Additionally, both of these forms are valid Onion code, so write it however you’d prefer.</p>
+<h4 id="alien-features" style="position:relative;"><a href="#alien-features" aria-label="alien features permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Alien Features</h4>
+<h5 id="operator-syntax" style="position:relative;"><a href="#operator-syntax" aria-label="operator syntax permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Operator Syntax</h5>
+<p>Onion, as you may have noticed, supports infix operator syntax for common mathematical and logical operations.
+This means you can write expressions like:</p>
+<div class="gatsby-highlight" data-language="clojure"><pre class="language-clojure"><code class="language-clojure">x = <span class="token number">10</span> + <span class="token number">5</span> * <span class="token number">2</span>
+y = x >= <span class="token number">20</span> and x &lt; <span class="token number">50</span></code></pre></div>
+<p>Here’s a table of <em><strong>some</strong></em> of the more salient ones, although we’ll cover <code class="language-text">.</code> later:</p>
+<table>
+<thead>
+<tr>
+<th>Operator</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code class="language-text">!</code></td>
+<td>Take a number and negate its sign.</td>
+</tr>
+<tr>
+<td><code class="language-text">?</code></td>
+<td>Access a list element from the first argument, using the second argument as a key.</td>
+</tr>
+<tr>
+<td><code class="language-text">and</code></td>
+<td>Perform logical <code class="language-text">and</code> on all the arguments.</td>
+</tr>
+<tr>
+<td><code class="language-text">or</code></td>
+<td>Perform logical <code class="language-text">or</code> on all the arguments.</td>
+</tr>
+<tr>
+<td><code class="language-text">not</code></td>
+<td>Perform logical not on the argument.</td>
+</tr>
+<tr>
+<td><code class="language-text">+</code></td>
+<td>Addition of numbers, concatenation of lists, strings, maps.</td>
+</tr>
+<tr>
+<td><code class="language-text">-</code></td>
+<td>Subtract the second argument from the first.</td>
+</tr>
+<tr>
+<td><code class="language-text">*</code></td>
+<td>Multiply the first argument by the second.</td>
+</tr>
+<tr>
+<td><code class="language-text">/</code></td>
+<td>Divide the first argument by the second.</td>
+</tr>
+<tr>
+<td><code class="language-text">%</code></td>
+<td>Take the remainder of the first argument by the second.</td>
+</tr>
+<tr>
+<td><code class="language-text">==</code></td>
+<td>Compare two values for equality.</td>
+</tr>
+<tr>
+<td><code class="language-text">!=</code></td>
+<td>Compare two values for inequality.</td>
+</tr>
+<tr>
+<td><code class="language-text">>=</code></td>
+<td>Compare two values by order, check if the first argument is greater than or equal to the second.</td>
+</tr>
+<tr>
+<td><code class="language-text">&lt;=</code></td>
+<td>Compare two values by order, check if the first argument is less than or equal to the second.</td>
+</tr>
+<tr>
+<td><code class="language-text">></code></td>
+<td>Compare two values by order, check if the first argument is greater than the second.</td>
+</tr>
+<tr>
+<td><code class="language-text">&lt;</code></td>
+<td>Compare two values by order, check if the first argument is less than the second.</td>
+</tr>
+<tr>
+<td>…</td>
+<td>…</td>
+</tr>
+</tbody>
+</table>
+<h5 id="blocks" style="position:relative;"><a href="#blocks" aria-label="blocks permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Blocks</h5>
+<p>Onion performs chained operations with <code class="language-text">do</code> blocks, which are simply a series of expressions that return the last expression’s value.</p>
+<div class="gatsby-highlight" data-language="clojure"><pre class="language-clojure"><code class="language-clojure">result = <span class="token punctuation">(</span><span class="token keyword">do</span>
+    <span class="token punctuation">(</span><span class="token keyword">println</span> <span class="token string">"Calculating..."</span><span class="token punctuation">)</span>
+    x = <span class="token number">10</span> + <span class="token number">5</span> * <span class="token number">2</span>
+    y = x >= <span class="token number">20</span> and x &lt; <span class="token number">50</span>
+    <span class="token punctuation">(</span><span class="token keyword">if</span> y
+        <span class="token string">"x is between 20 and 50"</span>
+        <span class="token string">"x is not between 20 and 50"</span>
+    <span class="token punctuation">)</span>
+<span class="token punctuation">)</span>
+<span class="token punctuation">(</span><span class="token keyword">println</span> result<span class="token punctuation">)</span></code></pre></div>
+<p>The <code class="language-text">do</code> block doesn’t have any cool monadic properties or anything fancy like that, but it’s useful for creating a short block that can do more than one thing while still returning a single value.</p>
+<p>Onion’s shorthand for this is the curly brace syntax: all <code class="language-text">do</code> blocks can be replaced with curly braces.</p>
+<div class="gatsby-highlight" data-language="clojure"><pre class="language-clojure"><code class="language-clojure">result = <span class="token punctuation">{</span>
+    <span class="token punctuation">(</span><span class="token keyword">println</span> <span class="token string">"Calculating..."</span><span class="token punctuation">)</span>
+    x = <span class="token number">10</span> + <span class="token number">5</span> * <span class="token number">2</span>
+    y = x >= <span class="token number">20</span> and x &lt; <span class="token number">50</span>
+    <span class="token punctuation">(</span><span class="token keyword">if</span> y
+        <span class="token string">"x is between 20 and 50"</span>
+        <span class="token string">"x is not between 20 and 50"</span>
+    <span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+<span class="token punctuation">(</span><span class="token keyword">println</span> result<span class="token punctuation">)</span></code></pre></div>
+<h5 id="tree-map--hashmap" style="position:relative;"><a href="#tree-map--hashmap" aria-label="tree map  hashmap permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Tree Map &#x26; HashMap</h5>
+<p>Collections like maps are essential for developers to use conveniently.</p>
+<p>To declare an ordered map in Onion, you simply use the square brackets <code class="language-text">[]</code> with key value pairs:</p>
+<div class="gatsby-highlight" data-language="clojure"><pre class="language-clojure"><code class="language-clojure">map = <span class="token punctuation">[</span>x <span class="token number">10</span> y <span class="token number">10</span><span class="token punctuation">]</span>
+<span class="token comment">;; The `?` function accesses lists</span>
+<span class="token comment">;; and maps with a key</span>
+<span class="token punctuation">(</span><span class="token keyword">println</span> map ? 'x<span class="token punctuation">)</span></code></pre></div>
+<p>You can also declare a hashmap instead by adding a hashtag!</p>
+<div class="gatsby-highlight" data-language="clojure"><pre class="language-clojure"><code class="language-clojure">map = <span class="token operator">#</span><span class="token punctuation">[</span>x <span class="token number">10</span> y <span class="token number">10</span><span class="token punctuation">]</span>
+<span class="token punctuation">(</span><span class="token keyword">println</span> map ? 'x<span class="token punctuation">)</span></code></pre></div>
+<h5 id="modules" style="position:relative;"><a href="#modules" aria-label="modules permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Modules</h5>
+<p>The map types above are used heavily in the standard library: the standard library itself is implemented as several hashmaps of functions (stored as references, of course).</p>
+<div class="gatsby-highlight" data-language="clojure"><pre class="language-clojure"><code class="language-clojure"><span class="token punctuation">(</span><span class="token keyword">println</span> OS<span class="token punctuation">)</span>
+<span class="token punctuation">(</span><span class="token keyword">println</span> IO<span class="token punctuation">)</span>
+<span class="token punctuation">(</span><span class="token keyword">println</span> String<span class="token punctuation">)</span>
+<span class="token punctuation">(</span><span class="token keyword">println</span> Collections<span class="token punctuation">)</span>
+<span class="token punctuation">(</span><span class="token keyword">println</span> Math<span class="token punctuation">)</span>
+<span class="token punctuation">(</span><span class="token keyword">println</span> Reflect<span class="token punctuation">)</span>
+<span class="token punctuation">(</span><span class="token keyword">println</span> Time<span class="token punctuation">)</span>
+<span class="token punctuation">(</span><span class="token keyword">println</span> Game<span class="token punctuation">)</span></code></pre></div>
+<table>
+<thead>
+<tr>
+<th>Module</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code class="language-text">OS</code></td>
+<td>Functions for interacting with the operating system, mostly environment variables and <code class="language-text">exit</code>ing.</td>
+</tr>
+<tr>
+<td><code class="language-text">IO</code></td>
+<td>Functions for reading and writing files.</td>
+</tr>
+<tr>
+<td><code class="language-text">String</code></td>
+<td>Functions for manipulating strings, like formatting and splitting.</td>
+</tr>
+<tr>
+<td><code class="language-text">Collections</code></td>
+<td>Functions for manipulating and accessing maps, strings, and lists.</td>
+</tr>
+<tr>
+<td><code class="language-text">Math</code></td>
+<td>Mathematical functions like <code class="language-text">sin</code>, <code class="language-text">cos</code>, <code class="language-text">sqrt</code>, and random number generation.</td>
+</tr>
+<tr>
+<td><code class="language-text">Reflect</code></td>
+<td>Functions for inspecting types and values at runtime.</td>
+</tr>
+<tr>
+<td><code class="language-text">Time</code></td>
+<td>Functions for measuring time and sleeping.</td>
+</tr>
+<tr>
+<td><code class="language-text">Game</code></td>
+<td>Functions for interacting with the Onion2D game engine! Drawing to the screen, handling input, and playing sounds.</td>
+</tr>
+</tbody>
+</table>
+<h5 id="pointers" style="position:relative;"><a href="#pointers" aria-label="pointers permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Pointers</h5>
+<p>Now, I said earlier the core semantics of Onion were pure Scheme-like LISP. There’s one exception, but it doesn’t change the actual <code class="language-text">eval</code> code implementation: <em><strong>references</strong></em>.</p>
+<p>References are an Atom value that contain a shared pointer to another expression.
+Unfortunately, Onion reserves its god given right to mutate these references as it damn well pleases.</p>
+<p>All of the code that manipulates references, though, is done independent of the <code class="language-text">eval</code> implementation!
+Each of these operators you’re about to see are all <em><strong>special, builtin functions</strong></em>!</p>
+<div class="gatsby-highlight" data-language="clojure"><pre class="language-clojure"><code class="language-clojure"><span class="token comment">;; `new` is a function that takes a value, and returns</span>
+<span class="token comment">;; a shared pointer constructed with it!</span>
+p1 = new <span class="token operator">#</span><span class="token punctuation">[</span>x <span class="token number">10</span> y <span class="token number">10</span><span class="token punctuation">]</span>
+
+<span class="token comment">;; `.` here is also a function: it fetches the member</span>
+<span class="token comment">;; with the associated symbol. If the member itself</span>
+<span class="token comment">;; is also a function, some tricky stuff happens!</span>
+<span class="token comment">;; We'll see later!</span>
+<span class="token punctuation">(</span><span class="token keyword">println</span> p1.x<span class="token punctuation">)</span>
+
+<span class="token comment">;; `=` checks if the left is a member access first,</span>
+<span class="token comment">;; and modifies the referred value if so. Otherwise</span>
+<span class="token comment">;; it declares a new variable!</span>
+p1.x = <span class="token number">5</span>
+
+<span class="token comment">;; This will print `#[x 5 y 10]`</span>
+<span class="token punctuation">(</span><span class="token keyword">println</span> p1<span class="token punctuation">)</span></code></pre></div>
+<h5 id="structures" style="position:relative;"><a href="#structures" aria-label="structures permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Structures</h5>
+<p>Now that we have smart builtin functions like <code class="language-text">.</code> and <code class="language-text">=</code> that can support the kind of black magic that typical programmers are used to, the standard library has some helpers to get us a little bit further!</p>
+<div class="gatsby-highlight" data-language="clojure"><pre class="language-clojure"><code class="language-clojure"><span class="token punctuation">(</span><span class="token keyword">struct</span> Point <span class="token punctuation">(</span><span class="token function">x</span> y<span class="token punctuation">)</span>
+    <span class="token comment">;; Get the distance between two points</span>
+    <span class="token punctuation">(</span><span class="token function">distance</span> <span class="token punctuation">(</span><span class="token function">other</span><span class="token punctuation">)</span>
+        <span class="token punctuation">(</span><span class="token function">sqrt</span> <span class="token punctuation">(</span><span class="token function">self.x</span> - other.x<span class="token punctuation">)</span> * <span class="token punctuation">(</span><span class="token function">self.x</span> - other.x<span class="token punctuation">)</span>
+            + <span class="token punctuation">(</span><span class="token function">self.y</span> - other.y<span class="token punctuation">)</span> * <span class="token punctuation">(</span><span class="token function">self.y</span> - other.y<span class="token punctuation">)</span><span class="token punctuation">)</span>
+    <span class="token punctuation">)</span>
+
+    <span class="token comment">;; Shift this point over by a dx and dy</span>
+    <span class="token punctuation">(</span><span class="token function">shift</span> <span class="token punctuation">(</span><span class="token function">dx</span> dy<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        self.x = self.x + dx
+        self.y = self.y + dy
+    <span class="token punctuation">}</span><span class="token punctuation">)</span>
+
+    <span class="token comment">;; Return a string formatted with the point data</span>
+    <span class="token punctuation">(</span><span class="token function">show</span> <span class="token punctuation">(</span><span class="token punctuation">)</span>
+        <span class="token punctuation">(</span><span class="token function">String.fmt</span> <span class="token string">"({}, {})"</span> self.x self.y<span class="token punctuation">)</span>
+    <span class="token punctuation">)</span>
+<span class="token punctuation">)</span>
+
+p1 = <span class="token punctuation">(</span><span class="token function">Point</span> <span class="token number">5</span> <span class="token number">0</span><span class="token punctuation">)</span>
+<span class="token punctuation">(</span><span class="token function">p1.shift</span> !<span class="token number">5</span> <span class="token number">0</span><span class="token punctuation">)</span>
+<span class="token punctuation">(</span><span class="token keyword">println</span> <span class="token punctuation">(</span><span class="token function">p1.show</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token comment">;; Will print `(0, 0)`</span>
+
+p2 = <span class="token punctuation">(</span><span class="token function">Point</span> <span class="token number">1</span> <span class="token number">1</span><span class="token punctuation">)</span>
+<span class="token comment">;; Will print the square root of 2</span>
+<span class="token punctuation">(</span><span class="token keyword">println</span> <span class="token punctuation">(</span><span class="token function">p1.distance</span> p2<span class="token punctuation">)</span><span class="token punctuation">)</span></code></pre></div>
+<p>The <code class="language-text">struct</code> builtin is simply a function that creates a constructor with the struct name: the constructor creates a <code class="language-text">new</code> reference, populates it with the members, and returns it.</p>
+<p>Whenever <code class="language-text">.</code> is accessed and a function is returned, the <code class="language-text">.</code> operator adds the parent reference (<code class="language-text">self</code>) to the environment for the method: the method’s environment acts like <code class="language-text">self</code> is a captured variable in a normal closure.</p>
+<h3 id="drawbacks" style="position:relative;"><a href="#drawbacks" aria-label="drawbacks permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Drawbacks</h3>
+<p>Onion’s design was very shortsighted given the time constraints. I failed to implement an error type beyond <code class="language-text">nil</code> early on, and so I had all my standard library functions return a <code class="language-text">nil</code> failure result by default if there was a type mismatch or invalid arguments.</p>
+<p>Dear god that was the biggest I could’ve made.</p>
+<p>I spent <em>hours</em> trying to track down bugs that should’ve been much easier to fix, and truthfully it would’ve been faster to go back and reimplement the standard library functions sooner to panic. I didn’t prioritize this until the 17th, and my development speed EXPLODED when I was finally able to track down errors, instead of having <code class="language-text">nil</code> propagate into <em><strong>every nook and cranny of the code</strong></em>.</p>
+<p>Additionally, because Onion doesn’t need parentheses for lots of expressions, it made it exponentially worse and really unintuitive to identify these bugs. <em><strong>Many</strong></em> times, I accidentally left out the parentheses in comparison expressions for method calls <code class="language-text">tile.get_total_power > 0</code> instead of <code class="language-text">(tile.get_total_power) > 0</code>, and everything would turn to <code class="language-text">nil</code> for seemingly no reason.</p>
+<p>Before I added panicking to all the standard library calls on errors, it was unendingly frustrating to try and debug ANYTHING more complicated than a few dozen lines.</p>
+<h3 id="benefits" style="position:relative;"><a href="#benefits" aria-label="benefits permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Benefits</h3>
+<p>Despite those damning drawbacks, there are a lot of benefits to Onion! Once I <em>did</em> finally add those panics, Onion became really nice to write in! It’s like a choose-your-own-adventure Python: it’s incredibly easy to add new functionality to the core language however you’d like!</p>
+<p>I’m very proud of the ease of implementing Onion: the core language is only defined in less than 1000 lines (<code class="language-text">src/expr.rs</code>, <code class="language-text">src/context.rs</code>, although this doesn’t count the parser)! Additionally, all the cool developer features are things that could be imported or provided by external libraries in a “real” implementation. I’m very glad that holding steadfast to the LISP core paid dividends: the only other core language that could support this kind of quick development would have to be a FORTH, which I’m very unfamiliar with at the moment.</p>
+<h2 id="onion2d" style="position:relative;"><a href="#onion2d" aria-label="onion2d permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Onion2D</h2>
+<h3 id="inspiration" style="position:relative;"><a href="#inspiration" aria-label="inspiration permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Inspiration</h3>
+<p>Onion2D is certainly the most developed component of the language. It’s heavily inspired by the LÖVE framework for Lua (although I’ve never used that engine). I saw that it was used for Balatro, gave the wiki a look, and thought it was really neat!</p>
+<p>I was particularly impressed with the <a href="https://love2d.org/wiki/Tutorial:Callback_Functions" target="_blank" rel="nofollow noopener noreferrer">Callbacks</a> section of the wiki: it looks so simple!</p>
+<p>Onion2D’s design tries to mirror this closely: I wanted the core functionality to be in just a handful of callbacks, with simple drawing and IO functions.</p>
+<h3 id="demo" style="position:relative;"><a href="#demo" aria-label="demo permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Demo</h3>
+<p>I first started with a couple of examples: Pong and Game of Life. These helped me lay out the core functions of the engine and build a tiny framework for setting up games in a convenient, mostly procedural way.</p>
+<p><img src="/blog/128c3f8b7a75498c36d3731f75ffc7d1/pong.gif" alt="Pong"></p>
+<p>Pong is incredibly easy to write, <a href="examples/pong.onion">it fits in ~60 lines of code</a>!</p>
+<p>Game of Life is a bit more dynamic, and I used LISP’s traditional purely functional approach when handling grid updates. The approach I took was ~100 lines, but I’m certain it could be done significantly better, especially if structs and references were used to represent each tile and for counting neighbors. That way, you wouldn’t be copying the list and constructing a new one each iteration like I did with <code class="language-text">map</code>.</p>
+<p><img src="/blog/56187ea93c478112981bc888ef8d1876/life.gif" alt="Life"></p>
+<h3 id="introduction-1" style="position:relative;"><a href="#introduction-1" aria-label="introduction 1 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Introduction</h3>
+<p>The core of the game engine is governed by three functions:</p>
+<table>
+<thead>
+<tr>
+<th>Function</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code class="language-text">load ()</code></td>
+<td>Load initializes the game state and any media assets (sound, images, etc.)</td>
+</tr>
+<tr>
+<td><code class="language-text">update (dt)</code></td>
+<td>Takes the change in time and updates the game state accordingly. Here the developer tracks user input and handles game logic.</td>
+</tr>
+<tr>
+<td><code class="language-text">draw ()</code></td>
+<td>Draw the current game state to the screen. It uses simple engine functions like <code class="language-text">draw_image</code>, <code class="language-text">draw_text</code>, and <code class="language-text">rect</code> to render game elements and the engine will handle presenting it to the screen.</td>
+</tr>
+</tbody>
+</table>
+<p>When <code class="language-text">Game.run</code> is called with some window parameters, the engine initializes the window, runs <code class="language-text">load</code>, and sets up a game loop that repeatedly calls <code class="language-text">update</code> and <code class="language-text">draw</code> as fast as possible. These three functions are all that are required to make a game in Onion2D! <code class="language-text">Game.run</code> will look them up in the current scope and call them automatically, so you just have to define them!</p>
+<div class="gatsby-highlight" data-language="clojure"><pre class="language-clojure"><code class="language-clojure">state = new <span class="token punctuation">[</span>
+    count <span class="token number">0</span>
+<span class="token punctuation">]</span>
+
+<span class="token punctuation">(</span><span class="token function">defun</span> load <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">)</span>
+
+<span class="token punctuation">(</span><span class="token function">defun</span> update <span class="token punctuation">(</span><span class="token function">dt</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token punctuation">(</span><span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token function">Game.is_key_down</span> <span class="token string">"UP"</span><span class="token punctuation">)</span> 
+        state.count = state.count + <span class="token number">1</span>
+    <span class="token punctuation">)</span>
+
+    <span class="token punctuation">(</span><span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token function">Game.is_key_down</span> <span class="token string">"DOWN"</span><span class="token punctuation">)</span>
+        state.count = state.count - <span class="token number">1</span>
+    <span class="token punctuation">)</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+
+<span class="token punctuation">(</span><span class="token function">defun</span> draw <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token punctuation">(</span><span class="token function">Game.clear</span> <span class="token number">0x000000</span><span class="token punctuation">)</span>
+    <span class="token punctuation">(</span><span class="token function">Game.draw_text</span> <span class="token number">10</span> <span class="token number">200</span> <span class="token punctuation">(</span><span class="token function">String.fmt</span> <span class="token string">"Count: {}"</span> state.count<span class="token punctuation">)</span> <span class="token number">0xFFFFFF</span> <span class="token number">2</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+
+<span class="token punctuation">(</span><span class="token function">Game.run</span> <span class="token string">"My First Onion2D Game"</span> <span class="token number">500</span> <span class="token number">100</span><span class="token punctuation">)</span></code></pre></div>
+<p>This simple example just functions as a counter while holding down the UP/DOWN arrows! Pretty neat right?</p>
+<p><img src="/blog/16659930c7fe9cc63e0db3fbf7f67d34/count.gif" alt="Counter"></p>
+<h2 id="hold-the-line" style="position:relative;"><a href="#hold-the-line" aria-label="hold the line permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Hold The Line!</h2>
+<p>Now, for the moment you’ve all been waiting for: the game I made for the LangJam GameJam using Onion2D!</p>
+<p><img src="/blog/8719071a3ab46e442aca1d12acc95aca/hold-the-line.gif" alt="Hold The Line!"></p>
+<p>It’s based on the UFO50 game <a href="https://ufo50.miraheze.org/wiki/Avianos" target="_blank" rel="nofollow noopener noreferrer">Avianos</a>, which is a 2D army management/strategy game where you
+raise units, construct buildings, and harvest resources to beat your opponent. I’ve spent countless hours on it, which lead me to make this.</p>
+<blockquote>
+<p><strong>NOTE:</strong> Originally, I set out to create a factorio-like game using a cellular automaton. This was way too big in scope, and I got really frustrated trying to come up with all the rules and recipes in my buggy programming language. I threw it out and started on this instead!</p>
+</blockquote>
+<p>The motivation for this was that the game only had one major mechanic: the battle visualization. This acts as a random coinflip for casualties and wins/losses, while also providing a really sick graphical representation of the units going to war.</p>
+<p>Once I had that mechanic implemented, I essentially just needed to graft a fancy menu on top of it! That’s pretty much how the game functions: it’s a constrained menu that lets the player deploy units and start the battle function!</p>
+<p>I’m really pleased with this game design: I feel like it mirrors the engine in that it’s very quick and dirty to implement, while still maintaining lots of beauty.
+Each unit type has a different kind of formation with varying sizes, and each unit type coheres, separates, and aligns differently. The simulation is performed with <a href="https://en.wikipedia.org/wiki/Boids" target="_blank" rel="nofollow noopener noreferrer">Boids</a>: each squadron has an enemy target, and each of the units within the squadron attempt to destroy the target. Each unit type forms a different formation with unique formation sizes: infantry has the largest squadron size of 8, shrinking down to 3 with artillery.</p>
+<h2 id="conclusion" style="position:relative;"><a href="#conclusion" aria-label="conclusion permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Conclusion</h2>
+<p>What a fun week!!! Going into this, I had a really difficult time picking a project idea. It’s really difficult to come up with a game idea that is both fun and small in scope! I’m really pleased with the results, though — it came out so much better than I anticipated at the start of the jam, especially since I switched ideas halfway through!</p>
+<p>If you want to give the game a try, you can download it here below!
+<a href="https://adam-mcdaniel.itch.io/hold-the-line" target="_blank" rel="nofollow noopener noreferrer">Hold The Line! on Itch.io</a></p>
+<p>Thank you for reading!</p></div></div></div><div class="Post-module--footer--f8705"><div class="Meta-module--meta--dae0a"><p class="Meta-module--date--4d30d">Published<!-- --> <!-- -->Dec 20, 2025</p></div><div class="Tags-module--tags--18589"><ul class="Tags-module--list--82ae6"><li class="Tags-module--item--52015"><a class="Button-module--button--b1113" href="/blog/tag/scripting-languages/">Scripting Languages</a></li><li class="Tags-module--item--52015"><a class="Button-module--button--b1113" href="/blog/tag/games/">Games</a></li><li class="Tags-module--item--52015"><a class="Button-module--button--b1113" href="/blog/tag/design/">Design</a></li></ul></div><div class="Author-module--author--1c58d"><p class="Author-module--bio--08950">Programmer, musician, and PhD student at UTK.</p></div></div><div class="Post-module--comments--d3b99"></div></div></div></div><div id="gatsby-announcer" style="position:absolute;top:0;width:1px;height:1px;padding:0;overflow:hidden;clip:rect(0, 0, 0, 0);white-space:nowrap;border:0" aria-live="assertive" aria-atomic="true"></div></div><script id="gatsby-script-loader">/*<![CDATA[*/window.pagePath="/onion";window.___webpackCompilationHash="2df36f190d77cc577565";/*]]>*/</script><script id="gatsby-chunk-mapping">/*<![CDATA[*/window.___chunkMapping={"app":["/app-193fda90bc4b6d01fed0.js"],"component---cache-caches-gatsby-plugin-offline-app-shell-js":["/component---cache-caches-gatsby-plugin-offline-app-shell-js-02abafd21f3ca3501462.js"],"component---src-templates-categories-template-categories-template-tsx":["/component---src-templates-categories-template-categories-template-tsx-51610ac8ab433788c5d2.js"],"component---src-templates-category-template-category-template-tsx":["/component---src-templates-category-template-category-template-tsx-6475e4d40f3c2784f991.js"],"component---src-templates-index-template-index-template-tsx":["/component---src-templates-index-template-index-template-tsx-0d4daddd4c63bf8ef354.js"],"component---src-templates-not-found-template-not-found-template-tsx":["/component---src-templates-not-found-template-not-found-template-tsx-aa567702e8f25a3411be.js"],"component---src-templates-page-template-page-template-tsx":["/component---src-templates-page-template-page-template-tsx-f0ec50f06c81dfda3742.js"],"component---src-templates-post-template-post-template-tsx":["/component---src-templates-post-template-post-template-tsx-749f83ac68c1b7a2e97f.js"],"component---src-templates-tag-template-tag-template-tsx":["/component---src-templates-tag-template-tag-template-tsx-9d11f56ab8cb3a38f495.js"],"component---src-templates-tags-template-tags-template-tsx":["/component---src-templates-tags-template-tags-template-tsx-da17464bf6cbe7c02c6d.js"]};/*]]>*/</script><script src="/blog/app-193fda90bc4b6d01fed0.js" async=""></script><script src="/blog/framework-5a9d309ce209c63b9210.js" async=""></script><script src="/blog/webpack-runtime-cc22cc288c2dbb54b7e3.js" async=""></script></body></html>

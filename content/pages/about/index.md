@@ -12,7 +12,7 @@ socialImage: /./profile8.jpg
 
 I started college at the University of Tennessee in fall of 2020, and graduated with my Bachelor's degree in December of 2022. I also finished up my Master's degree in May of 2024. Currently I'm a graduate student pursuing a PhD.
 
-## Hobbies
+<!-- ## Hobbies
 
 Here are a few of my hobbies, some of which I explore in more detail below:
 
@@ -24,7 +24,7 @@ Here are a few of my hobbies, some of which I explore in more detail below:
 - **Reading📖**: I love to read! Dune, A Farewell to Arms, El Árbol de la Ciencia, the Book of Revelation, and the Book of Daniel are among my favorites!
 - **Philosophy💭**: I love to learn more about philosophy. Plato is certainly my favorite—there's something very comforting about our world being a shadow of some abstract world of forms.
 - **Hiking⛰️**: I love to hike! I've hiked Mount LeConte and many other of the surrounding mountains in the Smokeys. My longest hike was 18.2 miles in one day! I ate a whole pizza and several bags of candy to recover!
-- **Writing📝**: I love to write, which is why I started this blog! It's a nice, low pressure way to get my thoughts out there.
+- **Writing📝**: I love to write, which is why I started this blog! It's a nice, low pressure way to get my thoughts out there. -->
 
 ## Programming
 
